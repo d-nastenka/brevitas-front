@@ -3,7 +3,7 @@
     <h3>Мои визитки</h3>
 
     <div class="wrapper">
-      <div v-if="status">У вас пока нет визиток</div>
+      <div v-if="imgLengthstatus">У вас пока нет визиток</div>
       <div class="flex-container" v-else>
         <div class="imges-card" v-for="(i, key) in img" :key="key">
           <div class="buttons">
@@ -23,10 +23,15 @@ export default {
   status: false,
   data() {
     return {
-      img: [1, 2, 3, 4, 5],
+      img: [1, 2, 3,4 ,5,5, 6, 7],
     };
   },
   methods: {},
+  computed: {
+    imgLengthstatus() {
+        return !(this.img.length > 0)
+    }
+  }
 };
 </script>
 
@@ -46,6 +51,8 @@ export default {
     width: 100%;
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .imges-card {

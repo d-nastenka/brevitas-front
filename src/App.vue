@@ -3,6 +3,8 @@
     
     <!-- <Form  @addUser="addUser"/>
     <Users :users="users" @deleteUser=deleteUser /> -->
+    <!-- <Reg @addUser="addUser"/> -->
+
     <p>
         <router-link to="/">Home</router-link> 
         <router-link to="/card">New Card</router-link>
@@ -12,9 +14,9 @@
 
     <router-view/>
 
-    <component :is="layout">
+    <!-- <component :is="layout">
           <router-view/>
-    </component>
+    </component> -->
 
   </div>
 
@@ -42,26 +44,14 @@ export default {
   },
   data () {
     return {
-      // users: [{
-      //   name: 'John',
-      //   surname: 'ffff',
-      //   age: 20,
-      // }, {
-      //   name: 'Ben',
-      //   surname: 'nnnn',
-      //   age: 21
-      // }, {
-      //   name:'Ann',
-      //   surname: 'jdjd',
-      //   age: 20
-      // }],
-      // tempUser: '',
-      // form: {
-      //   name: '',
-      //   surname: '',
-      //   age: 0
-
-      // }
+      users: {
+          name: '',
+          surname: '',
+          email: '',
+          login: '',
+          password: ''
+      }
+      
     }
 
   },
@@ -70,9 +60,10 @@ export default {
     //   this.status = !this.status
 
     // },
-    // addUser(user) {
-    //   this.users.push(user);
-    // },
+      addUser(user) {
+          this.users.push(user);
+          console.log(users)
+      },
 
     // deleteUser(i) {
     //   this.users.splice(i, 1)

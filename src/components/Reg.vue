@@ -45,7 +45,7 @@ export default {
     methods: {
     
         submitForm () {
-            console.log(this.form)
+            
             this.$emit("addUser", this.form)
 
             this.form = {
