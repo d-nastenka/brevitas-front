@@ -2,16 +2,20 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
-import Default from "./components/Default"
+import Home from "./components/Default"
 import Card from "./components/Card"
+import Reg from "./components/Reg.vue"
+import Auth from "./components/Auth.vue"
 
 
 Vue.use(VueRouter)
 
 
 const routes = [
-  { path: '/', component: Default },
+  { path: '/', component: Home },
   { path: '/card', component: Card },
+  { path: '/registration', component: Reg },
+  { path: '/authorization', component: Auth },
 ]
 
 const router = new VueRouter({

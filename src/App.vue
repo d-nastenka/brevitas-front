@@ -6,6 +6,8 @@
     <p>
         <router-link to="/">Home</router-link> 
         <router-link to="/card">New Card</router-link>
+        <router-link to="/registration">Registration</router-link> 
+        <router-link to="/authorization">Authorization</router-link>
     </p>
 
     <router-view/>
@@ -22,8 +24,10 @@
 
 // import Form from './components/Form.vue'
 // import Users from './components/Users.vue'
-import Default from "./components/Default.vue"
+import Home from "./components/Default.vue"
 import Card from "./components/Card.vue"
+import Reg from "./components/Reg.vue"
+import Auth from "./components/Auth.vue"
 
 
 export default {
@@ -31,8 +35,10 @@ export default {
   components: {
       // Form,
       // Users,
-      Default,
-      Card
+      Home,
+      Card,
+      Reg,
+      Auth
   },
   data () {
     return {
