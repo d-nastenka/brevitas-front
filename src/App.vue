@@ -1,68 +1,37 @@
 <template>
   <div id="app">
-    <!-- <router-link to="/">Home</router-link> 
-    <router-link to="/card">Card</router-link> -->
-
-    <!-- <component :is="layout">
-          <router-view/>
-    </component> -->
-
-    <!-- <input v-model="msg">
-    <div v-text="msg">  </div> -->
     
-    <!-- <div >
-      <div v-if="status"> 
-        Условие да
-      </div>
-      <div v-else>
-        Условие нет
-      </div>
-    </div>
-    <button @click="changeStatus"> Сменить условие </button> -->
+    <Form  @addUser="addUser"/>
+    <Users :users="users" @deleteUser=deleteUser />
 
-    <!-- <div v-for="(user, key) in users" :key="key">
-      <div>
-        {{ user.name }} 
-        {{ user.age }}
-      </div>
-      <button @click="deleteUser(key)">Delete </button>
-    </div>
-
-    <input v-model="tempUser" >
-    <button @click="addUser">Add</button> -->
-    <form @submit.prevent="submitForm">
-      <div>
-        <input v-model="form.name">
-      </div>
-      <div>
-        <input v-model="form.surname">
-      </div>
-      <div>
-        <input v-model="form.age">
-      </div>
-      <button type="submit"> Create user</button>
-
-    </form>
   </div>
 
 </template>
 
 <script>
 
+import Form from './components/Form.vue'
+import Users from './components/Users.vue'
+
 export default {
   name: 'app',
+  components: {
+    Form,
+    Users
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      status: true,
       users: [{
         name: 'John',
+        surname: 'ffff',
         age: 20,
       }, {
         name: 'Ben',
+        surname: 'nnnn',
         age: 21
       }, {
         name:'Ann',
+        surname: 'jdjd',
         age: 20
       }],
       tempUser: '',
@@ -80,16 +49,16 @@ export default {
       this.status = !this.status
 
     },
-    addUser() {
-      this.users.push(this.tempUser);
-      this.tempUser = ''
+    addUser(user) {
+      this.users.push(user);
     },
+
     deleteUser(i) {
-        this.users.splice(i, 1)
+      this.users.splice(i, 1)
     },
-    submitForm () {
-      console.log(this.form)
-    }
+    // submitForm () {
+    //   console.log(this.form)
+    // }
   }
   // computed: {
   //           layout(){

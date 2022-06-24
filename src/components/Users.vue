@@ -3,9 +3,10 @@
         <div v-for="(user, key) in users" :key="key">
             <div>
                 {{ user.name }} 
+                {{ user.surname }} 
                 {{ user.age }}
             </div>
-        <button @click="deleteUser(key)">Delete </button>
+        <button @click="deleteUs(key)">Delete </button>
         </div>
     </div>
     
@@ -17,26 +18,16 @@ export default {
     data () {
         return {
         
-            users: [{
-                name: 'John',
-                age: 20,
-            }, {
-                name: 'Ben',
-                age: 21
-            }, {
-                name:'Ann',
-                age: 20
-            }],
-            tempUser: '',
         }
     },
+    props: {
+        users: Array
+    },
     methods: {
-        addUser() {
-            this.users.push(this.tempUser);
-            this.tempUser = ''
-        },
-        deleteUser(i) {
-            this.users.splice(i, 1)
+        deleteUs(i) {
+            //this.users.splice(i, 1)
+            this.$emit("deleteUser", i)
+            
         }
   
     }
