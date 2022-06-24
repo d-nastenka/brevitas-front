@@ -20,7 +20,7 @@
     </div>
     <button @click="changeStatus"> Сменить условие </button> -->
 
-    <div v-for="(user, key) in users" :key="key">
+    <!-- <div v-for="(user, key) in users" :key="key">
       <div>
         {{ user.name }} 
         {{ user.age }}
@@ -29,8 +29,20 @@
     </div>
 
     <input v-model="tempUser" >
-    <button @click="addUser">Add</button>
+    <button @click="addUser">Add</button> -->
+    <form @submit.prevent="submitForm">
+      <div>
+        <input v-model="form.name">
+      </div>
+      <div>
+        <input v-model="form.surname">
+      </div>
+      <div>
+        <input v-model="form.age">
+      </div>
+      <button type="submit"> Create user</button>
 
+    </form>
   </div>
 
 </template>
@@ -53,8 +65,15 @@ export default {
         name:'Ann',
         age: 20
       }],
-      tempUser: ''
+      tempUser: '',
+      form: {
+        name: '',
+        surname: '',
+        age: 0
+
+      }
     }
+
   },
   methods: {
     changeStatus() {
@@ -67,6 +86,9 @@ export default {
     },
     deleteUser(i) {
         this.users.splice(i, 1)
+    },
+    submitForm () {
+      console.log(this.form)
     }
   }
   // computed: {
