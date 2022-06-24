@@ -7,10 +7,20 @@
           <router-view/>
     </component> -->
 
-    <input v-model="msg">
-    <div v-text="msg">  </div>
+    <!-- <input v-model="msg">
+    <div v-text="msg">  </div> -->
     
+    <div >
+      <div v-if="status"> 
+        Условие да
+      </div>
+      <div v-else>
+        Условие нет
+      </div>
+    </div>
+    <button @click="changeStatus"> Сменить условие </button>
   </div>
+
 </template>
 
 <script>
@@ -19,14 +29,22 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      status: true,
+      users: ['Jonh', 'Ben', 'Ann']
     }
   },
-  computed: {
-            layout(){
-                return this.$route.meta.layout || "default-layout" 
-            }
-        }
+  methods: {
+    changeStatus() {
+      this.status = !this.status
+
+    }
+  }
+  // computed: {
+  //           layout(){
+  //               return this.$route.meta.layout || "default-layout" 
+  //           }
+  //       }
 }
 </script>
 
