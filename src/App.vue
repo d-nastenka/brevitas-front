@@ -1,11 +1,20 @@
 <template>
   <div id="app">
-    <router-link to="/">Home</router-link> 
-    <router-link to="/card">Card</router-link>
+    <!-- <router-link to="/">Home</router-link> 
+    <router-link to="/card">Card</router-link> -->
+
+    <!-- <component :is="layout">
+          <router-view/>
+    </component> -->
+
+    <input v-model="msg">
+    <div v-text="msg">  </div>
+    
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'app',
   data () {
