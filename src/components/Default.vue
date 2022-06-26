@@ -23,7 +23,7 @@ export default {
   status: false,
   data() {
     return {
-      img: [1, 2, 3,4 ,5,5, 6, 7],
+      img: [1, 2, 3, 4, 5, 5, 6, 6, 4],
     };
   },
   methods: {},
@@ -37,10 +37,16 @@ export default {
 
 
 <style>
+
+.wrapper {
+  padding: 0px 2% 0px 2%;
+}
 .imges-card {
   width: 300px;
   height: 200px;
-  margin: 10 auto;
+  /* margin: 2 auto; */
+  margin-left: 15px;
+  margin-right: 15px;
 
   padding: 0px 0px 0px 0px;
   border: 1px solid rgb(77, 77, 77);
@@ -49,16 +55,29 @@ export default {
 
 .flex-container {
     width: 100%;
+
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: space-around; */
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 30px;
 }
 
 .imges-card {
     height: 200px;
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
+
+/* button {
+    background-color: #026670; 
+    border: 1px solid rgb(17, 17, 17);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+} */
+
 </style>
