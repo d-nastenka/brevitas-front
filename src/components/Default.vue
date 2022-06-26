@@ -70,34 +70,34 @@ export default {
     height: 200px;
     
     display: flex;
+    
     flex-direction: column;
     justify-content: flex-end;
 
-    
+    /* margin-block: 1px; */
 }
 
-.buttons {
- 
-}
 
 .buttons .btn {
     
 
     /* transform: translate(-50%, -50%); */
-    -ms-transform: translate(-50%, -50%);
-    background-color: #9FEDD7;
-    color: #026670;
+    
+    background-color: rgba(63, 63, 63, 0.897);
+    color: white;
     font-size: 14px;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
+
+
 }
 
 .buttons .btn:hover {
-    background-color: #026670;
-    color: #9FEDD7;
+    background-color: white;
+    color: rgb(76, 76, 76);
 }
 
 </style>

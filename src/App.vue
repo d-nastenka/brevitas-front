@@ -4,13 +4,20 @@
     <!-- <Form  @addUser="addUser"/>
     <Users :users="users" @deleteUser=deleteUser /> -->
     <!-- <Reg @addUser="addUser"/> -->
+    <div class="header">
+      <div class="head-title">
+        <h1>Brevitas</h1>
+      </div>
 
-    <p>
-        <router-link to="/">Home</router-link> 
-        <router-link to="/card">New Card</router-link>
-        <router-link to="/registration">Registration</router-link> 
-        <router-link to="/authorization">Authorization</router-link>
-    </p>
+      <div class="pages">
+        <p>
+            <router-link to="/">Home</router-link> 
+            <router-link to="/card">New Card</router-link>
+            <router-link to="/registration">Registration</router-link> 
+            <router-link to="/authorization">Authorization</router-link>
+        </p>
+      </div>
+    </div>
 
     <router-view/>
 
@@ -87,11 +94,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 55px;
+  margin-top: 30px;
+  /* background-color: #a8d0e6; */
 }
 
+
+
 h1, h2 {
-  font-weight: normal;
+  font-weight: bold;
 }
 
 ul {
@@ -105,6 +115,28 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: #484a49;
 }
+
+.header {
+  /* background-color: #a8d0e6; */
+  display: flex;
+}
+
+.head-title {
+  margin-right: 30px;
+  margin-left: 30px;
+  
+  font-size: 20px;
+}
+
+.pages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  margin-block: 10px;
+  margin-left: 20px;
+}
+
 </style>
