@@ -1,6 +1,6 @@
 <template>
     <div class="page-card">
-        
+
         <div class="form-cards">
             <div class="title-cards">
                 <h3>Создать новую визитку</h3>
@@ -30,33 +30,55 @@
             </form>
 
         </div>
-        
+
     </div>
 </template>
 
 <script>
 
-export default {
-    name: "Card",
-    data () {
-        return {
-            form: {
-                name: '',
-                surname: '',
-                description: '',
-                email: '',
-                link: '',
-                phone: ''
+
+
+    var regName = /^.*[^A-zА-яЁё].*$/;
+    var regpas = /^\d+$/;
+
+    N = form.name
+   
+
+    console.log(regName.test(N))
+    event.preventDefault();
+    console.log(N)
+   
+
+    if (!N)  {
+        console.log('пусто');
+        alert("заполните все поля!")
+    }
+
+    if (regName.test(N) == true) {
+        console.log('введи буквы');
+        alert("пропишите ИМЯ буквами!")
+    }
+
+    export default {
+        name: "Card",
+        data() {
+            return {
+                form: {
+                    name: '',
+                    surname: '',
+                    description: '',
+                    email: '',
+                    link: '',
+                    phone: ''
+                }
+
             }
-            
-        }
-    },
-}
+        },
+    }
 </script>
 
 <style scoped>
-
-.page-card{
+.page-card {
     display: flex;
     justify-content: center;
 
@@ -67,7 +89,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    
 
     width: 300px;
     padding: 32px;
@@ -81,15 +102,13 @@ export default {
     font-weight: normal;
 }
 
-
-
 .form-input-cards {
     width: 100%;
     padding: 0 0 10px 0;
-    border: none;    
+    border: none;
 }
 
-.btn-card { 
+.btn-card {
     background-color: rgba(63, 63, 63, 0.897);
     color: white;
     font-size: 14px;
