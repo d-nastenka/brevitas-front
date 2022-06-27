@@ -14,10 +14,10 @@
 
 
                     <div class="cards-input">
-                        <input required  v-model="forms.name" placeholder="Имя">
+                        <input required  v-model="forms.name" :maxlength="maxlen=20" placeholder="Имя">
                     </div>
                     <div class="cards-input">
-                        <input required  v-model="forms.surname" placeholder="Фамилия">
+                        <input required  v-model="forms.surname" :maxlength="maxlen=20" placeholder="Фамилия">
                     </div>
                     <div class="cards-input">
                         <input required  v-model="forms.description" placeholder="Описание">
@@ -29,7 +29,7 @@
                         <input required  v-model="forms.link" placeholder="Ссылка">
                     </div>
                     <div class="cards-input">
-                        <input required  v-model="forms.phone" placeholder="Телефон">
+                        <input required  v-model="forms.phone" :maxlength="maxlen=7" placeholder="Телефон">
                     </div>
                     <!-- </div> -->
                     <button type="submit" class="btn-card"> Создать визитку</button>
@@ -63,7 +63,8 @@ export default {
                 'Почта',
                 'Ссылка',
                 'Телефон'
-            ]
+            ],
+            maxlen: 0,
         }
     },
 
