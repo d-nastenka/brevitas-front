@@ -36,29 +36,21 @@
 
 <script>
 
-
-
     var regName = /^.*[^A-zА-яЁё].*$/;
     var regpas = /^\d+$/;
 
-    N = form.name
-   
+    
 
-    console.log(regName.test(N))
-    event.preventDefault();
-    console.log(N)
-   
-
-    if (!N)  {
+    if (vm.form.name==='')  {
         console.log('пусто');
         alert("заполните все поля!")
     }
-
+/*
     if (regName.test(N) == true) {
         console.log('введи буквы');
         alert("пропишите ИМЯ буквами!")
     }
-
+*/
     export default {
         name: "Card",
         data() {
