@@ -14,22 +14,22 @@
 
 
                     <div class="cards-input">
-                        <input v-model="forms.name" placeholder="Имя">
+                        <input required  v-model="forms.name" placeholder="Имя">
                     </div>
                     <div class="cards-input">
-                        <input v-model="forms.surname" placeholder="Фамилия">
+                        <input required  v-model="forms.surname" placeholder="Фамилия">
                     </div>
                     <div class="cards-input">
-                        <input v-model="forms.description" placeholder="Описание">
+                        <input required  v-model="forms.description" placeholder="Описание">
                     </div>
                     <div class="cards-input">
-                        <input v-model="forms.email" placeholder="Почта">
+                        <input required  v-model="forms.email" placeholder="Почта">
                     </div>
                     <div class="cards-input">
-                        <input v-model="forms.link" placeholder="Ссылка">
+                        <input required  v-model="forms.link" placeholder="Ссылка">
                     </div>
                     <div class="cards-input">
-                        <input v-model="forms.phone" placeholder="Телефон">
+                        <input required  v-model="forms.phone" placeholder="Телефон">
                     </div>
                     <!-- </div> -->
                     <button type="submit" class="btn-card"> Создать визитку</button>
