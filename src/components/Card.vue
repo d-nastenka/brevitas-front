@@ -6,36 +6,30 @@
                 <h3>Создать новую визитку</h3>
             </div>
             <form @submit.prevent="submitForm">
-                <div class="form-input-cards">
-                    <div v-for="(i, key) in formFill" :key="key">
-                        <div class="cards-input">
-                            <input v-model="value" :placeholder="textPlaceholder">
-                        </div>
+                 <div class="form-input-cards">
 
-
-                    <!-- <div class="cards-input">
-                        <input required  v-model="forms.name" :maxlength="maxlen=20" placeholder="Имя">
+                   <div class="cards-input">
+                        <input required  v-model="newTodoText" :maxlength="maxlen=20" placeholder="Имя">
                     </div>
                     <div class="cards-input">
-                        <input required  v-model="forms.surname" :maxlength="maxlen=20" placeholder="Фамилия">
+                        <input required  v-model="newTodoText" :maxlength="maxlen=20" placeholder="Фамилия">
                     </div>
                     <div class="cards-input">
-                        <input required  v-model="forms.description" placeholder="Описание">
+                        <input required  v-model="newTodoText" placeholder="Описание">
                     </div>
                     <div class="cards-input">
-                        <input type="email" required  v-model="forms.email" placeholder="Почта">
+                        <input type="email" required  v-model="newTodoText" placeholder="Почта">
                     </div>
                     <div class="cards-input">
-                        <input type="url" required  v-model="forms.link" placeholder="Ссылка">
+                        <input type="url" required  v-model="newTodoText" placeholder="Ссылка">
                     </div>
                     <div class="cards-input">
-                        <input required  v-model="forms.phone" :maxlength="maxlen=7" placeholder="Телефон">
-                    </div> -->
+                        <input required  v-model="newTodoText" :maxlength="maxlen=7" placeholder="Телефон">
                     </div>
 
                     <button type="submit" class="btn-card"> Создать визитку</button>
-                </div>
-            </form>
+                </div> 
+            </form> 
 
         </div>
 
@@ -46,63 +40,41 @@
 
 
 export default {
-    name: "Card",
-    data () {
-        return {
-            formFill: [
-                {
-                    textPlaceholder: 'Имя',
-                    value: 'name'
-                },
-                {
-                    textPlaceholder: 'Фамилия',
-                    value: 'surname'
-                },
-                {
-                    textPlaceholder: 'Описание',
-                    value: 'description'
-                },
-                {
-                    textPlaceholder: 'Почта',
-                    value: 'email'
-                },
-                {
-                    textPlaceholder: 'Ссылка',
-                    value: 'link'
-                },
-                {
-                    textPlaceholder: 'Телефон',
-                    value: 'phone'
-                },
-            ]
-
-            // forms: {
-            //     name: '',
-            //     surname: '',
-            //     description: '',
-            //     email: '',
-            //     link: '',
-            //     phone: ''
-            // },
-            // textInput: [
-            //     'Имя',
-            //     'Фамилия',
-            //     'Описание',
-            //     'Почта',
-            //     'Ссылка',
-            //     'Телефон'
-            // ],
-            // maxlen: 0,
-        }
-    },
-    methods: {
-        chekForm() {
-            if(this.name && this.surname && this.description && this.email && this.link&& this.phone) return true;
-            if(!this.name) this.errors.push("Name required.");
-            if(!this.surname) this.errors.push("surname required.");
-        }
+  data() {
+    
+    return {
+            
+        formFill: [
+            {
+                textPlaceholder: 'Имя',
+                newTodoText: ''
+            },
+            {
+                textPlaceholder: 'Фамилия',
+                newTodoText: ''
+            },
+            {
+                textPlaceholder: 'Описание',
+                newTodoText: ''
+            },
+            {
+                textPlaceholder: 'Почта',
+                newTodoText: ''
+            },
+            {
+                textPlaceholder: 'Ссылка',
+                newTodoText: ''
+            },
+            {
+                textPlaceholder: 'Телефон',
+                newTodoText: ''
+            },
+        ]    
     }
+  }
 }
+    
+
 
     var regName = /^.*[^A-zА-яЁё].*$/;
     var regpas = /^\d+$/;
