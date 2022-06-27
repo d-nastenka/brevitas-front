@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
+
 import Home from "./components/Default"
 import Card from "./components/Card"
 import Reg from "./components/Reg.vue"
