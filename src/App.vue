@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    
-    <!-- <Form  @addUser="addUser"/>
-    <Users :users="users" @deleteUser=deleteUser /> -->
-    <!-- <Reg @addUser="addUser"/> -->
+
+
  <header class="head">
    <!--<div class="header"> -->
       <div class="head-title">
@@ -22,9 +20,8 @@
 </header>
     <router-view/>
 
-    <!-- <component :is="layout">
-          <router-view/>
-    </component> -->
+    
+    
 
 <footer class="footer">
         <div class="foot-row">
@@ -43,8 +40,8 @@
 
 <script>
 
-// import Form from './components/Form.vue'
-// import Users from './components/Users.vue'
+
+
 import Home from "./components/Default.vue"
 import Card from "./components/Card.vue"
 import Reg from "./components/Reg.vue"
@@ -54,8 +51,7 @@ import Auth from "./components/Auth.vue"
 export default {
   name: 'app',
   components: {
-      // Form,
-      // Users,
+      
       Home,
       Card,
       Reg,
@@ -75,26 +71,15 @@ export default {
 
   },
   methods: {
-    // changeStatus() {
-    //   this.status = !this.status
+    addUser(user) {
+        this.users.push(user);
+        console.log(users)
+    },
 
-    // },
-      addUser(user) {
-          this.users.push(user);
-          console.log(users)
-      },
-
-    // deleteUser(i) {
-    //   this.users.splice(i, 1)
-    // },
-    // submitForm () {
-    //   console.log(this.form)
-    // }
+    
   },
   computed: {
-      // layout(){
-      //     return this.$route.meta.layout || "default-layout" 
-      // }
+    
   }
 }
 </script>
@@ -106,8 +91,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* margin-top: 30px; */
-  /*background-color: #a8d0e6; */
+  
 }
 
 
@@ -136,8 +120,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center; 
-    /*margin-top: -30px; 
-    margin-left: -7px;*/
+   
     
 
     background-color: #9FEDD7;
