@@ -31,7 +31,7 @@
                     <div class="cards-input">
                         <input required  v-model="forms.phone" :maxlength="maxlen=7" placeholder="Телефон">
                     </div>
-                    <!-- </div> -->
+                    
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
             </form>
@@ -75,9 +75,9 @@ export default {
 
     
 /*
-    if (form.name==='')  {
+    if (form.name == '')  {
         console.log('пусто');
-        alert("заполните все поля!")
+        
     }
 
     if (regName.test(N) == true) {
