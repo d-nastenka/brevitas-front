@@ -25,9 +25,7 @@
     <!-- <component :is="layout">
           <router-view/>
     </component> -->
-<<<<<<< HEAD
 
-=======
 <footer class="footer">
         <div class="foot-row">
             <div class="footkont">
@@ -40,8 +38,6 @@
          </div>
         </div>      
     </footer>
-    
->>>>>>> 36a2fe8a95a8dfe73d2b71d5da127986c993ac46
   </div>
 </template>
 
