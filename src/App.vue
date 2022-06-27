@@ -3,13 +3,16 @@
     <Header />
     <router-view/>
     <Footer />
+
   </div>
 </template>
 
 <script>
 
+
 import Header from './components/AppHeader.vue'
 import Footer from './components/AppFooter.vue'
+
 import Home from "./components/Default.vue"
 import Card from "./components/Card.vue"
 import Reg from "./components/Reg.vue"
@@ -44,11 +47,9 @@ export default {
           this.users.push(user);
           console.log(users)
       },
-
-    
   },
   computed: {
-      
+
   }
 }
 </script>
@@ -82,8 +83,6 @@ li {
 a {
   color: #484a49;
 }
-
-
 
 .pages {
   display: flex;
