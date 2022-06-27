@@ -7,31 +7,31 @@
             </div>
             <form @submit.prevent="submitForm">
                 <div class="form-input-cards">
-                    <div v-for="(i, key) in form" :key="key">
-                        <div class="cards-input">
-                            <input v-model="form.i">
-                        </div>
+                    <!-- <div v-for="(i, key) in forms" :key="key"> -->
+                        <!-- <div class="cards-input">
+                            <input v-model="forms.i">
+                        </div> -->
 
 
-                    <!-- <div class="cards-input">
-                        <input v-model="form.name" placeholder="Имя">
+                    <div class="cards-input">
+                        <input v-model="forms.name" placeholder="Имя">
                     </div>
                     <div class="cards-input">
-                        <input v-model="form.surname" placeholder="Фамилия">
+                        <input v-model="forms.surname" placeholder="Фамилия">
                     </div>
                     <div class="cards-input">
-                        <input v-model="form.description" placeholder="Описание">
+                        <input v-model="forms.description" placeholder="Описание">
                     </div>
                     <div class="cards-input">
-                        <input v-model="form.email" placeholder="Почта">
+                        <input v-model="forms.email" placeholder="Почта">
                     </div>
                     <div class="cards-input">
-                        <input v-model="form.link" placeholder="Ссылка">
+                        <input v-model="forms.link" placeholder="Ссылка">
                     </div>
                     <div class="cards-input">
-                        <input v-model="form.phone" placeholder="Телефон">
-                    </div> -->
+                        <input v-model="forms.phone" placeholder="Телефон">
                     </div>
+                    <!-- </div> -->
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
             </form>
@@ -48,7 +48,7 @@ export default {
     name: "Card",
     data () {
         return {
-            form: {
+            forms: {
                 name: '',
                 surname: '',
                 description: '',
