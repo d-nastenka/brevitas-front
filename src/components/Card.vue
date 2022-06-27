@@ -7,13 +7,13 @@
             </div>
             <form @submit.prevent="submitForm">
                 <div class="form-input-cards">
-                    <!-- <div v-for="(i, key) in forms" :key="key"> -->
-                        <!-- <div class="cards-input">
-                            <input v-model="forms.i">
-                        </div> -->
+                    <div v-for="(i, key) in formFill" :key="key">
+                        <div class="cards-input">
+                            <input v-model="value" :placeholder="textPlaceholder">
+                        </div>
 
 
-                    <div class="cards-input">
+                    <!-- <div class="cards-input">
                         <input required  v-model="forms.name" :maxlength="maxlen=20" placeholder="Имя">
                     </div>
                     <div class="cards-input">
@@ -30,8 +30,8 @@
                     </div>
                     <div class="cards-input">
                         <input required  v-model="forms.phone" :maxlength="maxlen=7" placeholder="Телефон">
+                    </div> -->
                     </div>
-                    <!-- </div> -->
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
             </form>
@@ -48,26 +48,59 @@ export default {
     name: "Card",
     data () {
         return {
-            forms: {
-                name: '',
-                surname: '',
-                description: '',
-                email: '',
-                link: '',
-                phone: ''
-            },
-            textInput: [
-                'Имя',
-                'Фамилия',
-                'Описание',
-                'Почта',
-                'Ссылка',
-                'Телефон'
-            ],
-            maxlen: 0,
+            formFill: [
+                {
+                    textPlaceholder: 'Имя',
+                    value: 'name'
+                },
+                {
+                    textPlaceholder: 'Фамилия',
+                    value: 'surname'
+                },
+                {
+                    textPlaceholder: 'Описание',
+                    value: 'description'
+                },
+                {
+                    textPlaceholder: 'Почта',
+                    value: 'email'
+                },
+                {
+                    textPlaceholder: 'Ссылка',
+                    value: 'link'
+                },
+                {
+                    textPlaceholder: 'Телефон',
+                    value: 'phone'
+                },
+            ]
+
+            // forms: {
+            //     name: '',
+            //     surname: '',
+            //     description: '',
+            //     email: '',
+            //     link: '',
+            //     phone: ''
+            // },
+            // textInput: [
+            //     'Имя',
+            //     'Фамилия',
+            //     'Описание',
+            //     'Почта',
+            //     'Ссылка',
+            //     'Телефон'
+            // ],
+            // maxlen: 0,
         }
     },
-
+    methods: {
+        chekForm() {
+            if(this.name && this.surname && this.description && this.email && this.link&& this.phone) return true;
+            if(!this.name) this.errors.push("Name required.");
+            if(!this.surname) this.errors.push("surname required.");
+        }
+    }
 }
 
     var regName = /^.*[^A-zА-яЁё].*$/;
