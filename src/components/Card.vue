@@ -9,7 +9,7 @@
                  <div class="form-input-cards">
 
                    <div class="cards-input">
-                        <input required  v-model="newTodoText" :maxlength="maxlen=20" placeholder="Имя">
+                        <input required  v-model="newe" :maxlength="maxlen=20" placeholder="Имя">
                     </div>
                     <div class="cards-input">
                         <input required  v-model="newTodoText" :maxlength="maxlen=20" placeholder="Фамилия">
@@ -39,15 +39,15 @@
 <script>
 
 
-export default {
+export default{
   data() {
     
-    return {
+    return{
             
-        formFill: [
+        formFill:[
             {
                 textPlaceholder: 'Имя',
-                newTodoText: ''
+                newe: ''
             },
             {
                 textPlaceholder: 'Фамилия',
@@ -81,7 +81,7 @@ export default {
 
     
 /*
-    if (form.name == '')  {
+    if (newTodoText == '')  {
         console.log('пусто');
         
     }
