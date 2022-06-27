@@ -48,9 +48,7 @@ export default {
         }
     },
     methods: {
-    
         submitForm () {
-            
             this.$emit("addUser", this.form)
 
             this.form = {

@@ -76,12 +76,8 @@ export default {
 .auth-input {
     width: 100%;
     padding: 0 0 10px 0;
-    border: none;    
-    
-    
+    border: none;     
 }
-
-
 
 .btn-auth { 
     background-color: rgba(63, 63, 63, 0.897);
