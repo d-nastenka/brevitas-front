@@ -81,9 +81,7 @@ export default {
     font-weight: normal;
 }
 
-
-
-.form-input-cards {
+.cards-input {
     width: 100%;
     padding: 0 0 10px 0;
     border: none;    
