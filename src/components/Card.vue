@@ -9,7 +9,7 @@
                 <div class="form-input-cards">
                     <div v-for="(i, key) in formFill" :key="key">
                         <div class="cards-input">
-                            <input v-model="value" :placeholder="textPlaceholder">
+                            <input v-model="i.data" required :placeholder="i.textPlaceholder">
                         </div>
 
 
@@ -52,27 +52,33 @@ export default {
             formFill: [
                 {
                     textPlaceholder: 'Имя',
-                    value: 'name'
+                    value: 'name',
+                    data: ''
                 },
                 {
                     textPlaceholder: 'Фамилия',
-                    value: 'surname'
+                    value: 'surname',
+                    data: ''
                 },
                 {
                     textPlaceholder: 'Описание',
-                    value: 'description'
+                    value: 'description',
+                    data: ''
                 },
                 {
                     textPlaceholder: 'Почта',
-                    value: 'email'
+                    value: 'email',
+                    data: ''
                 },
                 {
                     textPlaceholder: 'Ссылка',
-                    value: 'link'
+                    value: 'link',
+                    data: ''
                 },
                 {
                     textPlaceholder: 'Телефон',
-                    value: 'phone'
+                    value: 'phone',
+                    data: ''
                 },
             ]
 
@@ -96,11 +102,14 @@ export default {
         }
     },
     methods: {
-        chekForm() {
-            if(this.name && this.surname && this.description && this.email && this.link&& this.phone) return true;
-            if(!this.name) this.errors.push("Name required.");
-            if(!this.surname) this.errors.push("surname required.");
-        }
+        // chekForm() {
+        //     if(this.name && this.surname && this.description && this.email && this.link&& this.phone) return true;
+        //     if(!this.name) this.errors.push("Name required.");
+        //     if(!this.surname) this.errors.push("surname required.");
+        // }
+        // addForm() {
+            
+        // }
     }
 }
 
@@ -109,7 +118,7 @@ export default {
 
     
 /*
-    if (form.name == '')  {
+    if (i.data == '')  {
         console.log('пусто');
         
     }
