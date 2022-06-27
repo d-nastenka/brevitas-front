@@ -106,7 +106,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   /*background-color: #a8d0e6; */
 }
 
@@ -136,8 +136,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center; 
-    margin-top: -30px; 
-    margin-left: -7px;
+    /*margin-top: -30px; 
+    margin-left: -7px;*/
     
 
     background-color: #9FEDD7;
@@ -194,5 +194,11 @@ a {
     line-height:  1.3; 
 }
 /*конец подвал*/
+
+html, body {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
 
 </style>
