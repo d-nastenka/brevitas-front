@@ -23,10 +23,10 @@
                         <input required  v-model="forms.description" placeholder="Описание">
                     </div>
                     <div class="cards-input">
-                        <input required  v-model="forms.email" placeholder="Почта">
+                        <input type="email" required  v-model="forms.email" placeholder="Почта">
                     </div>
                     <div class="cards-input">
-                        <input required  v-model="forms.link" placeholder="Ссылка">
+                        <input type="url" required  v-model="forms.link" placeholder="Ссылка">
                     </div>
                     <div class="cards-input">
                         <input required  v-model="forms.phone" :maxlength="maxlen=7" placeholder="Телефон">
