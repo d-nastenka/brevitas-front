@@ -73,12 +73,12 @@ export default {
     var regpas = /^\d+$/;
 
     
-
-    if (vm.form.name==='')  {
+/*
+    if (form.name==='')  {
         console.log('пусто');
         alert("заполните все поля!")
     }
-/*
+
     if (regName.test(N) == true) {
         console.log('введи буквы');
         alert("пропишите ИМЯ буквами!")
