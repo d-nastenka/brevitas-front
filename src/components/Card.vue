@@ -7,7 +7,13 @@
             </div>
             <form @submit.prevent="submitForm">
                 <div class="form-input-cards">
-                    <div class="cards-input">
+                    <div v-for="(i, key) in form" :key="key">
+                        <div class="cards-input">
+                            <input v-model="form.i">
+                        </div>
+
+
+                    <!-- <div class="cards-input">
                         <input v-model="form.name" placeholder="Имя">
                     </div>
                     <div class="cards-input">
@@ -24,6 +30,7 @@
                     </div>
                     <div class="cards-input">
                         <input v-model="form.phone" placeholder="Телефон">
+                    </div> -->
                     </div>
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
@@ -47,10 +54,18 @@ export default {
                 email: '',
                 link: '',
                 phone: ''
-            }
-            
+            },
+            textInput: [
+                'Имя',
+                'Фамилия',
+                'Описание',
+                'Почта',
+                'Ссылка',
+                'Телефон'
+            ]
         }
     },
+
 }
 </script>
 
