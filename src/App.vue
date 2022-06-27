@@ -107,7 +107,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 30px;
-  /*background-color: #a8d0e6; */
 }
 
 
@@ -139,7 +138,6 @@ a {
     margin-top: -30px; 
     margin-left: -7px;
     
-
     background-color: #9FEDD7;
     /*background-image: url(.jpg);*/
     background-size: cover;
