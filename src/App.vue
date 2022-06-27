@@ -91,7 +91,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  
+
 }
 
 
@@ -121,8 +121,6 @@ a {
     justify-content: center;
     align-items: center; 
    
-    
-
     background-color: #9FEDD7;
     /*background-image: url(.jpg);*/
     background-size: cover;
