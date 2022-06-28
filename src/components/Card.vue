@@ -24,6 +24,13 @@
 
 <script>
 
+// async function postData(url = '', data = {}) {
+
+//     const response = await fetch(url, {
+//         method: 'POST'
+//     });
+//     return await response.json();
+// }
 
 export default {
     name: "Card",
@@ -77,14 +84,28 @@ export default {
             // for (let i = 0; i < this.formFill.length; i++) {
             //     data[this.formFill[i].value] = this.formFill[i].data;
             // }
-            console.log(this.dataToSend);
-
+            // console.log(this.dataToSend);
+            // postData('http://localhost:3000/', { answer: 42 })
+            // .then((data) => {
+            //     console.log(this.dataToSend)
+            // })
+            colsole.log(fetch('http://localhost:3000/'))
+                // .then((response) => {
+                //     return response.json();
+                // })
+                // .then((data) => {
+                //     console.log(data);
+                // });
         }
     },
     computed: {
 
     } 
 }
+
+
+
+
 
     var regName = /^.*[^A-zА-яЁё].*$/;
     var regpas = /^\d+$/;
