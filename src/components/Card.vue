@@ -36,6 +36,7 @@
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
             </form>
+            <p>{{formFill.data}}</p>
 
         </div>
 
