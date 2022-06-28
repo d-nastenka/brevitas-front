@@ -9,7 +9,7 @@
                 <div class="form-input-cards">
                     <div v-for="(i, key) in formFill" :key="key">
                         <div class="cards-input">
-                            <input v-model="i.data" required :placeholder="i.textPlaceholder">
+                            <input v-model="dataToSend[i.value]" required :placeholder="i.textPlaceholder">
                         </div>
                     </div>
 
@@ -30,6 +30,14 @@ export default {
     name: "Card",
     data () {
         return {
+            dataToSend: {
+                name: "",
+                surname: "",
+                description: "",
+                email: "",
+                link: "",
+                phone: "",
+            },
             formFill: [
                 {
                     textPlaceholder: 'Имя',
@@ -72,11 +80,17 @@ export default {
             // this.formFill.push(this.formFill.data);
             // console.log(this.formFill);
 
-            const obj = {};
+            const data = {};
+            for (let i = 0; i < this.formFill.length; i++) {
+                data[this.formFill[i].value] = this.formFill[i].data;
+            }
+            console.log(this.dataToSend);
 
-            
         }
-    }
+    },
+    computed: {
+        
+    } 
 }
 
     var regName = /^.*[^A-zА-яЁё].*$/;
