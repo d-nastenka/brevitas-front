@@ -9,14 +9,14 @@
                 <div class="form-input-cards">
                     <div v-for="(i, key) in formFill" :key="key">
                         <div class="cards-input">
-                            <input v-model="dataToSend[i.value]" required :placeholder="i.textPlaceholder">
+                            <input v-model="dataToSend[i.value]" :placeholder="i.textPlaceholder">
                         </div>
                     </div>
 
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
             </form>
-            <p>{{formFill.data}}</p>
+            
 
         </div>
 
@@ -77,15 +77,17 @@ export default {
     methods: {
         addCard() {
             // запрос на сервер
-            // this.formFill.push(this.formFill.data);
-            // console.log(this.formFill);
+           //console.log(this.formFill[i].data) 
+            var regName = /^.*[^A-zА-яЁё].*$/;
+            var regpas = /^\d+$/;
 
             const data = {};
             for (let i = 0; i < this.formFill.length; i++) {
                 data[this.formFill[i].value] = this.formFill[i].data;
             }
-            console.log(this.dataToSend);
-
+            console.log(this.dataToSend.name);
+            if(regName.test(this.dataToSend.name))
+                console.log("ТОЛЬКО БУКВЫ !")
         }
     },
     computed: {
@@ -93,8 +95,7 @@ export default {
     } 
 }
 
-    var regName = /^.*[^A-zА-яЁё].*$/;
-    var regpas = /^\d+$/;
+    
 
     
 /*
