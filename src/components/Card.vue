@@ -5,7 +5,7 @@
             <div class="title-cards">
                 <h3>Создать новую визитку</h3>
             </div>
-            <form @submit.prevent="submitForm">
+            <form @submit.prevent="addCard">
                 <div class="form-input-cards">
                     <div v-for="(i, key) in formFill" :key="key">
                         <div class="cards-input">
@@ -66,7 +66,15 @@ export default {
         }
     },
     methods: {
-        
+        addCard() {
+            // запрос на сервер
+            // this.formFill.push(this.formFill.data);
+            // console.log(this.formFill);
+
+            const obj = {};
+
+            
+        }
     }
 }
 

@@ -12,7 +12,7 @@
                             <input v-model="i.data" required :placeholder="i.textPlaceholder">
                         </div>
                     </div>    
-                    <button type="submit" class="btn-reg"> Зарегистрироваться</button>
+                    <button  type="submit" class="btn-reg" > Зарегистрироваться</button>
                 </div>
             </form> 
         </div>
@@ -59,7 +59,7 @@ export default {
         
     },
     methods: {
-
+        
     }
 }
 </script>
