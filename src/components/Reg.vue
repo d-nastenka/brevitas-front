@@ -73,6 +73,7 @@ export default {
             // }
             console.log(this.dataRegToSend);
             // console.log(data);
+            
         }
     }
 }

@@ -9,13 +9,14 @@
                 <div class="form-input-cards">
                     <div v-for="(i, key) in formFill" :key="key">
                         <div class="cards-input">
-                            <input v-model="dataToSend[i.value]" required :placeholder="i.textPlaceholder">
+                            <input v-model="dataToSend[i.value]" :placeholder="i.textPlaceholder">
                         </div>
                     </div>
 
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
             </form>
+
 
         </div>
 
@@ -80,6 +81,7 @@ export default {
     },
     methods: {
         addCard() {
+
             // const data = {};
             // for (let i = 0; i < this.formFill.length; i++) {
             //     data[this.formFill[i].value] = this.formFill[i].data;
@@ -96,6 +98,29 @@ export default {
                 // .then((data) => {
                 //     console.log(data);
                 // });
+
+
+            // запрос на сервер
+           //console.log(this.formFill[i].data) 
+            var regName = /^.*[^A-zА-яЁё].*$/;
+            var regpas = /^\d+$/;
+
+            const data = {};
+            for (let i = 0; i < this.formFill.length; i++) {
+                data[this.formFill[i].value] = this.formFill[i].data;
+            }
+            //console.log(this.dataToSend.name);
+            if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
+                 alert("в имени и фамилии должны быть только буквы!")
+            if(!regpas.test(this.dataToSend.phone))
+                 alert("в поле ТЕЛЕФОН должны быть только цифры!")
+            if((!this.dataToSend.name)||(!this.dataToSend.surname)||(!this.dataToSend.description)||(!this.dataToSend.email)||(!this.dataToSend.link)||(!this.dataToSend.phone))
+                 alert("заполните все поля! ")
+            if(!this.dataToSend.email.includes('@'))
+                    alert("введите правильный email!")  
+            if(this.dataToSend.phone.length<11)
+                    alert("введите правильный полный номер телефона!") 
+
         }
     },
     computed: {
@@ -103,25 +128,6 @@ export default {
     } 
 }
 
-
-
-
-
-    var regName = /^.*[^A-zА-яЁё].*$/;
-    var regpas = /^\d+$/;
-
-    
-/*
-    if (formFill.data == '')  {
-        console.log('пусто');
-        
-    }
-
-    if (regName.test(N) == true) {
-        console.log('введи буквы');
-        alert("пропишите ИМЯ буквами!")
-    }
-*/
 
 </script>
 
