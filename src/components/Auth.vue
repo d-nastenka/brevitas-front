@@ -6,12 +6,17 @@
             </div>
 
             <form @submit.prevent="submitForm">
-            <div class="auth-input">
+                <div v-for="(i, key) in formAuth" :key="key">
+                    <div class="auth-input">
+                        <input v-model="i.data" required :placeholder="i.textPlaceholder">
+                    </div>
+                </div>
+            <!-- <div class="auth-input">
                 <input v-model="form.login" placeholder="Логин">
             </div>
             <div class="auth-input">
                 <input v-model="form.password" placeholder="Пароль">
-            </div>
+            </div> -->
             
             <button type="submit" class="btn-auth"> Войти </button>
 
@@ -26,23 +31,34 @@ export default {
     name: "Auth",
     data () {
         return {
-            form: {
-                login: '',
-                password: ''
-            }
-            
+            // form: {
+            //     login: '',
+            //     password: ''
+            // },
+            formAuth: [
+                {
+                    textPlaceholder: 'Логин',
+                    value: 'login',
+                    data: ''
+                },
+                {
+                    textPlaceholder: 'Пароль',
+                    value: 'password',
+                    data: ''
+                },
+            ]
         }
     },
     methods: {
     
-        submitForm () {
-            //this.$emit("addUser", this.form)
+        // submitForm () {
+        //     //this.$emit("addUser", this.form)
 
-            this.form = {
-                    login: '',
-                    password: ''
-                }
-        }
+        //     this.form = {
+        //             login: '',
+        //             password: ''
+        //         }
+        // }
     }
 }
 </script>

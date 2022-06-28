@@ -7,7 +7,12 @@
 
             <form @submit.prevent="submitForm">
                 <div class="form-input">
-                    <div class="reg-input">
+                    <div v-for="(i, key) in formReg" :key="key">
+                        <div class="reg-input">
+                            <input v-model="i.data" required :placeholder="i.textPlaceholder">
+                        </div>
+                    </div>    
+                    <!-- <div class="reg-input">
                         <input v-model="form.name" placeholder="Имя">
                     </div>
                     <div class="reg-input">
@@ -21,7 +26,7 @@
                     </div>
                     <div class="reg-input">
                         <input v-model="form.password" placeholder="Пароль">
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn-reg"> Зарегистрироваться</button>
                 </div>
             </form> 
@@ -37,28 +42,56 @@ export default {
     name: 'Reg',
     data () {
         return {
-            form: {
-                name: '',
-                surname: '',
-                email: '',
-                login: '',
-                password: ''
-            }
-            
+            // form: {
+            //     name: '',
+            //     surname: '',
+            //     email: '',
+            //     login: '',
+            //     password: ''
+            // },
+            formReg: [
+                {
+                    textPlaceholder: 'Имя',
+                    value: 'name',
+                    data: ''
+                },
+                {
+                    textPlaceholder: 'Фамилия',
+                    value: 'surname',
+                    data: ''
+                },
+                {
+                    textPlaceholder: 'Почта',
+                    value: 'email',
+                    data: ''
+                },
+                {
+                    textPlaceholder: 'Логин',
+                    value: 'login',
+                    data: ''
+                },
+                {
+                    textPlaceholder: 'Пароль',
+                    value: 'password',
+                    data: ''
+                },
+                
+            ]
         }
+        
     },
     methods: {
-        submitForm () {
-            this.$emit("addUser", this.form)
+        // submitForm () {
+        //     this.$emit("addUser", this.form)
 
-            this.form = {
-                    name: '',
-                    surname: '',
-                    email: '',
-                    login: '',
-                    password: ''
-                }
-        }
+        //     this.form = {
+        //             name: '',
+        //             surname: '',
+        //             email: '',
+        //             login: '',
+        //             password: ''
+        //         }
+        // }
     }
 }
 </script>
