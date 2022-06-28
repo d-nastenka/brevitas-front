@@ -118,7 +118,7 @@ export default {
 
     
 /*
-    if (i.data == '')  {
+    if (formFill.data == '')  {
         console.log('пусто');
         
     }
