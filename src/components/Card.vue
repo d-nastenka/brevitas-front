@@ -16,7 +16,7 @@
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
             </form>
-            
+
 
         </div>
 
@@ -69,13 +69,12 @@ export default {
                     value: 'phone',
                     data: ''
                 },
-            ]
-
-            
+            ]       
         }
     },
     methods: {
         addCard() {
+
             // запрос на сервер
            //console.log(this.formFill[i].data) 
             var regName = /^.*[^A-zА-яЁё].*$/;
@@ -88,10 +87,11 @@ export default {
             console.log(this.dataToSend.name);
             if(regName.test(this.dataToSend.name))
                 console.log("ТОЛЬКО БУКВЫ !")
+
         }
     },
     computed: {
-        
+
     } 
 }
 

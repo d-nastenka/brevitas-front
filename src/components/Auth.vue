@@ -5,10 +5,10 @@
                 <h3>Авторизация</h3>
             </div>
 
-            <form @submit.prevent="submitForm">
+            <form @submit.prevent="sendAuth">
                 <div v-for="(i, key) in formAuth" :key="key">
                     <div class="auth-input">
-                        <input v-model="i.data" required :placeholder="i.textPlaceholder">
+                        <input v-model="dataAuthToSend[i.value]" required :placeholder="i.textPlaceholder">
                     </div>
                 </div>
             <button type="submit" class="btn-auth"> Войти </button>
@@ -24,6 +24,10 @@ export default {
     name: "Auth",
     data () {
         return {
+            dataAuthToSend: {
+                login: "",
+                password: "",
+            },
             formAuth: [
                 {
                     textPlaceholder: 'Логин',
@@ -39,7 +43,9 @@ export default {
         }
     },
     methods: {
-    
+        sendAuth() {
+            console.log(this.dataAuthToSend);
+        }
     }
 }
 </script>
