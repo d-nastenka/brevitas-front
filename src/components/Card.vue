@@ -83,6 +83,26 @@ export default {
         // async 
         addCard() {
 
+            var regName = /^.*[^A-zА-яЁё].*$/;
+            var regpas = /^\d+$/;
+
+            const data = {};
+            for (let i = 0; i < this.formFill.length; i++) {
+                data[this.formFill[i].value] = this.formFill[i].data;
+            }
+            //console.log(this.dataToSend.name);
+            // if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
+            //      alert("в имени и фамилии должны быть только буквы!")
+            // if(!regpas.test(this.dataToSend.phone))
+            //      alert("в поле ТЕЛЕФОН должны быть только цифры!")
+            // if((!this.dataToSend.name)||(!this.dataToSend.surname)||(!this.dataToSend.description)||(!this.dataToSend.email)||(!this.dataToSend.link)||(!this.dataToSend.phone))
+            //      alert("заполните все поля! ")
+            // if(!this.dataToSend.email.includes('@'))
+            //         alert("введите правильный email!")  
+            // if(this.dataToSend.phone.length<11)
+            //         alert("введите правильный полный номер телефона!")
+
+                    
             // const data = {};
             // for (let i = 0; i < this.formFill.length; i++) {
             //     data[this.formFill[i].value] = this.formFill[i].data;
@@ -115,6 +135,7 @@ export default {
 
             // запрос на сервер
            //console.log(this.formFill[i].data) 
+
             // var regName = /^.*[^A-zА-яЁё].*$/;
             // var regpas = /^\d+$/;
 
@@ -133,6 +154,7 @@ export default {
             //         alert("введите правильный email!")  
             // if(this.dataToSend.phone.length<11)
             //         alert("введите правильный полный номер телефона!") 
+
 
         }
     },
