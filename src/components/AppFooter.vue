@@ -26,12 +26,13 @@ export default {
 <style>
 
 .footer{
-    background-color: #363636;
-    /* background: #026670; */
-    margin-top: 30px;
+    /* background-color: #363636; */
+    background: #00444a;
+    margin-top: 60px;
+    padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 15px; 
-    width: 101%;
+    width: 100%;
     height: 175px;
     justify-content: center;
     align-items: center; 

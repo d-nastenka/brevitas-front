@@ -80,6 +80,7 @@ export default {
         }
     },
     methods: {
+        // async 
         addCard() {
 
             // const data = {};
@@ -91,7 +92,19 @@ export default {
             // .then((data) => {
             //     console.log(this.dataToSend)
             // })
-            colsole.log(fetch('http://localhost:3000/'))
+            //await
+            let promise =  fetch('http://localhost:3000/visits', {
+                method: "POST",
+                body: JSON.stringify(this.dataToSend),
+            });
+            
+             this.$router.push("/")
+            // .then((data) => {
+            //     // console.log(this.$router);
+            //     // this.$router.
+            //     this.$router.push("/")
+            // });
+
                 // .then((response) => {
                 //     return response.json();
                 // })
@@ -102,24 +115,24 @@ export default {
 
             // запрос на сервер
            //console.log(this.formFill[i].data) 
-            var regName = /^.*[^A-zА-яЁё].*$/;
-            var regpas = /^\d+$/;
+            // var regName = /^.*[^A-zА-яЁё].*$/;
+            // var regpas = /^\d+$/;
 
-            const data = {};
-            for (let i = 0; i < this.formFill.length; i++) {
-                data[this.formFill[i].value] = this.formFill[i].data;
-            }
-            //console.log(this.dataToSend.name);
-            if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
-                 alert("в имени и фамилии должны быть только буквы!")
-            if(!regpas.test(this.dataToSend.phone))
-                 alert("в поле ТЕЛЕФОН должны быть только цифры!")
-            if((!this.dataToSend.name)||(!this.dataToSend.surname)||(!this.dataToSend.description)||(!this.dataToSend.email)||(!this.dataToSend.link)||(!this.dataToSend.phone))
-                 alert("заполните все поля! ")
-            if(!this.dataToSend.email.includes('@'))
-                    alert("введите правильный email!")  
-            if(this.dataToSend.phone.length<11)
-                    alert("введите правильный полный номер телефона!") 
+            // const data = {};
+            // for (let i = 0; i < this.formFill.length; i++) {
+            //     data[this.formFill[i].value] = this.formFill[i].data;
+            // }
+            // //console.log(this.dataToSend.name);
+            // if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
+            //      alert("в имени и фамилии должны быть только буквы!")
+            // if(!regpas.test(this.dataToSend.phone))
+            //      alert("в поле ТЕЛЕФОН должны быть только цифры!")
+            // if((!this.dataToSend.name)||(!this.dataToSend.surname)||(!this.dataToSend.description)||(!this.dataToSend.email)||(!this.dataToSend.link)||(!this.dataToSend.phone))
+            //      alert("заполните все поля! ")
+            // if(!this.dataToSend.email.includes('@'))
+            //         alert("введите правильный email!")  
+            // if(this.dataToSend.phone.length<11)
+            //         alert("введите правильный полный номер телефона!") 
 
         }
     },
@@ -152,14 +165,14 @@ export default {
 
 .title-cards {
     text-align: center;
-    margin: 0 0 20px 0;
+    margin: 0 0 17px 0;
     font-weight: normal;
 }
 
 
 .cards-input {
     width: 100%;
-    padding: 0 0 10px 0;
+    padding: 0 0 12px 0;
     border: none;
 }
 
