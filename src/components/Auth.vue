@@ -11,13 +11,6 @@
                         <input v-model="i.data" required :placeholder="i.textPlaceholder">
                     </div>
                 </div>
-            <!-- <div class="auth-input">
-                <input v-model="form.login" placeholder="Логин">
-            </div>
-            <div class="auth-input">
-                <input v-model="form.password" placeholder="Пароль">
-            </div> -->
-            
             <button type="submit" class="btn-auth"> Войти </button>
 
             </form> 
@@ -31,10 +24,6 @@ export default {
     name: "Auth",
     data () {
         return {
-            // form: {
-            //     login: '',
-            //     password: ''
-            // },
             formAuth: [
                 {
                     textPlaceholder: 'Логин',
@@ -51,14 +40,6 @@ export default {
     },
     methods: {
     
-        // submitForm () {
-        //     //this.$emit("addUser", this.form)
-
-        //     this.form = {
-        //             login: '',
-        //             password: ''
-        //         }
-        // }
     }
 }
 </script>

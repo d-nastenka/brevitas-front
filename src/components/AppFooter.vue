@@ -26,10 +26,9 @@ export default {
 <style>
 
 .footer{
-    background: #026670;
+    background-color: #363636;
+    /* background: #026670; */
     margin-top: 30px;
-    margin-left: -7px;
-    margin-bottom: -7px;
     padding-top: 20px;
     padding-bottom: 15px; 
     width: 101%;

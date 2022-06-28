@@ -12,21 +12,6 @@
                             <input v-model="i.data" required :placeholder="i.textPlaceholder">
                         </div>
                     </div>    
-                    <!-- <div class="reg-input">
-                        <input v-model="form.name" placeholder="Имя">
-                    </div>
-                    <div class="reg-input">
-                        <input v-model="form.surname" placeholder="Фамилия">
-                    </div>
-                    <div class="reg-input">
-                        <input v-model="form.email" placeholder="Email">
-                    </div>
-                    <div class="reg-input">
-                        <input v-model="form.login" placeholder="Логин">
-                    </div>
-                    <div class="reg-input">
-                        <input v-model="form.password" placeholder="Пароль">
-                    </div> -->
                     <button type="submit" class="btn-reg"> Зарегистрироваться</button>
                 </div>
             </form> 
@@ -42,13 +27,6 @@ export default {
     name: 'Reg',
     data () {
         return {
-            // form: {
-            //     name: '',
-            //     surname: '',
-            //     email: '',
-            //     login: '',
-            //     password: ''
-            // },
             formReg: [
                 {
                     textPlaceholder: 'Имя',
@@ -81,17 +59,7 @@ export default {
         
     },
     methods: {
-        // submitForm () {
-        //     this.$emit("addUser", this.form)
 
-        //     this.form = {
-        //             name: '',
-        //             surname: '',
-        //             email: '',
-        //             login: '',
-        //             password: ''
-        //         }
-        // }
     }
 }
 </script>

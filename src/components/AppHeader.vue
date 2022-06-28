@@ -30,14 +30,14 @@ export default {
 <style>
 .head {
     width: 101%;
-    height: 200px;
+    height: 175px;
     display: flex;
     justify-content: center;
     align-items: center; 
-    /*margin-top: -30px; 
-    margin-left: -7px;*/
-    
-    background-color: #9FEDD7;
+
+    background-color: #353535;
+    color: rgb(199, 199, 199);
+    /* background-color: #9FEDD7; */
     /*background-image: url(.jpg);*/
     background-size: cover;
 }
@@ -47,5 +47,13 @@ export default {
   margin-left: 30px;
   
   font-size: 27px;/*шрифт*/ 
+
+  display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.pages_ell {
+    color: rgb(165, 165, 165);
 }
 </style>
