@@ -16,7 +16,6 @@
                     <button type="submit" class="btn-card"> Создать визитку</button>
                 </div>
             </form>
-            <p>{{formFill.data}}</p>
 
         </div>
 
@@ -69,27 +68,21 @@ export default {
                     value: 'phone',
                     data: ''
                 },
-            ]
-
-            
+            ]       
         }
     },
     methods: {
         addCard() {
-            // запрос на сервер
-            // this.formFill.push(this.formFill.data);
-            // console.log(this.formFill);
-
-            const data = {};
-            for (let i = 0; i < this.formFill.length; i++) {
-                data[this.formFill[i].value] = this.formFill[i].data;
-            }
+            // const data = {};
+            // for (let i = 0; i < this.formFill.length; i++) {
+            //     data[this.formFill[i].value] = this.formFill[i].data;
+            // }
             console.log(this.dataToSend);
 
         }
     },
     computed: {
-        
+
     } 
 }
 

@@ -5,11 +5,11 @@
                 <h3>Регистрация</h3>
             </div>
 
-            <form @submit.prevent="submitForm">
+            <form @submit.prevent="addUser">
                 <div class="form-input">
                     <div v-for="(i, key) in formReg" :key="key">
                         <div class="reg-input">
-                            <input v-model="i.data" required :placeholder="i.textPlaceholder">
+                            <input v-model="dataRegToSend[i.value]" required :placeholder="i.textPlaceholder">
                         </div>
                     </div>    
                     <button  type="submit" class="btn-reg" > Зарегистрироваться</button>
@@ -27,6 +27,13 @@ export default {
     name: 'Reg',
     data () {
         return {
+            dataRegToSend: {
+                name: "",
+                surname: "",
+                email: "",
+                login: "",
+                password: "",
+            },
             formReg: [
                 {
                     textPlaceholder: 'Имя',
@@ -59,7 +66,14 @@ export default {
         
     },
     methods: {
-        
+        addUser() {
+            // const data = {};
+            // for (let i = 0; i < this.formReg.length; i++) {
+            //     data[this.formReg[i].value] = this.formReg[i].data;
+            // }
+            console.log(this.dataRegToSend);
+            // console.log(data);
+        }
     }
 }
 </script>
