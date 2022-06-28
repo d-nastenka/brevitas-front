@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style>
-    .head {
+.head {
     width: 101%;
     height: 200px;
     display: flex;
@@ -46,6 +46,6 @@ export default {
   margin-right: 330px;
   margin-left: 30px;
   
-  font-size: 30px;/*шрифт*/ 
+  font-size: 27px;/*шрифт*/ 
 }
 </style>
