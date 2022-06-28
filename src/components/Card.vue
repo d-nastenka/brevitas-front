@@ -11,26 +11,6 @@
                         <div class="cards-input">
                             <input v-model="i.data" required :placeholder="i.textPlaceholder">
                         </div>
-
-
-                    <!-- <div class="cards-input">
-                        <input required  v-model="forms.name" :maxlength="maxlen=20" placeholder="Имя">
-                    </div>
-                    <div class="cards-input">
-                        <input required  v-model="forms.surname" :maxlength="maxlen=20" placeholder="Фамилия">
-                    </div>
-                    <div class="cards-input">
-                        <input required  v-model="forms.description" placeholder="Описание">
-                    </div>
-                    <div class="cards-input">
-                        <input type="email" required  v-model="forms.email" placeholder="Почта">
-                    </div>
-                    <div class="cards-input">
-                        <input type="url" required  v-model="forms.link" placeholder="Ссылка">
-                    </div>
-                    <div class="cards-input">
-                        <input required  v-model="forms.phone" :maxlength="maxlen=7" placeholder="Телефон">
-                    </div> -->
                     </div>
 
                     <button type="submit" class="btn-card"> Создать визитку</button>
@@ -82,34 +62,11 @@ export default {
                 },
             ]
 
-            // forms: {
-            //     name: '',
-            //     surname: '',
-            //     description: '',
-            //     email: '',
-            //     link: '',
-            //     phone: ''
-            // },
-            // textInput: [
-            //     'Имя',
-            //     'Фамилия',
-            //     'Описание',
-            //     'Почта',
-            //     'Ссылка',
-            //     'Телефон'
-            // ],
-            // maxlen: 0,
+            
         }
     },
     methods: {
-        // chekForm() {
-        //     if(this.name && this.surname && this.description && this.email && this.link&& this.phone) return true;
-        //     if(!this.name) this.errors.push("Name required.");
-        //     if(!this.surname) this.errors.push("surname required.");
-        // }
-        // addForm() {
-            
-        // }
+        
     }
 }
 
