@@ -8,12 +8,14 @@
             
             <form @submit.prevent="addCard">
                 <div class="form-input-cards">
-                    <div v-for="(i, key) in formFill" :key="key">
-                        <div class="cards-input">
-                            <input v-model="dataToSend[i.value]" :placeholder="i.textPlaceholder">
+                    <div v-for="(i, key) in formFill" :key="key" >
+                        <div :error-messages = "nameErrors" class="cards-input">
+                            <input  v-model="dataToSend[i.value]" 
+                            :placeholder="i.textPlaceholder" 
+                            >  
                         </div>
                     </div>
-
+                    <p> <font color="red"> {{nameErrors}}</font></p> 
                     <button type="submit" class="btn-card"> Создать визитку</button>
 
                     
@@ -28,13 +30,20 @@
 
 <script>
 
+import {validationMixin} from 'vuelidate';
+import {required, minLength, email} from 'vuelidate/lib/validators'
 import CreateCard from "./CreateCard.vue"
+
 
 export default {
     name: "Card",
+
     components: {
       CreateCard
     },
+
+    mixins:[validationMixin, ],
+
     data () {
         return {
             dataToSend: {
@@ -79,6 +88,51 @@ export default {
             ]       
         }
     },
+    validations:{
+        dataToSend: {
+            name: {required},
+            surname: {required},
+            description: {required},
+            mail: {required, email},
+            link: {required},
+            phone: {required, minLength:minLength(11)}
+        }
+    },
+
+    computed: {
+        nameErrors(){
+            var regName = /^.*[^A-zА-яЁё].*$/;
+            var regpas = /^\d+$/;
+
+            const errors=[];
+            var newmes ='';
+            if((!this.$v.dataToSend.name.required)||(!this.$v.dataToSend.surname.required)||(!this.$v.dataToSend.description.required)||(!this.$v.dataToSend.mail.required)
+            ||(!this.$v.dataToSend.link.required)||(!this.$v.dataToSend.phone.required)) {
+                errors.push('заполните все поля ');
+                newmes =newmes+ errors;
+            }else {
+            
+                if(!this.$v.dataToSend.phone.minLength){
+                    newmes = '';
+                    errors.push('введите правильный полный номер телефона!')
+                    newmes = newmes+errors;
+                }
+                if(!this.$v.dataToSend.mail.email){
+                    newmes = '';
+                    errors.push('введите правильный email')
+                    newmes = newmes+errors;
+                }
+                 /*if((this.$v.dataToSend.phone){
+                errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
+                newmes = newmes+errors;
+                 if((regName.test(this.$v.dataToSend.name))||(regName.test(this.$v.dataToSend.surname)))
+                errors.push('в имени и фамилии должны быть только буквы!');
+            */
+            }
+            return newmes;
+        }
+    },
+
     methods: {
         // async 
         addCard() {
@@ -86,23 +140,16 @@ export default {
             var regName = /^.*[^A-zА-яЁё].*$/;
             var regpas = /^\d+$/;
 
-            const data = {};
-            for (let i = 0; i < this.formFill.length; i++) {
-                data[this.formFill[i].value] = this.formFill[i].data;
-            }
+            if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
+               alert('в имени и фамилии должны быть только буквы!')
+            /*
+            */
 
-            //console.log(this.dataToSend.name);
-            // if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
-            //      alert("в имени и фамилии должны быть только буквы!")
-            // if(!regpas.test(this.dataToSend.phone))
-            //      alert("в поле ТЕЛЕФОН должны быть только цифры!")
-            // if((!this.dataToSend.name)||(!this.dataToSend.surname)||(!this.dataToSend.description)||(!this.dataToSend.email)||(!this.dataToSend.link)||(!this.dataToSend.phone))
-            //      alert("заполните все поля! ")
-            // if(!this.dataToSend.email.includes('@'))
-            //         alert("введите правильный email!")  
-            // if(this.dataToSend.phone.length<11)
-            //         alert("введите правильный полный номер телефона!")
-
+           
+           const data = {};
+                        for (let i = 0; i < this.formFill.length; i++) {
+                            data[this.formFill[i].value] = this.formFill[i].data;
+                        }
                     
             
             //await
@@ -114,9 +161,10 @@ export default {
                     'Content-Type': 'application/json'
                 },
                 
-            });
+            })
             // this.$emit("printData", this.dataToSend);
             this.$router.push("/createcard")
+
             // .then((data) => {
             //     // console.log(this.$router);
             //     // this.$router.
@@ -133,13 +181,10 @@ export default {
             // const data = {};
             // for (let i = 0; i < this.formFill.length; i++) {
             //     data[this.formFill[i].value] = this.formFill[i].data;
-            // }
-            // //console.log(this.dataToSend.name);
+            // }console.log(this.dataToSend.name);
+        
         }
-    },
-    computed: {
-
-    } 
+    }
 }
 
 
