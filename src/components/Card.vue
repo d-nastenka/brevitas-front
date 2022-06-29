@@ -101,28 +101,8 @@ export default {
             if(this.dataToSend.phone.length<11)
                     alert("введите правильный полный номер телефона!")
 
-                    
-            // const data = {};
-            // for (let i = 0; i < this.formFill.length; i++) {
-            //     data[this.formFill[i].value] = this.formFill[i].data;
-            // }
-            // console.log(this.dataToSend);
-            // postData('http://localhost:3000/', { answer: 42 })
-            // .then((data) => {
-            //     console.log(this.dataToSend)
-            // })
-            colsole.log(fetch('http://localhost:3000/'))
-                // .then((response) => {
-                //     return response.json();
-                // })
-                // .then((data) => {
-                //     console.log(data);
-                // });
-
-
-            // запрос на сервер
-           //console.log(this.formFill[i].data) 
-             
+     
+           
 
         }
     },
