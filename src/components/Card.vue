@@ -91,8 +91,6 @@ export default {
                 data[this.formFill[i].value] = this.formFill[i].data;
             }
 
-
-
             //console.log(this.dataToSend.name);
             // if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
             //      alert("в имени и фамилии должны быть только буквы!")
@@ -119,6 +117,26 @@ export default {
             });
             
             //  this.$router.push("/")       
+
+             this.$router.push("/")
+            // .then((data) => {
+            //     // console.log(this.$router);
+            //     // this.$router.
+            //     this.$router.push("/")
+            // });
+
+                // .then((response) => {
+                //     return response.json();
+                // })
+                // .then((data) => {
+                //     console.log(data);
+                // });
+
+            // const data = {};
+            // for (let i = 0; i < this.formFill.length; i++) {
+            //     data[this.formFill[i].value] = this.formFill[i].data;
+            // }
+            // //console.log(this.dataToSend.name);
         }
     },
     computed: {

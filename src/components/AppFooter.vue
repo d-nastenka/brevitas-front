@@ -36,7 +36,7 @@ export default {
     height: 175px;
     justify-content: center;
     align-items: center; 
-    
+    margin-right: 20px;
 }
 
 .footer-flex {
