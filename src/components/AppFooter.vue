@@ -29,14 +29,14 @@ export default {
     /* background-color: #363636; */
     background: #00444a;
     margin-top: 60px;
-    padding-right: 20px;
+    /* padding-right: 20px; */
     padding-top: 20px;
     padding-bottom: 15px; 
     width: 100%;
     height: 175px;
     justify-content: center;
     align-items: center; 
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 .footer-flex {

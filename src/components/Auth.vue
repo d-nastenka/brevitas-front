@@ -114,7 +114,7 @@ export default {
 
 .move-reg {
     text-align: center;
-    padding-left: 10px;
+    padding-right: 20px;
 }
 
 </style>

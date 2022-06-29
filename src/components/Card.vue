@@ -5,6 +5,7 @@
             <div class="title-cards">
                 <h3>Создать новую визитку</h3>
             </div>
+            
             <form @submit.prevent="addCard">
                 <div class="form-input-cards">
                     <div v-for="(i, key) in formFill" :key="key">
@@ -31,6 +32,9 @@ import CreateCard from "./CreateCard.vue"
 
 export default {
     name: "Card",
+    components: {
+      CreateCard
+    },
     data () {
         return {
             dataToSend: {
@@ -111,8 +115,8 @@ export default {
                 },
                 
             });
-
-             this.$router.push("/createcard")
+            // this.$emit("printData", this.dataToSend);
+            this.$router.push("/createcard")
             // .then((data) => {
             //     // console.log(this.$router);
             //     // this.$router.

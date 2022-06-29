@@ -1,15 +1,17 @@
 <template>
   <div class="page">
     <h3>Мои визитки</h3>
-
-    <div class="wrapper">
-      <div v-if="imgLengthstatus">У вас пока нет визиток</div>
-      <div class="flex-container" v-else>
-        <div class="imges-card" v-for="(i, key) in img" :key="key">
-          <div class="buttons">
-            <button class="btn">Изменить</button>
-            <button class="btn">Скачать</button>
-            <button class="btn">Удалить</button>
+    <div id="wait-mounted">
+      <!-- <button @click="getCard">Получить</button> -->
+      <div class="wrapper">
+        <div v-if="imgLengthstatus">У вас пока нет визиток</div>
+        <div class="flex-container" v-else>
+          <div class="imges-card" v-for="(i, key) in dataCard" :key="key">
+            <div class="buttons">
+              <button class="btn">Изменить</button>
+              <button class="btn">Скачать</button>
+              <button class="btn">Удалить</button>
+            </div>
           </div>
         </div>
       </div>
@@ -23,16 +25,50 @@ export default {
   status: false,
   data() {
     return {
-      img: [1, 2, 3, 4, 5, 5, 6, 6, 4],
-    };
+      // img: [1, 2, 3, 4, 5, 5, 6, 6, 4],
+      dataCard: [
+        // name: "",
+        // surname: "",
+        // description: "",
+        // mail: "",
+        // link: "",
+        // phone: "",
+      ],
+    }
   },
-  methods: {},
+  created() {
+      this.getCard()
+      console.log(this.dataCard)
+  },
+  mounted() {
+    
+    console.log(this.dataCard)
+  },
+  methods: {
+    getCard() {
+      let promise =  fetch('http://localhost:3000/visits', {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(res => res.json())
+        .then(res => {       
+            // for (let i = 0; i < res.length; i++) {
+            //     this.dataCard[i] = res[i]
+            // }
+            this.dataCard = res
+        })
+        console.log(this.dataCard)
+    }
+  },
   computed: {
     imgLengthstatus() {
-        return !(this.img.length > 0)
+        return !(this.dataCard.length > 0)
     }
   }
-};
+}
+
 </script>
 
 
