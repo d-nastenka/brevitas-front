@@ -37,13 +37,10 @@ import CreateCard from "./CreateCard.vue"
 
 export default {
     name: "Card",
-
     components: {
       CreateCard
     },
-
     mixins:[validationMixin, ],
-
     data () {
         return {
             dataToSend: {
@@ -98,7 +95,6 @@ export default {
             phone: {required, minLength:minLength(11)}
         }
     },
-
     computed: {
         nameErrors(){
             var regName = /^.*[^A-zА-яЁё].*$/;
@@ -132,7 +128,6 @@ export default {
             return newmes;
         }
     },
-
     methods: {
         // async 
         addCard() {
@@ -142,10 +137,7 @@ export default {
 
             if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
                alert('в имени и фамилии должны быть только буквы!')
-            /*
-            */
 
-           
            const data = {};
                         for (let i = 0; i < this.formFill.length; i++) {
                             data[this.formFill[i].value] = this.formFill[i].data;
@@ -162,27 +154,7 @@ export default {
                 },
                 
             })
-            // this.$emit("printData", this.dataToSend);
-            this.$router.push("/createcard")
-
-            // .then((data) => {
-            //     // console.log(this.$router);
-            //     // this.$router.
-            //     this.$router.push("/")
-            // });
-
-                // .then((response) => {
-                //     return response.json();
-                // })
-                // .then((data) => {
-                //     console.log(data);
-                // });
-
-            // const data = {};
-            // for (let i = 0; i < this.formFill.length; i++) {
-            //     data[this.formFill[i].value] = this.formFill[i].data;
-            // }console.log(this.dataToSend.name);
-        
+            this.$router.push("/createcard")        
         }
     }
 }
