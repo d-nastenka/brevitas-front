@@ -35,11 +35,13 @@ export default {
     justify-content: center;
     align-items: center; 
 
-    background-color: #353535;
+    /* background-color: #353535; */
     color: rgb(199, 199, 199);
-    /* background-color: #9FEDD7; */
+    background-color: #003c41;;
     /*background-image: url(.jpg);*/
     background-size: cover;
+
+    margin-bottom: 50px;
 }
 
 .head-title {

@@ -73,7 +73,7 @@ export default {
             // }
             console.log(this.dataRegToSend);
             // console.log(data);
-            
+
         }
     }
 }
@@ -103,14 +103,14 @@ export default {
 
 .reg-title {
     text-align: center;
-    margin: 0 0 20px 0;
+    margin: 0 0 17px 0;
     font-weight: normal;
 }
 
 
 .reg-input {
     width: 100%;
-    padding: 0 0 10px 0;
+    padding: 0 0 12px 0;
     border: none;    
 }
 

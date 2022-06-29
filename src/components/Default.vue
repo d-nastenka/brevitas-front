@@ -63,6 +63,8 @@ export default {
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 30px;
+  cursor: pointer;
+    
 }
 
 .imges-card {
@@ -72,7 +74,7 @@ export default {
     
     flex-direction: column;
     justify-content: flex-end;
-
+    border-radius: 2px;
     /* margin-block: 1px; */
 }
 
