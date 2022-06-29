@@ -15,7 +15,7 @@ import Footer from './components/AppFooter.vue'
 
 import Home from "./components/Default.vue"
 import Card from "./components/Card.vue"
-import Reg from "./components/Reg.vue"
+// import Reg from "./components/Reg.vue"
 import Auth from "./components/Auth.vue"
 
 
@@ -26,7 +26,7 @@ export default {
       Footer,
       Home,
       Card,
-      Reg,
+      // Reg,
       Auth
   },
   data () {

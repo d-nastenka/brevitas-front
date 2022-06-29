@@ -90,6 +90,9 @@ export default {
             for (let i = 0; i < this.formFill.length; i++) {
                 data[this.formFill[i].value] = this.formFill[i].data;
             }
+
+
+
             //console.log(this.dataToSend.name);
             // if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
             //      alert("в имени и фамилии должны быть только буквы!")
@@ -103,15 +106,7 @@ export default {
             //         alert("введите правильный полный номер телефона!")
 
                     
-            // const data = {};
-            // for (let i = 0; i < this.formFill.length; i++) {
-            //     data[this.formFill[i].value] = this.formFill[i].data;
-            // }
-            // console.log(this.dataToSend);
-            // postData('http://localhost:3000/', { answer: 42 })
-            // .then((data) => {
-            //     console.log(this.dataToSend)
-            // })
+            
             //await
             let promise =  fetch('http://localhost:3000/visits', {
                 method: "POST",
@@ -123,34 +118,7 @@ export default {
                 
             });
             
-             this.$router.push("/")
-            // .then((data) => {
-            //     // console.log(this.$router);
-            //     // this.$router.
-            //     this.$router.push("/")
-            // });
-
-                // .then((response) => {
-                //     return response.json();
-                // })
-                // .then((data) => {
-                //     console.log(data);
-                // });
-
-
-            // запрос на сервер
-           //console.log(this.formFill[i].data) 
-
-            // var regName = /^.*[^A-zА-яЁё].*$/;
-            // var regpas = /^\d+$/;
-
-            // const data = {};
-            // for (let i = 0; i < this.formFill.length; i++) {
-            //     data[this.formFill[i].value] = this.formFill[i].data;
-            // }
-            // //console.log(this.dataToSend.name);
-            
-
+            //  this.$router.push("/")       
         }
     },
     computed: {

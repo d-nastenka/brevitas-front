@@ -23,8 +23,9 @@
 
 <script>
 
+
 export default {
-    name: 'Reg',
+    name: "Reg",
     data () {
         return {
             dataRegToSend: {

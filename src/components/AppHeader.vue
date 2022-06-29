@@ -5,12 +5,13 @@
       </div>
 
       <div class="pages">
-        <p>
-            <router-link class="pages_ell" to="/">Home</router-link> 
-            <router-link class="pages_ell" to="/card">New Card</router-link>
-            <router-link class="pages_ell" to="/registration">Registration</router-link> 
-            <router-link class="pages_ell" to="/authorization">Authorization</router-link>
-        </p>
+            <div class="menu">
+              <router-link class="pages_ell" to="/">Мои визитки</router-link> 
+              <router-link class="pages_ell" to="/card">Создать новую визитку</router-link>
+            </div>
+            <div class="page-auth">
+              <router-link class="pages_ell" to="/authorization">Войти</router-link>
+            </div>
       </div>
       
 
@@ -29,10 +30,10 @@ export default {
 
 <style>
 .head {
-    width: 101%;
-    height: 175px;
+    width: 100%;
+    height: 125px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center; 
 
     /* background-color: #353535; */
@@ -45,17 +46,33 @@ export default {
 }
 
 .head-title {
-  margin-right: 330px;
+  margin-right: 70px;
   margin-left: 30px;
   
   font-size: 27px;/*шрифт*/ 
 
   display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 50px;
 }
 
 .pages_ell {
     color: rgb(165, 165, 165);
 }
+
+.pages {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.page-auth {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 725px;
+}
+
 </style>
