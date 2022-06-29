@@ -14,6 +14,8 @@
                     </div>
 
                     <button type="submit" class="btn-card"> Создать визитку</button>
+
+                    
                 </div>
             </form>
 
@@ -25,13 +27,7 @@
 
 <script>
 
-// async function postData(url = '', data = {}) {
-
-//     const response = await fetch(url, {
-//         method: 'POST'
-//     });
-//     return await response.json();
-// }
+import CreateCard from "./CreateCard.vue"
 
 export default {
     name: "Card",
@@ -115,10 +111,8 @@ export default {
                 },
                 
             });
-            
-            //  this.$router.push("/")       
 
-             this.$router.push("/")
+             this.$router.push("/createcard")
             // .then((data) => {
             //     // console.log(this.$router);
             //     // this.$router.
@@ -188,6 +182,8 @@ export default {
     cursor: pointer;
     border-radius: 7px;
     text-align: center;
+
+    margin-top: 10px;
 }
 
 .btn-card:hover {

@@ -12,10 +12,9 @@
                     </div>
                 </div>
             <button type="submit" class="btn-auth"> Войти </button>
-            <div>
+            <div class="move-reg">
                 <p>
                     <router-link class="pages_ell" to="/registration">Зарегистрироваться</router-link> 
-                    
                 </p>
                 
             </div>
@@ -57,7 +56,7 @@ export default {
     },
     methods: {
         sendAuth() {
-            console.log(this.dataAuthToSend);
+            this.$router.push("/")
         }
     }
 }
@@ -104,10 +103,18 @@ export default {
     cursor: pointer;
     border-radius: 7px;
     text-align: center;
+
+    margin-top: 10px;
 }
 
 .btn-auth:hover {
     background-color: white;
     color: rgb(76, 76, 76);
 }
+
+.move-reg {
+    text-align: center;
+    padding-left: 10px;
+}
+
 </style>
