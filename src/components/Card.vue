@@ -16,6 +16,8 @@
                     </div>
                     <p> <font color="red"> {{nameErrors}}</font></p> 
                     <button type="submit" class="btn-card"> Создать визитку</button>
+
+                    
                 </div>
             </form>
 
@@ -26,8 +28,11 @@
 </template>
 
 <script>
+
 import {validationMixin} from 'vuelidate';
 import {required, minLength, email} from 'vuelidate/lib/validators'
+import CreateCard from "./CreateCard.vue"
+
 
 export default {
     name: "Card",
@@ -139,15 +144,7 @@ export default {
                             data[this.formFill[i].value] = this.formFill[i].data;
                         }
                     
-            // const data = {};
-            // for (let i = 0; i < this.formFill.length; i++) {
-            //     data[this.formFill[i].value] = this.formFill[i].data;
-            // }
-            // console.log(this.dataToSend);
-            // postData('http://localhost:3000/', { answer: 42 })
-            // .then((data) => {
-            //     console.log(this.dataToSend)
-            // })
+            
             //await
             let promise =  fetch('http://localhost:3000/visits', {
                 method: "POST",
@@ -158,9 +155,7 @@ export default {
                 },
                 
             });
-            
-            this.$router.push("/") 
-
+             this.$router.push("/createcard")
             // .then((data) => {
             //     // console.log(this.$router);
             //     // this.$router.
@@ -177,10 +172,8 @@ export default {
             // const data = {};
             // for (let i = 0; i < this.formFill.length; i++) {
             //     data[this.formFill[i].value] = this.formFill[i].data;
-            // }
-            // //console.log(this.dataToSend.name);
-            
-
+            // }console.log(this.dataToSend.name);
+        
         }
     }
 }
@@ -229,6 +222,8 @@ export default {
     cursor: pointer;
     border-radius: 7px;
     text-align: center;
+
+    margin-top: 10px;
 }
 
 .btn-card:hover {

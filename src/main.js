@@ -8,6 +8,8 @@ import Card from "./components/Card"
 import Reg from "./components/Reg.vue"
 import Auth from "./components/Auth.vue"
 
+import CreateCard from "./components/CreateCard.vue"
+
 
 Vue.use(VueRouter)
 
@@ -17,6 +19,7 @@ const routes = [
   { path: '/card', component: Card },
   { path: '/registration', component: Reg },
   { path: '/authorization', component: Auth },
+  { path: '/createcard', component: CreateCard},
 ]
 
 const router = new VueRouter({

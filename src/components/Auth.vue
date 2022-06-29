@@ -12,7 +12,13 @@
                     </div>
                 </div>
             <button type="submit" class="btn-auth"> Войти </button>
-
+            <div class="move-reg">
+                <p>
+                    <router-link class="pages_ell" to="/registration">Зарегистрироваться</router-link> 
+                </p>
+                
+            </div>
+            <router-view/>
             </form> 
         </div>
     </div>
@@ -20,8 +26,14 @@
 
 <script>
 
+
+import Reg from "./Reg.vue"
+
 export default {
     name: "Auth",
+    components: {
+      Reg
+    },
     data () {
         return {
             dataAuthToSend: {
@@ -44,7 +56,7 @@ export default {
     },
     methods: {
         sendAuth() {
-            console.log(this.dataAuthToSend);
+            this.$router.push("/")
         }
     }
 }
@@ -91,10 +103,18 @@ export default {
     cursor: pointer;
     border-radius: 7px;
     text-align: center;
+
+    margin-top: 10px;
 }
 
 .btn-auth:hover {
     background-color: white;
     color: rgb(76, 76, 76);
 }
+
+.move-reg {
+    text-align: center;
+    padding-left: 10px;
+}
+
 </style>

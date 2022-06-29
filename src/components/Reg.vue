@@ -12,7 +12,7 @@
                             <input v-model="dataRegToSend[i.value]" required :placeholder="i.textPlaceholder">
                         </div>
                     </div>    
-                    <button  type="submit" class="btn-reg" > Зарегистрироваться</button>
+                    <button  type="submit" class="btn-reg">Зарегистрироваться</button>
                 </div>
             </form> 
         </div>
@@ -23,28 +23,17 @@
 
 <script>
 
+
 export default {
-    name: 'Reg',
+    name: "Reg",
     data () {
         return {
             dataRegToSend: {
-                name: "",
-                surname: "",
                 email: "",
                 login: "",
                 password: "",
             },
             formReg: [
-                {
-                    textPlaceholder: 'Имя',
-                    value: 'name',
-                    data: ''
-                },
-                {
-                    textPlaceholder: 'Фамилия',
-                    value: 'surname',
-                    data: ''
-                },
                 {
                     textPlaceholder: 'Почта',
                     value: 'email',
@@ -67,12 +56,17 @@ export default {
     },
     methods: {
         addUser() {
-            // const data = {};
-            // for (let i = 0; i < this.formReg.length; i++) {
-            //     data[this.formReg[i].value] = this.formReg[i].data;
-            // }
-            console.log(this.dataRegToSend);
-            // console.log(data);
+            let promise =  fetch('http://localhost:3000/users', {
+                method: "POST",
+                body: JSON.stringify(this.dataRegToSend),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                
+            });
+   
+            this.$router.push("/")
 
         }
     }
@@ -123,6 +117,8 @@ export default {
     cursor: pointer;
     border-radius: 7px;
     text-align: center;
+
+    margin-top: 10px;
 }
 
 .btn-reg:hover {
