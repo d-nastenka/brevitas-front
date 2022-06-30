@@ -16,9 +16,9 @@
                         </div>
                     </div>
                     <p> <font color="red"> {{nameErrors}}</font></p> 
-                    <button type="submit" class="btn-card"> Создать визитку</button>
-
-                    
+                    <div v-if="!nameErrors">
+                        <button type="submit" class="btn-card"> Создать визитку</button>
+                    </div>
                 </div>
             </form>
 
@@ -103,41 +103,41 @@ export default {
         nameErrors(){
             const errors=[];
             var newmes ='';
-            
+
             if((!this.$v.dataToSend.name.required)||(!this.$v.dataToSend.surname.required)||(!this.$v.dataToSend.description.required)||(!this.$v.dataToSend.mail.required)
             ||(!this.$v.dataToSend.link.required)||(!this.$v.dataToSend.phone.required)) {
-                errors.push('заполните все поля ');
+                 errors.push('заполните все поля ');
                 newmes =newmes+ errors;
                 check: false;
             }else {
             
-            if(!this.$v.dataToSend.phone.minLength){
-                newmes = '';
+                if(!this.$v.dataToSend.phone.minLength){
+                    newmes = '';
                 errors.push(' введите правильный полный номер телефона')
-                newmes = newmes+errors;
-            }
-            if(!this.$v.dataToSend.mail.email){
-                newmes = '';
+                    newmes = newmes+errors;
+                }
+                if(!this.$v.dataToSend.mail.email){
+                    newmes = '';
                 errors.push(' введите правильный email')
-                newmes = newmes+errors;
+                    newmes = newmes+errors;
+                }
+                if(!this.$v.dataToSend.link.url){
+                    newmes = '';
+                    errors.push(' введите правильную ссылку')
+                    newmes = newmes+errors;
+                }
+                if((this.$v.dataToSend.name.numeric)||(this.$v.dataToSend.surname.numeric)){
+                    newmes = '';
+                    errors.push('в имени и фамилии должны быть только буквы!');
+                            newmes = newmes+errors;
+                }
+                if(!this.$v.dataToSend.phone.numeric){
+                    newmes = '';
+                    errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
+                    newmes = newmes+errors;
+                }
             }
-            if(!this.$v.dataToSend.link.url){
-                newmes = '';
-                errors.push(' введите правильную ссылку')
-                newmes = newmes+errors;
-            }
-            if((this.$v.dataToSend.name.numeric)||(this.$v.dataToSend.surname.numeric)){
-                newmes = '';
-                errors.push('в имени и фамилии должны быть только буквы!');
-                newmes = newmes+errors;
-            }
-            if(!this.$v.dataToSend.phone.numeric){
-                newmes = '';
-                errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
-                newmes = newmes+errors;
-            }
-          }   
-       return newmes;
+            return newmes;
         }
     },
     methods: {
@@ -145,9 +145,9 @@ export default {
         addCard() {
 
            const data = {};
-            for (let i = 0; i < this.formFill.length; i++) {
-                data[this.formFill[i].value] = this.formFill[i].data;
-            }
+                        for (let i = 0; i < this.formFill.length; i++) {
+                            data[this.formFill[i].value] = this.formFill[i].data;
+                        }
                     
             
             //await
@@ -217,7 +217,7 @@ export default {
 }
 
 .btn-card:hover {
-    background-color: rgb(4, 4, 4);
-    color: rgb(245, 243, 243);
+    background-color: white;
+    color: rgb(76, 76, 76);
 }
 </style>

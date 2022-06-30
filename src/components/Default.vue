@@ -10,7 +10,7 @@
             <div class="buttons">
               <button class="btn">Изменить</button>
               <button class="btn">Скачать</button>
-              <button class="btn">Удалить</button>
+              <button class="btn" @click="deleteCard(key)">Удалить</button>
             </div>
           </div>
         </div>
@@ -60,6 +60,17 @@ export default {
             this.dataCard = res
         })
         console.log(this.dataCard)
+    },
+    deleteCard(i) {
+      let promise =  fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
+        method: "DELETE",
+        body: JSON.stringify(this.dataCard[i]._id),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },        
+      })
+      console.log(this.dataCard[i]._id)
     }
   },
   computed: {
