@@ -129,12 +129,13 @@ export default {
                 newmes = newmes+errors;
             }
             if(!this.$v.dataToSend.phone.numeric){
-            newmes = '';
-            errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
-            newmes = newmes+errors;
+                newmes = '';
+                errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
+                newmes = newmes+errors;
             }
           }   
        return newmes;
+        }
     },
     methods: {
         // async 
@@ -159,7 +160,7 @@ export default {
             this.$router.push("/createcard")        
         }
     }
-}
+
 }
 
 </script>
