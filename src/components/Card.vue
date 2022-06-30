@@ -19,6 +19,7 @@
                     <div v-if="!nameErrors">
                         <button type="submit" class="btn-card"> Создать визитку</button>
                     </div>
+                    <!-- <button v-bind:disabled="nameErrors" type="submit" class="btn-card"> Создать визитку</button> -->
                 </div>
             </form>
 
