@@ -5,11 +5,11 @@
         </div>
         <div class="flex-field">
             <div class="field-create">
-                <!-- <div v-for="(i, key) in dataOfCard" :key="key">
+                <div v-for="(i, key) in dataToSend" :key="key">
                     <div class="text-card">
                         {{ i }}
                     </div>
-                </div> -->
+                </div>
             </div>
 
             <div class="menu-create">
@@ -28,20 +28,32 @@
 
 export default {
     name: "CreateCard",
-    props: {
-        name: String,
-        surname: String,
-        description: String,
-        mail: String,
-        link: String,
-        phone: Number,
+    // props: {
+    //         dataToSend: {
+    //         name: String,
+    //         surname: String,
+    //         description: String,
+    //         mail: String,
+    //         link: String,
+    //         phone: Number,
+    // }},
+    data () {
+        return {
+            dataToSend: {
+                name: "",
+                surname: "",
+                description: "",
+                mail: "",
+                link: "",
+                phone: "",
+            },
+        }
     },
     
-    
     methods: {
-        // printData(dataOfCard) {
-        //     this.dataToSend.push(dataOfCard);
-        // }
+        printData(dataOfCard) {
+            this.dataToSend.push(dataOfCard);
+        }
     },
     computed: {
 

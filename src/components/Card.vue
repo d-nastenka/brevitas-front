@@ -24,7 +24,7 @@
 
 
         </div>
-
+        
     </div>
 </template>
 
@@ -40,6 +40,9 @@ export default {
     components: {
       CreateCard
     },
+    probs: {
+        dataToSend: Object,
+    } ,
     mixins:[validationMixin, ],
     data () {
         return {
@@ -154,6 +157,9 @@ export default {
                 },
                 
             })
+
+            // this.$emit("printData")
+
             this.$router.push("/createcard")        
         }
     }
