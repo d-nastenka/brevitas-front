@@ -3,7 +3,7 @@
 
         <div class="form-cards">
             <div class="title-cards">
-                <h3>Создать новую визитку</h3>
+                <h3>Изменить визитку</h3>
             </div>
             
             <form @submit.prevent="addCard">
@@ -17,7 +17,7 @@
                     </div>
                     <p> <font color="red"> {{nameErrors}}</font></p> 
                     <div v-if="!nameErrors">
-                        <button type="submit" class="btn-card"> Создать визитку</button>
+                        <button type="submit" class="btn-card">Сохранить</button>
                     </div>
                     <!-- <button v-bind:disabled="nameErrors" type="submit" class="btn-card"> Создать визитку</button> -->
                 </div>
@@ -33,18 +33,15 @@
 
 import {validationMixin} from 'vuelidate';
 import {required, minLength, email, url, numeric} from 'vuelidate/lib/validators'
-// import CreateCard from "./CreateCard.vue"
+
 
 
 export default {
-    name: "Card",
-    // components: {
-    //   CreateCard
-    // },
-    probs: {
-        dataToSend: Object,
-    } ,
+    name: "ChangeCard",
     mixins:[validationMixin, ],
+    props: {
+        idForChande: String
+    },
     data () {
         return {
             check: true,
@@ -152,9 +149,9 @@ export default {
                     
             
             //await
-            let promise =  fetch('http://localhost:3000/visits', {
-                method: "POST",
-                body: JSON.stringify(this.dataToSend),
+            let promise =  fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
+                method: "PUT",
+                // body: JSON.stringify(this.dataToSend),
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -164,7 +161,7 @@ export default {
 
             // this.$emit("printData")
 
-            this.$router.push("/createcard")        
+            this.$router.push("/")        
         }
     }
 

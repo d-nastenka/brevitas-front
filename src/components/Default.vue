@@ -7,22 +7,33 @@
         <div v-if="imgLengthstatus">У вас пока нет визиток</div>
         <div class="flex-container" v-else>
           <div class="imges-card" v-for="(i, key) in dataCard" :key="key">
+            {{ i._id }}
             <div class="buttons">
-              <button class="btn">Изменить</button>
-              <button class="btn">Скачать</button>
+              <button class="btn" @click="changeCard(key)">Изменить</button>
+              <!-- <CardId :idForChande="this.dataCard[i]._id"></CardId> -->
+              <button class="btn" @click="seeCard(key)">Посмотреть</button>
               <button class="btn" @click="deleteCard(key)">Удалить</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
 <script>
+// import ChangeCard from "./ChangeCard.vue"
+
 export default {
   name: "Home",
+  // components: {
+  //     'CardId': ChangeCard
+  // },
   status: false,
+  // props: {
+  //   idForChande: String
+  // },
   data() {
     return {
       // img: [1, 2, 3, 4, 5, 5, 6, 6, 4],
@@ -64,13 +75,21 @@ export default {
     deleteCard(i) {
       let promise =  fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
         method: "DELETE",
-        body: JSON.stringify(this.dataCard[i]._id),
+        // body: JSON.stringify(this.dataCard[i]._id),
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },        
       })
       console.log(this.dataCard[i]._id)
+    },
+    changeCard(i) {
+
+      console.log(this.idForChande)
+      this.$router.push("/changecard") 
+    },
+    seeCard() {
+      this.$router.push("/seecard") 
     }
   },
   computed: {
@@ -93,14 +112,16 @@ export default {
 }
 
 .imges-card {
-  width: 300px;
+  width: 320px;
   height: 200px;
 
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 72px;
+  margin-right: 72px;
 
-  border: 1px solid rgb(77, 77, 77);
-  box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px;
+  /* border: 1px solid rgb(77, 77, 77);
+  box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px; */
+  border-radius: 7px;
+  box-shadow: 0 4px 16px rgb(134, 134, 134);
 }
 
 .flex-container {
