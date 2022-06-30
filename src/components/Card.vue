@@ -46,6 +46,7 @@ export default {
     mixins:[validationMixin, ],
     data () {
         return {
+            check: true,
             dataToSend: {
                 name: "",
                 surname: "",
@@ -100,15 +101,14 @@ export default {
     },
     computed: {
         nameErrors(){
-            var regName = /^.*[^A-zА-яЁё].*$/;
-            var regpas = /^\d+$/;
-
             const errors=[];
             var newmes ='';
+            
             if((!this.$v.dataToSend.name.required)||(!this.$v.dataToSend.surname.required)||(!this.$v.dataToSend.description.required)||(!this.$v.dataToSend.mail.required)
             ||(!this.$v.dataToSend.link.required)||(!this.$v.dataToSend.phone.required)) {
                 errors.push('заполните все поля ');
                 newmes =newmes+ errors;
+                check: false;
             }else {
             
             if(!this.$v.dataToSend.phone.minLength){
@@ -217,7 +217,7 @@ export default {
 }
 
 .btn-card:hover {
-    background-color: white;
-    color: rgb(76, 76, 76);
+    background-color: rgb(4, 4, 4);
+    color: rgb(245, 243, 243);
 }
 </style>
