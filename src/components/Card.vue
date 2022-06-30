@@ -31,7 +31,7 @@
 <script>
 
 import {validationMixin} from 'vuelidate';
-import {required, minLength, email} from 'vuelidate/lib/validators'
+import {required, minLength, email, url, numeric} from 'vuelidate/lib/validators'
 import CreateCard from "./CreateCard.vue"
 
 
@@ -90,12 +90,12 @@ export default {
     },
     validations:{
         dataToSend: {
-            name: {required},
-            surname: {required},
+            name: {required,numeric},
+            surname: {required,numeric},
             description: {required},
             mail: {required, email},
-            link: {required},
-            phone: {required, minLength:minLength(11)}
+            link: {required, url},
+            phone: {required, minLength:minLength(11),numeric}
         }
     },
     computed: {
@@ -111,40 +111,42 @@ export default {
                 newmes =newmes+ errors;
             }else {
             
-                if(!this.$v.dataToSend.phone.minLength){
-                    newmes = '';
-                    errors.push('введите правильный полный номер телефона!')
-                    newmes = newmes+errors;
-                }
-                if(!this.$v.dataToSend.mail.email){
-                    newmes = '';
-                    errors.push('введите правильный email')
-                    newmes = newmes+errors;
-                }
-                 /*if((this.$v.dataToSend.phone){
-                errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
+            if(!this.$v.dataToSend.phone.minLength){
+                newmes = '';
+                errors.push(' введите правильный полный номер телефона')
                 newmes = newmes+errors;
-                 if((regName.test(this.$v.dataToSend.name))||(regName.test(this.$v.dataToSend.surname)))
-                errors.push('в имени и фамилии должны быть только буквы!');
-            */
             }
-            return newmes;
-        }
+            if(!this.$v.dataToSend.mail.email){
+                newmes = '';
+                errors.push(' введите правильный email')
+                newmes = newmes+errors;
+            }
+            if(!this.$v.dataToSend.link.url){
+                newmes = '';
+                errors.push(' введите правильную ссылку')
+                newmes = newmes+errors;
+            }
+            if((this.$v.dataToSend.name.numeric)||(this.$v.dataToSend.surname.numeric)){
+                newmes = '';
+                errors.push('в имени и фамилии должны быть только буквы!');
+                newmes = newmes+errors;
+            }
+            if(!this.$v.dataToSend.phone.numeric){
+            newmes = '';
+            errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
+            newmes = newmes+errors;
+            }
+          }   
+       return newmes;
     },
     methods: {
         // async 
         addCard() {
 
-            var regName = /^.*[^A-zА-яЁё].*$/;
-            var regpas = /^\d+$/;
-
-            if((regName.test(this.dataToSend.name))||(regName.test(this.dataToSend.surname)))
-               alert('в имени и фамилии должны быть только буквы!')
-
            const data = {};
-                        for (let i = 0; i < this.formFill.length; i++) {
-                            data[this.formFill[i].value] = this.formFill[i].data;
-                        }
+            for (let i = 0; i < this.formFill.length; i++) {
+                data[this.formFill[i].value] = this.formFill[i].data;
+            }
                     
             
             //await
@@ -164,7 +166,7 @@ export default {
         }
     }
 }
-
+}
 
 </script>
 
