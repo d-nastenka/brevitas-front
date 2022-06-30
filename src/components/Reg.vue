@@ -8,10 +8,13 @@
             <form @submit.prevent="addUser">
                 <div class="form-input">
                     <div v-for="(i, key) in formReg" :key="key">
-                        <div class="reg-input">
-                            <input v-model="dataRegToSend[i.value]" required :placeholder="i.textPlaceholder">
+                        <div :error-messages = "nameErrors" class="reg-input">
+                            <input v-model="dataRegToSend[i.value]"  
+                            :placeholder="i.textPlaceholder">
                         </div>
-                    </div>    
+                          
+                    </div>  
+                    <p> <font color="red"> {{nameErrors}}</font></p>
                     <button  type="submit" class="btn-reg">Зарегистрироваться</button>
                 </div>
             </form> 
@@ -23,9 +26,13 @@
 
 <script>
 
+import {validationMixin} from 'vuelidate';
+import {required, minLength, email} from 'vuelidate/lib/validators'
+
 
 export default {
     name: "Reg",
+    mixins:[validationMixin, ],
     data () {
         return {
             dataRegToSend: {
@@ -54,6 +61,39 @@ export default {
         }
         
     },
+     validations:{
+        dataRegToSend: {
+            email: {required, email},
+            login: {required},
+            password: {required, minLength:minLength(11)}
+        }
+    },
+    computed: {
+        nameErrors(){
+            const errors=[];
+            var newmes ='';
+
+            if((!this.$v.dataRegToSend.login.required)||(!this.$v.dataRegToSend.email.required)||(!this.$v.dataRegToSend.password.required)) {
+                errors.push('заполните все поля ');
+                newmes =newmes+ errors;
+            }
+            else {
+            if(!this.$v.dataRegToSend.email.email){
+                newmes = '';
+                errors.push(' введите правильный email')
+                newmes = newmes+errors;
+            }
+            if((this.$v.dataRegToSend.login.numeric)){
+                newmes = '';
+                errors.push('в имени должны быть только буквы!');
+                newmes = newmes+errors;
+            }
+      
+            }
+            return newmes;
+        }
+    },
+
     methods: {
         addUser() {
             let promise =  fetch('http://localhost:3000/users', {

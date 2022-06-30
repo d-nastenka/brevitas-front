@@ -46,7 +46,6 @@ export default {
     mixins:[validationMixin, ],
     data () {
         return {
-            check: true,
             dataToSend: {
                 name: "",
                 surname: "",

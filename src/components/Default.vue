@@ -25,7 +25,7 @@ export default {
   status: false,
   data() {
     return {
-      // img: [1, 2, 3, 4, 5, 5, 6, 6, 4],
+
       dataCard: [
         // name: "",
         // surname: "",
