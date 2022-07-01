@@ -5,21 +5,16 @@
             <div class="title-cards">
                 <h3>Изменить визитку</h3>
             </div>
-            
-            <form @submit.prevent="addCard">
+            <!-- {{ $route.params.id }} -->
+            <form @submit.prevent="changeCard">
                 <div class="form-input-cards">
-                    <div v-for="(i, key) in formFill" :key="key" >
-                        <div :error-messages = "nameErrors" class="cards-input">
-                            <input  v-model="dataToSend[i.value]" 
-                            :placeholder="i.textPlaceholder" 
-                            >  
+                    <div v-for="(item, key) in formFill" :key="key" >
+                        <div class="cards-input">
+                            <input v-model="dataOfCard[item.value]" :placeholder="item.textPlaceholder">
+                             
                         </div>
                     </div>
-                    <p> <font color="red"> {{nameErrors}}</font></p> 
-                    <div v-if="!nameErrors">
-                        <button type="submit" class="btn-card">Сохранить</button>
-                    </div>
-                    <!-- <button v-bind:disabled="nameErrors" type="submit" class="btn-card"> Создать визитку</button> -->
+                    <button type="submit" class="btn-card">Сохранить</button>
                 </div>
             </form>
 
@@ -31,21 +26,12 @@
 
 <script>
 
-import {validationMixin} from 'vuelidate';
-import {required, minLength, email, url, numeric} from 'vuelidate/lib/validators'
-
-
-
 export default {
-    name: "ChangeCard",
-    mixins:[validationMixin, ],
-    props: {
-        idForChande: String
-    },
+    name: "ChangeCard",    
     data () {
         return {
-            check: true,
-            dataToSend: {
+            IdCard: this.$route.params.id,
+            dataOfCard: {
                 name: "",
                 surname: "",
                 description: "",
@@ -87,80 +73,40 @@ export default {
             ]       
         }
     },
-    validations:{
-        dataToSend: {
-            name: {required,numeric},
-            surname: {required,numeric},
-            description: {required},
-            mail: {required, email},
-            link: {required, url},
-            phone: {required, minLength:minLength(11),numeric}
-        }
-    },
     computed: {
-        nameErrors(){
-            const errors=[];
-            var newmes ='';
 
-            if((!this.$v.dataToSend.name.required)||(!this.$v.dataToSend.surname.required)||(!this.$v.dataToSend.description.required)||(!this.$v.dataToSend.mail.required)
-            ||(!this.$v.dataToSend.link.required)||(!this.$v.dataToSend.phone.required)) {
-                 errors.push('заполните все поля ');
-                newmes =newmes+ errors;
-                check: false;
-            }else {
-            
-                if(!this.$v.dataToSend.phone.minLength){
-                    newmes = '';
-                errors.push(' введите правильный полный номер телефона')
-                    newmes = newmes+errors;
-                }
-                if(!this.$v.dataToSend.mail.email){
-                    newmes = '';
-                errors.push(' введите правильный email')
-                    newmes = newmes+errors;
-                }
-                if(!this.$v.dataToSend.link.url){
-                    newmes = '';
-                    errors.push(' введите правильную ссылку')
-                    newmes = newmes+errors;
-                }
-                if((this.$v.dataToSend.name.numeric)||(this.$v.dataToSend.surname.numeric)){
-                    newmes = '';
-                    errors.push('в имени и фамилии должны быть только буквы!');
-                            newmes = newmes+errors;
-                }
-                if(!this.$v.dataToSend.phone.numeric){
-                    newmes = '';
-                    errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
-                    newmes = newmes+errors;
-                }
-            }
-            return newmes;
-        }
+    },
+    created() {
+      this.getCard()
+      console.log(this.dataCard)
     },
     methods: {
-        // async 
-        addCard() {
-
-           const data = {};
-                        for (let i = 0; i < this.formFill.length; i++) {
-                            data[this.formFill[i].value] = this.formFill[i].data;
-                        }
-                    
-            
-            //await
-            let promise =  fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
-                method: "PUT",
-                // body: JSON.stringify(this.dataToSend),
+        getCard() {
+            let promise =  fetch(`http://localhost:3000/visits/${this.$route.params.id}`, {
+                method: "GET",
+                // body: JSON.stringify(this.dataOfCard),
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
-                },
-                
+                }, 
             })
-
-            // this.$emit("printData")
-
+            .then(res => res.json())
+            .then(res => {
+                  
+                this.dataOfCard = res
+                console.log(this.dataOfCard)
+            })
+        },
+        // async 
+        changeCard() {         
+            let promise =  fetch(`http://localhost:3000/visits/${this.$route.params.id}`, {
+                method: "PUT",
+                body: JSON.stringify(this.dataOfCard),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }, 
+            })
             this.$router.push("/")        
         }
     }

@@ -18,7 +18,7 @@ import Card from "./components/Card.vue"
 import CreateCard from "./components/CreateCard.vue"
 import Reg from "./components/Reg.vue"
 import Auth from "./components/Auth.vue"
-// import ChangeCard from "./components/ChangeCard.vue"
+import ChangeCard from "./components/ChangeCard.vue"
 import SeeCard from "./components/SeeCard.vue"
 
 
@@ -32,7 +32,7 @@ export default {
       Reg,
       Auth,
       CreateCard,
-      // ChangeCard,
+      ChangeCard,
       SeeCard
   },
   data () {

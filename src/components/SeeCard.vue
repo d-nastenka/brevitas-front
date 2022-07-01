@@ -5,7 +5,7 @@
         </div>
         <div class="flex-field">
             <div class="field-card">
-        
+                {{ dataCard }}
             </div>
 
         </div>
@@ -23,21 +23,37 @@ export default {
 
     data () {
         return {
-            dataToSend: {
-                name: "",
-                surname: "",
-                description: "",
-                mail: "",
-                link: "",
-                phone: "",
-            },
+            // dataToSend: {
+            //     name: "",
+            //     surname: "",
+            //     description: "",
+            //     mail: "",
+            //     link: "",
+            //     phone: "",
+            // },
+            dataCard: {}
         }
     },
-    
+    created() {
+      this.getCard()
+      console.log(this.dataCard)
+    },
     methods: {
-        // printData(dataOfCard) {
-        //     this.dataToSend.push(dataOfCard);
-        // }
+        getCard() {
+            let promise =  fetch(`http://localhost:3000/visits/${this.$route.params.id}`, {
+                method: "GET",
+                // body: JSON.stringify(this.dataOfCard),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }, 
+            })
+            .then(res => res.json())
+            .then(res => {
+                 this.dataCard = res     
+
+            })
+        },
     },
     computed: {
 
@@ -52,7 +68,7 @@ export default {
 .flex-field {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 
     margin-top: 40px;
 }

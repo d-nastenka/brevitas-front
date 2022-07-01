@@ -22,8 +22,8 @@ const routes = [
   { path: '/registration', component: Reg },
   { path: '/authorization', component: Auth },
   { path: '/createcard', component: CreateCard },
-  { path: '/changecard', component: ChangeCard },
-  { path: '/seecard', component: SeeCard },
+  { path: '/changecard/:id', component: ChangeCard },
+  { path: '/seecard/:id', component: SeeCard },
 ]
 
 const router = new VueRouter({

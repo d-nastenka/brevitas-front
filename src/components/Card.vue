@@ -145,10 +145,10 @@ export default {
         // async 
         addCard() {
 
-           const data = {};
-                        for (let i = 0; i < this.formFill.length; i++) {
-                            data[this.formFill[i].value] = this.formFill[i].data;
-                        }
+            const data = {};
+            for (let i = 0; i < this.formFill.length; i++) {
+                data[this.formFill[i].value] = this.formFill[i].data;
+            }
                     
             
             //await

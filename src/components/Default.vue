@@ -7,10 +7,13 @@
         <div v-if="imgLengthstatus">У вас пока нет визиток</div>
         <div class="flex-container" v-else>
           <div class="imges-card" v-for="(i, key) in dataCard" :key="key">
-            {{ i._id }}
+            {{ i }}
             <div class="buttons">
-              <button class="btn" @click="changeCard(key)">Изменить</button>
-              <!-- <CardId :idForChande="this.dataCard[i]._id"></CardId> -->
+              
+                <button class="btn" @click="changeCard(key)">Изменить</button>
+
+              <!-- <button class="btn" @click="changeCard(key)">Изменить</button> -->
+              <!-- <GetIdCard :idForChange="this.dataCard[i]._id"></GetIdCard> -->
               <button class="btn" @click="seeCard(key)">Посмотреть</button>
               <button class="btn" @click="deleteCard(key)">Удалить</button>
             </div>
@@ -23,20 +26,15 @@
 </template>
 
 <script>
-// import ChangeCard from "./ChangeCard.vue"
 
 export default {
   name: "Home",
-  // components: {
-  //     'CardId': ChangeCard
-  // },
   status: false,
   // props: {
   //   idForChande: String
   // },
   data() {
     return {
-      // img: [1, 2, 3, 4, 5, 5, 6, 6, 4],
       dataCard: [
         // name: "",
         // surname: "",
@@ -49,11 +47,11 @@ export default {
   },
   created() {
       this.getCard()
-      console.log(this.dataCard)
+      // console.log(this.dataCard)
   },
   mounted() {
     
-    console.log(this.dataCard)
+    // console.log(this.dataCard)
   },
   methods: {
     getCard() {
@@ -70,7 +68,7 @@ export default {
             // }
             this.dataCard = res
         })
-        console.log(this.dataCard)
+        // console.log(this.dataCard)
     },
     deleteCard(i) {
       let promise =  fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
@@ -81,15 +79,16 @@ export default {
           'Content-Type': 'application/json'
         },        
       })
-      console.log(this.dataCard[i]._id)
+      // console.log(this.dataCard[i]._id)
+      
     },
     changeCard(i) {
 
-      console.log(this.idForChande)
-      this.$router.push("/changecard") 
+      // console.log(this.idForChande)
+      this.$router.push(`/changecard/${this.dataCard[i]._id}`) 
     },
-    seeCard() {
-      this.$router.push("/seecard") 
+    seeCard(i) {
+      this.$router.push(`/seecard/${this.dataCard[i]._id}`) 
     }
   },
   computed: {
