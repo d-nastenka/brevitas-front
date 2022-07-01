@@ -72,19 +72,6 @@ export default {
   },
   methods: {
     async getCard() {
-      // let promise = fetch("http://localhost:3000/visits", {
-      //   method: "GET",
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   }
-      // })
-      //   .then(res => res.json())
-      //   .then(res => {
-      //     // for (let i = 0; i < res.length; i++) {
-      //     //     this.dataCard[i] = res[i]
-      //     // }
-      //     this.dataCard = res;
-      //   });
       let res = await fetch("http://localhost:3000/visits", {
         method: "GET",
         headers: {
@@ -94,23 +81,17 @@ export default {
       this.dataCard = await res.json();
       console.log(this.dataCard);
     },
-    deleteCard(i) {
-      let promise = fetch(
-        `http://localhost:3000/visits/${this.dataCard[i]._id}`,
-        {
-          method: "DELETE",
-          // body: JSON.stringify(this.dataCard[i]._id),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
+    async deleteCard(i) {
+      let res = fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
         }
-      );
-      // console.log(this.dataCard[i]._id)
+      });
       this.dataCard.splice(i, 1);
     },
     changeCard(i) {
-      // console.log(this.idForChande)
       this.$router.push(`/changecard/${this.dataCard[i]._id}`);
     },
     seeCard(i) {
