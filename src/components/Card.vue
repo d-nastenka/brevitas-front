@@ -21,7 +21,6 @@
           <div v-if="!nameErrors">
             <button type="submit" class="btn-card">Создать визитку</button>
           </div>
-          <!-- <button v-bind:disabled="nameErrors" type="submit" class="btn-card"> Создать визитку</button> -->
         </div>
       </form>
     </div>
@@ -37,13 +36,9 @@ import {
   url,
   numeric
 } from "vuelidate/lib/validators";
-// import CreateCard from "./CreateCard.vue"
 
 export default {
   name: "Card",
-  // components: {
-  //   CreateCard
-  // },
   probs: {
     dataToSend: Object
   },

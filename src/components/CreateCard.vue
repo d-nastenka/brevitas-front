@@ -20,15 +20,6 @@
 <script>
 export default {
   name: "CreateCard",
-  // props: {
-  //         dataToSend: {
-  //         name: String,
-  //         surname: String,
-  //         description: String,
-  //         mail: String,
-  //         link: String,
-  //         phone: Number,
-  // }},
   data() {
     return {
       dataToSend: {

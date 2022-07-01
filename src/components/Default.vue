@@ -2,7 +2,6 @@
   <div class="page">
     <h3>Мои визитки</h3>
     <div id="wait-mounted">
-      <!-- <button @click="getCard">Получить</button> -->
       <div class="wrapper">
         <div v-if="imgLengthstatus">У вас пока нет визиток</div>
         <div class="flex-container" v-else>
@@ -31,9 +30,6 @@
 
             <div class="buttons">
               <button class="btn" @click="changeCard(key)">Изменить</button>
-
-              <!-- <button class="btn" @click="changeCard(key)">Изменить</button> -->
-              <!-- <GetIdCard :idForChange="this.dataCard[i]._id"></GetIdCard> -->
               <button class="btn" @click="seeCard(key)">Посмотреть</button>
               <button class="btn" @click="deleteCard(key)">Удалить</button>
             </div>
@@ -48,28 +44,15 @@
 export default {
   name: "Home",
   status: false,
-  // props: {
-  //   idForChande: String
-  // },
   data() {
     return {
-      dataCard: [
-        // name: "",
-        // surname: "",
-        // description: "",
-        // mail: "",
-        // link: "",
-        // phone: "",
-      ]
+      dataCard: []
     };
   },
   created() {
     this.getCard();
-    // console.log(this.dataCard)
   },
-  mounted() {
-    // console.log(this.dataCard)
-  },
+  mounted() {},
   methods: {
     async getCard() {
       let res = await fetch("http://localhost:3000/visits", {
@@ -79,7 +62,6 @@ export default {
         }
       });
       this.dataCard = await res.json();
-      console.log(this.dataCard);
     },
     async deleteCard(i) {
       let res = fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
@@ -122,7 +104,7 @@ export default {
   box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px; */
   border-radius: 7px;
   box-shadow: 0 4px 16px rgb(134, 134, 134);
-  background: linear-gradient(45deg, #363636, #afafaf);
+  background: linear-gradient(45deg, #77c2ea, #464646);
 
   display: flex;
   flex-direction: column;
@@ -181,7 +163,7 @@ export default {
 }
 
 .data-user {
-  font-size: 17px;
+  font-size: 19px;
   font-weight: normal;
   padding-top: 25px;
   color: #e1e1e1;
@@ -190,6 +172,6 @@ export default {
 .contacts {
   font-size: 15px;
   padding-top: 30px;
-  color: #a1a1a1;
+  color: #c7c7c7;
 }
 </style>

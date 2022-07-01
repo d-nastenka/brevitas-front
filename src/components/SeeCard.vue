@@ -88,7 +88,7 @@ export default {
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
-  background: linear-gradient(45deg, #393939, #e1e1e1);
+  background: linear-gradient(45deg, #77c2ea, #464646);
 }
 
 .field-card {
@@ -108,8 +108,8 @@ export default {
 }
 
 .data-user {
-  font-size: 27px;
-  font-weight: normal;
+  font-size: 30px;
+
 }
 
 .contacts {
@@ -117,6 +117,6 @@ export default {
 }
 
 a {
-  color: #aeaeae;
+  color: #c0bfbf;
 }
 </style>

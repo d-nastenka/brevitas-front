@@ -4,7 +4,6 @@
       <div class="title-cards">
         <h3>Изменить визитку</h3>
       </div>
-      <!-- {{ $route.params.id }} -->
       <form @submit.prevent="changeCard">
         <div class="form-input-cards">
           <div v-for="(item, key) in formFill" :key="key">
@@ -237,4 +236,3 @@ export default {
   color: rgb(76, 76, 76);
 }
 </style>
-
