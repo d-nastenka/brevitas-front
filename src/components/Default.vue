@@ -8,30 +8,29 @@
         <div class="flex-container" v-else>
           <div class="imges-card" v-for="(i, key) in dataCard" :key="key">
             <div class="data-user">
-                        <div class="data-card">
-                            {{ i.name }}
-                            {{ i.surname }}
-                        </div>
+              <div class="data-card">
+                {{ i.name }}
+                {{ i.surname }}
+              </div>
 
-                        <div class="data-card">
-                            {{ i.description }}
-                        </div>
-                    </div>
-                    <div class="contacts">
-                        <div class="data-card">
-                            {{ i.mail }}
-                        </div>
-                        <div class="data-card">
-                            {{ i.link }}
-                        </div>
-                        <div class="data-card">
-                            {{ i.phone }}
-                        </div>
-                    </div>
-            
+              <div class="data-card">
+                {{ i.description }}
+              </div>
+            </div>
+            <div class="contacts">
+              <div class="data-card">
+                {{ i.mail }}
+              </div>
+              <div class="data-card">
+                {{ i.link }}
+              </div>
+              <div class="data-card">
+                {{ i.phone }}
+              </div>
+            </div>
+
             <div class="buttons">
-              
-                <button class="btn" @click="changeCard(key)">Изменить</button>
+              <button class="btn" @click="changeCard(key)">Изменить</button>
 
               <!-- <button class="btn" @click="changeCard(key)">Изменить</button> -->
               <!-- <GetIdCard :idForChange="this.dataCard[i]._id"></GetIdCard> -->
@@ -42,12 +41,10 @@
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Home",
   status: false,
@@ -63,72 +60,74 @@ export default {
         // mail: "",
         // link: "",
         // phone: "",
-      ],
-    }
+      ]
+    };
   },
   created() {
-      this.getCard()
-      // console.log(this.dataCard)
+    this.getCard();
+    // console.log(this.dataCard)
   },
   mounted() {
-    
     // console.log(this.dataCard)
   },
   methods: {
-    getCard() {
-      let promise =  fetch('http://localhost:3000/visits', {
+    async getCard() {
+      // let promise = fetch("http://localhost:3000/visits", {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   }
+      // })
+      //   .then(res => res.json())
+      //   .then(res => {
+      //     // for (let i = 0; i < res.length; i++) {
+      //     //     this.dataCard[i] = res[i]
+      //     // }
+      //     this.dataCard = res;
+      //   });
+      let res = await fetch("http://localhost:3000/visits", {
         method: "GET",
         headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-        .then(res => res.json())
-        .then(res => {       
-            // for (let i = 0; i < res.length; i++) {
-            //     this.dataCard[i] = res[i]
-            // }
-            this.dataCard = res
-        })
-        // console.log(this.dataCard)
+          "Content-Type": "application/json"
+        }
+      });
+      this.dataCard = await res.json();
+      console.log(this.dataCard);
     },
     deleteCard(i) {
-      let promise =  fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
-        method: "DELETE",
-        // body: JSON.stringify(this.dataCard[i]._id),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },        
-      })
+      let promise = fetch(
+        `http://localhost:3000/visits/${this.dataCard[i]._id}`,
+        {
+          method: "DELETE",
+          // body: JSON.stringify(this.dataCard[i]._id),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        }
+      );
       // console.log(this.dataCard[i]._id)
-      this.dataCard.splice(i, 1)
+      this.dataCard.splice(i, 1);
     },
     changeCard(i) {
-
       // console.log(this.idForChande)
-      this.$router.push(`/changecard/${this.dataCard[i]._id}`) 
+      this.$router.push(`/changecard/${this.dataCard[i]._id}`);
     },
     seeCard(i) {
-      this.$router.push(`/seecard/${this.dataCard[i]._id}`) 
+      this.$router.push(`/seecard/${this.dataCard[i]._id}`);
     }
   },
   computed: {
     imgLengthstatus() {
-        return !(this.dataCard.length > 0)
+      return !(this.dataCard.length > 0);
     }
   }
-}
-
+};
 </script>
 
-
 <style>
-
-
-
 .wrapper {
   padding: 0px 2% 0px 2%;
-  
 }
 
 .imges-card {
@@ -142,10 +141,11 @@ export default {
   box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px; */
   border-radius: 7px;
   box-shadow: 0 4px 16px rgb(134, 134, 134);
+  background: linear-gradient(45deg, #363636, #afafaf);
 
   display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .flex-container {
@@ -156,59 +156,59 @@ export default {
   flex-wrap: wrap;
   gap: 30px;
   cursor: pointer;
-    
 }
 
 .imges-card {
-    height: 200px;
-    
-    display: flex;
-    
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 2px;
-    
-    font-family: serif;
+  height: 200px;
+
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 2px;
+
+  font-family: serif;
 }
 
 .buttons {
   padding: 0 1px 2px 1px;
 }
 
-.buttons .btn {    
-    background-color: #517479;
-    color: white;
-    font-size: 14px;
-    padding: 10px 19px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
+.buttons .btn {
+  background-color: #232829;
+  color: white;
+  font-size: 14px;
+  padding: 10px 19px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .buttons .btn:hover {
-    background-color: white;
-    color: rgb(76, 76, 76);
-    border-radius: 7px;
+  background-color: white;
+  color: rgb(76, 76, 76);
+  border-radius: 7px;
   box-shadow: 0 2px 10px rgb(134, 134, 134);
 }
 
 .data-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* padding-top: 30px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* padding-top: 30px; */
 }
 
 .data-user {
-    font-size: 17px;
-    font-weight: normal;
-    padding-top: 25px;
+  font-size: 17px;
+  font-weight: normal;
+  padding-top: 25px;
+  color: #e1e1e1;
 }
 
 .contacts {
-    font-size: 15px;
-    padding-top: 30px;
+  font-size: 15px;
+  padding-top: 30px;
+  color: #a1a1a1;
 }
-
 </style>

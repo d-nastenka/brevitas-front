@@ -18,13 +18,14 @@
                     </div>
                     <div class="contacts">
                         <div class="data-card">
-                            {{ dataCard.mail }}
+                            <a :href="`mailto:${dataCard.mail}`" target="_blank">{{ dataCard.mail }}</a>
+                            
                         </div>
                         <div class="data-card">
-                            <a href="linkCard">{{ dataCard.link }}</a>
+                            <a :href="dataCard.link" target="_blank">{{ dataCard.link }}</a>
                         </div>
                         <div class="data-card">
-                            {{ dataCard.phone }}
+                            <a :href="`tel:${dataCard.phone}`" target="_blank">{{ dataCard.phone }}</a>
                         </div>
                     </div>
                 </div>
@@ -98,24 +99,26 @@ export default {
     margin-top: 40px;
 }
 
-/* .flex-field-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-} */
-
-.field-card {
+.flex-field-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-    /* margin-left: 200px; */
 
     width: 400px;
     height: 200px;
     padding: 32px;
     border-radius: 5px;
     box-shadow: 0 4px 16px #ccc;
+    background: linear-gradient(45deg, #393939, #e1e1e1);
+}
+
+.field-card {
+    
+    /* margin-left: 200px; */
+    border: 5px;
+    /* box-shadow: 0 1px 2px rgb(10, 10, 10); */
+    
+    
 }
 
 .data-card {
@@ -124,16 +127,21 @@ export default {
     justify-content: center;
 
     font-family: serif;
-    /* font-family: emoji; */
+    /* font-family: Fantasy; */
+    color: #ffffff;
 }
 
 .data-user {
-    font-size: 25px;
+    font-size: 27px;
     font-weight: normal;
 }
 
 .contacts {
     font-size: 20px;
+}
+
+a {
+  color: #aeaeae;
 }
 
 </style>
