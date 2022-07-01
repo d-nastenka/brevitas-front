@@ -116,10 +116,7 @@ export default {
           'Content-Type': 'application/json'
         },        
       })
-      console.log(this.dataCard[i]._id)
-          "Content-Type": "application/json"
-        }
-      });
+      
       this.dataCard = await res.json();
       console.log(this.dataCard);
     },
@@ -151,7 +148,7 @@ export default {
       return !(this.dataCard.length > 0);
     }
   }
-};
+}
 </script>
 
 <style>
@@ -227,6 +224,7 @@ export default {
 .buttons .btn:hover {
     background-color: white;
     color: rgb(76, 76, 76);
+}
 .buttons .btn {
   background-color: #232829;
   color: white;
