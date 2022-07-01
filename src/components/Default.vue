@@ -10,6 +10,34 @@
             <div class="buttons">
               <button class="btn">Изменить</button>
               <button class="btn">Скачать</button>
+            <div class="data-user">
+              <div class="data-card">
+                {{ i.name }}
+                {{ i.surname }}
+              </div>
+
+              <div class="data-card">
+                {{ i.description }}
+              </div>
+            </div>
+            <div class="contacts">
+              <div class="data-card">
+                {{ i.mail }}
+              </div>
+              <div class="data-card">
+                {{ i.link }}
+              </div>
+              <div class="data-card">
+                {{ i.phone }}
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn" @click="changeCard(key)">Изменить</button>
+
+              <!-- <button class="btn" @click="changeCard(key)">Изменить</button> -->
+              <!-- <GetIdCard :idForChange="this.dataCard[i]._id"></GetIdCard> -->
+              <button class="btn" @click="seeCard(key)">Посмотреть</button>
               <button class="btn" @click="deleteCard(key)">Удалить</button>
             </div>
           </div>
@@ -33,8 +61,8 @@ export default {
         // mail: "",
         // link: "",
         // phone: "",
-      ],
-    }
+      ]
+    };
   },
   created() {
       this.getCard()
@@ -43,10 +71,28 @@ export default {
   mounted() {
     
     console.log(this.dataCard)
+    this.getCard();
+    // console.log(this.dataCard)
+  },
+  mounted() {
+    // console.log(this.dataCard)
   },
   methods: {
-    getCard() {
-      let promise =  fetch('http://localhost:3000/visits', {
+    async getCard() {
+      // let promise = fetch("http://localhost:3000/visits", {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   }
+      // })
+      //   .then(res => res.json())
+      //   .then(res => {
+      //     // for (let i = 0; i < res.length; i++) {
+      //     //     this.dataCard[i] = res[i]
+      //     // }
+      //     this.dataCard = res;
+      //   });
+      let res = await fetch("http://localhost:3000/visits", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json'
@@ -71,25 +117,46 @@ export default {
         },        
       })
       console.log(this.dataCard[i]._id)
+          "Content-Type": "application/json"
+        }
+      });
+      this.dataCard = await res.json();
+      console.log(this.dataCard);
+    },
+    deleteCard(i) {
+      let promise = fetch(
+        `http://localhost:3000/visits/${this.dataCard[i]._id}`,
+        {
+          method: "DELETE",
+          // body: JSON.stringify(this.dataCard[i]._id),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      // console.log(this.dataCard[i]._id)
+      this.dataCard.splice(i, 1);
+    },
+    changeCard(i) {
+      // console.log(this.idForChande)
+      this.$router.push(`/changecard/${this.dataCard[i]._id}`);
+    },
+    seeCard(i) {
+      this.$router.push(`/seecard/${this.dataCard[i]._id}`);
     }
   },
   computed: {
     imgLengthstatus() {
-        return !(this.dataCard.length > 0)
+      return !(this.dataCard.length > 0);
     }
   }
-}
-
+};
 </script>
 
-
 <style>
-
-
-
 .wrapper {
   padding: 0px 2% 0px 2%;
-  
 }
 
 .imges-card {
@@ -101,6 +168,15 @@ export default {
 
   border: 1px solid rgb(77, 77, 77);
   box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px;
+  /* border: 1px solid rgb(77, 77, 77);
+  box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px; */
+  border-radius: 7px;
+  box-shadow: 0 4px 16px rgb(134, 134, 134);
+  background: linear-gradient(45deg, #363636, #afafaf);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .flex-container {
@@ -111,7 +187,6 @@ export default {
   flex-wrap: wrap;
   gap: 30px;
   cursor: pointer;
-    
 }
 
 .imges-card {
@@ -123,6 +198,15 @@ export default {
     justify-content: flex-end;
     border-radius: 2px;
     /* margin-block: 1px; */
+  height: 200px;
+
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 2px;
+
+  font-family: serif;
 }
 
 .buttons {
@@ -143,6 +227,42 @@ export default {
 .buttons .btn:hover {
     background-color: white;
     color: rgb(76, 76, 76);
+.buttons .btn {
+  background-color: #232829;
+  color: white;
+  font-size: 14px;
+  padding: 10px 19px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
 
+</style>
+.buttons .btn:hover {
+  background-color: white;
+  color: rgb(76, 76, 76);
+  border-radius: 7px;
+  box-shadow: 0 2px 10px rgb(134, 134, 134);
+}
+
+.data-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* padding-top: 30px; */
+}
+
+.data-user {
+  font-size: 17px;
+  font-weight: normal;
+  padding-top: 25px;
+  color: #e1e1e1;
+}
+
+.contacts {
+  font-size: 15px;
+  padding-top: 30px;
+  color: #a1a1a1;
+}
 </style>
