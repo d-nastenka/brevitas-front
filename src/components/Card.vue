@@ -33,14 +33,14 @@
 
 import {validationMixin} from 'vuelidate';
 import {required, minLength, email, url, numeric} from 'vuelidate/lib/validators'
-import CreateCard from "./CreateCard.vue"
+// import CreateCard from "./CreateCard.vue"
 
 
 export default {
     name: "Card",
-    components: {
-      CreateCard
-    },
+    // components: {
+    //   CreateCard
+    // },
     probs: {
         dataToSend: Object,
     } ,
@@ -144,10 +144,10 @@ export default {
         // async 
         addCard() {
 
-           const data = {};
-                        for (let i = 0; i < this.formFill.length; i++) {
-                            data[this.formFill[i].value] = this.formFill[i].data;
-                        }
+            const data = {};
+            for (let i = 0; i < this.formFill.length; i++) {
+                data[this.formFill[i].value] = this.formFill[i].data;
+            }
                     
             
             //await
@@ -163,7 +163,7 @@ export default {
 
             // this.$emit("printData")
 
-            this.$router.push("/createcard")        
+            this.$router.push("/")        
         }
     }
 
@@ -204,7 +204,7 @@ export default {
 }
 
 .btn-card {
-    background-color: rgba(63, 63, 63, 0.897);
+    background-color: #3d6c71;
     color: white;
     font-size: 14px;
     padding: 10px 20px;
@@ -219,5 +219,7 @@ export default {
 .btn-card:hover {
     background-color: white;
     color: rgb(76, 76, 76);
+    border-radius: 7px;
+  box-shadow: 0 2px 10px rgb(134, 134, 134);
 }
 </style>

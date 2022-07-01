@@ -7,33 +7,31 @@
         <div v-if="imgLengthstatus">У вас пока нет визиток</div>
         <div class="flex-container" v-else>
           <div class="imges-card" v-for="(i, key) in dataCard" :key="key">
-            <div class="buttons">
-              <button class="btn">Изменить</button>
-              <button class="btn">Скачать</button>
             <div class="data-user">
-              <div class="data-card">
-                {{ i.name }}
-                {{ i.surname }}
-              </div>
+                        <div class="data-card">
+                            {{ i.name }}
+                            {{ i.surname }}
+                        </div>
 
-              <div class="data-card">
-                {{ i.description }}
-              </div>
-            </div>
-            <div class="contacts">
-              <div class="data-card">
-                {{ i.mail }}
-              </div>
-              <div class="data-card">
-                {{ i.link }}
-              </div>
-              <div class="data-card">
-                {{ i.phone }}
-              </div>
-            </div>
-
+                        <div class="data-card">
+                            {{ i.description }}
+                        </div>
+                    </div>
+                    <div class="contacts">
+                        <div class="data-card">
+                            {{ i.mail }}
+                        </div>
+                        <div class="data-card">
+                            {{ i.link }}
+                        </div>
+                        <div class="data-card">
+                            {{ i.phone }}
+                        </div>
+                    </div>
+            
             <div class="buttons">
-              <button class="btn" @click="changeCard(key)">Изменить</button>
+              
+                <button class="btn" @click="changeCard(key)">Изменить</button>
 
               <!-- <button class="btn" @click="changeCard(key)">Изменить</button> -->
               <!-- <GetIdCard :idForChange="this.dataCard[i]._id"></GetIdCard> -->
@@ -44,16 +42,20 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
 <script>
+
 export default {
   name: "Home",
   status: false,
+  // props: {
+  //   idForChande: String
+  // },
   data() {
     return {
-
       dataCard: [
         // name: "",
         // surname: "",
@@ -66,15 +68,10 @@ export default {
   },
   created() {
       this.getCard()
-      console.log(this.dataCard)
+      // console.log(this.dataCard)
   },
   mounted() {
     
-    console.log(this.dataCard)
-    this.getCard();
-    // console.log(this.dataCard)
-  },
-  mounted() {
     // console.log(this.dataCard)
   },
   methods: {
@@ -105,42 +102,27 @@ export default {
             // }
             this.dataCard = res
         })
-        console.log(this.dataCard)
+        // console.log(this.dataCard)
     },
     deleteCard(i) {
       let promise =  fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
         method: "DELETE",
-        body: JSON.stringify(this.dataCard[i]._id),
+        // body: JSON.stringify(this.dataCard[i]._id),
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },        
       })
-      
-      this.dataCard = await res.json();
-      console.log(this.dataCard);
-    },
-    deleteCard(i) {
-      let promise = fetch(
-        `http://localhost:3000/visits/${this.dataCard[i]._id}`,
-        {
-          method: "DELETE",
-          // body: JSON.stringify(this.dataCard[i]._id),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
-        }
-      );
       // console.log(this.dataCard[i]._id)
-      this.dataCard.splice(i, 1);
+      this.dataCard.splice(i, 1)
     },
     changeCard(i) {
+
       // console.log(this.idForChande)
-      this.$router.push(`/changecard/${this.dataCard[i]._id}`);
+      this.$router.push(`/changecard/${this.dataCard[i]._id}`) 
     },
     seeCard(i) {
-      this.$router.push(`/seecard/${this.dataCard[i]._id}`);
+      this.$router.push(`/seecard/${this.dataCard[i]._id}`) 
     }
   },
   computed: {
@@ -157,23 +139,20 @@ export default {
 }
 
 .imges-card {
-  width: 300px;
+  width: 320px;
   height: 200px;
 
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 72px;
+  margin-right: 72px;
 
-  border: 1px solid rgb(77, 77, 77);
-  box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px;
   /* border: 1px solid rgb(77, 77, 77);
   box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px; */
   border-radius: 7px;
   box-shadow: 0 4px 16px rgb(134, 134, 134);
-  background: linear-gradient(45deg, #363636, #afafaf);
 
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .flex-container {
@@ -192,18 +171,10 @@ export default {
     display: flex;
     
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     border-radius: 2px;
-    /* margin-block: 1px; */
-  height: 200px;
-
-  display: flex;
-
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 2px;
-
-  font-family: serif;
+    
+    font-family: serif;
 }
 
 .buttons {
@@ -211,7 +182,7 @@ export default {
 }
 
 .buttons .btn {    
-    background-color: rgba(63, 63, 63, 0.897);
+    background-color: #517479;
     color: white;
     font-size: 14px;
     padding: 10px 19px;
@@ -224,6 +195,26 @@ export default {
 .buttons .btn:hover {
     background-color: white;
     color: rgb(76, 76, 76);
+    border-radius: 7px;
+  box-shadow: 0 2px 10px rgb(134, 134, 134);
+}
+
+.data-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* padding-top: 30px; */
+}
+
+.data-user {
+    font-size: 17px;
+    font-weight: normal;
+    padding-top: 25px;
+}
+
+.contacts {
+    font-size: 15px;
+    padding-top: 30px;
 }
 .buttons .btn {
   background-color: #232829;

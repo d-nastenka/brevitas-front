@@ -15,8 +15,11 @@ import Footer from './components/AppFooter.vue'
 
 import Home from "./components/Default.vue"
 import Card from "./components/Card.vue"
-// import Reg from "./components/Reg.vue"
+import CreateCard from "./components/CreateCard.vue"
+import Reg from "./components/Reg.vue"
 import Auth from "./components/Auth.vue"
+import ChangeCard from "./components/ChangeCard.vue"
+import SeeCard from "./components/SeeCard.vue"
 
 
 export default {
@@ -26,8 +29,11 @@ export default {
       Footer,
       Home,
       Card,
-      // Reg,
-      Auth
+      Reg,
+      Auth,
+      CreateCard,
+      ChangeCard,
+      SeeCard
   },
   data () {
     return {
