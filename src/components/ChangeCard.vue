@@ -10,11 +10,15 @@
                 <div class="form-input-cards">
                     <div v-for="(item, key) in formFill" :key="key" >
                         <div class="cards-input">
-                            <input v-model="dataOfCard[item.value]" :placeholder="item.textPlaceholder">
+                            <input :error-messages = "nameErrors" v-model="dataOfCard[item.value]" :placeholder="item.textPlaceholder">
                              
                         </div>
                     </div>
-                    <button type="submit" class="btn-card">Сохранить</button>
+                    <p> <font color="red"> {{nameErrors}}</font></p> 
+                    <div v-if="!nameErrors">
+                        <button type="submit" class="btn-card">Сохранить</button>
+                    </div>
+                    
                 </div>
             </form>
 
@@ -25,11 +29,15 @@
 </template>
 
 <script>
+import {validationMixin} from 'vuelidate';
+import {required, minLength, email, url, numeric} from 'vuelidate/lib/validators'
 
 export default {
-    name: "ChangeCard",    
+    name: "ChangeCard",  
+    mixins:[validationMixin, ],  
     data () {
         return {
+            check: true,
             IdCard: this.$route.params.id,
             dataOfCard: {
                 name: "",
@@ -74,7 +82,55 @@ export default {
         }
     },
     computed: {
+        nameErrors(){
+            const errors=[];
+            var newmes ='';
 
+            if((!this.$v.dataOfCard.name.required)||(!this.$v.dataOfCard.surname.required)||(!this.$v.dataOfCard.description.required)||(!this.$v.dataOfCard.mail.required)
+            ||(!this.$v.dataOfCard.link.required)||(!this.$v.dataOfCard.phone.required)) {
+                 errors.push('заполните все поля ');
+                newmes =newmes+ errors;
+                check: false;
+            }else {
+            
+                if(!this.$v.dataOfCard.phone.minLength){
+                    newmes = '';
+                errors.push(' введите правильный полный номер телефона')
+                    newmes = newmes+errors;
+                }
+                if(!this.$v.dataOfCard.mail.email){
+                    newmes = '';
+                errors.push(' введите правильный email')
+                    newmes = newmes+errors;
+                }
+                if(!this.$v.dataOfCard.link.url){
+                    newmes = '';
+                    errors.push(' введите правильную ссылку')
+                    newmes = newmes+errors;
+                }
+                if((this.$v.dataOfCard.name.numeric)||(this.$v.dataOfCard.surname.numeric)){
+                    newmes = '';
+                    errors.push('в имени и фамилии должны быть только буквы!');
+                            newmes = newmes+errors;
+                }
+                if(!this.$v.dataOfCard.phone.numeric){
+                    newmes = '';
+                    errors.push('в поле ТЕЛЕФОН должны быть только цифры!'); 
+                    newmes = newmes+errors;
+                }
+            }
+            return newmes;
+        }
+    },
+    validations:{
+        dataOfCard: {
+            name: {required,numeric},
+            surname: {required,numeric},
+            description: {required},
+            mail: {required, email},
+            link: {required, url},
+            phone: {required, minLength:minLength(11),numeric}
+        }
     },
     created() {
       this.getCard()
@@ -98,7 +154,12 @@ export default {
             })
         },
         // async 
-        changeCard() {         
+        changeCard() { 
+            const data = {};
+            for (let i = 0; i < this.formFill.length; i++) {
+                data[this.formFill[i].value] = this.formFill[i].data;
+            }
+            
             let promise =  fetch(`http://localhost:3000/visits/${this.$route.params.id}`, {
                 method: "PUT",
                 body: JSON.stringify(this.dataOfCard),

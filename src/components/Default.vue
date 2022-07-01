@@ -7,7 +7,28 @@
         <div v-if="imgLengthstatus">У вас пока нет визиток</div>
         <div class="flex-container" v-else>
           <div class="imges-card" v-for="(i, key) in dataCard" :key="key">
-            {{ i }}
+            <div class="data-user">
+                        <div class="data-card">
+                            {{ i.name }}
+                            {{ i.surname }}
+                        </div>
+
+                        <div class="data-card">
+                            {{ i.description }}
+                        </div>
+                    </div>
+                    <div class="contacts">
+                        <div class="data-card">
+                            {{ i.mail }}
+                        </div>
+                        <div class="data-card">
+                            {{ i.link }}
+                        </div>
+                        <div class="data-card">
+                            {{ i.phone }}
+                        </div>
+                    </div>
+            
             <div class="buttons">
               
                 <button class="btn" @click="changeCard(key)">Изменить</button>
@@ -80,7 +101,7 @@ export default {
         },        
       })
       // console.log(this.dataCard[i]._id)
-      
+      this.dataCard.splice(i, 1)
     },
     changeCard(i) {
 
@@ -121,6 +142,10 @@ export default {
   box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px; */
   border-radius: 7px;
   box-shadow: 0 4px 16px rgb(134, 134, 134);
+
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .flex-container {
@@ -140,9 +165,10 @@ export default {
     display: flex;
     
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     border-radius: 2px;
-    /* margin-block: 1px; */
+    
+    font-family: serif;
 }
 
 .buttons {
@@ -150,7 +176,7 @@ export default {
 }
 
 .buttons .btn {    
-    background-color: rgba(63, 63, 63, 0.897);
+    background-color: #517479;
     color: white;
     font-size: 14px;
     padding: 10px 19px;
@@ -163,6 +189,26 @@ export default {
 .buttons .btn:hover {
     background-color: white;
     color: rgb(76, 76, 76);
+    border-radius: 7px;
+  box-shadow: 0 2px 10px rgb(134, 134, 134);
+}
+
+.data-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* padding-top: 30px; */
+}
+
+.data-user {
+    font-size: 17px;
+    font-weight: normal;
+    padding-top: 25px;
+}
+
+.contacts {
+    font-size: 15px;
+    padding-top: 30px;
 }
 
 </style>
