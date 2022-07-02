@@ -21,7 +21,10 @@
           <div v-if="!nameErrors">
             <button type="submit" class="btn-card">Создать визитку</button>
           </div>
-          <!-- <button v-bind:disabled="nameErrors" type="submit" class="btn-card"> Создать визитку</button> -->
+          <div v-else>
+            <button type="submit" class="btn-card_NO"> Создать визитку</button>
+          </div>
+       
         </div>
       </form>
     </div>
@@ -216,6 +219,20 @@ export default {
   text-align: center;
 
   margin-top: 10px;
+}
+.btn-card_NO{
+  background-color: #3d6c71;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  text-align: center;
+  margin-top: 10px;
+
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .btn-card:hover {

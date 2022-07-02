@@ -6,11 +6,16 @@
 
       <div class="pages">
             <div class="menu">
+              <a class="btn_head" @click="$router.push('/card')"> Создать новую визитку</a>
+              <a class="btn_head" @click="$router.push('/')"> Мои визитки</a>
+    
+              <!-- 
               <router-link class="pages_ell" to="/">Мои визитки</router-link> 
               <router-link class="pages_ell" to="/card">Создать новую визитку</router-link>
-            </div>
+        --> </div>
             <div class="page-auth">
-              <router-link class="pages_ell" to="/authorization">Войти</router-link>
+              <a class="btn_head" @click="$router.push('/authorization')"> Войти</a>
+              <!-- <router-link class="pages_ell" to="/authorization">Войти</router-link>-->
             </div>
       </div>
       
@@ -61,6 +66,21 @@ export default {
 .pages_ell {
     color: rgb(165, 165, 165);
 }
+
+ .btn_head{
+    
+    color: white;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+
+    margin-left: 10px;
+    
+ }
+
 
 .pages {
   display: flex;
