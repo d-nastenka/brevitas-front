@@ -15,7 +15,13 @@
                           
                     </div>  
                     <p> <font color="red"> {{nameErrors}}</font></p>
-                    <button  type="submit" class="btn-reg">Зарегистрироваться</button>
+                    
+                    <div v-if="!nameErrors">
+                        <button type="submit" class="btn-card">Зарегистрироваться</button>
+                    </div>
+                    <div v-else>
+                        <button type="submit" class="btn-card_NO">Зарегистрироваться</button>
+                    </div>
                 </div>
             </form> 
         </div>
