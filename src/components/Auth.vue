@@ -14,7 +14,7 @@
             <button type="submit" class="btn-auth"> Войти </button>
             <div class="move-reg">
                 <p>
-                    <router-link class="pages_ell" to="/registration">Зарегистрироваться</router-link> 
+                    <a class="btn_head_autor" @click="$router.push('/registration')"> Зарегистрироваться</a>     
                 </p>
                 
             </div>
@@ -117,4 +117,15 @@ export default {
     padding-right: 20px;
 }
 
+.btn_head_autor{
+    color: rgb(5, 5, 5);
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+
+    margin-left: 10px;
+}
 </style>

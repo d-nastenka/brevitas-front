@@ -4,30 +4,18 @@
         <h1>Brevitas</h1>
       </div>
 
-      <div class="pages">
-            <div class="menu">
+      <div class="pages">           
               <a class="btn_head" @click="$router.push('/card')"> Создать новую визитку</a>
               <a class="btn_head" @click="$router.push('/')"> Мои визитки</a>
-    
-              <!-- 
-              <router-link class="pages_ell" to="/">Мои визитки</router-link> 
-              <router-link class="pages_ell" to="/card">Создать новую визитку</router-link>
-        --> </div>
-            <div class="page-auth">
-              <a class="btn_head" @click="$router.push('/authorization')"> Войти</a>
-              <!-- <router-link class="pages_ell" to="/authorization">Войти</router-link>-->
-            </div>
-      </div>
-      
-
-
-
+              <div class="btn_autor">
+                <a class="btn_head" @click="$router.push('/authorization')"> Войти</a>
+              <!-- <router-link class="pages_ell" to="/authorization">Войти</router-link>-->           
+              </div>
+                 </div>
     </header>
 </template>
 
 <script>
-
-
 export default {
     name: "Header",
 }
@@ -63,10 +51,6 @@ export default {
   padding-left: 50px;
 }
 
-.pages_ell {
-    color: rgb(165, 165, 165);
-}
-
  .btn_head{
     
     color: white;
@@ -81,7 +65,6 @@ export default {
     
  }
 
-
 .pages {
   display: flex;
   flex-direction: row;
@@ -89,11 +72,7 @@ export default {
 
 }
 
-.page-auth {
+.btn_autor{
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 725px;
 }
-
 </style>

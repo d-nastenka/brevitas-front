@@ -207,34 +207,6 @@ export default {
   padding: 0 0 12px 0;
   border: none;
 }
-
-.btn-card {
-  background-color: #3d6c71;
-  color: white;
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 7px;
-  text-align: center;
-
-  margin-top: 10px;
-}
-.btn-card_NO{
-  background-color: #3d6c71;
-  color: white;
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 7px;
-  text-align: center;
-  margin-top: 10px;
-
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 .btn-card:hover {
   background-color: white;
   color: rgb(76, 76, 76);
