@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <link href="https://css.gg/css" rel="stylesheet" />
     <h3>Мои визитки</h3>
     <div id="wait-mounted">
       <div class="wrapper">
@@ -29,9 +30,16 @@
             </div>
 
             <div class="buttons">
-              <button class="btn" @click="changeCard(key)">Изменить</button>
-              <button class="btn" @click="seeCard(key)">Посмотреть</button>
-              <button class="btn" @click="deleteCard(key)">Удалить</button>
+              <button class="btn" @click="changeCard(key)">
+                <i class="gg-pen"></i>
+              </button>
+
+              <button class="btn" @click="seeCard(key)">
+                <i class="gg-eye"></i>
+              </button>
+              <button class="btn" @click="deleteCard(key)">
+                <i class="gg-trash"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -64,7 +72,7 @@ export default {
       this.dataCard = await res.json();
     },
     async deleteCard(i) {
-      let res = fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
+      let res = await fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -118,7 +126,7 @@ export default {
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 30px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .imges-card {
@@ -131,28 +139,6 @@ export default {
   border-radius: 2px;
 
   font-family: serif;
-}
-
-.buttons {
-  padding: 0 1px 2px 1px;
-}
-
-.buttons .btn {
-  background-color: #232829;
-  color: white;
-  font-size: 14px;
-  padding: 10px 19px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.buttons .btn:hover {
-  background-color: white;
-  color: rgb(76, 76, 76);
-  border-radius: 7px;
-  box-shadow: 0 2px 10px rgb(134, 134, 134);
 }
 
 .data-card {
@@ -174,4 +160,30 @@ export default {
   padding-top: 30px;
   color: #c7c7c7;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  padding: 0px 27px 0px 27px;
+}
+
+.buttons .btn {
+  border: none;
+  background-color: rgba(28, 28, 28, 0);
+  /* padding: 0px 30px 3px 30px; */
+  color: rgb(54, 54, 54);
+  margin: 10px 0 10px 0;
+  cursor: pointer;
+}
+
+.buttons .btn:hover {
+  border: none;
+  background-color: rgba(28, 28, 28, 0);
+
+  color: rgb(22, 22, 22);
+  cursor: pointer;
+}
+
 </style>

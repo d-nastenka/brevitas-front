@@ -1,78 +1,68 @@
 <template>
   <div id="app">
     <Header />
-    <router-view/>
+    <router-view />
     <Footer />
-
   </div>
 </template>
 
 <script>
+import Header from "./components/AppHeader.vue";
+import Footer from "./components/AppFooter.vue";
 
-
-import Header from './components/AppHeader.vue'
-import Footer from './components/AppFooter.vue'
-
-import Home from "./components/Default.vue"
-import Card from "./components/Card.vue"
-import CreateCard from "./components/CreateCard.vue"
-import Reg from "./components/Reg.vue"
-import Auth from "./components/Auth.vue"
-import ChangeCard from "./components/ChangeCard.vue"
-import SeeCard from "./components/SeeCard.vue"
-
+import Home from "./components/Default.vue";
+import Card from "./components/Card.vue";
+import CreateCard from "./components/CreateCard.vue";
+import Reg from "./components/Reg.vue";
+import Auth from "./components/Auth.vue";
+import ChangeCard from "./components/ChangeCard.vue";
+import SeeCard from "./components/SeeCard.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-      Header,
-      Footer,
-      Home,
-      Card,
-      Reg,
-      Auth,
-      CreateCard,
-      ChangeCard,
-      SeeCard
+    Header,
+    Footer,
+    Home,
+    Card,
+    Reg,
+    Auth,
+    CreateCard,
+    ChangeCard,
+    SeeCard
   },
-  data () {
+  data() {
     return {
       users: {
-          name: '',
-          surname: '',
-          email: '',
-          login: '',
-          password: ''
+        name: "",
+        surname: "",
+        email: "",
+        login: "",
+        password: ""
       }
-      
-    }
-
+    };
   },
   methods: {
-      addUser(user) {
-          this.users.push(user);
-          console.log(users)
-      },
+    addUser(user) {
+      this.users.push(user);
+      console.log(users);
+    }
   },
-  computed: {
-
-  }
-}
+  computed: {}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-
 }
 
-
-
-h1, h2 {
+h1,
+h2 {
   font-weight: bold;
 }
 
@@ -86,8 +76,6 @@ li {
   margin: 0 10px;
 }
 
-
-
 .pages {
   display: flex;
   flex-direction: column;
@@ -97,19 +85,18 @@ li {
   margin-left: 20px;
 }
 
-.pages_ell{
+.pages_ell {
   margin-left: 25px;
 }
 
-
-
-html, body {
+html,
+body {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
 }
 
-/*кнопки валидные*/ 
+/*кнопки валидные*/
 .btn-card {
   background-color: #3d6c71;
   color: white;
@@ -122,7 +109,7 @@ html, body {
 
   margin-top: 10px;
 }
-.btn-card_NO{
+.btn-card_NO {
   background-color: #3d6c71;
   color: white;
   font-size: 14px;

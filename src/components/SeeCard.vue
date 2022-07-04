@@ -18,17 +18,13 @@
           </div>
           <div class="contacts">
             <div class="data-card">
-              <a :href="`mailto:${dataCard.mail}`" target="_blank">{{
-                dataCard.mail
-              }}</a>
+              <a :href="mail" target="_blank">{{ dataCard.mail }}</a>
             </div>
             <div class="data-card">
-              <a :href="dataCard.link" target="_blank">{{ dataCard.link }}</a>
+              <a :href="link" target="_blank">{{ dataCard.link }}</a>
             </div>
             <div class="data-card">
-              <a :href="`tel:${dataCard.phone}`" target="_blank">{{
-                dataCard.phone
-              }}</a>
+              <a :href="numberPhone" target="_blank">{{ dataCard.phone }}</a>
             </div>
           </div>
         </div>
@@ -65,7 +61,17 @@ export default {
       this.dataCard = await res.json();
     }
   },
-  computed: {}
+  computed: {
+    mail() {
+      return `mailto:${this.dataCard?.mail}`;
+    },
+    link() {
+      return this.dataCard?.link;
+    },
+    numberPhone() {
+      return `tel:${this.dataCard?.phone}`;
+    }
+  }
 };
 </script>
 
@@ -109,7 +115,7 @@ export default {
 
 .data-user {
   font-size: 30px;
-
+  font-weight: bold;
 }
 
 .contacts {
