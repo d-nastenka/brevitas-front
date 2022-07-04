@@ -199,7 +199,7 @@ export default {
 
 .cards-input {
   width: 100%;
-  padding: 0 0 12px 0;
+  padding: 0 0 8px 0;
   border: none;
 }
 .btn-card:hover {
@@ -208,4 +208,11 @@ export default {
   border-radius: 7px;
   box-shadow: 0 2px 10px rgb(134, 134, 134);
 }
+
+/* input {
+  box-sizing: border-box;
+  border: 2px solid gray;
+  border-radius: 3px;
+  padding: 6px 17px;
+} */
 </style>

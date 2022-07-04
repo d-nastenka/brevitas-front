@@ -56,9 +56,7 @@ export default {
       }
     };
   },
-  mounted() {
-
-  },
+  mounted() {},
   methods: {
     changeCard(item) {
       this.$router.push(`/changecard/${item._id}`);
@@ -99,6 +97,7 @@ export default {
   flex-direction: row;
   justify-content: space-around;
 
+  overflow: hidden;
   padding: 0px 27px 0px 27px;
 }
 
@@ -106,11 +105,15 @@ export default {
   border: none;
   background-color: rgba(28, 28, 28, 0);
   /* padding: 0px 30px 3px 30px; */
-  color: rgb(54, 54, 54);
-  margin: 10px 0 10px 0;
+  color: rgb(61, 61, 61);
+  /* margin: 10px 0 10px 0; */
+  margin: 0 0 -200px 0;
+  transition: margin 0.2s;
   cursor: pointer;
 }
-
+.imges-card:hover .btn {
+  margin: 10px 0 10px 0;
+}
 .buttons .btn:hover {
   border: none;
   background-color: rgba(28, 28, 28, 0);
