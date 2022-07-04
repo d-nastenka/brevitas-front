@@ -22,7 +22,7 @@
             <button type="submit" class="btn-card">Создать визитку</button>
           </div>
           <div v-else>
-            <button type="submit" class="btn-card_NO">Создать визитку</button>
+            <a class="btn-card_NO">Создать визитку</a>
           </div>
         </div>
       </form>
