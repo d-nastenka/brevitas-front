@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 
 
 import Home from "./components/Default"
@@ -15,7 +16,7 @@ import LoadingCard from "./components/LoadingCard.vue"
 
 
 Vue.use(VueRouter)
-
+Vue.use(Vuex);
 
 const routes = [
   { path: '/', component: Home },
@@ -32,8 +33,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
-
 
 new Vue({
   router,
