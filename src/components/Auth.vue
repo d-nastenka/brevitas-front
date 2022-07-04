@@ -103,12 +103,12 @@ export default {
     cursor: pointer;
     border-radius: 7px;
     text-align: center;
-
+    transition: all 0.5s;
     margin-top: 10px;
 }
 
 .btn-auth:hover {
-    background-color: white;
+    background-color: rgb(186, 220, 222);
     color: rgb(76, 76, 76);
 }
 
@@ -125,7 +125,12 @@ export default {
     cursor: pointer;
     border-radius: 4px;
     text-align: center;
-
+    transition: all 0.5s;
     margin-left: 10px;
+}
+
+.btn_head_autor:hover{
+    color: rgb(75, 75, 76);
+    font-size: 16px;
 }
 </style>
