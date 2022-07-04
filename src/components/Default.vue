@@ -6,41 +6,8 @@
       <div class="wrapper">
         <div v-if="imgLengthstatus">У вас пока нет визиток</div>
         <div class="flex-container" v-else>
-          <div class="imges-card" v-for="(i, key) in dataCard" :key="key">
-            <div class="data-user">
-              <div class="data-card">
-                {{ i.name }}
-                {{ i.surname }}
-              </div>
-
-              <div class="data-card">
-                {{ i.description }}
-              </div>
-            </div>
-            <div class="contacts">
-              <div class="data-card">
-                {{ i.mail }}
-              </div>
-              <div class="data-card">
-                {{ i.link }}
-              </div>
-              <div class="data-card">
-                {{ i.phone }}
-              </div>
-            </div>
-
-            <div class="buttons">
-              <button class="btn" @click="changeCard(key)">
-                <i class="gg-pen"></i>
-              </button>
-
-              <button class="btn" @click="seeCard(key)">
-                <i class="gg-eye"></i>
-              </button>
-              <button class="btn" @click="deleteCard(key)">
-                <i class="gg-trash"></i>
-              </button>
-            </div>
+          <div class="imges-card" v-for="(item, key) in dataCard" :key="key">
+            <LoadingCard :card="item" @deleteCard="deleteCard" />
           </div>
         </div>
       </div>
@@ -49,8 +16,14 @@
 </template>
 
 <script>
+import LoadingCard from "./LoadingCard.vue";
+
 export default {
   name: "Home",
+  components: {
+    LoadingCard
+  },
+
   status: false,
   data() {
     return {
@@ -71,21 +44,15 @@ export default {
       });
       this.dataCard = await res.json();
     },
-    async deleteCard(i) {
-      let res = await fetch(`http://localhost:3000/visits/${this.dataCard[i]._id}`, {
+    async deleteCard(item) {
+      let res = await fetch(`http://localhost:3000/visits/${item._id}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
-      this.dataCard.splice(i, 1);
-    },
-    changeCard(i) {
-      this.$router.push(`/changecard/${this.dataCard[i]._id}`);
-    },
-    seeCard(i) {
-      this.$router.push(`/seecard/${this.dataCard[i]._id}`);
+      this.dataCard.splice(item, 1);
     }
   },
   computed: {
@@ -140,50 +107,4 @@ export default {
 
   font-family: serif;
 }
-
-.data-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  /* padding-top: 30px; */
-}
-
-.data-user {
-  font-size: 19px;
-  font-weight: normal;
-  padding-top: 25px;
-  color: #e1e1e1;
-}
-
-.contacts {
-  font-size: 15px;
-  padding-top: 30px;
-  color: #c7c7c7;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-
-  padding: 0px 27px 0px 27px;
-}
-
-.buttons .btn {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-  /* padding: 0px 30px 3px 30px; */
-  color: rgb(54, 54, 54);
-  margin: 10px 0 10px 0;
-  cursor: pointer;
-}
-
-.buttons .btn:hover {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-
-  color: rgb(22, 22, 22);
-  cursor: pointer;
-}
-
 </style>

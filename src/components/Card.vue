@@ -21,9 +21,11 @@
           <div v-if="!nameErrors">
             <button type="submit" class="btn-card">Создать визитку</button>
           </div>
-          <div v-else>
+          <!--
+            <div v-else>
             <button type="submit" class="btn-card_NO">Создать визитку</button>
           </div>
+          -->
         </div>
       </form>
     </div>

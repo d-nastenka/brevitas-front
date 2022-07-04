@@ -11,6 +11,7 @@ import Auth from "./components/Auth.vue"
 import CreateCard from "./components/CreateCard.vue"
 import ChangeCard from "./components/ChangeCard.vue"
 import SeeCard from "./components/SeeCard.vue"
+import LoadingCard from "./components/LoadingCard.vue"
 
 
 Vue.use(VueRouter)
