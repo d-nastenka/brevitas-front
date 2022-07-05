@@ -23,7 +23,9 @@ export default {
   components: {
     LoadingCard
   },
-
+  // props: {
+  //   isAuth: Boolean
+  // },
   status: false,
   data() {
     return {
@@ -43,6 +45,7 @@ export default {
         }
       });
       this.dataCard = await res.json();
+      console.log(this.dataCard);
     },
     async deleteCard(item) {
       let res = await fetch(`http://localhost:3000/visits/${item._id}`, {
