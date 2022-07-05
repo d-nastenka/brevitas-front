@@ -1,30 +1,17 @@
 <template>
   <header class="head">
     <div class="pages">
-      <div class="head_title">
-        <h1>Brevitas</h1>
-      </div>
-      <a class="btn_head" @click="$router.push('/')">
+        <h1 class="head_title">Brevitas</h1>
+        <a class="btn_head" @click="$router.push('/')">
         Главная страница
       </a>
-      <a
-        v-if="$store.state.isAuth"
-        class="btn_head"
-        @click="$router.push('/card')"
-      >
-        Создать новую визитку</a
-      >
-      <a
-        v-if="$store.state.isAuth"
-        class="btn_head"
-        @click="$router.push('/mycards')"
-      >
-        Мои визитки</a
-      >
-      <div v-else class="btn_head">
-        <a class="btn_autor" @click="$router.push('/authorization')">
-          <img class="img_reg" src="/image/reg.png" alt="" /> Войти</a
-        >
+      <a  v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/card')">
+      Создать новую визитку</a>
+      <a  v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/mycards')"> Мои визитки</a>
+      <div v-else class="btn_head">     
+        <a class="btn_autor" @click="$router.push('/authorization')"> <img class="img_reg" src="/image/reg.png" alt=""> Войти</a>
+
+
       </div>
     </div>
   </header>
@@ -61,8 +48,8 @@ export default {
   margin-right: 70px;
   margin-left: 30px;
 
-  font-size: 27px; /*шрифт*/
-
+  font-size: 70px; /*шрифт*/
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -70,16 +57,15 @@ export default {
 
   color: #fce4de;
 
-  /*бакграунд*/
-  /*background-image: linear-gradient(to right,#fce4de, #fcfcfc);
+  /*/*бакграунд*/ 
+    /*background-image: linear-gradient(to right,#fce4de, #fcfcfc);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;*/
 }
-
 .btn_head {
   color: #fce4de;
-  font-size: 17px;
+  font-size: 20px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
