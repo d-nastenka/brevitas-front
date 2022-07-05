@@ -9,7 +9,7 @@
         <div class="form-input-cards">
           <div v-for="(i, key) in formFill" :key="key">
             <div :error-messages="nameErrors" class="cards-input">
-              <input
+              <input class="imput_reg_visit"
                 v-model="dataToSend[i.value]"
                 :placeholder="i.textPlaceholder"
               />
@@ -184,11 +184,11 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
   width: 300px;
   padding: 32px;
   border-radius: 10px;
-  box-shadow: 0 4px 16px #ccc;
+  box-shadow: 0 4px 16px rgb(143, 143, 143);
+  background-color: #9fedd7;
 }
 
 .title-cards {
@@ -199,7 +199,7 @@ export default {
 
 .cards-input {
   width: 100%;
-  padding: 0 0 8px 0;
+  padding: 0 0 9px 0;
   border: none;
 }
 .btn-card:hover {
@@ -209,10 +209,17 @@ export default {
   box-shadow: 0 2px 10px rgb(134, 134, 134);
 }
 
-/* input {
-  box-sizing: border-box;
-  border: 2px solid gray;
-  border-radius: 3px;
-  padding: 6px 17px;
-} */
+ .imput_reg_visit {
+  
+   padding: 7px 19px;
+   margin-bottom: 2px;
+   border: 0px solid rgb(199, 196, 196);
+   border-radius: 15px;
+   box-sizing: border-box;
+   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  
+  
+  
+ 
+} 
 </style>

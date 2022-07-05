@@ -22,18 +22,17 @@ export default {
    name: "Footer",
 }
 </script>
-
 <style>
 
 .footer{
     /* background-color: #363636; */
-    background: #00444a;
+    background: linear-gradient(70deg, #026670, #9fedd7);
     margin-top: 60px;
     /* padding-right: 20px; */
     padding-top: 20px;
     padding-bottom: 15px; 
     width: 100%;
-    height: 175px;
+    height: 155px;
     justify-content: center;
     align-items: center; 
     /* margin-right: 20px; */
@@ -60,7 +59,7 @@ export default {
 }
 
 .footkont {
-    color: rgb(199, 199, 199);
+    color: #ffffff;
     padding-top: 35px;
 }
 
