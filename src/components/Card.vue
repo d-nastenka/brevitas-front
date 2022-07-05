@@ -120,7 +120,7 @@ export default {
       } else {
         if (!this.$v.dataToSend.phone.minLength) {
           newmes = "";
-          errors.push(" введите правильный полный номер телефона");
+          errors.push(" введите полный номер телефона");
           newmes = newmes + errors;
         }
         if (!this.$v.dataToSend.mail.email) {
