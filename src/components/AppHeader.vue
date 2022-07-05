@@ -3,13 +3,21 @@
     <div class="head-title">
       <h1>Brevitas</h1>
     </div>
-
     <div class="pages">
-      <a class="btn_head" @click="$router.push('/card')">
-        Создать новую визитку</a
+      <!-- <div v-if="$store.state.isAuth"> -->
+      <a
+        v-if="$store.state.isAuth"
+        class="btn_head"
+        @click="$router.push('/card')"
       >
-      <a class="btn_head" @click="$router.push('/')"> Мои визитки</a>
-      <div class="btn_autor">
+        Создать новую визитку
+      </a>
+      <a v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/')">
+        Мои визитки</a
+      >
+      <!-- </div> -->
+      <div v-else class="btn_autor">
+        <!-- <div class="btn_autor"> -->
         <a class="btn_head" @click="$router.push('/authorization')"> Войти</a>
         <!-- <router-link class="pages_ell" to="/authorization">Войти</router-link>-->
       </div>
@@ -19,7 +27,13 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  mounted() {
+    console.log(this.$store);
+  }
+  // props: {
+  //   isAuth: Boolean
+  // },
 };
 </script>
 

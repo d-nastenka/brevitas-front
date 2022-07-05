@@ -34,6 +34,9 @@ export default {
     SeeCard,
     LoadingCard
   },
+  // props: {
+  //   isAuth: Boolean
+  // },
   data() {
     return {
       users: {
@@ -42,14 +45,15 @@ export default {
         email: "",
         login: "",
         password: ""
-      }
+      },
+      // isAuth: false
     };
   },
   methods: {
-    addUser(user) {
-      this.users.push(user);
-      console.log(users);
-    }
+    // addUser(user) {
+    //   this.users.push(user);
+    //   console.log(users);
+    // }
   },
   computed: {}
 };
