@@ -3,9 +3,7 @@
     
     <div class="pages">
 
-      <div class="head_title">
-        <h1>Brevitas</h1>
-      </div>
+        <h1 class="head_title">Brevitas</h1>
 
       <a  v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/card')">
       Создать новую визитку</a>
@@ -54,17 +52,17 @@ export default {
   margin-right: 70px;
   margin-left: 30px;
 
-  font-size: 27px; /*шрифт*/
- 
+  font-size: 70px; /*шрифт*/
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   padding-left: 50px;
 
 
- color: #fce4de;
+ color: #fbf0ed;
 
-  /*бакграунд*/ 
+  /*/*бакграунд*/ 
     /*background-image: linear-gradient(to right,#fce4de, #fcfcfc);
     -webkit-background-clip: text;
     background-clip: text;
@@ -72,9 +70,11 @@ export default {
 }
 
 
+
+
 .btn_head {
   color: #fce4de;
-  font-size: 17px;
+  font-size: 20px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;

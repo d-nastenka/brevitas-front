@@ -62,7 +62,7 @@ const routes = [
 ];
 const store = new Vuex.Store({
   state: {
-    isAuth: true
+    isAuth: true  /*менять для рег/ входа*/
   }
 });
 

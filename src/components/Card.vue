@@ -217,7 +217,8 @@ export default {
    border-radius: 15px;
    box-sizing: border-box;
    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-  
+   /*font-family:inherit;*//*наследует стиль шрифта от браузера */
+   /*font-size: inherit;*/
   
   
  
