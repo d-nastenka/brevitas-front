@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Vuex from "vuex";
 
 import Home from "./components/Default";
+import MyCards from "./components/MyCards";
 import Card from "./components/Card";
 import Reg from "./components/Reg.vue";
 import Auth from "./components/Auth.vue";
@@ -17,7 +18,18 @@ Vue.use(VueRouter);
 Vue.use(Vuex);
 
 const routes = [
-  { name: "home", path: "/", component: Home, meta: { requiresAuth: false } },
+  {
+    name: "home",
+    path: "/",
+    component: Home,
+    meta: { requiresAuth: false }
+  },
+  {
+    name: "mycards",
+    path: "/mycards",
+    component: MyCards,
+    meta: { requiresAuth: false }
+  },
   {
     name: "card",
     path: "/card",
@@ -62,7 +74,7 @@ const routes = [
 ];
 const store = new Vuex.Store({
   state: {
-    isAuth: true
+    isAuth: false
   }
 });
 
@@ -73,7 +85,11 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== "authorization" && to.name !== "registration") {
+  if (
+    to.name !== "authorization" &&
+    to.name !== "registration" &&
+    to.name != "home"
+  ) {
     if (!store.state.isAuth) {
       next({
         name: "authorization"

@@ -11,6 +11,7 @@ import Header from "./components/AppHeader.vue";
 import Footer from "./components/AppFooter.vue";
 
 import Home from "./components/Default.vue";
+import MyCards from "./components/MyCards.vue";
 import Card from "./components/Card.vue";
 import CreateCard from "./components/CreateCard.vue";
 import Reg from "./components/Reg.vue";
@@ -24,8 +25,9 @@ export default {
   name: "app",
   components: {
     Header,
-    Footer,
     Home,
+    Footer,
+    MyCards,
     Card,
     Reg,
     Auth,

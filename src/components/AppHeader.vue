@@ -4,6 +4,11 @@
       <h1>Brevitas</h1>
     </div>
     <div class="pages">
+      <a class="btn_head"
+        @click="$router.push('/')"
+      >
+        Главная страница
+      </a>
       <!-- <div v-if="$store.state.isAuth"> -->
       <a
         v-if="$store.state.isAuth"
@@ -12,7 +17,7 @@
       >
         Создать новую визитку
       </a>
-      <a v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/')">
+      <a v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/mycards')">
         Мои визитки</a
       >
       <!-- </div> -->
