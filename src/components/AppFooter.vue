@@ -25,17 +25,15 @@ export default {
 <style>
 
 .footer{
-    /* background-color: #363636; */
     background: linear-gradient(70deg, #026670, #9fedd7);
     margin-top: 60px;
-    /* padding-right: 20px; */
     padding-top: 20px;
-    padding-bottom: 15px; 
     width: 100%;
     height: 155px;
     justify-content: center;
     align-items: center; 
-    /* margin-right: 20px; */
+    padding-bottom: 10px;
+
 }
 
 .footer-flex {

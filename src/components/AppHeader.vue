@@ -2,17 +2,16 @@
   <header class="head">
     <div class="pages">
         <h1 class="head_title">Brevitas</h1>
-        <a class="btn_head" @click="$router.push('/')">
-        Главная страница
-      </a>
-      <a  v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/card')">
-      Создать новую визитку</a>
-      <a  v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/mycards')"> Мои визитки</a>
-      <div v-else class="btn_head">     
-        <a class="btn_autor" @click="$router.push('/authorization')"> <img class="img_reg" src="/image/reg.png" alt=""> Войти</a>
-
-
+      <div>
+        <a class="btn_head" @click="$router.push('/')"> Главная страница</a>
+        <a  v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/card')">
+        Создать новую визитку</a>
+        <a  v-if="$store.state.isAuth" class="btn_head" @click="$router.push('/mycards')"> Мои визитки</a>
+        <div v-else class="btn_head">     
+          <a class="btn_autor" @click="$router.push('/authorization')"> <img class="img_reg" src="/image/reg.png" alt=""> Войти</a>
+        </div>
       </div>
+      
     </div>
   </header>
 </template>

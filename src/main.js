@@ -74,7 +74,7 @@ const routes = [
 ];
 const store = new Vuex.Store({
   state: {
-    isAuth: false
+    isAuth: true
   }
 });
 

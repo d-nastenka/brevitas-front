@@ -19,10 +19,10 @@
             <font color="red"> {{ nameErrors }}</font>
           </p>
           <div v-if="!nameErrors">
-            <button type="submit" class="btn-card">Создать визитку</button>
+            <button type="submit" class="btn-card"> <span>Создать визитку</span> </button>
           </div>
           <div v-else>
-            <a class="btn-card_NO">Создать визитку</a>
+            <a class="btn-card_NO"><span class="btn-card_text">Создать визитку</span></a>
           </div>
         </div>
       </form>
@@ -176,7 +176,7 @@ export default {
 .page-card {
   display: flex;
   justify-content: center;
-
+  background: linear-gradient(70deg, #026670, #9fedd7);
   margin-top: 20px;
 }
 
@@ -186,9 +186,7 @@ export default {
   justify-content: flex-end;
   width: 300px;
   padding: 32px;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgb(143, 143, 143);
-  background-color: #9fedd7;
+  background-color: #ffffff63;
 }
 
 .title-cards {
@@ -202,25 +200,16 @@ export default {
   padding: 0 0 9px 0;
   border: none;
 }
-.btn-card:hover {
-  background-color: white;
-  color: rgb(76, 76, 76);
-  border-radius: 7px;
-  box-shadow: 0 2px 10px rgb(134, 134, 134);
-}
-
  .imput_reg_visit {
-  
-   padding: 7px 19px;
-   margin-bottom: 2px;
-   border: 0px solid rgb(199, 196, 196);
-   border-radius: 15px;
-   box-sizing: border-box;
-   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-   /*font-family:inherit;*//*наследует стиль шрифта от браузера */
-   /*font-size: inherit;*/
-  
-  
- 
+  padding: 7px 19px;
+  margin-bottom: 2px;
+  border: 0px;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  /*box-sizing: border-box;*/
+
 } 
+.imput_reg_visit:focus{
+  background-color: rgba(255, 255, 255, 0.347);
+}
 </style>

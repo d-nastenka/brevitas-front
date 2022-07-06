@@ -118,18 +118,54 @@ body {
 
   margin-top: 10px;
 }
-.btn-card_NO {
+.btn-card_NO:hover {
   background-color: #3d6c71;
+
   color: white;
+  border-radius: 7px;
+  
+}
+
+.btn-card_text{
+position: relative;
+height: 80px;
+}
+
+.btn-card_NO {
+  background-color: #bae5e9;
+  color: rgb(76, 76, 76);
   font-size: 14px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 12px;
   text-align: center;
-  margin-top: 10px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  /*opacity: 0.6;
+  cursor: not-allowed;*/
 
-  opacity: 0.6;
-  cursor: not-allowed;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-card_NO::before{
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  border: 0;
+  background-color: #74a3a3;
+  top: -10;
+  left:70%;
+  z-index: 1;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-card_NO:hover:before{
+left:0%;
 }
 </style>
