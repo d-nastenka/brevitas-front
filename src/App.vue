@@ -36,27 +36,10 @@ export default {
     SeeCard,
     LoadingCard
   },
-  // props: {
-  //   isAuth: Boolean
-  // },
   data() {
-    return {
-      users: {
-        name: "",
-        surname: "",
-        email: "",
-        login: "",
-        password: ""
-      },
-      // isAuth: false
-    };
+    return {};
   },
-  methods: {
-    // addUser(user) {
-    //   this.users.push(user);
-    //   console.log(users);
-    // }
-  },
+  methods: {},
   computed: {}
 };
 </script>

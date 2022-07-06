@@ -44,7 +44,7 @@ export default {
         email: "",
         login: "",
         password: "",
-        confirm:""
+        confirm: ""
       },
       formReg: [
         {
@@ -74,8 +74,8 @@ export default {
     dataReg: {
       email: { required, email },
       login: { required },
-      password: { required, minLength: minLength(6)},
-      confirm: { required}
+      password: { required, minLength: minLength(6) },
+      confirm: { required }
     }
   },
   computed: {
@@ -87,8 +87,8 @@ export default {
         !this.$v.dataReg.login.required ||
         !this.$v.dataReg.email.required ||
         !this.$v.dataReg.password.required ||
-        !this.$v.dataReg.confirm.required )        
-       {
+        !this.$v.dataReg.confirm.required
+      ) {
         errors.push("заполните все поля ");
         newmes = newmes + errors;
       } else {
@@ -107,7 +107,7 @@ export default {
           errors.push("минимальная длина пароля 6");
           newmes = newmes + errors;
         }
-        if ((this.$v.dataReg.password.$model)!=(this.$v.dataReg.confirm.$model)){
+        if (this.$v.dataReg.password.$model != this.$v.dataReg.confirm.$model) {
           newmes = "";
           errors.push("пароли не совпадают");
           newmes = newmes + errors;
@@ -128,7 +128,7 @@ export default {
         }
       });
 
-      this.$router.push("/");
+      this.$router.push("/authorization");
     }
   }
 };

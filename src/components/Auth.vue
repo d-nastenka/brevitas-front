@@ -60,7 +60,6 @@ export default {
   },
   methods: {
     async sendAuth() {
-      //   console.log(this.dataAuth);
       let res = await fetch("http://localhost:3000/auth/login", {
         method: "POST",
         body: JSON.stringify(this.dataAuth),
@@ -70,12 +69,7 @@ export default {
         },
         credentials: "include"
       });
-      //   AuthEr = res;
-      //   console.log(res);
-      //   console.log(this.AuthEr);
-
-      console.log(res);
-      //   this.$router.push("/");
+      this.$router.push("/");
     }
   }
 };

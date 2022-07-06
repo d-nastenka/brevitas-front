@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 import Vuex from "vuex";
+// import { mapState } from 'vuex';
 
 import Home from "./components/Default";
 import MyCards from "./components/MyCards";
@@ -12,7 +13,6 @@ import Auth from "./components/Auth.vue";
 import CreateCard from "./components/CreateCard.vue";
 import ChangeCard from "./components/ChangeCard.vue";
 import SeeCard from "./components/SeeCard.vue";
-import LoadingCard from "./components/LoadingCard.vue";
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -74,7 +74,13 @@ const routes = [
 ];
 const store = new Vuex.Store({
   state: {
-    isAuth: true
+    isAuth: '',
+  },
+  mutations: {
+    ChangeAuth (state, payload) 
+    {
+      state.isAuth = payload;
+    }
   }
 });
 
@@ -84,11 +90,27 @@ const router = new VueRouter({
   routes
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+    
+      const res = await fetch("http://localhost:3000/auth/test", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: 'include'
+
+      });
+      if (res.ok) {
+        store.commit('ChangeAuth', true)
+      }
+      else 
+      {store.commit('ChangeAuth', false)
+    }
+    
   if (
     to.name !== "authorization" &&
     to.name !== "registration" &&
-    to.name != "home"
+    to.name !== "home"
   ) {
     if (!store.state.isAuth) {
       next({
