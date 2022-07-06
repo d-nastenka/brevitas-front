@@ -112,6 +112,11 @@ body {
 .btn-card_text{
 position: relative;
 height: 80px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-transform: uppercase;
+top: 0;
 }
 
 .btn-card_NO {

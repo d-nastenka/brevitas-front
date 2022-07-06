@@ -206,8 +206,9 @@ export default {
   border: 0px;
   border-bottom: 2px solid rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0);
+  outline:none;
   /*box-sizing: border-box;*/
-
+  
 } 
 .imput_reg_visit:focus{
   background-color: rgba(255, 255, 255, 0.347);
