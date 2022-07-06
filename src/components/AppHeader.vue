@@ -17,7 +17,6 @@
           <img class="img_reg" src="/image/reg.png" alt="" />Войти</a
         >
       </div>
-      
     </div>
   </header>
 </template>
@@ -41,12 +40,10 @@ export default {
       });
       this.$router.push("/authorization");
     },
-    ...mapMutations(['ChangeAuth'])
-
+    ...mapMutations(["ChangeAuth"])
   },
   computed: {
-    ...mapState(["isAuth"]),
-    
+    ...mapState(["isAuth"])
   }
   // computed: mapState ({
   //     //return this.$store.state.isAuth;
@@ -58,12 +55,11 @@ export default {
 <style>
 .head {
   width: 100%;
-  height: 105px;
+  height: 15%;
   display: flex;
   /* justify-content: center; */
   align-items: center;
   background-size: cover;
-  margin-bottom: 50px;
   margin-right: 20px;
 
   /*варианты цветов*/
@@ -74,10 +70,9 @@ export default {
 }
 
 .head_title {
-  margin-right: 70px;
-  margin-left: 30px;
+  margin-right: 50px;
 
-  font-size: 70px; /*шрифт*/
+  font-size: 55px; /*шрифт*/
   font-family: "Ubuntu", sans-serif;
   display: flex;
   flex-direction: row;
@@ -94,14 +89,12 @@ export default {
 }
 .btn_head {
   color: #fce4de;
-  font-size: 20px;
+  font-size: 17px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 4px;
   text-align: center;
-
-  margin-left: 10px;
 }
 
 .pages {

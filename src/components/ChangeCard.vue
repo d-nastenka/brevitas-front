@@ -192,7 +192,8 @@ export default {
   display: flex;
   justify-content: center;
 
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .form-cards {

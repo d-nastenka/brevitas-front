@@ -177,7 +177,10 @@ export default {
   display: flex;
   justify-content: center;
   background: linear-gradient(70deg, #026670, #9fedd7);
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  padding-top: 30px;
+  padding-bottom: 30px;
+  
 }
 
 .form-cards {
@@ -187,6 +190,7 @@ export default {
   width: 300px;
   padding: 32px;
   background-color: #ffffff63;
+  border-radius: 10px;
 }
 
 .title-cards {
