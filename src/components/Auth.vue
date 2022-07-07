@@ -96,8 +96,6 @@ export default {
 
   width: 300px;
   padding: 32px;
-  /* border-radius: 10px;
-  box-shadow: 0 4px 16px #ccc; */
   background-color: #ffffff63;
   border-radius: 10px;
 }

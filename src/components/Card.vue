@@ -181,7 +181,6 @@ export default {
 .page-card {
   display: flex;
   justify-content: center;
-  /* background: linear-gradient(70deg, #026670, #9fedd7); */
   background: linear-gradient(90deg, #016670, #fff9c7);
   margin-top: 1px;
   margin-bottom: 1px;
@@ -218,7 +217,6 @@ export default {
   border-bottom: 2px solid rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0);
   outline: none;
-  /*box-sizing: border-box;*/
 }
 .imput_reg_visit:focus {
   background-color: rgba(255, 255, 255, 0.347);
