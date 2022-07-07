@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <router-view class="test" />
+    <router-view />
     <Footer />
   </div>
 </template>
@@ -52,7 +52,6 @@ export default {
   text-align: center;
 
   color: #ffffff;
-  background: linear-gradient(70deg, #026670, #9fedd7);
 
   color: #2c3e50;
   height: 100vh;
