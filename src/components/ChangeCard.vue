@@ -132,6 +132,7 @@ export default {
           errors.push("в поле ТЕЛЕФОН должны быть только цифры!");
           newmes = newmes + errors;
         }
+        // for (const [] of Object.entries())
       }
       return newmes;
     }
@@ -192,6 +193,13 @@ export default {
         this.$router.push("/");
       }
     }
+    // validationForm(param, strEr) {
+    //   if (!param) {
+    //       newmes = "";
+    //       errors.push(strEr);
+    //       newmes = newmes + errors;
+    //     }
+    // }
   }
 };
 </script>

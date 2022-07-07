@@ -9,7 +9,7 @@ import store from "./vuex";
 
 new Vue({
   router,
-  store,
+  store,  
   el: "#app",
   render: h => h(App)
 });

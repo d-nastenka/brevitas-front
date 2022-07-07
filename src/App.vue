@@ -10,11 +10,31 @@
 import Header from "./components/AppHeader.vue";
 import Footer from "./components/AppFooter.vue";
 
+// import Home from "./components/Default.vue";
+// import MyCards from "./components/MyCards.vue";
+// import Card from "./components/Card.vue";
+// import CreateCard from "./components/CreateCard.vue";
+// import Reg from "./components/Reg.vue";
+// import Auth from "./components/Auth.vue";
+// import ChangeCard from "./components/ChangeCard.vue";
+// import SeeCard from "./components/SeeCard.vue";
+
+// import LoadingCard from "./components/LoadingCard.vue";
+
 export default {
   name: "app",
   components: {
     Header,
     Footer,
+    // Home,
+    // MyCards,
+    // Card,
+    // Reg,
+    // Auth,
+    // CreateCard,
+    // ChangeCard,
+    // SeeCard,
+    // LoadingCard
   },
   data() {
     return {};
