@@ -63,7 +63,8 @@ export default {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
-          }
+          },
+          credentials: "include"
         }
       );
       this.dataCard = await res.json();

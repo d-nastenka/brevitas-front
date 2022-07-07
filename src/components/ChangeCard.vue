@@ -159,7 +159,8 @@ export default {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
-          }
+          },
+          credentials: "include"
         }
       );
       this.dataOfCard = await res.json();
@@ -178,7 +179,8 @@ export default {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
-          }
+          },
+          credentials: "include"
         }
       );
       this.$router.push("/");
