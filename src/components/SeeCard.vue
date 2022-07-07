@@ -67,7 +67,9 @@ export default {
           credentials: "include"
         }
       );
-      this.dataCard = await res.json();
+      if (res.ok) {
+        this.dataCard = await res.json();
+      }
     }
   },
   computed: {

@@ -165,7 +165,9 @@ export default {
           credentials: "include"
         }
       );
-      this.dataOfCard = await res.json();
+      if (res.ok) {
+        this.dataOfCard = await res.json();
+      }
     },
     // TODO: Нет валидации
     async changeCard() {
@@ -186,7 +188,9 @@ export default {
           credentials: "include"
         }
       );
-      this.$router.push("/");
+      if (res.ok) {
+        this.$router.push("/");
+      }
     }
   }
 };
@@ -257,7 +261,6 @@ export default {
 }
 
 .input-change:focus {
-   background-color: rgba(255, 255, 255, 0.347);
+  background-color: rgba(255, 255, 255, 0.347);
 }
-
 </style>

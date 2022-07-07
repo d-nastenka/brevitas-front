@@ -134,8 +134,9 @@ export default {
         },
         credentials: "include"
       });
-
-      this.$router.push("/authorization");
+      if (res.ok) {
+        this.$router.push("/authorization");
+      }
     }
   }
 };

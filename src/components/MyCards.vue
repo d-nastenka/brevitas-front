@@ -43,7 +43,9 @@ export default {
         },
         credentials: "include"
       });
-      this.dataCard = await res.json();
+      if (res.ok) {
+        this.dataCard = await res.json();
+      }
     },
     // TODO: Нет валидации
     async deleteCard(item) {
@@ -55,7 +57,9 @@ export default {
         },
         credentials: "include"
       });
-      this.dataCard.splice(item, 1);
+      if (res.ok) {
+        this.dataCard.splice(item, 1);
+      }
     }
   },
   computed: {

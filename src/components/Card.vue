@@ -173,8 +173,9 @@ export default {
         },
         credentials: "include"
       });
-
-      this.$router.push("/");
+      if (res.ok) {
+        this.$router.push("/");
+      }
     }
   }
 };
