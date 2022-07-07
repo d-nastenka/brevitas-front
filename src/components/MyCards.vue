@@ -64,6 +64,10 @@ export default {
 </script>
 
 <style>
+.page {
+  padding-top: 20px;
+}
+
 .wrapper {
   padding: 0px 2% 0px 2%;
 }
@@ -84,6 +88,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
 }
 
 .flex-container {
@@ -93,8 +98,19 @@ export default {
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 30px;
-  /* cursor: pointer; */
+
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
+
+@media screen and (max-width: 1200px) {
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
 
 .imges-card {
   height: 200px;

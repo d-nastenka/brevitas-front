@@ -6,29 +6,36 @@
     <div class="flex-field">
       <div class="flex-field-card">
         <div class="field-card">
-          <div class="data-user">
-            <div class="data-card">
-              {{ dataCard.name }}
-              {{ dataCard.surname }}
-            </div>
+          <div class="if-side" v-if="showBtn">
+            <div class="data-user">
+              <div class="data-card">
+                {{ dataCard.name }}
+                {{ dataCard.surname }}
+              </div>
 
-            <div class="data-card">
-              {{ dataCard.description }}
+              <div class="data-card">
+                {{ dataCard.description }}
+              </div>
             </div>
-          </div>
-          <div class="contacts">
-            <div class="data-card">
-              <a :href="mail" target="_blank">{{ dataCard.mail }}</a>
-            </div>
-            <div class="data-card">
-              <a :href="link" target="_blank">{{ dataCard.link }}</a>
-            </div>
-            <div class="data-card">
-              <a :href="numberPhone" target="_blank">{{ dataCard.phone }}</a>
+            <div class="contacts">
+              <div class="data-card">
+                <a :href="mail" target="_blank">{{ dataCard.mail }}</a>
+              </div>
+              <div class="data-card">
+                <a :href="link" target="_blank">{{ dataCard.link }}</a>
+              </div>
+              <div class="data-card">
+                <a :href="numberPhone" target="_blank">{{ dataCard.phone }}</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="btn-side">
+      <button class="btn-card-side" @click="showBtn = !showBtn">
+        {{ btnText }}
+      </button>
     </div>
   </div>
 </template>
@@ -39,7 +46,8 @@ export default {
 
   data() {
     return {
-      dataCard: {}
+      dataCard: {},
+      showBtn: true
     };
   },
   created() {
@@ -70,6 +78,9 @@ export default {
     },
     numberPhone() {
       return `tel:${this.dataCard?.phone}`;
+    },
+    btnText() {
+      return this.showBtn ? "Обратная сторона" : "Лицевая сторона";
     }
   }
 };
@@ -82,6 +93,7 @@ export default {
   justify-content: center;
 
   margin-top: 40px;
+  padding-bottom: 20px;
 }
 
 .flex-field-card {
@@ -124,5 +136,18 @@ export default {
 
 a {
   color: #c0bfbf;
+}
+
+.btn-card-side {
+  background-color: rgba(54, 90, 103, 0.897);
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  text-align: center;
+
+  margin-top: 10px;
 }
 </style>

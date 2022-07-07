@@ -1,6 +1,11 @@
 <template>
-    <div class="home-page">
-        <div class="home-tittle">
+
+  <div class="home-page">
+    <div class="wrapper">
+      <div class="home-tittle">
+        <h3>Главная страница</h3>
+      </div>
+       <div class="home-tittle">
             <h3>Создайте визитку своими руками</h3>
         </div>
         <div >
@@ -25,14 +30,13 @@
             <h3>Просто создайте свою визитку
                  мы обо всем позаботились</h3>
         </div>
+      <div class="content"></div>
     </div>
+  </div>
 </template>
 
 <script>
-
-export default {
-    
-}
+export default {};
 </script>
 
 <style>
@@ -75,4 +79,18 @@ letter-spacing: 3px;
 
 color: #FFFFFF;
 }
+
+.home-page {
+    
+}
+
+.wrapper {
+  /* position: relative;
+  min-height: 100%; */
+}
+
+.content {
+  padding-bottom: 90px;
+}
 </style>
+

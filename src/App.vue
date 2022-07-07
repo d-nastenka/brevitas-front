@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <router-view class="test" />
     <Footer />
   </div>
 </template>
@@ -50,8 +50,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+
   color: #ffffff;
   background: linear-gradient(70deg, #026670, #9fedd7);
+
+  color: #2c3e50;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 
 h1,
@@ -107,17 +115,17 @@ body {
 
   color: white;
   border-radius: 7px;
-  
 }
 
-.btn-card_text{
-position: relative;
-height: 80px;
-display: flex;
-justify-content: center;
-align-items: center;
-text-transform: uppercase;
-top: 0;
+.btn-card_text {
+  position: relative;
+  height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  top: 0;
 }
 
 .btn-card_NO {
@@ -140,21 +148,22 @@ top: 0;
   display: inline-block;
 }
 
-.btn-card_NO::before{
-  content: '';
+.btn-card_NO::before {
+  content: "";
   position: absolute;
   width: 150px;
   height: 40px;
   border: 0;
   background-color: #74a3a3;
   top: -10;
-  left:70%;
+  left: 70%;
   z-index: 1;
 
   transition: all 0.5s ease-in-out;
 }
 
-.btn-card_NO:hover:before{
-left:0%;
+.btn-card_NO:hover:before {
+  left: 0%;
 }
+
 </style>
