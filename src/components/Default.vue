@@ -72,7 +72,7 @@ export default {};
   text-align: right;
   letter-spacing: 3px;
 
-  color: #ffffff;
+  color: #5f5e5e;
 }
 
 .home-page {
@@ -83,7 +83,8 @@ export default {};
   /* position: relative;
   min-height: 100%; */
   /* margin-top: 1px; */
-  background: linear-gradient(70deg, #026670, #9fedd7);
+  /* background: linear-gradient(70deg, #026670, #9fedd7); */
+    background: linear-gradient(90deg, #016670, #FFF9C7);
   padding-top: 9px;
     margin-top: 1px;
 }

@@ -6,10 +6,11 @@
       </div>
 
       <form @submit.prevent="addUser">
-        <div class="form-input">
+        <!-- <div class="form-input"> -->
           <div v-for="(i, key) in formReg" :key="key">
             <div :error-messages="nameErrors" class="reg-input">
               <input
+                class="input-reg"
                 v-model="dataReg[i.value]"
                 :placeholder="i.textPlaceholder"
               />
@@ -25,7 +26,7 @@
           <div v-else>
             <a class="btn-card_NO">Зарегистрироваться</a>
           </div>
-        </div>
+        <!-- </div> -->
       </form>
     </div>
   </div>
@@ -139,7 +140,12 @@ export default {
   display: flex;
   justify-content: center;
 
-  margin-top: 20px;
+  background: linear-gradient(90deg, #016670, #fff9c7);
+  margin-top: 1px;
+  margin-bottom: 1px;
+
+  padding-top: 30px;
+  padding-bottom: 50px;
 }
 
 .form-reg {
@@ -149,8 +155,10 @@ export default {
 
   width: 300px;
   padding: 32px;
+  /* border-radius: 10px;
+  box-shadow: 0 4px 16px #ccc; */
+  background-color: #ffffff63;
   border-radius: 10px;
-  box-shadow: 0 4px 16px #ccc;
 }
 
 .reg-title {
@@ -176,6 +184,19 @@ export default {
   text-align: center;
 
   margin-top: 10px;
+}
+
+.input-reg {
+  padding: 7px 19px;
+  margin-bottom: 2px;
+  border: 0px;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.input-reg:focus {
+  background-color: rgba(255, 255, 255, 0.347);
 }
 
 .btn-reg:hover {

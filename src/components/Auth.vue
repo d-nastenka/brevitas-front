@@ -9,6 +9,7 @@
         <div v-for="(item, key) in formAuth" :key="key">
           <div class="auth-input">
             <input
+              class="input-auth"
               v-model="dataAuth[item.value]"
               required
               :placeholder="item.textPlaceholder"
@@ -80,7 +81,12 @@ export default {
   display: flex;
   justify-content: center;
 
-  margin-top: 20px;
+  background: linear-gradient(90deg, #016670, #fff9c7);
+  margin-top: 1px;
+  margin-bottom: 1px;
+
+  padding-top: 50px;
+  padding-bottom: 80px;
 }
 
 .form-auth {
@@ -90,8 +96,10 @@ export default {
 
   width: 300px;
   padding: 32px;
+  /* border-radius: 10px;
+  box-shadow: 0 4px 16px #ccc; */
+  background-color: #ffffff63;
   border-radius: 10px;
-  box-shadow: 0 4px 16px #ccc;
 }
 
 .auth-title {
@@ -117,6 +125,19 @@ export default {
   text-align: center;
 
   margin-top: 10px;
+}
+
+.input-auth {
+    padding: 7px 19px;
+  margin-bottom: 2px;
+  border: 0px;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.input-auth:focus {
+   background-color: rgba(255, 255, 255, 0.347);
 }
 
 .btn-auth:hover {
