@@ -104,9 +104,9 @@ export default {
 .buttons .btn {
   border: none;
   background-color: rgba(28, 28, 28, 0);
-  /* padding: 0px 30px 3px 30px; */
+
   color: rgb(61, 61, 61);
-  /* margin: 10px 0 10px 0; */
+
   margin: 0 0 -200px 0;
   transition: margin 0.2s;
   cursor: pointer;

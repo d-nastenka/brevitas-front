@@ -79,9 +79,9 @@ export default {
   margin-left: 72px;
   margin-right: 72px;
 
-  /* border: 1px solid rgb(77, 77, 77);
-  box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px; */
-  border-radius: 10px;
+  border: none;
+
+  
   box-shadow: 0 4px 16px rgb(134, 134, 134);
   background: linear-gradient(45deg, #77c2ea, #464646);
 
@@ -122,5 +122,6 @@ export default {
   border-radius: 2px;
 
   font-family: serif;
+  border-radius: 5px;
 }
 </style>

@@ -9,7 +9,8 @@
         <div class="form-input-cards">
           <div v-for="(i, key) in formFill" :key="key">
             <div :error-messages="nameErrors" class="cards-input">
-              <input class="imput_reg_visit"
+              <input
+                class="imput_reg_visit"
                 v-model="dataToSend[i.value]"
                 :placeholder="i.textPlaceholder"
               />
@@ -19,10 +20,14 @@
             <font color="red"> {{ nameErrors }}</font>
           </p>
           <div v-if="!nameErrors">
-            <button type="submit" class="btn-card"> <span>Создать визитку</span> </button>
+            <button type="submit" class="btn-card">
+              <span>Создать визитку</span>
+            </button>
           </div>
           <div v-else>
-            <a class="btn-card_NO"><span class="btn-card_text">Создать визитку</span></a>
+            <a class="btn-card_NO"
+              ><span class="btn-card_text">Создать визитку</span></a
+            >
           </div>
         </div>
       </form>
@@ -176,14 +181,12 @@ export default {
 .page-card {
   display: flex;
   justify-content: center;
-  background: linear-gradient(70deg, #026670, #9fedd7);
-
+  background: linear-gradient(90deg, #016670, #fff9c7);
   margin-top: 1px;
   margin-bottom: 1px;
 
   padding-top: 30px;
   padding-bottom: 30px;
-  
 }
 
 .form-cards {
@@ -207,17 +210,15 @@ export default {
   padding: 0 0 9px 0;
   border: none;
 }
- .imput_reg_visit {
+.imput_reg_visit {
   padding: 7px 19px;
   margin-bottom: 2px;
   border: 0px;
   border-bottom: 2px solid rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0);
-  outline:none;
-  /*box-sizing: border-box;*/
-  
-} 
-.imput_reg_visit:focus{
+  outline: none;
+}
+.imput_reg_visit:focus {
   background-color: rgba(255, 255, 255, 0.347);
 }
 </style>

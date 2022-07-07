@@ -7,9 +7,9 @@
       <form @submit.prevent="changeCard">
         <div class="form-input-cards">
           <div v-for="(item, key) in formFill" :key="key">
-            <div class="cards-input">
+            <div class="cards-input" :error-messages="nameErrors">
               <input
-                :error-messages="nameErrors"
+                class="input-change"
                 v-model="dataOfCard[item.value]"
                 :placeholder="item.textPlaceholder"
               />
@@ -192,8 +192,12 @@ export default {
   display: flex;
   justify-content: center;
 
-  margin-top: 30px;
-  margin-bottom: 30px;
+  background: linear-gradient(90deg, #016670, #fff9c7);
+  margin-top: 1px;
+  margin-bottom: 1px;
+
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .form-cards {
@@ -203,8 +207,9 @@ export default {
 
   width: 300px;
   padding: 32px;
+
+  background-color: #ffffff63;
   border-radius: 10px;
-  box-shadow: 0 4px 16px #ccc;
 }
 
 .title-cards {
@@ -236,4 +241,18 @@ export default {
   background-color: white;
   color: rgb(76, 76, 76);
 }
+
+.input-change {
+  padding: 7px 19px;
+  margin-bottom: 2px;
+  border: 0px;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.input-change:focus {
+   background-color: rgba(255, 255, 255, 0.347);
+}
+
 </style>
