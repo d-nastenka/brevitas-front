@@ -50,11 +50,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+
+  color: #ffffff;
+  background: linear-gradient(70deg, #026670, #9fedd7);
+
   color: #2c3e50;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 }
 
 h1,
@@ -161,6 +166,4 @@ body {
   left: 0%;
 }
 
-.test {
-}
 </style>
