@@ -25,6 +25,11 @@
         </div>
         <div class="home-tittle">
             <h3>Ключевые особенности</h3>
+            <div class="contLeft">
+                <p>
+                    Воплощайте в жизнь любые ваши идеи! Конструктор визиток - это сайт где вы можете создать визитку по своему вкусу на вашем компьютере
+                </p>
+            </div>
         </div>
         <div class="home-tittle">
             <h3>Просто создайте свою визитку
@@ -41,13 +46,8 @@ export default {};
 
 <style>
 .contLeft{
-margin-left: 10%;
-
-width: 364px;
-height: 140px;
-left: 108px;
-top: 282px;
-
+margin-left: 16%;
+max-width: 364px;
 
 font-family: 'Tenor Sans';
 font-style: normal;
@@ -57,15 +57,14 @@ line-height: 28px;
 display: flex;
 align-items: center;
 letter-spacing: 3px;
+text-align: left;
 color: #FFFFFF;
 }
 
 .contR{
-margin-left: 50%;
-
-
-
-
+margin-left: 60%;
+margin-right: 5%;
+max-width: 364px;
 
 font-family: 'Tenor Sans';
 font-style: normal;
@@ -76,21 +75,17 @@ display: flex;
 align-items: center;
 text-align: right;
 letter-spacing: 3px;
-
 color: #FFFFFF;
 }
 
 .home-page {
-    
+  /*position: relative;
+  min-height: 100%;   */
 }
 
 .wrapper {
-  /* position: relative;
-  min-height: 100%; */
+ 
 }
 
-.content {
-  padding-bottom: 90px;
-}
 </style>
 
