@@ -1,7 +1,7 @@
 <template>
   
     <div class="wrapper">     
-      <div class="home-tittle1">
+      <div class="home-titR1">
         <h3>Создайте визитку своими руками</h3>
         <div class="contLeft">
             <p >
@@ -12,7 +12,7 @@
        
       </div>
 
-        <div class="home-tittle">
+        <div class="home-titL1">
             <h3>Ключевые особенности</h3>
             <div class="contR">
              <p >
@@ -21,25 +21,14 @@
             </div>
            
         </div>
-        <div class="home-tittle1">
+        <div class="home-titR2">
             <h3>Ключевые особенности</h3>
             <div class="contLeft">
                 <p>
                     Воплощайте в жизнь любые ваши идеи! Конструктор визиток - это сайт где вы можете создать визитку по своему вкусу на вашем компьютере
                 </p>
             </div>
-        </div>
-        
-      <div class="home-tittle">
-        <h3>Ключевые особенности</h3>
-        <div class="contR">
-          <p>
-            Мы придумали новый способ создания визиток, где процесс похож на
-            игру. Теперь каждый — дизайнер, если есть страсть к любимому делу.
-          </p>
-
-        </div>
-      </div>     
+        </div>        
       <div class="home-tittle">
         <h3>Просто создайте свою визитку мы обо всем позаботились</h3>
       </div>
@@ -99,8 +88,15 @@ color: #FFFFFF;
   padding-bottom: 20px;
 }
 
-.home-tittle1{
-    background: url(/image/111.png) 70%/160px no-repeat ;
+.home-titR1{
+    background: url(/image/111.png) 75%/160px no-repeat ;
 }
+.home-titL1{
+    background: url(/image/2.png) 20%/170px no-repeat ;
+}
+.home-titR2{
+    background: url(/image/lamp.png) 75%/160px no-repeat ;
+}
+
 
 </style>
