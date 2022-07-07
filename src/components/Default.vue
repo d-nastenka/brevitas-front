@@ -1,17 +1,15 @@
 <template>
-  <div class="home-page">
-    <div class="wrapper">
-      <div class="home-tittle">
-        <h3>Главная страница</h3>
-      </div>
-      <div class="home-tittle">
+  
+    <div class="wrapper">     
+      <div class="home-tittle1">
         <h3>Создайте визитку своими руками</h3>
-      </div>
-      <div>
-        <p class="contLeft">
-          Конструктор визиток - это сайт где вы можете создать визитку по своему
-          вкусу на вашем компьютере
-        </p>
+        <div class="contLeft">
+            <p >
+            Конструктор визиток - это сайт где вы можете создать визитку по своему
+            вкусу на вашем компьютере
+            </p>
+        </div>
+       
       </div>
 
         <div class="home-tittle">
@@ -23,7 +21,7 @@
             </div>
            
         </div>
-        <div class="home-tittle">
+        <div class="home-tittle1">
             <h3>Ключевые особенности</h3>
             <div class="contLeft">
                 <p>
@@ -41,16 +39,12 @@
           </p>
 
         </div>
-      </div>
-      <div class="home-tittle">
-        <h3>Ключевые особенности</h3>
-      </div>
+      </div>     
       <div class="home-tittle">
         <h3>Просто создайте свою визитку мы обо всем позаботились</h3>
       </div>
       <div class="content"></div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -91,10 +85,6 @@ letter-spacing: 3px;
 color: #FFFFFF;
 }
 
-.home-page {
-    /* padding-top: 1px; */
-}
-
 .wrapper {
   /* position: relative;
   min-height: 100%; */
@@ -107,6 +97,10 @@ color: #FFFFFF;
 .content {
   margin-bottom: 1px;
   padding-bottom: 20px;
+}
+
+.home-tittle1{
+    background: url(/image/111.png) 70%/160px no-repeat ;
 }
 
 </style>
