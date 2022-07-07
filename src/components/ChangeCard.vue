@@ -87,6 +87,7 @@ export default {
     };
   },
   computed: {
+    // TODO: Отрефакторить, убрать повторение кода
     nameErrors() {
       const errors = [];
       var newmes = "";
@@ -150,6 +151,7 @@ export default {
     console.log(this.dataCard);
   },
   methods: {
+    // TODO: Нет валидации
     async getCard() {
       let res = await fetch(
         `http://localhost:3000/visits/${this.$route.params.id}`,
@@ -165,6 +167,7 @@ export default {
       );
       this.dataOfCard = await res.json();
     },
+    // TODO: Нет валидации
     async changeCard() {
       const data = {};
       for (let i = 0; i < this.formFill.length; i++) {

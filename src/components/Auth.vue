@@ -60,6 +60,7 @@ export default {
     };
   },
   methods: {
+    // TODO: Нет валидации
     async sendAuth() {
       let res = await fetch("http://localhost:3000/auth/login", {
         method: "POST",
@@ -126,7 +127,7 @@ export default {
 }
 
 .input-auth {
-    padding: 7px 19px;
+  padding: 7px 19px;
   margin-bottom: 2px;
   border: 0px;
   border-bottom: 2px solid rgb(0, 0, 0);
@@ -135,7 +136,7 @@ export default {
 }
 
 .input-auth:focus {
-   background-color: rgba(255, 255, 255, 0.347);
+  background-color: rgba(255, 255, 255, 0.347);
 }
 
 .btn-auth:hover {

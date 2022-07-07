@@ -80,6 +80,9 @@ export default {
     }
   },
   computed: {
+
+
+    // TODO: Отрефакторить
     nameErrors() {
       const errors = [];
       var newmes = "";
@@ -119,6 +122,8 @@ export default {
   },
 
   methods: {
+
+    // TODO: Добавить валидацмю успе
     async addUser() {
       let res = await fetch("http://localhost:3000/auth/register", {
         method: "POST",

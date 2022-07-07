@@ -107,6 +107,7 @@ export default {
     }
   },
   computed: {
+    // TODO: Отрефакторить, убрать повторение кода
     nameErrors() {
       const errors = [];
       var newmes = "";
@@ -156,6 +157,7 @@ export default {
     }
   },
   methods: {
+    // TODO: Нет валидации
     async addCard() {
       const data = {};
       for (let i = 0; i < this.formFill.length; i++) {

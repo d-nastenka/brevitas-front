@@ -34,6 +34,7 @@ export default {
   },
   mounted() {},
   methods: {
+    // TODO: Нет валидации
     async getCard() {
       let res = await fetch("http://localhost:3000/visits", {
         method: "GET",
@@ -44,6 +45,7 @@ export default {
       });
       this.dataCard = await res.json();
     },
+    // TODO: Нет валидации
     async deleteCard(item) {
       let res = await fetch(`http://localhost:3000/visits/${item._id}`, {
         method: "DELETE",

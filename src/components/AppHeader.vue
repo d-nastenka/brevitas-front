@@ -30,6 +30,7 @@ export default {
     console.log(this.$store);
   },
   methods: {
+    // TODO: Нет валидации
     async usLogout() {
       const res = await fetch("http://localhost:3000/auth/logout", {
         method: "POST",
@@ -62,7 +63,7 @@ export default {
   background-size: cover;
   margin-right: 20px;
 
-  background: linear-gradient(90deg, #016670, #FFF9C7);
+  background: linear-gradient(90deg, #016670, #fff9c7);
 }
 
 .head_title {

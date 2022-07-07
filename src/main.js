@@ -17,6 +17,8 @@ import SeeCard from "./components/SeeCard.vue";
 Vue.use(VueRouter);
 Vue.use(Vuex);
 
+//TODO Вынести объекты роутов, vuex на модули
+
 const routes = [
   {
     name: "home",

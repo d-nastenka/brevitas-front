@@ -1,6 +1,7 @@
 <template>
   
-    <div class="wrapper">     
+    <div class="wrapper">  
+         <!-- TODO: Переверстать по макету  -->
       <div class="home-titR1">
         <h3>Создайте визитку своими руками</h3>
         <div class="contLeft">
