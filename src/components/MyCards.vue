@@ -3,7 +3,7 @@
     <link href="https://css.gg/css" rel="stylesheet" />
     <h3>Мои визитки</h3>
     <div id="wait-mounted">
-      <div class="wrapper">
+      <div class="wrapper-cards">
         <div v-if="imgLengthstatus">У вас пока нет визиток</div>
         <div class="flex-container" v-else>
           <div class="imges-card" v-for="(item, key) in dataCard" :key="key">
@@ -63,12 +63,12 @@ export default {
 };
 </script>
 
-<style>
+<style  scoped>
 .page {
   padding-top: 20px;
 }
 
-.wrapper {
+.wrapper-cards {
   padding: 0px 2% 0px 2%;
 }
 
@@ -81,7 +81,7 @@ export default {
 
   /* border: 1px solid rgb(77, 77, 77);
   box-shadow: rgba(0, 0, 0, 1.2) 0px 1px 3px; */
-  border-radius: 7px;
+  border-radius: 10px;
   box-shadow: 0 4px 16px rgb(134, 134, 134);
   background: linear-gradient(45deg, #77c2ea, #464646);
 

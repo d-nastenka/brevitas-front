@@ -1,18 +1,18 @@
 <template>
-
   <div class="home-page">
     <div class="wrapper">
       <div class="home-tittle">
         <h3>Главная страница</h3>
       </div>
-       <div class="home-tittle">
-            <h3>Создайте визитку своими руками</h3>
-        </div>
-        <div >
-            <p class="contLeft">
-                Конструктор визиток - это сайт где вы можете создать визитку по своему вкусу на вашем компьютере      
-            </p>  
-        </div>
+      <div class="home-tittle">
+        <h3>Создайте визитку своими руками</h3>
+      </div>
+      <div>
+        <p class="contLeft">
+          Конструктор визиток - это сайт где вы можете создать визитку по своему
+          вкусу на вашем компьютере
+        </p>
+      </div>
 
         <div class="home-tittle">
             <h3>Ключевые особенности</h3>
@@ -31,10 +31,23 @@
                 </p>
             </div>
         </div>
-        <div class="home-tittle">
-            <h3>Просто создайте свою визитку
-                 мы обо всем позаботились</h3>
+        
+      <div class="home-tittle">
+        <h3>Ключевые особенности</h3>
+        <div class="contR">
+          <p>
+            Мы придумали новый способ создания визиток, где процесс похож на
+            игру. Теперь каждый — дизайнер, если есть страсть к любимому делу.
+          </p>
+
         </div>
+      </div>
+      <div class="home-tittle">
+        <h3>Ключевые особенности</h3>
+      </div>
+      <div class="home-tittle">
+        <h3>Просто создайте свою визитку мы обо всем позаботились</h3>
+      </div>
       <div class="content"></div>
     </div>
   </div>
@@ -79,13 +92,21 @@ color: #FFFFFF;
 }
 
 .home-page {
-  /*position: relative;
-  min-height: 100%;   */
+    /* padding-top: 1px; */
 }
 
 .wrapper {
- 
+  /* position: relative;
+  min-height: 100%; */
+  /* margin-top: 1px; */
+  background: linear-gradient(70deg, #026670, #9fedd7);
+  padding-top: 9px;
+    margin-top: 1px;
+}
+
+.content {
+  margin-bottom: 1px;
+  padding-bottom: 20px;
 }
 
 </style>
-
