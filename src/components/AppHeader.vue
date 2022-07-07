@@ -57,16 +57,12 @@ export default {
   width: 100%;
   height: 15%;
   display: flex;
-  /* justify-content: center; */
+
   align-items: center;
   background-size: cover;
   margin-right: 20px;
 
-  /*варианты цветов*/
-  /* background: linear-gradient(70deg, #026670, #9fedd7); */
   background: linear-gradient(90deg, #016670, #FFF9C7);
-  /*background: linear-gradient(70deg, #1672f9, #46c7ff);*/
-  /*#46c7ff*/
 }
 
 .head_title {
@@ -80,17 +76,9 @@ export default {
   padding-left: 50px;
 
   color: #fce4de;
-
-  /*/*бакграунд*/
-  /*background-image: linear-gradient(to right,#fce4de, #fcfcfc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;*/
 }
 .btn_head {
   color: #3d4644;
-  /* color: white; */
-  /* text-shadow: 1px 1px 2px rgb(124, 124, 124); */
   font-size: 17px;
   padding: 10px 20px;
   border: none;

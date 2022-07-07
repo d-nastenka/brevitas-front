@@ -25,7 +25,6 @@ export default {
 </script>
 <style>
 .footer {
-  /* background: linear-gradient(70deg, #026670, #9fedd7); */
    background: linear-gradient(90deg, #016670, #FFF9C7);
   padding-top: 20px;
   width: 100%;
