@@ -64,6 +64,10 @@ export default {
 </script>
 
 <style  scoped>
+h3 {
+  color: black;
+}
+
 .page {
   padding-top: 20px;
 }

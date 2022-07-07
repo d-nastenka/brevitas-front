@@ -87,6 +87,10 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  color: black;
+}
+
 .flex-field {
   display: flex;
   flex-direction: row;
