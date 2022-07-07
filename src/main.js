@@ -92,7 +92,7 @@ const router = new VueRouter({
 
 router.beforeEach(async (to, from, next) => {
     
-      const res = await fetch("http://localhost:3000/auth/test", {
+      const res = await fetch("http://localhost:3000/auth/check", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

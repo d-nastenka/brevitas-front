@@ -177,7 +177,10 @@ export default {
   display: flex;
   justify-content: center;
   background: linear-gradient(70deg, #026670, #9fedd7);
-  /* margin-top: 20px; */
+
+  margin-top: 1px;
+  margin-bottom: 1px;
+
   padding-top: 30px;
   padding-bottom: 30px;
   

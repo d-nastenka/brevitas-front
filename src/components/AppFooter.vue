@@ -50,12 +50,13 @@ export default {
 }
 .foot-text {
   font-weight: 300;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.3;
 }
 
 .footkont {
   color: #ffffff;
-  padding-top: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 </style>
