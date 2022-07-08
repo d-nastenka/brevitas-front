@@ -78,8 +78,6 @@ export default {};
 .wrapper {
   background: linear-gradient(90deg, #016670, #fff9c7);
   padding-top: 9px;
-  margin-top: 1px;
-  margin-bottom: 1px;
 }
 
 .content {
