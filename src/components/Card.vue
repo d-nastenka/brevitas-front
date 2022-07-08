@@ -174,7 +174,7 @@ export default {
         credentials: "include"
       });
       if (res.ok) {
-        this.$router.push("/");
+        this.$router.push("/mycards");
       }
     }
   }
