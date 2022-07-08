@@ -2,15 +2,12 @@
   <header>
     <div class="head_title"  @click="$router.push('/')">
         <h1 >Brevitas</h1>
-
     </div>
      <div class="btn_head">
         <a v-if="isAuth"  @click="$router.push('/card')">
-          Создать новую визитку</a
-        >
+          Создать новую визитку</a>
         <a v-if="isAuth"  @click="$router.push('/mycards')">
-          Мои визитки</a
-        >
+          Мои визитки</a>
         <a v-if="isAuth"  @click="usLogout">Выход</a>
         <div v-else >
           <a class="btn_autor" @click="$router.push('/authorization')">Войти</a>
@@ -64,10 +61,7 @@ header{
 
   height: 69px;
   /* left: 0px; */
-  outline: 1px solid #c1c1c1;
-
-
-
+  outline: 2px solid #c1c1c1;
   flex-direction: row;
 
   justify-content: space-around;
@@ -96,15 +90,12 @@ header div{
   letter-spacing: 0.232836px;
 
   color: #016670;
-
-
   cursor: pointer;
 
   border: none;
 }
 .head_title h1{
   font-size: 36px;
-
 }
 
 .btn_head a {

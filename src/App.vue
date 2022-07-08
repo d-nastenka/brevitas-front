@@ -51,7 +51,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 
-  color: #ffffff;
+  background: #F5F5F5;
   height: 100vh;
   display: flex;
   flex-direction: column;
