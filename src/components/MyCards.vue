@@ -1,27 +1,35 @@
 <template>
-  <div class="page">
-    <link href="https://css.gg/css" rel="stylesheet" />
-    <h3>Мои визитки</h3>
-    <div id="wait-mounted">
-      <div class="wrapper-cards">
-        <div v-if="imgLengthstatus">У вас пока нет визиток</div>
-        <div class="flex-container" v-else>
-          <div class="imges-card" v-for="(item, key) in dataCard" :key="key">
-            <LoadingCard :card="item" @deleteCard="deleteCard" />
+  <div class="flex-cont">
+    <Header />
+    <div class="page">
+      <link href="https://css.gg/css" rel="stylesheet" />
+      <h3>Мои визитки</h3>
+      <div id="wait-mounted">
+        <div class="wrapper-cards">
+          <div v-if="imgLengthstatus">У вас пока нет визиток</div>
+          <div class="flex-container" v-else>
+            <div class="imges-card" v-for="(item, key) in dataCard" :key="key">
+              <LoadingCard :card="item" @deleteCard="deleteCard" />
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import LoadingCard from "./LoadingCard.vue";
+import Header from "./AppHeader.vue";
+import Footer from "./AppFooter.vue";
 
 export default {
   name: "MyCards",
   components: {
-    LoadingCard
+    LoadingCard,
+    Header,
+    Footer
   },
   status: false,
   data() {
@@ -70,7 +78,14 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style scoped>
+.flex-cont {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
 h3 {
   color: black;
 }
@@ -92,14 +107,12 @@ h3 {
 
   border: none;
 
-  
   box-shadow: 0 4px 16px rgb(134, 134, 134);
   background: linear-gradient(45deg, #77c2ea, #464646);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 }
 
 .flex-container {
@@ -121,7 +134,6 @@ h3 {
     flex-wrap: wrap;
   }
 }
-
 
 .imges-card {
   height: 200px;

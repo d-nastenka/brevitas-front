@@ -190,7 +190,7 @@ export default {
         }
       );
       if (res.ok) {
-        this.$router.push("/");
+        this.$router.push("/mycards");
       }
     }
     // validationForm(param, strEr) {

@@ -1,21 +1,23 @@
 <template>
-  <footer class="footer">
-    <div class="footer-flex">
-      <div class="foot-row">
-        <div class="footkont">
-          <!-- Наше расположение -->
-          <!-- <p class="foot-text">
+  <div class="flex-cont">
+    <footer class="footer">
+      <div class="footer-flex">
+        <div class="foot-row">
+          <div class="footkont">
+            <!-- Наше расположение -->
+            <!-- <p class="foot-text">
             Россия <br />
             г.Красноярск, улица, дом
           </p> -->
-        </div>
-        <div class="footkont">
-          О нас
-          <!-- <p class="foot-text">+7 (913)333-99-99</p> -->
+          </div>
+          <div class="footkont">
+            О нас
+            <!-- <p class="foot-text">+7 (913)333-99-99</p> -->
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -23,7 +25,14 @@ export default {
   name: "Footer"
 };
 </script>
+
 <style>
+/* .flex-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+} */
+
 .footer {
   width: 100%;
   height: 69px;
@@ -40,15 +49,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 .foot-row {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-
-
 }
 .foot-text {
   font-weight: 300;
@@ -62,7 +68,7 @@ export default {
   padding: 20px;
   font-size: 15px;
 
-/* font-family: 'Roboto'; */
+  /* font-family: 'Roboto'; */
 
   /* display: flex;
   flex-direction: row;

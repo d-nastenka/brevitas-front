@@ -43,6 +43,7 @@ router.beforeEach(async (to, from, next) => {
     },
     credentials: "include"
   });
+
   if (res.ok) {
     store.commit("mAuth/ChangeAuth", true);
   } else {
@@ -54,7 +55,7 @@ router.beforeEach(async (to, from, next) => {
     to.name !== "registration" &&
     to.name !== "home"
   ) {
-    if (!store.state.isAuth) {
+    if (!store.state.mAuth.isAuth) {
       next({
         name: "authorization"
       });
@@ -62,7 +63,7 @@ router.beforeEach(async (to, from, next) => {
     }
   } else next();
   if (to.name == "authorization" || to.name == "registration") {
-    if (store.state.isAuth) {
+    if (store.state.mAuth.isAuth) {
       next({
         name: "home"
       });

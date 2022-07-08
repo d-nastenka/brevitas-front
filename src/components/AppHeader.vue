@@ -1,18 +1,17 @@
 <template>
   <header>
-    <div class="head_title"  @click="$router.push('/')">
-        <h1 >Brevitas</h1>
+
+    <div class="head_title" @click="$router.push('/')">
+      <h1>Brevitas</h1>
     </div>
-     <div class="btn_head">
-        <a v-if="isAuth"  @click="$router.push('/card')">
-          Создать новую визитку</a>
-        <a v-if="isAuth"  @click="$router.push('/mycards')">
-          Мои визитки</a>
-        <a v-if="isAuth"  @click="usLogout">Выход</a>
-        <div v-else >
-          <a class="btn_autor" @click="$router.push('/authorization')">Войти</a>
-        </div>
-     </div>     
+    <div class="btn_head">
+      <a v-if="isAuth" @click="$router.push('/card')"> Создать новую визитку</a>
+      <a v-if="isAuth" @click="$router.push('/mycards')"> Мои визитки</a>
+      <a v-if="isAuth" @click="usLogout">Выход</a>
+      <div v-else>
+        <a class="btn_autor" @click="$router.push('/authorization')">Войти</a>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -41,7 +40,7 @@ export default {
     ...mapMutations("mAuth", ["ChangeAuth"])
   },
   computed: {
-    ...mapState("mAuth",["isAuth"])
+    ...mapState("mAuth", ["isAuth"])
   }
   // computed: mapState ({
   //     //return this.$store.state.isAuth;
@@ -51,33 +50,30 @@ export default {
 </script>
 
 <style>
-header{
+header {
   width: 100%;
   display: flex;
   align-items: center;
-  /* background-size: cover; */
 
   background: #f5f5f5;
 
   height: 69px;
   /* left: 0px; */
   outline: 2px solid #c1c1c1;
+
   flex-direction: row;
 
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+
 }
 
-header div{
+header div {
   display: flex;
+  padding-right: 30px;
 }
 
-
-.head_title{
-  /* width: 142px;
-  height: 44px;
-  left: 60px;
-  top: 11px; */
+.head_title {
 
   font-family: "Inter";
   font-style: normal;
@@ -92,29 +88,30 @@ header div{
   color: #016670;
   cursor: pointer;
 
-  border: none;
+  padding-left: 60px;
 }
-.head_title h1{
+.head_title h1 {
   font-size: 36px;
 }
 
 .btn_head a {
-  padding: 10px 20px;
-  border: none;
+  /* padding: 10px 20px; */
   cursor: pointer;
   border-radius: 4px;
   text-align: center;
 
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 28px;
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.232836px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
 
-color: #000000;
+  color: #000000;
+  
+  padding-left: 25px;
 }
 </style>
