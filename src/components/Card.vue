@@ -1,41 +1,49 @@
 <template>
-  <div class="page-card">
-    <div class="form-cards">
-      <div class="title-cards">
-        <h3>Создать новую визитку</h3>
-      </div>
+  <div class="flex-cont">
+    <Header />
+    <router-view />
+    <div class="page-card">
+      <div class="form-cards">
+        <div class="title-cards">
+          <h3>Создать новую визитку</h3>
+        </div>
 
-      <form @submit.prevent="addCard">
-        <div class="form-input-cards">
-          <div v-for="(i, key) in formFill" :key="key">
-            <div :error-messages="nameErrors" class="cards-input">
-              <input
-                class="imput_reg_visit"
-                v-model="dataToSend[i.value]"
-                :placeholder="i.textPlaceholder"
-              />
+        <form @submit.prevent="addCard">
+          <div class="form-input-cards">
+            <div v-for="(i, key) in formFill" :key="key">
+              <div :error-messages="nameErrors" class="cards-input">
+                <input
+                  class="imput_reg_visit"
+                  v-model="dataToSend[i.value]"
+                  :placeholder="i.textPlaceholder"
+                />
+              </div>
+            </div>
+            <p>
+              <font color="red"> {{ nameErrors }}</font>
+            </p>
+            <div v-if="!nameErrors">
+              <button type="submit" class="btn-card">
+                <span>Создать визитку</span>
+              </button>
+            </div>
+            <div v-else>
+              <a class="btn-card_NO"
+                ><span class="btn-card_text">Создать визитку</span></a
+              >
             </div>
           </div>
-          <p>
-            <font color="red"> {{ nameErrors }}</font>
-          </p>
-          <div v-if="!nameErrors">
-            <button type="submit" class="btn-card">
-              <span>Создать визитку</span>
-            </button>
-          </div>
-          <div v-else>
-            <a class="btn-card_NO"
-              ><span class="btn-card_text">Создать визитку</span></a
-            >
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from "./AppHeader.vue";
+import Footer from "./AppFooter.vue";
+
 import { validationMixin } from "vuelidate";
 import {
   required,
@@ -47,6 +55,10 @@ import {
 
 export default {
   name: "Card",
+  components: {
+    Header,
+    Footer
+  },
   probs: {
     dataToSend: Object
   },
@@ -182,6 +194,13 @@ export default {
 </script>
 
 <style scoped>
+.flex-cont {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .page-card {
   display: flex;
   justify-content: center;

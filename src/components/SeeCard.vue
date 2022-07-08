@@ -1,4 +1,6 @@
 <template>
+<div class="flex-container">
+  <Header />
   <div class="page-see-card">
     <div class="title-seecard">
       <h3>Визитка</h3>
@@ -38,12 +40,20 @@
       </button>
     </div>
   </div>
+  <Footer />
+</div>
 </template>
 
 <script>
+import Header from "./AppHeader.vue";
+import Footer from "./AppFooter.vue";
+
 export default {
   name: "SeeCard",
-
+  components: {
+    Header,
+    Footer
+  },
   data() {
     return {
       dataCard: {},
@@ -90,6 +100,13 @@ export default {
 </script>
 
 <style scoped>
+.flex-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 h3 {
   color: black;
 }
