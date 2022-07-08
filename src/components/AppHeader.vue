@@ -1,21 +1,23 @@
 <template>
-  <header class="head">
-    <div class="pages">
-      <h1 class="head_title">Brevitas</h1>
-      <a class="btn_head" @click="$router.push('/')">
-        Главная страница
-      </a>
-      <a v-if="isAuth" class="btn_head" @click="$router.push('/card')">
-        Создать новую визитку</a
-      >
-      <a v-if="isAuth" class="btn_head" @click="$router.push('/mycards')">
-        Мои визитки</a
-      >
-      <a v-if="isAuth" class="btn_head" @click="usLogout">Выход</a>
-      <div v-else class="btn_head">
-        <a class="btn_autor" @click="$router.push('/authorization')">Войти</a>
-      </div>
+  <header>
+    <div class="head_title">
+        <h1 >Brevitas</h1>
     </div>
+     <div class="btn_head">
+        <a  @click="$router.push('/')">
+          Главная страница
+        </a>
+        <a v-if="isAuth"  @click="$router.push('/card')">
+          Создать новую визитку</a
+        >
+        <a v-if="isAuth"  @click="$router.push('/mycards')">
+          Мои визитки</a
+        >
+        <a v-if="isAuth"  @click="usLogout">Выход</a>
+        <div v-else >
+          <a class="btn_autor" @click="$router.push('/authorization')">Войти</a>
+        </div>
+     </div>     
   </header>
 </template>
 
@@ -54,46 +56,32 @@ export default {
 </script>
 
 <style>
-.head {
+header{
   width: 100%;
-  /* height: 15%; */
   display: flex;
-
   align-items: center;
   background-size: cover;
-
-  background: #f5f5f5;
-
   height: 69px;
   left: 0px;
-  border: 1px solid #c1c1c1;
-}
 
-.pages {
-  display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
-.head_title {
-  /* display: flex;
-  flex-direction: row;
-  justify-content: flex-start; */
-  /* padding-left: 50px; */
+header div{
+  display: flex;
+}
 
-  /* position: absolute; */
+.head_title{
   width: 142px;
   height: 44px;
-  left: 0px;
+  left: 60px;
   top: 11px;
-
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  font-size: 36px;
   line-height: 44px;
-  /* identical to box height */
 
   display: flex;
   align-items: center;
@@ -101,50 +89,29 @@ export default {
   letter-spacing: 0.232836px;
 
   color: #016670;
+  border: none;
 }
-.btn_head {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-end; */
+.head_title h1{
+  font-size: 36px;
+}
 
-  color: #3d4644;
-  font-size: 17px;
+.btn_head a {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 4px;
   text-align: center;
 
-  /* position: absolute; */
-  /* width: 63px;
-  height: 28px; */
-  /* left: 1049px; */
-  /* top: 25px; */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 28px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.232836px;
 
-  /* font-family: "Roboto"; */
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 28px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.232836px;
-
-  color: #000000;
+color: #000000;
 }
-
-/* .pages {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-} */
-
-/* .btn_autor {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-} */
 </style>
