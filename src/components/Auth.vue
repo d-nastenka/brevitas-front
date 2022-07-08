@@ -89,18 +89,21 @@ export default {
   margin-bottom: 1px;
 
   padding-top: 50px;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
+
+  height: 50%;
 }
 
 .form-auth {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 
   width: 300px;
-  padding: 32px;
+  padding: 10px;
   background-color: #ffffff63;
   border-radius: 10px;
+  
 }
 
 .auth-title {

@@ -3,15 +3,15 @@
     <div class="footer-flex">
       <div class="foot-row">
         <div class="footkont">
-          Наше расположение
-          <p class="foot-text">
+          <!-- Наше расположение -->
+          <!-- <p class="foot-text">
             Россия <br />
             г.Красноярск, улица, дом
-          </p>
+          </p> -->
         </div>
         <div class="footkont">
-          контакты
-          <p class="foot-text">+ 8 (913)-99-99 <br />почта@gmail.com</p>
+          О нас
+          <!-- <p class="foot-text">+7 (913)333-99-99</p> -->
         </div>
       </div>
     </div>
@@ -25,38 +25,53 @@ export default {
 </script>
 <style>
 .footer {
-   background: linear-gradient(90deg, #016670, #FFF9C7);
-  padding-top: 20px;
   width: 100%;
-  height: 20%;
-  justify-content: center;
+  height: 69px;
+
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  padding-bottom: 10px;
+
+  background: #f5f5f5;
+  outline: 1px solid #c1c1c1;
 }
 
 .footer-flex {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+
 }
 
 .foot-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 1.3;
+  justify-content: flex-start;
+
+
 }
 .foot-text {
   font-weight: 300;
-  font-size: 13px;
+  font-size: 10px;
   line-height: 1.3;
 }
 
 .footkont {
-  color: #ffffff;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  color: #000000;
+  font-style: normal;
+  padding: 20px;
+  font-size: 15px;
+
+/* font-family: 'Roboto'; */
+
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center; */
+  letter-spacing: 0.232836px;
+
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
 }
 </style>

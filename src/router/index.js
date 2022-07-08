@@ -44,9 +44,9 @@ router.beforeEach(async (to, from, next) => {
     credentials: "include"
   });
   if (res.ok) {
-    store.commit("ChangeAuth", true);
+    store.commit("mAuth/ChangeAuth", true);
   } else {
-    store.commit("ChangeAuth", false);
+    store.commit("mAuth/ChangeAuth", false);
   }
 
   if (

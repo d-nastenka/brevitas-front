@@ -1,10 +1,8 @@
 <template>
   <header class="head">
     <div class="pages">
-      <h1 class="head_title">Brevitas</h1>
-      <a class="btn_head" @click="$router.push('/')">
-        Главная страница
-      </a>
+      <h1 class="head_title" @click="$router.push('/')">
+        Brevitas</h1>
       <a v-if="isAuth" class="btn_head" @click="$router.push('/card')">
         Создать новую визитку</a
       >
@@ -41,10 +39,10 @@ export default {
         this.$router.push("/authorization");
       }
     },
-    ...mapMutations(["ChangeAuth"])
+    ...mapMutations("mAuth", ["ChangeAuth"])
   },
   computed: {
-    ...mapState(["isAuth"])
+    ...mapState("mAuth",["isAuth"])
   }
   // computed: mapState ({
   //     //return this.$store.state.isAuth;
@@ -60,20 +58,22 @@ export default {
   display: flex;
 
   align-items: center;
-  background-size: cover;
+  /* background-size: cover; */
 
   background: #f5f5f5;
 
   height: 69px;
-  left: 0px;
-  border: 1px solid #c1c1c1;
+  /* left: 0px; */
+  outline: 1px solid #c1c1c1;
 }
 
 .pages {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
+
+
 }
 
 .head_title {
@@ -83,10 +83,10 @@ export default {
   /* padding-left: 50px; */
 
   /* position: absolute; */
-  width: 142px;
+  /* width: 142px;
   height: 44px;
   left: 0px;
-  top: 11px;
+  top: 11px; */
 
   font-family: "Inter";
   font-style: normal;
@@ -101,6 +101,8 @@ export default {
   letter-spacing: 0.232836px;
 
   color: #016670;
+
+  cursor: pointer;
 }
 .btn_head {
   /* display: flex;
