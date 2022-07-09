@@ -7,25 +7,25 @@
 
       <form @submit.prevent="addUser">
         <!-- <div class="form-input"> -->
-          <div v-for="(i, key) in formReg" :key="key">
-            <div :error-messages="nameErrors" class="reg-input">
-              <input
-                class="input-reg"
-                v-model="dataReg[i.value]"
-                :placeholder="i.textPlaceholder"
-              />
-            </div>
+        <div v-for="(i, key) in formReg" :key="key">
+          <div :error-messages="nameErrors" class="reg-input">
+            <input
+              class="input-reg"
+              v-model="dataReg[i.value]"
+              :placeholder="i.textPlaceholder"
+            />
           </div>
-          <p>
-            <font color="red"> {{ nameErrors }}</font>
-          </p>
+        </div>
+        <p>
+          <font color="red"> {{ nameErrors }}</font>
+        </p>
 
-          <div v-if="!nameErrors">
-            <button type="submit" class="btn-card">Зарегистрироваться</button>
-          </div>
-          <div v-else>
-            <a class="btn-card_NO">Зарегистрироваться</a>
-          </div>
+        <div v-if="!nameErrors">
+          <button type="submit" class="btn-card">Зарегистрироваться</button>
+        </div>
+        <div v-else>
+          <a class="btn-card_NO">Зарегистрироваться</a>
+        </div>
         <!-- </div> -->
       </form>
     </div>
@@ -80,8 +80,6 @@ export default {
     }
   },
   computed: {
-
-
     // TODO: Отрефакторить
     nameErrors() {
       const errors = [];
@@ -122,7 +120,6 @@ export default {
   },
 
   methods: {
-
     // TODO: Добавить валидацмю успе
     async addUser() {
       let res = await fetch("http://localhost:3000/auth/register", {
@@ -145,25 +142,30 @@ export default {
 <style>
 .reg-flex {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  /* align-content: space-between; */
+  align-items: center;
+  /* align-items: center; */
 
   background: linear-gradient(90deg, #016670, #fff9c7);
-  margin-top: 1px;
-  margin-bottom: 1px;
 
   padding-top: 30px;
   padding-bottom: 50px;
+  height: 100%;
 }
 
 .form-reg {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   width: 300px;
   padding: 32px;
   background-color: #ffffff63;
   border-radius: 10px;
+
+  height: 57%;
 }
 
 .reg-title {

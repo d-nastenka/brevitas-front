@@ -1,47 +1,55 @@
 <template>
-<div class="flex-container">
-  <Header />
-  <div class="page-see-card">
-    <div class="title-seecard">
-      <h3>Визитка</h3>
-    </div>
-    <div class="flex-field">
-      <div class="flex-field-card">
-        <div class="field-card">
-          <div class="if-side" v-if="showBtn">
-            <div class="data-user">
-              <div class="data-card">
-                {{ dataCard.name }}
-                {{ dataCard.surname }}
-              </div>
+  <div class="flex-container">
+    <Header />
+    <div class="page-see-card">
+      <div class="title-seecard">
+        <h3>Визитка</h3>
+      </div>
+      <div class="flex-field">
+        <div
+          class="flex-field-card"
+          :style="{
+            background: backgroundColor
+          }"
+        >
+          <div class="field-card">
+            <div class="if-side" v-if="showBtn">
+              <div class="data-user">
+                <div class="data-card">
+                  {{ dataCard.name }}
+                  {{ dataCard.surname }}
+                </div>
 
-              <div class="data-card">
-                {{ dataCard.description }}
+                <div class="data-card">
+                  {{ dataCard.description }}
+                </div>
               </div>
-            </div>
-            <div class="contacts">
-              <div class="data-card">
-                <a :href="mail" target="_blank">{{ dataCard.mail }}</a>
-              </div>
-              <div class="data-card">
-                <a :href="link" target="_blank">{{ dataCard.link }}</a>
-              </div>
-              <div class="data-card">
-                <a :href="numberPhone" target="_blank">{{ dataCard.phone }}</a>
+              <div class="contacts">
+                <div class="data-card">
+                  <a :href="mail" target="_blank">{{ dataCard.mail }}</a>
+                </div>
+                <div class="data-card">
+                  <a :href="link" target="_blank">{{ dataCard.link }}</a>
+                </div>
+                <div class="data-card">
+                  <a :href="numberPhone" target="_blank">{{
+                    dataCard.phone
+                  }}</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <input type="color" v-model="backgroundColor" />
+      <div class="btn-side">
+        <button class="btn-card-side" @click="showBtn = !showBtn">
+          {{ btnText }}
+        </button>
+      </div>
     </div>
-    <div class="btn-side">
-      <button class="btn-card-side" @click="showBtn = !showBtn">
-        {{ btnText }}
-      </button>
-    </div>
+    <Footer />
   </div>
-  <Footer />
-</div>
 </template>
 
 <script>
@@ -57,7 +65,8 @@ export default {
   data() {
     return {
       dataCard: {},
-      showBtn: true
+      showBtn: true,
+      backgroundColor: "green"
     };
   },
   created() {

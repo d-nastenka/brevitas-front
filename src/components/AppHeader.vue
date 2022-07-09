@@ -37,7 +37,7 @@ export default {
         this.$router.push("/authorization");
       }
     },
-    ...mapMutations("mAuth", ["ChangeAuth"])
+    ...mapMutations("mAuth", ["changeAuth"])
   },
   computed: {
     ...mapState("mAuth", ["isAuth"])

@@ -40,7 +40,7 @@
 
 <script>
 export default {
-  name: "LoadingCard",
+  name: "LoadingCards",
   props: {
     card: Object
   },

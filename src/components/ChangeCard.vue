@@ -1,33 +1,39 @@
 <template>
-  <div class="page-card">
-    <div class="form-cards">
-      <div class="title-cards">
-        <h3>Изменить визитку</h3>
-      </div>
-      <form @submit.prevent="changeCard">
-        <div class="form-input-cards">
-          <div v-for="(item, key) in formFill" :key="key">
-            <div class="cards-input" :error-messages="nameErrors">
-              <input
-                class="input-change"
-                v-model="dataOfCard[item.value]"
-                :placeholder="item.textPlaceholder"
-              />
+  <div class="flex-cont">
+    <Header />
+    <div class="page-card">
+      <div class="form-cards">
+        <div class="title-cards">
+          <h3>Изменить визитку</h3>
+        </div>
+        <form @submit.prevent="changeCard">
+          <div class="form-input-cards">
+            <div v-for="(item, key) in formFill" :key="key">
+              <div class="cards-input" :error-messages="nameErrors">
+                <input
+                  class="input-change"
+                  v-model="dataOfCard[item.value]"
+                  :placeholder="item.textPlaceholder"
+                />
+              </div>
+            </div>
+            <p>
+              <font color="red"> {{ nameErrors }}</font>
+            </p>
+            <div v-if="!nameErrors">
+              <button type="submit" class="btn-card">Сохранить</button>
             </div>
           </div>
-          <p>
-            <font color="red"> {{ nameErrors }}</font>
-          </p>
-          <div v-if="!nameErrors">
-            <button type="submit" class="btn-card">Сохранить</button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from "./AppHeader.vue";
+import Footer from "./AppFooter.vue";
 import { validationMixin } from "vuelidate";
 import {
   required,
@@ -40,6 +46,10 @@ import {
 export default {
   name: "ChangeCard",
   mixins: [validationMixin],
+  components: {
+    Header,
+    Footer
+  },
   data() {
     return {
       check: true,
@@ -149,7 +159,6 @@ export default {
   },
   created() {
     this.getCard();
-    console.log(this.dataCard);
   },
   methods: {
     // TODO: Нет валидации
@@ -205,11 +214,18 @@ export default {
 </script>
 
 <style scoped>
+.flex-cont {
+  height: 100vh;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .page-card {
   display: flex;
   justify-content: center;
 
-  background: linear-gradient(90deg, #016670, #fff9c7);
+  /* background: linear-gradient(90deg, #016670, #fff9c7); */
   margin-top: 1px;
   margin-bottom: 1px;
 

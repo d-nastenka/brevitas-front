@@ -1,5 +1,6 @@
 import Reg from "../components/Reg.vue";
 import Auth from "../components/Auth.vue";
+import ErrorPage from "../components/ErrorPage"
 
 export default [
   {
@@ -16,7 +17,7 @@ export default [
   },
   {
     path: "*",
-    component: Auth,
+    component: ErrorPage,
     name: "404"
   }
 ];

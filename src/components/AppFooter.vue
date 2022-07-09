@@ -11,7 +11,7 @@
           </p> -->
           </div>
           <div class="footkont">
-            О нас
+            <a class="page-foot" @click="$router.push('/about')">О нас</a>
             <!-- <p class="foot-text">+7 (913)333-99-99</p> -->
           </div>
         </div>
@@ -32,6 +32,10 @@ export default {
   flex-direction: row;
   justify-content: flex-end;
 } */
+
+.page-foot {
+  cursor: pointer;
+}
 
 .footer {
   width: 100%;

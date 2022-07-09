@@ -9,7 +9,7 @@
           <div v-if="imgLengthstatus">У вас пока нет визиток</div>
           <div class="flex-container" v-else>
             <div class="imges-card" v-for="(item, key) in dataCard" :key="key">
-              <LoadingCard :card="item" @deleteCard="deleteCard" />
+              <LoadingCards :card="item" @deleteCard="deleteCard" />
             </div>
           </div>
         </div>
@@ -20,14 +20,14 @@
 </template>
 
 <script>
-import LoadingCard from "./LoadingCard.vue";
+import LoadingCards from "./LoadingCards.vue";
 import Header from "./AppHeader.vue";
 import Footer from "./AppFooter.vue";
 
 export default {
   name: "MyCards",
   components: {
-    LoadingCard,
+    LoadingCards,
     Header,
     Footer
   },
@@ -81,9 +81,10 @@ export default {
 <style scoped>
 .flex-cont {
   height: 100vh;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 h3 {

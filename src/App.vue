@@ -135,7 +135,7 @@ body {
   border-radius: 12px;
   text-align: center;
   overflow: hidden;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
 
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
@@ -143,7 +143,7 @@ body {
   display: inline-block;
 }
 
-.btn-card_NO::before {
+/* .btn-card_NO::before {
   content: "";
   position: absolute;
   width: 150px;
@@ -158,7 +158,7 @@ body {
 }
 
 .btn-card_NO:hover:before {
-  left: 0%;
-}
+  left: 0%; 
+}*/
 
 </style>

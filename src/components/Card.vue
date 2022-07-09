@@ -10,30 +10,30 @@
 
         <form @submit.prevent="addCard">
           <div class="form-input-cards">
-            <div v-for="(i, key) in formFill" :key="key">
+            <div v-for="(item, key) in formFill" :key="key">
               <div :error-messages="nameErrors" class="cards-input">
                 <input
                   class="imput_reg_visit"
-                  v-model="dataToSend[i.value]"
-                  :placeholder="i.textPlaceholder"
+                  v-model="dataToSend[item.value]"
+                  :placeholder="item.textPlaceholder"
                 />
               </div>
             </div>
             <p>
               <font color="red"> {{ nameErrors }}</font>
             </p>
-            <div v-if="!nameErrors">
-              <button type="submit" class="btn-card">
-                <span>Создать визитку</span>
-              </button>
-            </div>
-            <div v-else>
-              <a class="btn-card_NO"
-                ><span class="btn-card_text">Создать визитку</span></a
-              >
-            </div>
           </div>
         </form>
+      </div>
+      <div v-if="!nameErrors">
+        <button type="submit" class="btn-card">
+          <span>Создать визитку</span>
+        </button>
+      </div>
+      <div v-else>
+        <a class="btn-card_NO"
+          ><span class="btn-card_text">Создать визитку</span></a
+        >
       </div>
     </div>
     <Footer />
@@ -196,6 +196,7 @@ export default {
 <style scoped>
 .flex-cont {
   height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -203,8 +204,9 @@ export default {
 
 .page-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background: linear-gradient(90deg, #016670, #fff9c7);
+  /* background: linear-gradient(90deg, #016670, #fff9c7); */
   margin-top: 1px;
   margin-bottom: 1px;
 

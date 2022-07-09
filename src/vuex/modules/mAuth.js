@@ -4,7 +4,7 @@ export default {
     isAuth: ""
   },
   mutations: {
-    ChangeAuth(state, payload) {
+    changeAuth(state, payload) {
       state.isAuth = payload;
     }
   }

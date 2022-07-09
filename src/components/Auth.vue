@@ -82,16 +82,18 @@ export default {
 <style>
 .auth-flex {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  /* align-content: space-between; */
+  align-items: center;
+  /* align-items: center; */
 
   background: linear-gradient(90deg, #016670, #fff9c7);
-  margin-top: 1px;
-  margin-bottom: 1px;
 
-  padding-top: 50px;
-  padding-bottom: 50px;
+  /* padding-top: 50px; */
+  /* padding-bottom: 50px; */
 
-  height: 50%;
+  height: 100%;
 }
 
 .form-auth {
@@ -103,7 +105,7 @@ export default {
   padding: 10px;
   background-color: #ffffff63;
   border-radius: 10px;
-  
+  height: 45%;
 }
 
 .auth-title {
