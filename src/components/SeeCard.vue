@@ -6,12 +6,7 @@
         <h3>Визитка</h3>
       </div>
       <div class="flex-field">
-        <div
-          class="flex-field-card"
-          :style="{
-            background: backgroundColor
-          }"
-        >
+        <div class="flex-field-card">
           <div class="field-card">
             <div class="if-side" v-if="showBtn">
               <div class="data-user">
@@ -41,7 +36,6 @@
           </div>
         </div>
       </div>
-      <input type="color" v-model="backgroundColor" />
       <div class="btn-side">
         <button class="btn-card-side" @click="showBtn = !showBtn">
           {{ btnText }}
@@ -65,8 +59,7 @@ export default {
   data() {
     return {
       dataCard: {},
-      showBtn: true,
-      backgroundColor: "green"
+      showBtn: true
     };
   },
   created() {

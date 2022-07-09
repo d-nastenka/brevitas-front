@@ -5,7 +5,7 @@
       <h1>Brevitas</h1>
     </div>
     <div class="btn_head">
-      <a v-if="isAuth" @click="$router.push('/card')"> Создать новую визитку</a>
+      <a v-if="isAuth" @click="$router.push('/createcard')"> Создать новую визитку</a>
       <a v-if="isAuth" @click="$router.push('/mycards')"> Мои визитки</a>
       <a v-if="isAuth" @click="usLogout">Выход</a>
       <div v-else>

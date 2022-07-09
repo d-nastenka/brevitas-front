@@ -5,10 +5,11 @@
       <div class="title-createcard">
         <h3>Создать визитку</h3>
       </div>
-      <div>
+      <div class="create-visits">
         <div class="flex-fields">
           <div class="field-form">
-            <form @submit.prevent="addCard">
+            <form>
+            <!-- <form @submit.prevent="addCard"> -->
               <div class="form-input-cards">
                 <div v-for="(item, key) in formFill" :key="key">
                   <div :error-messages="nameErrors" class="cards-input">
@@ -25,9 +26,13 @@
               </div>
             </form>
           </div>
-          <div class="field-card" :style="{
-            background: backgroundColor
-          }">
+          <div
+            class="field-card"
+            :style="{
+              background: backgroundColor,
+              color: textColor
+            }"
+          >
             <div class="data-user">
               <div class="data-card">
                 {{ dataToSend.name }}
@@ -57,17 +62,16 @@
             <input type="color" v-model="textColor" />
           </div>
         </div>
-        <div class="btn-create">
-          <div v-if="!nameErrors">
-            <button type="submit" class="btn-card">
-              <span>Создать визитку</span>
-            </button>
-          </div>
-          <div v-else>
-            <a class="btn-card_NO"
-              ><span class="btn-card_text">Создать визитку</span></a
-            >
-          </div>
+      </div>
+      <div class="field-btn">
+        <div v-if="!nameErrors">
+          <button @click="addCard" class="btn-card">
+          <!-- <button type="submit" class="btn-card"> -->
+            <span>Создать визитку</span>
+          </button>
+        </div>
+        <div v-else>
+          <a class="btn-card_NO"> <span>Создать визитку</span></a>
         </div>
       </div>
     </div>
@@ -201,11 +205,13 @@ export default {
         }
       }
       return newmes;
-    }
+    },
+    btnAddCard() {}
   },
   methods: {
     // TODO: Нет валидации
     async addCard() {
+      console.log(this.dataToSend);
       const data = {};
       for (let i = 0; i < this.formFill.length; i++) {
         data[this.formFill[i].value] = this.formFill[i].data;
@@ -221,8 +227,10 @@ export default {
         credentials: "include"
       });
       if (res.ok) {
+        console.log(this.dataToSend);
         this.$router.push("/mycards");
       }
+      console.log(this.dataToSend);
     }
   },
   created() {}
@@ -230,6 +238,15 @@ export default {
 </script>
 
 <style scoped>
+.page-create-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title-createcard {
+  margin-top: 30px;
+}
 .flex-cont {
   height: 100hv;
   display: flex;
@@ -241,8 +258,11 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 
   margin-top: 40px;
+
+  margin-bottom: 40px;
 }
 
 .field-form {
@@ -253,9 +273,12 @@ export default {
   box-shadow: 0 4px 16px #ccc;
 }
 .field-card {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
   display: flex;
-  /* flex-direction: row; */
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
 
   /* margin-left: 200px; */
 
@@ -295,5 +318,56 @@ export default {
 }
 .imput_reg_visit:focus {
   background-color: rgba(255, 255, 255, 0.347);
+}
+
+.data-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-family: serif;
+}
+
+.data-user {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.contacts {
+  font-size: 20px;
+}
+
+.field-btn {
+  margin-bottom: 30px;
+}
+
+.btn-card {
+  background-color: #096b73;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.btn-card:hover {
+  background-color: rgb(186, 220, 222);
+  color: rgb(76, 76, 76);
+}
+
+.btn-card_NO {
+  background-color: #65989d;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+
+  border-radius: 7px;
+  text-align: center;
+  transition: all 0.5s;
+
 }
 </style>

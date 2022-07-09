@@ -146,10 +146,7 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
-.btn-auth:hover {
-  background-color: white;
-  color: rgb(76, 76, 76);
-}
+
 .btn-auth {
   background-color: rgba(63, 63, 63, 0.897);
   color: white;
