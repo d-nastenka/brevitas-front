@@ -1,5 +1,8 @@
 <template>
   <div class="reg-flex">
+    <div class="logo-title" @click="$router.push('/')">
+      <h3>Brevitas</h3>
+    </div>
     <div class="form-reg">
       <div class="reg-title">
         <h3>Регистрация</h3>
@@ -21,10 +24,10 @@
         </p>
 
         <div v-if="!nameErrors">
-          <button type="submit" class="btn-card">Зарегистрироваться</button>
+          <button type="submit" class="btn-reg">Зарегистрироваться</button>
         </div>
         <div v-else>
-          <a class="btn-card_NO">Зарегистрироваться</a>
+          <a class="btn-reg_NO">Зарегистрироваться</a>
         </div>
         <!-- </div> -->
       </form>
@@ -140,38 +143,71 @@ export default {
 </script>
 
 <style>
+.logo-title {
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 75px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
 .reg-flex {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   /* align-content: space-between; */
   align-items: center;
   /* align-items: center; */
 
-  background: linear-gradient(90deg, #016670, #fff9c7);
-
-  padding-top: 30px;
-  padding-bottom: 50px;
+  background: linear-gradient(
+    180deg,
+    #016670 0%,
+    rgba(217, 217, 217, 0.59) 100%
+  );
+  width: 100%;
   height: 100%;
 }
 
 .form-reg {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-b;
 
-  width: 300px;
-  padding: 32px;
-  background-color: #ffffff63;
-  border-radius: 10px;
+  width: 450px;
+  height: 480px;
+  box-sizing: border-box;
 
-  height: 57%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 15px rgba(1, 102, 112, 0.31);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 20px;
 }
 
 .reg-title {
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-size: 30px;
+
+  display: flex;
+  align-items: center;
   text-align: center;
-  margin: 0 0 17px 0;
-  font-weight: normal;
+  justify-content: center;
+
+  letter-spacing: 0.232836px;
+
+  color: #e4e7e7;
 }
 
 .reg-input {
@@ -197,7 +233,8 @@ export default {
   padding: 7px 19px;
   margin-bottom: 2px;
   border: 0px;
-  border-bottom: 2px solid rgb(0, 0, 0);
+  width: 300px;
+  border-bottom: 1px solid #ffffff;
   background-color: rgba(0, 0, 0, 0);
   outline: none;
 }
@@ -206,8 +243,32 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
+.btn-reg {
+  background-color: #096b73;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
 .btn-reg:hover {
-  background-color: white;
+  background-color: rgb(186, 220, 222);
   color: rgb(76, 76, 76);
+}
+
+.btn-reg_NO {
+  background-color: #65989d;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+
+  border-radius: 7px;
+  text-align: center;
+  transition: all 0.5s;
 }
 </style>

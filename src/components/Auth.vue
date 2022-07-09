@@ -1,8 +1,11 @@
 <template>
   <div class="auth-flex">
+    <div class="logo-title" @click="$router.push('/')">
+      <h3>Brevitas</h3>
+    </div>
     <div class="form-auth">
       <div class="auth-title">
-        <h3>Авторизация</h3>
+        <h3>Вход</h3>
       </div>
 
       <form @submit.prevent="sendAuth">
@@ -60,7 +63,6 @@ export default {
     };
   },
   methods: {
-    // TODO: Нет валидации
     async sendAuth() {
       let res = await fetch("http://localhost:3000/auth/login", {
         method: "POST",
@@ -80,24 +82,47 @@ export default {
 </script>
 
 <style>
+.logo-title {
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 75px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
 .auth-flex {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   /* align-content: space-between; */
   align-items: center;
   /* align-items: center; */
 
-  background: linear-gradient(90deg, #016670, #fff9c7);
-
+  background: linear-gradient(
+    180deg,
+    #016670 0%,
+    rgba(217, 217, 217, 0.59) 100%
+  );
+  width: 100%;
+  height: 100%;
   /* padding-top: 50px; */
   /* padding-bottom: 50px; */
 
-  height: 100%;
+  /* height: 100%; */
 }
 
 .form-auth {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
 
@@ -105,13 +130,36 @@ export default {
   padding: 10px;
   background-color: #ffffff63;
   border-radius: 10px;
-  height: 45%;
+  height: 45%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-b;
+
+  width: 450px;
+  height: 480px;
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 15px rgba(1, 102, 112, 0.31);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 20px;
 }
 
 .auth-title {
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-size: 30px;
+
+  display: flex;
+  align-items: center;
   text-align: center;
-  margin: 0 0 17px 0;
-  font-weight: normal;
+  justify-content: center;
+
+  letter-spacing: 0.232836px;
+
+  color: #e4e7e7;
 }
 
 .auth-input {
@@ -137,7 +185,8 @@ export default {
   padding: 7px 19px;
   margin-bottom: 2px;
   border: 0px;
-  border-bottom: 2px solid rgb(0, 0, 0);
+  width: 300px;
+  border-bottom: 1px solid #ffffff;
   background-color: rgba(0, 0, 0, 0);
   outline: none;
 }
@@ -146,9 +195,8 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
-
 .btn-auth {
-  background-color: rgba(63, 63, 63, 0.897);
+  background-color: #096b73;
   color: white;
   font-size: 14px;
   padding: 10px 20px;
