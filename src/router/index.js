@@ -16,7 +16,6 @@ Vue.use(VueRouter);
 const routes = [
   ...rAuth,
   ...rCard,
-
   {
     name: "about",
     path: "/about",
