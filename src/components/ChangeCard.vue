@@ -1,30 +1,78 @@
 <template>
   <div class="flex-cont">
     <Header />
-    <div class="page-card">
-      <div class="form-cards">
-        <div class="title-cards">
-          <h3>Изменить визитку</h3>
-        </div>
-        <form @submit.prevent="changeCard">
-          <div class="form-input-cards">
-            <div v-for="(item, key) in formFill" :key="key">
-              <div class="cards-input" :error-messages="nameErrors">
-                <input
-                  class="input-change"
-                  v-model="dataOfCard[item.value]"
-                  :placeholder="item.textPlaceholder"
-                />
+    <div class="page-create-card">
+      <div class="title-createcard">
+        <h3>Изменить визитку</h3>
+      </div>
+      <div class="create-visits">
+        <div class="flex-fields">
+          <div class="field-form">
+            <form>
+              <!-- <form @submit.prevent="addCard"> -->
+              <div class="form-input-cards">
+                <div v-for="(item, key) in formFill" :key="key">
+                  <div :error-messages="nameErrors" class="cards-input">
+                    <input
+                      class="imput_reg_visit"
+                      v-model="dataToSend[item.value]"
+                      :placeholder="item.textPlaceholder"
+                    />
+                  </div>
+                </div>
+                <p>
+                  <font color="red"> {{ nameErrors }}</font>
+                </p>
+              </div>
+            </form>
+          </div>
+          <div
+            class="field-card"
+            :style="{
+              background: backgroundColor,
+              color: textColor
+            }"
+          >
+            <div class="data-user">
+              <div class="data-card">
+                {{ dataToSend.name }}
+                {{ dataToSend.surname }}
+              </div>
+
+              <div class="data-card">
+                {{ dataToSend.description }}
               </div>
             </div>
-            <p>
-              <font color="red"> {{ nameErrors }}</font>
-            </p>
-            <div v-if="!nameErrors">
-              <button type="submit" class="btn-card">Сохранить</button>
+            <div class="contacts">
+              <div class="data-card">
+                {{ dataToSend.mail }}
+              </div>
+              <div class="data-card">
+                {{ dataToSend.link }}
+              </div>
+              <div class="data-card">
+                {{ dataToSend.phone }}
+              </div>
             </div>
           </div>
-        </form>
+          <div class="field-menu">
+            Цвет фона
+            <input type="color" v-model="backgroundColor" />
+            Цвет текста
+            <input type="color" v-model="textColor" />
+          </div>
+        </div>
+      </div>
+      <div class="field-btn">
+        <div v-if="!nameErrors">
+          <button @click="addCard" class="btn-card">
+            <!-- <button type="submit" class="btn-card"> -->
+            <span>Сохранить</span>
+          </button>
+        </div>
+        <div v-else>
+          <a class="btn-card_NO"> <span>Сохранить</span></a>
+        </div>
       </div>
     </div>
     <Footer />
@@ -34,6 +82,7 @@
 <script>
 import Header from "./AppHeader.vue";
 import Footer from "./AppFooter.vue";
+
 import { validationMixin } from "vuelidate";
 import {
   required,
@@ -44,17 +93,20 @@ import {
 } from "vuelidate/lib/validators";
 
 export default {
-  name: "ChangeCard",
-  mixins: [validationMixin],
+  name: "CreateCard",
   components: {
     Header,
     Footer
   },
+  mixins: [validationMixin],
   data() {
     return {
-      check: true,
+      backgroundColor: "white",
+      textColor: "black",
       IdCard: this.$route.params.id,
-      dataOfCard: {
+      dataCard: {},
+      check: true,
+      dataToSend: {
         name: "",
         surname: "",
         description: "",
@@ -96,59 +148,8 @@ export default {
       ]
     };
   },
-  computed: {
-    // TODO: Отрефакторить, убрать повторение кода
-    nameErrors() {
-      const errors = [];
-      var newmes = "";
-
-      if (
-        !this.$v.dataOfCard.name.required ||
-        !this.$v.dataOfCard.surname.required ||
-        !this.$v.dataOfCard.description.required ||
-        !this.$v.dataOfCard.mail.required ||
-        !this.$v.dataOfCard.link.required ||
-        !this.$v.dataOfCard.phone.required
-      ) {
-        errors.push("заполните все поля ");
-        newmes = newmes + errors;
-        check: false;
-      } else {
-        if (!this.$v.dataOfCard.phone.minLength) {
-          newmes = "";
-          errors.push(" введите правильный полный номер телефона");
-          newmes = newmes + errors;
-        }
-        if (!this.$v.dataOfCard.mail.email) {
-          newmes = "";
-          errors.push(" введите правильный email");
-          newmes = newmes + errors;
-        }
-        if (!this.$v.dataOfCard.link.url) {
-          newmes = "";
-          errors.push(" введите правильную ссылку");
-          newmes = newmes + errors;
-        }
-        if (
-          this.$v.dataOfCard.name.numeric ||
-          this.$v.dataOfCard.surname.numeric
-        ) {
-          newmes = "";
-          errors.push("в имени и фамилии должны быть только буквы!");
-          newmes = newmes + errors;
-        }
-        if (!this.$v.dataOfCard.phone.numeric) {
-          newmes = "";
-          errors.push("в поле ТЕЛЕФОН должны быть только цифры!");
-          newmes = newmes + errors;
-        }
-        // for (const [] of Object.entries())
-      }
-      return newmes;
-    }
-  },
   validations: {
-    dataOfCard: {
+    dataToSend: {
       name: { required, numeric },
       surname: { required, numeric },
       description: { required },
@@ -157,11 +158,60 @@ export default {
       phone: { required, minLength: minLength(11), numeric }
     }
   },
+  computed: {
+    // TODO: Отрефакторить, убрать повторение кода
+    nameErrors() {
+      const errors = [];
+      var newmes = "";
+
+      if (
+        !this.$v.dataToSend.name.required ||
+        !this.$v.dataToSend.surname.required ||
+        !this.$v.dataToSend.description.required ||
+        !this.$v.dataToSend.mail.required ||
+        !this.$v.dataToSend.link.required ||
+        !this.$v.dataToSend.phone.required
+      ) {
+        errors.push("заполните все поля ");
+        newmes = newmes + errors;
+        check: false;
+      } else {
+        if (!this.$v.dataToSend.phone.minLength) {
+          newmes = "";
+          errors.push(" введите полный номер телефона");
+          newmes = newmes + errors;
+        }
+        if (!this.$v.dataToSend.mail.email) {
+          newmes = "";
+          errors.push(" введите правильный email");
+          newmes = newmes + errors;
+        }
+        if (!this.$v.dataToSend.link.url) {
+          newmes = "";
+          errors.push(" введите правильную ссылку");
+          newmes = newmes + errors;
+        }
+        if (
+          this.$v.dataToSend.name.numeric ||
+          this.$v.dataToSend.surname.numeric
+        ) {
+          newmes = "";
+          errors.push("в имени и фамилии должны быть только буквы!");
+          newmes = newmes + errors;
+        }
+        if (!this.$v.dataToSend.phone.numeric) {
+          newmes = "";
+          errors.push("в поле ТЕЛЕФОН должны быть только цифры!");
+          newmes = newmes + errors;
+        }
+      }
+      return newmes;
+    },
+  },
   created() {
     this.getCard();
   },
   methods: {
-    // TODO: Нет валидации
     async getCard() {
       let res = await fetch(
         `http://localhost:3000/visits/${this.$route.params.id}`,
@@ -176,106 +226,106 @@ export default {
         }
       );
       if (res.ok) {
-        this.dataOfCard = await res.json();
+        this.dataToSend = await res.json();
       }
     },
-    // TODO: Нет валидации
-    async changeCard() {
+    async addCard() {
       const data = {};
       for (let i = 0; i < this.formFill.length; i++) {
         data[this.formFill[i].value] = this.formFill[i].data;
       }
 
-      let res = await fetch(
-        `http://localhost:3000/visits/${this.$route.params.id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(this.dataOfCard),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-          credentials: "include"
-        }
-      );
+      let res = await fetch(`http://localhost:3000/visits/${this.$route.params.id}`, {
+        method: "PUT",
+        body: JSON.stringify(this.dataToSend),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      });
       if (res.ok) {
         this.$router.push("/mycards");
       }
     }
-    // validationForm(param, strEr) {
-    //   if (!param) {
-    //       newmes = "";
-    //       errors.push(strEr);
-    //       newmes = newmes + errors;
-    //     }
-    // }
-  }
+  },
 };
 </script>
 
 <style scoped>
-.flex-cont {
-  height: 100vh;
-  /* height: 100%; */
+.page-create-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.page-card {
-  display: flex;
-  justify-content: center;
 
-  /* background: linear-gradient(90deg, #016670, #fff9c7); */
-  margin-top: 1px;
-  margin-bottom: 1px;
-
-  padding-top: 30px;
-  padding-bottom: 30px;
+.title-createcard {
+  margin-top: 30px;
 }
-
-.form-cards {
+.flex-cont {
+  height: 100hv;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-
-  width: 300px;
-  padding: 32px;
-
-  background-color: #ffffff63;
-  border-radius: 10px;
+  justify-content: space-between;
 }
 
-.title-cards {
-  text-align: center;
-  margin: 0 0 17px 0;
-  font-weight: normal;
+.flex-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  margin: 0px 20px 40px 20px;
+}
+
+.field-form {
+  width: 290px;
+  height: 300px;
+  padding: 32px;
+  border-radius: 5px;
+  box-shadow: 0 4px 16px #ccc;
+  margin-top: 20px;
+}
+.field-card {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* margin-left: 200px; */
+
+  width: 400px;
+  height: 200px;
+  padding: 32px;
+  border-radius: 5px;
+  box-shadow: 0 4px 16px #ccc;
+  margin-top: 20px;
+}
+
+.field-menu {
+  /* display: flex;
+    flex-direction: row;
+    justify-content: center; */
+
+  /* margin-left: 200px; */
+
+  width: 150px;
+  height: 200px;
+  padding: 32px;
+  border-radius: 5px;
+  box-shadow: 0 4px 16px #ccc;
+
+  margin-top: 20px;
 }
 
 .cards-input {
   width: 100%;
-  padding: 0 0 12px 0;
+  padding: 0 0 9px 0;
   border: none;
 }
-
-.btn-card {
-  background-color: rgba(63, 63, 63, 0.897);
-  color: white;
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 7px;
-  text-align: center;
-
-  margin-top: 10px;
-}
-
-.btn-card:hover {
-  background-color: white;
-  color: rgb(76, 76, 76);
-}
-
-.input-change {
+.imput_reg_visit {
   padding: 7px 19px;
   margin-bottom: 2px;
   border: 0px;
@@ -283,8 +333,74 @@ export default {
   background-color: rgba(0, 0, 0, 0);
   outline: none;
 }
-
-.input-change:focus {
+.imput_reg_visit:focus {
   background-color: rgba(255, 255, 255, 0.347);
+}
+
+.data-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-family: serif;
+}
+
+.data-user {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.contacts {
+  font-size: 20px;
+}
+
+.field-btn {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-card {
+  background-color: #096b73;
+  color: white;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  text-align: center;
+  transition: all 0.5s;
+
+  /* width: 170px;
+  height: 40px; */
+}
+
+.btn-card:hover {
+  background-color: rgb(186, 220, 222);
+  color: rgb(76, 76, 76);
+}
+
+.btn-card_NO {
+  background-color: #84abae;
+  color: white;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  text-align: center;
+  transition: all 0.5s;
+  /* width: 170px;
+  height: 40px; */
+}
+
+::placeholder {
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 16px;
+
+  letter-spacing: 0.232836px;
+
+  color: #a6a3a3;
 }
 </style>

@@ -71,7 +71,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .data-card {
   display: flex;
   flex-direction: row;
