@@ -72,7 +72,7 @@ export default {
   padding: 20px;
   font-size: 15px;
 
-  /* font-family: 'Roboto'; */
+  font-family: 'Roboto';
 
   /* display: flex;
   flex-direction: row;

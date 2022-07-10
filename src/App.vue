@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+<div id="app">
     <!-- <Header /> -->
     <router-view />
     <!-- <Footer /> -->
@@ -45,18 +45,21 @@ export default {
 </script>
 
 <style>
+/*шрифты*/
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto&family=Tenor+Sans&display=swap');
+
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  /*font-family: "Avenir", Helvetica, Arial, sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 
   background: #F5F5F5;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
 }
 
 h1,
@@ -92,6 +95,7 @@ body {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  height: 100%;
 }
 
 /*кнопки валидные*/

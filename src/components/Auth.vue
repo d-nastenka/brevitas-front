@@ -82,6 +82,13 @@ export default {
 </script>
 
 <style>
+
+/* для фикса бага с обрезанием стр нужно добавить свойство только для этой странички
+#app{
+  height: 100%;
+}
+*/
+
 .logo-title {
   font-family: "Tenor Sans";
   font-style: normal;
@@ -105,10 +112,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* align-content: space-between; */
   align-items: center;
-  /* align-items: center; */
-
   background: linear-gradient(
     180deg,
     #016670 0%,
@@ -116,10 +120,7 @@ export default {
   );
   width: 100%;
   height: 100%;
-  /* padding-top: 50px; */
-  /* padding-bottom: 50px; */
-
-  /* height: 100%; */
+  
 }
 
 .form-auth {
