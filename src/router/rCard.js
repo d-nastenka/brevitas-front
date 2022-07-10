@@ -1,17 +1,9 @@
-
-import Card from "../components/Card";
 import CreateCard from "../components/CreateCard.vue";
 import ChangeCard from "../components/ChangeCard.vue";
 import SeeCard from "../components/SeeCard.vue";
 
 
 export default [
-  {
-    name: "card",
-    path: "/card",
-    component: Card,
-    meta: { requiresAuth: false }
-  },
   {
     name: "createcard",
     path: "/createcard",

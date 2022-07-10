@@ -8,7 +8,7 @@
         <h3>Вход</h3>
       </div>
 
-      <form @submit.prevent="sendAuth">
+      <form @submit.prevent="sendAuth" class="form-flex">
         <div v-for="(item, key) in formAuth" :key="key">
           <div class="auth-input">
             <input
@@ -88,6 +88,7 @@ export default {
   font-weight: 400;
   font-size: 50px;
   line-height: 75px;
+  height: 150px;
   /* identical to box height */
 
   display: flex;
@@ -122,27 +123,18 @@ export default {
 }
 
 .form-auth {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
 
-  width: 300px;
-  padding: 10px;
-  background-color: #ffffff63;
-  border-radius: 10px;
-  height: 45%; */
   display: flex;
   flex-direction: column;
-  justify-content: space-b;
+  justify-content: space-between;
 
   width: 450px;
-  height: 480px;
+  height: 420px;
   box-sizing: border-box;
 
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 4px 4px 15px rgba(1, 102, 112, 0.31);
   backdrop-filter: blur(15px);
-  /* Note: backdrop-filter has minimal browser support */
 
   border-radius: 20px;
 }
@@ -150,7 +142,7 @@ export default {
 .auth-title {
   font-family: "Tenor Sans";
   font-style: normal;
-  font-size: 30px;
+  font-size: 27px;
 
   display: flex;
   align-items: center;
@@ -162,23 +154,21 @@ export default {
   color: #e4e7e7;
 }
 
+.form-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 60%;
+
+}
+
 .auth-input {
   width: 100%;
   padding: 0 0 12px 0;
   border: none;
-}
 
-.btn-auth {
-  background-color: rgba(63, 63, 63, 0.897);
-  color: white;
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 7px;
-  text-align: center;
-
-  margin-top: 10px;
+  
 }
 
 .input-auth {
@@ -195,17 +185,30 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
+::placeholder {
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 19px;
+
+  letter-spacing: 0.232836px;
+
+  color: #ffffff;
+}
+
 .btn-auth {
   background-color: #096b73;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
-  margin-top: 10px;
+  margin-top: 70px;
+
+  width: 150px;
+  height: 40px;
 }
 
 .btn-auth:hover {
@@ -215,30 +218,14 @@ export default {
 
 .move-reg {
   text-align: center;
-  padding-right: 20px;
 }
 
 .btn_head_autor {
   color: rgb(5, 5, 5);
   font-size: 14px;
-  padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
-  text-align: center;
-
-  margin-left: 10px;
-}
-.btn_head_autor {
-  color: rgb(5, 5, 5);
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  text-align: center;
   transition: all 0.5s;
-  margin-left: 10px;
 }
 
 .btn_head_autor:hover {

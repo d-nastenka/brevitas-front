@@ -9,7 +9,7 @@
         <div class="flex-fields">
           <div class="field-form">
             <form>
-            <!-- <form @submit.prevent="addCard"> -->
+              <!-- <form @submit.prevent="addCard"> -->
               <div class="form-input-cards">
                 <div v-for="(item, key) in formFill" :key="key">
                   <div :error-messages="nameErrors" class="cards-input">
@@ -66,12 +66,12 @@
       <div class="field-btn">
         <div v-if="!nameErrors">
           <button @click="addCard" class="btn-card">
-          <!-- <button type="submit" class="btn-card"> -->
-            <span>Создать визитку</span>
+            <!-- <button type="submit" class="btn-card"> -->
+            <span>Сохранить</span>
           </button>
         </div>
         <div v-else>
-          <a class="btn-card_NO"> <span>Создать визитку</span></a>
+          <a class="btn-card_NO"> <span>Сохранить</span></a>
         </div>
       </div>
     </div>
@@ -206,10 +206,8 @@ export default {
       }
       return newmes;
     },
-    btnAddCard() {}
   },
   methods: {
-    // TODO: Нет валидации
     async addCard() {
       console.log(this.dataToSend);
       const data = {};
@@ -227,10 +225,8 @@ export default {
         credentials: "include"
       });
       if (res.ok) {
-        console.log(this.dataToSend);
         this.$router.push("/mycards");
       }
-      console.log(this.dataToSend);
     }
   },
   created() {}
@@ -260,17 +256,16 @@ export default {
   justify-content: space-evenly;
   flex-wrap: wrap;
 
-  margin-top: 40px;
-
-  margin-bottom: 40px;
+  margin: 0px 20px 40px 20px;
 }
 
 .field-form {
-  width: 250px;
+  width: 290px;
   height: 300px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
+  margin-top: 20px;
 }
 .field-card {
   /* display: flex;
@@ -287,6 +282,7 @@ export default {
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
+  margin-top: 20px;
 }
 
 .field-menu {
@@ -301,6 +297,8 @@ export default {
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
+
+  margin-top: 20px;
 }
 
 .cards-input {
@@ -338,19 +336,24 @@ export default {
 }
 
 .field-btn {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-card {
   background-color: #096b73;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
+
+  /* width: 170px;
+  height: 40px; */
 }
 
 .btn-card:hover {
@@ -359,15 +362,26 @@ export default {
 }
 
 .btn-card_NO {
-  background-color: #65989d;
+  background-color: #84abae;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   padding: 10px 20px;
   border: none;
-
-  border-radius: 7px;
+  cursor: pointer;
+  border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
+  /* width: 170px;
+  height: 40px; */
+}
 
+::placeholder {
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 16px;
+
+  letter-spacing: 0.232836px;
+
+  color: #a6a3a3;
 }
 </style>

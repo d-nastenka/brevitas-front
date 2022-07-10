@@ -8,7 +8,7 @@
         <h3>Регистрация</h3>
       </div>
 
-      <form @submit.prevent="addUser">
+      <form @submit.prevent="addUser" class="form-flex">
         <!-- <div class="form-input"> -->
         <div v-for="(i, key) in formReg" :key="key">
           <div :error-messages="nameErrors" class="reg-input">
@@ -146,18 +146,18 @@ export default {
 .logo-title {
   font-family: "Tenor Sans";
   font-style: normal;
-  font-weight: 400;
+  /* font-weight: 400; */
   font-size: 50px;
-  line-height: 75px;
+  /* line-height: 75px; */
   /* identical to box height */
 
   display: flex;
-  align-items: center;
-  text-align: center;
+  /* align-items: center;
+  text-align: center; */
+  height: 150px;
   letter-spacing: 0.232836px;
 
   color: #ffffff;
-
   cursor: pointer;
 }
 
@@ -167,7 +167,6 @@ export default {
   justify-content: flex-start;
   /* align-content: space-between; */
   align-items: center;
-  /* align-items: center; */
 
   background: linear-gradient(
     180deg,
@@ -181,7 +180,7 @@ export default {
 .form-reg {
   display: flex;
   flex-direction: column;
-  justify-content: space-b;
+  justify-content: space-between;
 
   width: 450px;
   height: 480px;
@@ -198,7 +197,7 @@ export default {
 .reg-title {
   font-family: "Tenor Sans";
   font-style: normal;
-  font-size: 30px;
+  font-size: 27px;
 
   display: flex;
   align-items: center;
@@ -210,23 +209,18 @@ export default {
   color: #e4e7e7;
 }
 
+.form-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 60%;
+}
+
 .reg-input {
   width: 100%;
   padding: 0 0 12px 0;
   border: none;
-}
-
-.btn-reg {
-  background-color: rgba(63, 63, 63, 0.897);
-  color: white;
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 7px;
-  text-align: center;
-
-  margin-top: 10px;
 }
 
 .input-reg {
@@ -243,16 +237,31 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
+::placeholder {
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 19px;
+
+  letter-spacing: 0.232836px;
+
+  color: #ffffff;
+}
+
 .btn-reg {
   background-color: #096b73;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
+
+  width: 150px;
+  height: 40px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .btn-reg:hover {
@@ -263,12 +272,17 @@ export default {
 .btn-reg_NO {
   background-color: #65989d;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   padding: 10px 20px;
   border: none;
 
-  border-radius: 7px;
+  border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
+
+  width: 150px;
+  height: 40px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 </style>

@@ -52,7 +52,7 @@ export default {
   text-align: center;
 
   background: #F5F5F5;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
