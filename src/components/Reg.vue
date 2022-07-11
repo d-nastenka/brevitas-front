@@ -136,6 +136,7 @@ export default {
         },
         credentials: "include"
       });
+      console.log(res);
       if (res.ok) {
         this.$router.push("/authorization");
       }

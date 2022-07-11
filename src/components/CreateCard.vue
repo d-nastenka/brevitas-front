@@ -33,11 +33,13 @@
               background: dataToSend.backgroundColor
             }"
           >
-            <div
+          <Card :card="dataToSend" :btnSide="showBtn" />
+            <!-- <div
               class="data-user"
               :style="{
                 color: dataToSend.textColor,
-                'align-items': dataToSend.textPosition
+                'align-items': dataToSend.textPosition,
+                'font-size': `${dataToSend.sizeText}px`
               }"
             >
               <div class="data-card">
@@ -53,7 +55,8 @@
               class="contacts"
               :style="{
                 color: dataToSend.linksColor,
-                'align-items': dataToSend.textPosition
+                'align-items': dataToSend.textPosition,
+                'font-size': `${dataToSend.sizeCont}px`
               }"
             >
               <div class="data-card">
@@ -65,46 +68,17 @@
               <div class="data-card">
                 {{ dataToSend.phone }}
               </div>
-            </div>
-          </div>
+            </div>-->
+          </div> 
           <div class="field-menu">
-            Цвет фона
-            <input type="color" v-model="dataToSend.backgroundColor" />
-            Текст
-            <input type="color" v-model="dataToSend.textColor" />
-            Текст контактов
-            <input type="color" v-model="dataToSend.linksColor" />
-            <div class="text-position">
-              <button class="btn" @click="btnTextLeft">
-                <i
-                  class="gg-menu-right-alt"
-                  :style="{
-                    width: '10px',
-                    height: '10px'
-                  }"
-                ></i>
-              </button>
-              <button class="btn" @click="btnTextCenter">
-                <i
-                  class="gg-menu-right-alt"
-                  :style="{
-                    width: '12.5px',
-                    height: '10px'
-                  }"
-                ></i>
-              </button>
-              <button class="btn" @click="btnTextRight">
-                <i
-                  class="gg-menu-right-alt"
-                  :style="{
-                    width: '16px',
-                    height: '10px'
-                  }"
-                ></i>
-              </button>
-            </div>
-          </div>
+            <CardMenu  :card="dataToSend" :btnSide="showBtn" />
+          </div> 
         </div>
+        <div class="btn-side">
+        <button class="btn-card-side" @click="showBtn = !showBtn">
+          {{ btnText }}
+        </button>
+      </div>
       </div>
       <div class="field-btn">
         <div v-if="!nameErrors">
@@ -125,6 +99,8 @@
 <script>
 import Header from "./AppHeader.vue";
 import Footer from "./AppFooter.vue";
+import CardMenu from "./CardMenu.vue";
+import Card from "./Card.vue"
 
 import { validationMixin } from "vuelidate";
 import {
@@ -139,14 +115,15 @@ export default {
   name: "CreateCard",
   components: {
     Header,
-    Footer
+    Footer,
+    CardMenu,
+    Card,
   },
   mixins: [validationMixin],
   data() {
     return {
-      // backgroundColor: "white",
-      // textColor: "black",
       dataCard: {},
+      showBtn: true,
       check: true,
       dataToSend: {
         name: "",
@@ -158,7 +135,10 @@ export default {
         backgroundColor: "",
         textColor: "",
         linksColor: "",
-        textPosition: ""
+        textPosition: "" ,
+        linksPosition: "" ,
+        sizeText: 30,
+        sizeCont: 20
       },
       formFill: [
         {
@@ -252,15 +232,14 @@ export default {
         }
       }
       return newmes;
+    },
+    btnText() {
+      return this.showBtn ? "Обратная сторона" : "Лицевая сторона";
     }
   },
   methods: {
     async addCard() {
       console.log(this.dataToSend);
-      // const data = {};
-      // for (let i = 0; i < this.formFill.length; i++) {
-      //   data[this.formFill[i].value] = this.formFill[i].data;
-      // }
 
       let res = await fetch("http://localhost:3000/visits", {
         method: "POST",
@@ -275,15 +254,6 @@ export default {
         this.$router.push("/mycards");
       }
     },
-    btnTextLeft() {
-      this.dataToSend.textPosition = "flex-start";
-    },
-    btnTextCenter() {
-      this.dataToSend.textPosition = "center";
-    },
-    btnTextRight() {
-      this.dataToSend.textPosition = "flex-end";
-    }
   },
   created() {}
 };
@@ -348,8 +318,8 @@ export default {
 
   /* margin-left: 200px; */
 
-  width: 150px;
-  height: 200px;
+  width: 170px;
+  height: 300px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
@@ -374,12 +344,12 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
-.data-card {
+/* .data-card {
   display: flex;
   /* flex-direction: column; */
   /* justify-content: center; */
 
-  /* font-family: serif; */
+  /* font-family: serif; *//*
 }
 
 .data-user {
@@ -394,7 +364,7 @@ export default {
   display: flex;
   flex-direction: column;
   font-size: 20px;
-}
+} */
 
 .field-btn {
   margin-bottom: 20px;
@@ -414,29 +384,4 @@ export default {
   color: #a6a3a3;
 }
 
-.text-position {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-
-.btn {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-
-  color: rgb(61, 61, 61);
-  cursor: pointer;
-  /* width: 20px;
-  height: 20px; */
-}
-
-.btn:hover {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-  /* width: 20px;
-  height: 20px; */
-  color: rgb(22, 22, 22);
-  cursor: pointer;
-}
 </style>

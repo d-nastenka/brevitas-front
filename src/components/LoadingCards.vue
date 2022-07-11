@@ -29,7 +29,7 @@
         'align-items': card.textPosition
       }"
     >
-      <div class="data-card">
+      <!-- <div class="data-card">
         {{ card.mail }}
       </div>
       <div class="data-card">
@@ -37,7 +37,7 @@
       </div>
       <div class="data-card">
         {{ card.phone }}
-      </div>
+      </div> -->
     </div>
 
     <div class="buttons">
