@@ -1,5 +1,6 @@
 <template>
   <div class="flex-cont">
+    <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
     <Header />
     <div class="page-create-card">
       <div class="title-createcard">
@@ -30,7 +31,8 @@
             class="field-card"
             :style="{
               background: backgroundColor,
-              color: textColor
+              color: textColor,
+              align: textPosition
             }"
           >
             <div class="data-user">
@@ -60,18 +62,38 @@
             <input type="color" v-model="backgroundColor" />
             Цвет текста
             <input type="color" v-model="textColor" />
+            <div class="text-position">
+              <button class="btn" @click="btnTextLeft">
+                <i class="gg-menu-right-alt" :style="{
+                  width: '10px',
+                  height: '10px',
+                }"></i>
+              </button>
+              <button class="btn" @click="btnTextCenter">
+                <i class="gg-menu-right-alt"  :style="{
+                  width: '12.5px',
+                  height: '10px',
+                }"></i>
+              </button>
+              <button class="btn" @click="btnTextRight">
+                <i class="gg-menu-right-alt" :style="{
+                  width: '16px',
+                  height: '10px',
+                }"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <div class="field-btn">
         <div v-if="!nameErrors">
-          <button @click="addCard" class="btn-card">
+          <button @click="addCard" class="btn">
             <!-- <button type="submit" class="btn-card"> -->
             <span>Сохранить</span>
           </button>
         </div>
         <div v-else>
-          <a class="btn-card_NO"> <span>Сохранить</span></a>
+          <a class="btn_NO"> <span>Сохранить</span></a>
         </div>
       </div>
     </div>
@@ -103,6 +125,7 @@ export default {
     return {
       backgroundColor: "white",
       textColor: "black",
+      textPosition: "center",
       dataCard: {},
       check: true,
       dataToSend: {
@@ -205,7 +228,7 @@ export default {
         }
       }
       return newmes;
-    },
+    }
   },
   methods: {
     async addCard() {
@@ -227,7 +250,16 @@ export default {
       if (res.ok) {
         this.$router.push("/mycards");
       }
-    }
+    },
+    btnTextLeft() {
+      this.textPosition = "left"
+    },
+    btnTextCenter() {
+      this.textPosition = "center"
+    },
+    btnTextRight() {
+      this.textPosition = "right"
+    },
   },
   created() {}
 };
@@ -341,40 +373,6 @@ export default {
   flex-direction: column;
 }
 
-.btn-card {
-  background-color: #096b73;
-  color: white;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  text-align: center;
-  transition: all 0.5s;
-
-  /* width: 170px;
-  height: 40px; */
-}
-
-.btn-card:hover {
-  background-color: rgb(186, 220, 222);
-  color: rgb(76, 76, 76);
-}
-
-.btn-card_NO {
-  background-color: #84abae;
-  color: white;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  text-align: center;
-  transition: all 0.5s;
-  /* width: 170px;
-  height: 40px; */
-}
-
 ::placeholder {
   font-family: "Roboto";
   font-style: normal;
@@ -384,4 +382,31 @@ export default {
 
   color: #a6a3a3;
 }
+
+.text-position {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.btn {
+  border: none;
+  background-color: rgba(28, 28, 28, 0);
+
+  color: rgb(61, 61, 61);
+  cursor: pointer;
+  /* width: 20px;
+  height: 20px; */
+}
+
+.btn:hover {
+  border: none;
+  background-color: rgba(28, 28, 28, 0);
+  /* width: 20px;
+  height: 20px; */
+  color: rgb(22, 22, 22);
+  cursor: pointer;
+}
+
 </style>

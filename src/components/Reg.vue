@@ -1,36 +1,38 @@
 <template>
-  <div class="reg-flex">
-    <div class="logo-title" @click="$router.push('/')">
-      <h3>Brevitas</h3>
-    </div>
-    <div class="form-reg">
-      <div class="reg-title">
-        <h3>Регистрация</h3>
+  <div class="back-cont">
+    <div class="reg-flex">
+      <div class="logo-title" @click="$router.push('/')">
+        <h3>Brevitas</h3>
       </div>
+      <div class="form-reg">
+        <div class="reg-title">
+          <h3>Регистрация</h3>
+        </div>
 
-      <form @submit.prevent="addUser" class="form-flex">
-        <!-- <div class="form-input"> -->
-        <div v-for="(i, key) in formReg" :key="key">
-          <div :error-messages="nameErrors" class="reg-input">
-            <input
-              class="input-reg"
-              v-model="dataReg[i.value]"
-              :placeholder="i.textPlaceholder"
-            />
+        <form @submit.prevent="addUser" class="form-flex">
+          <!-- <div class="form-input"> -->
+          <div v-for="(i, key) in formReg" :key="key">
+            <div :error-messages="nameErrors" class="reg-input">
+              <input
+                class="input-reg"
+                v-model="dataReg[i.value]"
+                :placeholder="i.textPlaceholder"
+              />
+            </div>
           </div>
-        </div>
-        <p>
-          <font color="red"> {{ nameErrors }}</font>
-        </p>
+          <p>
+            <font color="red"> {{ nameErrors }}</font>
+          </p>
 
-        <div v-if="!nameErrors">
-          <button type="submit" class="btn-reg">Зарегистрироваться</button>
-        </div>
-        <div v-else>
-          <a class="btn-reg_NO">Зарегистрироваться</a>
-        </div>
-        <!-- </div> -->
-      </form>
+          <div v-if="!nameErrors">
+            <button type="submit" class="btn">Зарегистрироваться</button>
+          </div>
+          <div v-else>
+            <a class="btn_NO">Зарегистрироваться</a>
+          </div>
+          <!-- </div> -->
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -143,6 +145,15 @@ export default {
 </script>
 
 <style>
+.back-cont {
+  background: linear-gradient(
+    180deg,
+    #016670 0%,
+    rgba(217, 217, 217, 0.59) 100%
+  );
+  width: 100%;
+  height: 100vh;
+}
 .logo-title {
   font-family: "Tenor Sans";
   font-style: normal;
@@ -154,7 +165,7 @@ export default {
   display: flex;
   /* align-items: center;
   text-align: center; */
-  height: 150px;
+  height: 170px;
   letter-spacing: 0.232836px;
 
   color: #ffffff;
@@ -167,20 +178,12 @@ export default {
   justify-content: flex-start;
   /* align-content: space-between; */
   align-items: center;
-
-  background: linear-gradient(
-    180deg,
-    #016670 0%,
-    rgba(217, 217, 217, 0.59) 100%
-  );
-  width: 100%;
-  height: 100%;
 }
 
 .form-reg {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   width: 450px;
   height: 480px;
@@ -213,7 +216,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   height: 60%;
 }
 
@@ -245,44 +248,5 @@ export default {
   letter-spacing: 0.232836px;
 
   color: #ffffff;
-}
-
-.btn-reg {
-  background-color: #096b73;
-  color: white;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  text-align: center;
-  transition: all 0.5s;
-
-  width: 150px;
-  height: 40px;
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-
-.btn-reg:hover {
-  background-color: rgb(186, 220, 222);
-  color: rgb(76, 76, 76);
-}
-
-.btn-reg_NO {
-  background-color: #65989d;
-  color: white;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-
-  border-radius: 30px;
-  text-align: center;
-  transition: all 0.5s;
-
-  width: 150px;
-  height: 40px;
-  margin-top: 50px;
-  margin-bottom: 30px;
 }
 </style>
