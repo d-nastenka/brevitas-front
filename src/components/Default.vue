@@ -7,11 +7,32 @@
         <!--контент меняющийся-->
       </div>
       <div class="content">
-        <h2>Просто создайте свою визитку мы обо всем позаботились</h2>
+        <h2 style="margin-top: 0px;">Просто создайте свою визитку, мы обо всем позаботились</h2>
+        <div class="cart2">
+          <div class="cart">
+            <img src="/image/gl1.png" alt="">
+            <p>Зайдите в редактор</p>
+          </div>
+          <div class="cart">
+            <img  src="/image/arrow.png" alt style="margin-bottom: 80px;" >
+          </div>
+          <div class="cart">
+            <img src="/image/gl2.png" alt style="margin-top: 22px;">
+            <p style="margin-top: 52px;">Скачайте в любом удобном размере</p>
+          </div>          
+        </div>
+        <a class="btn-reg_NO">Войти</a>
       </div>
       <div class="contentvisints">
-        <h3>Примеры визиток</h3>
+        <h3 style="margin-top: 0px; margin-bottom: 60px;">Примеры визиток</h3>
+      <div class="visits">
+        <img src="/image/visit.png" alt="">
+        <img src="/image/visit.png" alt="">
+        <img src="/image/visit.png" alt="">
       </div>
+      
+      </div>
+
     </div>
     <Footer />
   </div>
@@ -47,7 +68,12 @@ export default {
   border-radius: 20px;
 }
 .content {
+  margin-top: 137px;
   height: 683px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 .content h2 {
   width: 1026px;
@@ -64,7 +90,85 @@ export default {
   color: #000000;
 }
 
+
+.cart2{
+  width: 754px;
+  height: 248px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.cart p{
+width: 248px;
+height: 74px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 28px;
+display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+color: #000000;
+}
+
+.btn-reg_NO {/*доделать эту долбаную кнопку))*/ 
+  background-color: #65989d;
+  color: white;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 74px;
+  text-align: center;
+  transition: all 0.5s;
+  width: 202px;
+  height: 45px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
 .contentvisints {
   height: 476px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.contentvisints h3{
+  width: 362px;
+  height: 47px;
+  left: 539px;
+  top: 1472px;
+
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 47px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #000000;
+}
+.visits img{
+  margin-left: 21px;
+  margin-right: 21px;
 }
 </style>

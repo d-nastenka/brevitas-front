@@ -84,6 +84,7 @@ export default {
 </script>
 
 <style>
+
 .btn {
   width: 150px;
 }
@@ -96,6 +97,13 @@ export default {
   width: 100%;
   height: 100vh;
 }
+
+
+/* для фикса бага с обрезанием стр нужно добавить свойство только для этой странички
+#app{
+  height: 100%;
+}
+*/
 
 .logo-title {
   font-family: "Tenor Sans";
@@ -120,14 +128,24 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* align-content: space-between; */
   align-items: center;
+
   /* align-items: center; */
 
   /* padding-top: 50px; */
   /* padding-bottom: 50px; */
 
   /* height: 100%; */
+
+  background: linear-gradient(
+    180deg,
+    #016670 0%,
+    rgba(217, 217, 217, 0.59) 100%
+  );
+  width: 100%;
+  height: 100%;
+  
+
 }
 
 .form-auth {
