@@ -10,6 +10,8 @@
 import Header from "./components/AppHeader.vue";
 import Footer from "./components/AppFooter.vue";
 
+
+
 // import Home from "./components/Default.vue";
 // import MyCards from "./components/MyCards.vue";
 // import Card from "./components/Card.vue";

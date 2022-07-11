@@ -3,7 +3,36 @@
   <div>
     <Header />
     <div class="flexCtr">
+  
       <div class="listbord">
+      <carousel>
+        <slide class="sliders">
+         <p>
+          Создать визитку самому
+         </p>
+        </slide>
+        <slide>
+          Slide 2 Content
+        </slide>
+         <slide>
+          Slide 1 Content
+        </slide>
+        <slide>
+          Slide 2 Content
+        </slide>
+         <slide>
+          Slide 1 Content
+        </slide>
+        <slide>
+          Slide 2 Content
+        </slide>
+         <slide>
+          Slide 1 Content
+        </slide>
+        <slide>
+          Slide 2 Content
+        </slide>
+      </carousel>
         <!--контент меняющийся-->
       </div>
       <div class="content">
@@ -42,10 +71,24 @@
 import Header from "./AppHeader.vue";
 import Footer from "./AppFooter.vue";
 
+
+import Vue from 'vue';
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+import { Carousel, Slide } from 'vue-carousel';
+
+
+
+
+
+
+
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    Carousel,
+    Slide
   }
 };
 </script>
@@ -89,7 +132,6 @@ export default {
 
   color: #000000;
 }
-
 
 .cart2{
   width: 754px;
@@ -170,5 +212,20 @@ color: #000000;
 .visits img{
   margin-left: 21px;
   margin-right: 21px;
+}
+
+.sliders p{
+width: 555px;
+height: 150px;
+
+font-family: 'Tenor Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 64px;
+line-height: 75px;
+display: flex;
+align-items: center;
+
+color: #016670;
 }
 </style>
