@@ -165,15 +165,16 @@ a {
 }
 
 .btn-card-side {
-  background-color: rgba(54, 90, 103, 0.897);
+  background-color: #096B73;
   color: white;
   font-size: 14px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 30px;
   text-align: center;
 
   margin-top: 10px;
+  
 }
 </style>

@@ -1,34 +1,36 @@
 <template>
-  <div class="auth-flex">
-    <div class="logo-title" @click="$router.push('/')">
-      <h3>Brevitas</h3>
-    </div>
-    <div class="form-auth">
-      <div class="auth-title">
-        <h3>Вход</h3>
+  <div class="back-cont">
+    <div class="auth-flex">
+      <div class="logo-title" @click="$router.push('/')">
+        <h3>Brevitas</h3>
       </div>
+      <div class="form-auth">
+        <div class="auth-title">
+          <h3>Вход</h3>
+        </div>
 
-      <form @submit.prevent="sendAuth" class="form-flex">
-        <div v-for="(item, key) in formAuth" :key="key">
-          <div class="auth-input">
-            <input
-              class="input-auth"
-              v-model="dataAuth[item.value]"
-              required
-              :placeholder="item.textPlaceholder"
-            />
+        <form @submit.prevent="sendAuth" class="form-flex">
+          <div v-for="(item, key) in formAuth" :key="key">
+            <div class="auth-input">
+              <input
+                class="input-auth"
+                v-model="dataAuth[item.value]"
+                required
+                :placeholder="item.textPlaceholder"
+              />
+            </div>
           </div>
-        </div>
-        <button type="submit" class="btn-auth">Войти</button>
-        <div class="move-reg">
-          <p>
-            <a class="btn_head_autor" @click="$router.push('/registration')"
-              >Зарегистрироваться</a
-            >
-          </p>
-        </div>
-        <router-view />
-      </form>
+          <button type="submit" class="btn">Войти</button>
+          <div class="move-reg">
+            <p>
+              <a class="btn_head_autor" @click="$router.push('/registration')"
+                >Зарегистрироваться</a
+              >
+            </p>
+          </div>
+          <router-view />
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -83,6 +85,20 @@ export default {
 
 <style>
 
+.btn {
+  width: 150px;
+}
+.back-cont {
+  background: linear-gradient(
+    180deg,
+    #016670 0%,
+    rgba(217, 217, 217, 0.59) 100%
+  );
+  width: 100%;
+  height: 100vh;
+}
+
+
 /* для фикса бага с обрезанием стр нужно добавить свойство только для этой странички
 #app{
   height: 100%;
@@ -95,7 +111,7 @@ export default {
   font-weight: 400;
   font-size: 50px;
   line-height: 75px;
-  height: 150px;
+  height: 170px;
   /* identical to box height */
 
   display: flex;
@@ -113,6 +129,14 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  /* align-items: center; */
+
+  /* padding-top: 50px; */
+  /* padding-bottom: 50px; */
+
+  /* height: 100%; */
+
   background: linear-gradient(
     180deg,
     #016670 0%,
@@ -121,10 +145,10 @@ export default {
   width: 100%;
   height: 100%;
   
+
 }
 
 .form-auth {
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -161,15 +185,12 @@ export default {
   align-items: center;
   justify-content: space-between;
   height: 60%;
-
 }
 
 .auth-input {
   width: 100%;
   padding: 0 0 12px 0;
   border: none;
-
-  
 }
 
 .input-auth {
@@ -194,27 +215,6 @@ export default {
   letter-spacing: 0.232836px;
 
   color: #ffffff;
-}
-
-.btn-auth {
-  background-color: #096b73;
-  color: white;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  text-align: center;
-  transition: all 0.5s;
-  margin-top: 70px;
-
-  width: 150px;
-  height: 40px;
-}
-
-.btn-auth:hover {
-  background-color: rgb(186, 220, 222);
-  color: rgb(76, 76, 76);
 }
 
 .move-reg {

@@ -65,13 +65,13 @@
       </div>
       <div class="field-btn">
         <div v-if="!nameErrors">
-          <button @click="addCard" class="btn-card">
+          <button @click="addCard" class="btn">
             <!-- <button type="submit" class="btn-card"> -->
             <span>Сохранить</span>
           </button>
         </div>
         <div v-else>
-          <a class="btn-card_NO"> <span>Сохранить</span></a>
+          <a class="btn_NO"> <span>Сохранить</span></a>
         </div>
       </div>
     </div>
@@ -358,40 +358,6 @@ export default {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-}
-
-.btn-card {
-  background-color: #096b73;
-  color: white;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  text-align: center;
-  transition: all 0.5s;
-
-  /* width: 170px;
-  height: 40px; */
-}
-
-.btn-card:hover {
-  background-color: rgb(186, 220, 222);
-  color: rgb(76, 76, 76);
-}
-
-.btn-card_NO {
-  background-color: #84abae;
-  color: white;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  text-align: center;
-  transition: all 0.5s;
-  /* width: 170px;
-  height: 40px; */
 }
 
 ::placeholder {

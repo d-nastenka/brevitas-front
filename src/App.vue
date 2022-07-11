@@ -27,7 +27,7 @@ export default {
   name: "app",
   components: {
     Header,
-    Footer,
+    Footer
     // Home,
     // MyCards,
     // Card,
@@ -58,25 +58,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 
-  background: #F5F5F5;
+  background: #f5f5f5;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-h1,
-h2 {
-  font-weight: bold;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
+  height: 100%;
 }
 
 .pages {
@@ -98,6 +85,35 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100%;
+}
+
+.btn {
+  background-color: #096b73;
+  color: white;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: rgb(186, 220, 222);
+  color: rgb(76, 76, 76);
+}
+
+.btn_NO {
+  background-color: #84abae;
+  color: white;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  text-align: center;
+  transition: all 0.5s;
 }
 
 /*кнопки валидные*/
@@ -166,5 +182,4 @@ body {
 .btn-card_NO:hover:before {
   left: 0%; 
 } */
-
 </style>
