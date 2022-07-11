@@ -30,12 +30,16 @@
           <div
             class="field-card"
             :style="{
-              background: backgroundColor,
-              color: textColor,
-              align: textPosition
+              background: dataToSend.backgroundColor
             }"
           >
-            <div class="data-user">
+            <div
+              class="data-user"
+              :style="{
+                color: dataToSend.textColor,
+                'align-items': dataToSend.textPosition
+              }"
+            >
               <div class="data-card">
                 {{ dataToSend.name }}
                 {{ dataToSend.surname }}
@@ -45,7 +49,13 @@
                 {{ dataToSend.description }}
               </div>
             </div>
-            <div class="contacts">
+            <div
+              class="contacts"
+              :style="{
+                color: dataToSend.linksColor,
+                'align-items': dataToSend.textPosition
+              }"
+            >
               <div class="data-card">
                 {{ dataToSend.mail }}
               </div>
@@ -59,27 +69,38 @@
           </div>
           <div class="field-menu">
             Цвет фона
-            <input type="color" v-model="backgroundColor" />
-            Цвет текста
-            <input type="color" v-model="textColor" />
+            <input type="color" v-model="dataToSend.backgroundColor" />
+            Текст
+            <input type="color" v-model="dataToSend.textColor" />
+            Текст контактов
+            <input type="color" v-model="dataToSend.linksColor" />
             <div class="text-position">
               <button class="btn" @click="btnTextLeft">
-                <i class="gg-menu-right-alt" :style="{
-                  width: '10px',
-                  height: '10px',
-                }"></i>
+                <i
+                  class="gg-menu-right-alt"
+                  :style="{
+                    width: '10px',
+                    height: '10px'
+                  }"
+                ></i>
               </button>
               <button class="btn" @click="btnTextCenter">
-                <i class="gg-menu-right-alt"  :style="{
-                  width: '12.5px',
-                  height: '10px',
-                }"></i>
+                <i
+                  class="gg-menu-right-alt"
+                  :style="{
+                    width: '12.5px',
+                    height: '10px'
+                  }"
+                ></i>
               </button>
               <button class="btn" @click="btnTextRight">
-                <i class="gg-menu-right-alt" :style="{
-                  width: '16px',
-                  height: '10px',
-                }"></i>
+                <i
+                  class="gg-menu-right-alt"
+                  :style="{
+                    width: '16px',
+                    height: '10px'
+                  }"
+                ></i>
               </button>
             </div>
           </div>
@@ -123,9 +144,8 @@ export default {
   mixins: [validationMixin],
   data() {
     return {
-      backgroundColor: "white",
-      textColor: "black",
-      textPosition: "center",
+      // backgroundColor: "white",
+      // textColor: "black",
       dataCard: {},
       check: true,
       dataToSend: {
@@ -134,7 +154,11 @@ export default {
         description: "",
         mail: "",
         link: "",
-        phone: ""
+        phone: "",
+        backgroundColor: "",
+        textColor: "",
+        linksColor: "",
+        textPosition: ""
       },
       formFill: [
         {
@@ -233,10 +257,10 @@ export default {
   methods: {
     async addCard() {
       console.log(this.dataToSend);
-      const data = {};
-      for (let i = 0; i < this.formFill.length; i++) {
-        data[this.formFill[i].value] = this.formFill[i].data;
-      }
+      // const data = {};
+      // for (let i = 0; i < this.formFill.length; i++) {
+      //   data[this.formFill[i].value] = this.formFill[i].data;
+      // }
 
       let res = await fetch("http://localhost:3000/visits", {
         method: "POST",
@@ -252,14 +276,14 @@ export default {
       }
     },
     btnTextLeft() {
-      this.textPosition = "left"
+      this.dataToSend.textPosition = "flex-start";
     },
     btnTextCenter() {
-      this.textPosition = "center"
+      this.dataToSend.textPosition = "center";
     },
     btnTextRight() {
-      this.textPosition = "right"
-    },
+      this.dataToSend.textPosition = "flex-end";
+    }
   },
   created() {}
 };
@@ -318,9 +342,9 @@ export default {
 }
 
 .field-menu {
-  /* display: flex;
-    flex-direction: row;
-    justify-content: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   /* margin-left: 200px; */
 
@@ -352,18 +376,23 @@ export default {
 
 .data-card {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  /* flex-direction: column; */
+  /* justify-content: center; */
 
-  font-family: serif;
+  /* font-family: serif; */
 }
 
 .data-user {
+  display: flex;
+  flex-direction: column;
+
   font-size: 30px;
   font-weight: bold;
 }
 
 .contacts {
+  display: flex;
+  flex-direction: column;
   font-size: 20px;
 }
 
@@ -372,6 +401,8 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
+
 
 ::placeholder {
   font-family: "Roboto";
@@ -408,5 +439,4 @@ export default {
   color: rgb(22, 22, 22);
   cursor: pointer;
 }
-
 </style>

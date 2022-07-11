@@ -63,7 +63,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /*height: 100%;*/
+
 }
 
 .pages {
@@ -88,6 +88,7 @@ body {
 }
 
 .btn {
+  font-family: 'Roboto';
   background-color: #096b73;
   color: white;
   font-size: 17px;
@@ -97,6 +98,8 @@ body {
   border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
+
+
 }
 
 .btn:hover {
@@ -105,15 +108,18 @@ body {
 }
 
 .btn_NO {
+  font-family: 'Roboto';
   background-color: #84abae;
   color: white;
   font-size: 17px;
   padding: 10px 20px;
   border: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
+  width: 84.812px;
+  height: 20px;
 }
 
 /*кнопки валидные*/

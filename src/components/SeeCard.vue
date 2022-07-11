@@ -6,10 +6,15 @@
         <h3>Визитка</h3>
       </div>
       <div class="flex-field">
-        <div class="flex-field-card">
+        <div class="flex-field-card" :style="{
+              background: dataCard.backgroundColor
+            }">
           <div class="field-card">
             <div class="if-side" v-if="showBtn">
-              <div class="data-user">
+              <div class="data-user" :style="{
+                color: dataCard.textColor,
+                'align-items': dataCard.textPosition
+              }">
                 <div class="data-card">
                   {{ dataCard.name }}
                   {{ dataCard.surname }}
@@ -19,7 +24,12 @@
                   {{ dataCard.description }}
                 </div>
               </div>
-              <div class="contacts">
+            </div>
+            <div v-else>
+              <div class="contacts" :style="{
+                color: dataCard.linksColor,
+                'align-items': dataCard.textPosition
+              }">
                 <div class="data-card">
                   <a :href="mail" target="_blank">{{ dataCard.mail }}</a>
                 </div>
@@ -132,7 +142,7 @@ h3 {
   padding: 32px;
   border-radius: 8px;
   box-shadow: 0 4px 16px #ccc;
-  background: linear-gradient(45deg, #77c2ea, #464646);
+  /* background: linear-gradient(45deg, #77c2ea, #464646); */
 }
 
 .field-card {
@@ -175,6 +185,6 @@ a {
   text-align: center;
 
   margin-top: 10px;
-  
+
 }
 </style>

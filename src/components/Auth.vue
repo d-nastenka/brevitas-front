@@ -85,9 +85,9 @@ export default {
 
 <style>
 
-.btn {
+/* .btn {
   width: 150px;
-}
+} */
 .back-cont {
   background: linear-gradient(
     180deg,

@@ -80,8 +80,7 @@ export default {
 
 <style scoped>
 .flex-cont {
-  height: 100vh;
-  /* height: 100%; */
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -100,20 +99,12 @@ h3 {
 }
 
 .imges-card {
-  width: 320px;
-  height: 200px;
-
-  margin-left: 72px;
-  margin-right: 72px;
-
-  border: none;
-
-  box-shadow: 0 4px 16px rgb(134, 134, 134);
-  background: linear-gradient(45deg, #77c2ea, #464646);
-
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+
 }
 
 .flex-container {
@@ -136,16 +127,4 @@ h3 {
   }
 }
 
-.imges-card {
-  height: 200px;
-
-  display: flex;
-
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 2px;
-
-  font-family: serif;
-  border-radius: 5px;
-}
 </style>
