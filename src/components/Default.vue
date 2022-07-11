@@ -72,7 +72,7 @@
             <p style="margin-top: 52px;">Скачайте в любом удобном размере</p>
           </div>          
         </div>
-        <a class="btn-reg_NO">Войти</a>
+        <a class="btn-card"><p class="btn-card_text">Начать</p> </a>
       </div>
       <div class="contentvisints">
         <h3 style="margin-top: 40px; margin-bottom: 60px;">Примеры визиток</h3>
@@ -108,6 +108,8 @@ export default {
 </script>
 
 <style>
+
+
 .flexCtr {
   display: flex;
   flex-direction: column;
@@ -188,19 +190,6 @@ justify-content: center;
 color: #000000;
 }
 
-.btn-reg_NO {/*доделать эту долбаную кнопку))*/ 
-  background-color: #65989d;
-  color: white;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 74px;
-  text-align: center;
-  transition: all 0.5s;
-  width: 202px;
-  height: 45px;
-
-}
 .contentvisints {
   height: 476px;
   display: flex;
