@@ -9,7 +9,7 @@
           <h3>Вход</h3>
         </div>
 
-        <form @submit.prevent="sendAuth" class="form-flex">
+        <form @submit.prevent="sendAuth" class="form-flexx">
           <div v-for="(item, key) in formAuth" :key="key">
             <div class="auth-input">
               <input
@@ -20,7 +20,7 @@
               />
             </div>
           </div>
-          <button type="submit" class="btn">Войти</button>
+          <a type="submit" class="btn-card"> <p class="btn-card_text">Войти</p> </a>
           <div class="move-reg">
             <p>
               <a class="btn_head_autor" @click="$router.push('/registration')"
@@ -179,12 +179,14 @@ export default {
   color: #e4e7e7;
 }
 
-.form-flex {
+.form-flexx {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 60%;
+  flex-wrap: nowrap;
+  align-content: stretch;
 }
 
 .auth-input {
@@ -222,15 +224,15 @@ export default {
 }
 
 .btn_head_autor {
-  color: rgb(5, 5, 5);
-  font-size: 14px;
+  color: #096B73;
+  font-size: 24px;
   border: none;
   cursor: pointer;
   transition: all 0.5s;
 }
 
 .btn_head_autor:hover {
-  color: rgb(75, 75, 76);
-  font-size: 16px;
+  color: #06474d;
+  font-size: 26px;
 }
 </style>

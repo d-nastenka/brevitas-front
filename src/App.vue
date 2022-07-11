@@ -124,8 +124,8 @@ body {
 
 /*кнопки валидные*/
  .btn-card {
- width: 200px;
-  height: 50px;
+  width: 150px;
+  height: 35px;
   padding: 10px 20px;
 
   background-color: #ffffff;
@@ -139,10 +139,10 @@ body {
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
-/*кнопки валидные*/
+
 .btn-card_NO {
-  width: 200px;
-  height: 50px;
+  width: 159px;
+  height: 40px;
   padding: 10px 20px;
 
   background-color: #ffffff;
@@ -158,10 +158,11 @@ body {
 }
 
 .btn-card:hover {
-
+  color: #f5f5f5;
 }
 
 .btn-card_text {
+  position: relative;
   height: 25px;
   display: flex;
   justify-content: flex-start;
@@ -179,7 +180,7 @@ body {
   background-color: #096B73;
   margin-top: -40px;
   left: 70%;
-  z-index: 0;
+  z-index:0;
 
   transition: all 0.5s ease-in-out;
   transform: rotateZ(20deg) ;
