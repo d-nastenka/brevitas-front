@@ -10,6 +10,8 @@
 import Header from "./components/AppHeader.vue";
 import Footer from "./components/AppFooter.vue";
 
+
+
 // import Home from "./components/Default.vue";
 // import MyCards from "./components/MyCards.vue";
 // import Card from "./components/Card.vue";
@@ -61,7 +63,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* height: 100%; */
+
 }
 
 .pages {

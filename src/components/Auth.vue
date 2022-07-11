@@ -151,17 +151,17 @@ export default {
 .form-auth {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  width: 450px;
-  height: 420px;
+  width: 588px;
+  height: 580px;
   box-sizing: border-box;
-
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 4px 4px 15px rgba(1, 102, 112, 0.31);
   backdrop-filter: blur(15px);
-
   border-radius: 20px;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  
 }
 
 .auth-title {

@@ -3,7 +3,58 @@
   <div>
     <Header />
     <div class="flexCtr">
+      
       <div class="listbord">
+        <hr>
+      <carousel>
+        <slide class="slider">
+         <div class="sl_ell_1">
+          <h3>
+          Создать визитку самому
+         </h3>
+          <p>
+          Конструктор визиток - это сайт где вы можете создать визитку по своему вкусу на вашем компьютере
+          </p>
+         </div>
+         
+        </slide>
+        <slide>
+          <div class="images">
+            <img src="/image/visit.png" alt="">
+         </div>
+        </slide>
+         <slide>
+          <div class="images">
+            <img src="/image/visit.png" alt="">
+         </div>
+        </slide>
+        <slide class="sliderR">
+         <div class="sl_ell_2">
+          <h3>
+           Ключевые особенности
+         </h3>
+          <p>
+          Мы создали сайт для удобного офрмления визиток с вашего компьютера.</p>
+         </div>
+        
+        </slide>
+         <slide class="slider">
+         <div class="sl_ell_1">
+          <h3>
+         Сайт конструктор
+         </h3>
+          <p>
+         Воплощайте в жизнь любые ваши идеи! Наш сайт поможет вам воплотить их.</p>
+         </div>
+         
+        </slide>
+        <slide>
+          <div class="images">
+            <img src="/image/visit.png" alt="">
+         </div>
+        </slide>
+      </carousel>
+        
         <!--контент меняющийся-->
       </div>
       <div class="content">
@@ -24,7 +75,7 @@
         <a class="btn-reg_NO">Войти</a>
       </div>
       <div class="contentvisints">
-        <h3 style="margin-top: 0px; margin-bottom: 60px;">Примеры визиток</h3>
+        <h3 style="margin-top: 40px; margin-bottom: 60px;">Примеры визиток</h3>
       <div class="visits">
         <img src="/image/visit.png" alt="">
         <img src="/image/visit.png" alt="">
@@ -41,11 +92,17 @@
 <script>
 import Header from "./AppHeader.vue";
 import Footer from "./AppFooter.vue";
+import Vue from 'vue';
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    Carousel,
+    Slide
   }
 };
 </script>
@@ -63,13 +120,21 @@ export default {
 .listbord {
   margin-top: 48px; /*исправить*/
   width: 1320px;
-  height: 683px;
+  height: 587px;
   background: #ffffff;
   border-radius: 20px;
 }
+
+.listbord hr{
+  width: 80%;
+  margin-top: 45px; 
+
+  height: 0px;
+  border: 0.5px solid #096B73;
+}
 .content {
   margin-top: 137px;
-  height: 683px;
+  height: 583px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -89,7 +154,6 @@ export default {
 
   color: #000000;
 }
-
 
 .cart2{
   width: 754px;
@@ -135,8 +199,7 @@ color: #000000;
   transition: all 0.5s;
   width: 202px;
   height: 45px;
-  margin-top: 50px;
-  margin-bottom: 30px;
+
 }
 .contentvisints {
   height: 476px;
@@ -170,5 +233,96 @@ color: #000000;
 .visits img{
   margin-left: 21px;
   margin-right: 21px;
+}
+
+.slider {
+  width: 1000px;
+  height: 440px;
+}
+.sliderR{
+  width: 1000px;
+  height: 440px;
+}
+.slider h3{
+  width: 555px;
+  height: 150px;
+
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 75px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+
+  color: #016670;
+}
+.slider p{
+  width: 558px;
+  height: 84px;
+
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.sliderR h3{
+  width: 555px;
+  height: 150px;
+
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 75px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  color: #016670;
+}
+
+.sliderR p{
+  width: 558px;
+  height: 84px;
+
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.sl_ell_1{
+  display: flex;
+  margin-left: 80px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.sl_ell_2{
+  display: flex;
+  margin-right: 80px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.images{
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
 }
 </style>
