@@ -1,5 +1,6 @@
 <template>
   <div class="flex-cont">
+    <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
     <Header />
     <div class="page-create-card">
       <div class="title-createcard">
@@ -29,11 +30,16 @@
           <div
             class="field-card"
             :style="{
-              background: backgroundColor,
-              color: textColor
+              background: dataToSend.backgroundColor
             }"
           >
-            <div class="data-user">
+            <div
+              class="data-user"
+              :style="{
+                color: dataToSend.textColor,
+                'align-items': dataToSend.textPosition
+              }"
+            >
               <div class="data-card">
                 {{ dataToSend.name }}
                 {{ dataToSend.surname }}
@@ -43,7 +49,13 @@
                 {{ dataToSend.description }}
               </div>
             </div>
-            <div class="contacts">
+            <div
+              class="contacts"
+              :style="{
+                color: dataToSend.linksColor,
+                'align-items': dataToSend.textPosition
+              }"
+            >
               <div class="data-card">
                 {{ dataToSend.mail }}
               </div>
@@ -57,9 +69,40 @@
           </div>
           <div class="field-menu">
             Цвет фона
-            <input type="color" v-model="backgroundColor" />
-            Цвет текста
-            <input type="color" v-model="textColor" />
+            <input type="color" v-model="dataToSend.backgroundColor" />
+            Текст
+            <input type="color" v-model="dataToSend.textColor" />
+            Текст контактов
+            <input type="color" v-model="dataToSend.linksColor" />
+            <div class="text-position">
+              <button class="btnText" @click="btnTextLeft">
+                <i
+                  class="gg-menu-right-alt"
+                  :style="{
+                    width: '10px',
+                    height: '10px'
+                  }"
+                ></i>
+              </button>
+              <button class="btnText" @click="btnTextCenter">
+                <i
+                  class="gg-menu-right-alt"
+                  :style="{
+                    width: '12.5px',
+                    height: '10px'
+                  }"
+                ></i>
+              </button>
+              <button class="btnText" @click="btnTextRight">
+                <i
+                  class="gg-menu-right-alt"
+                  :style="{
+                    width: '16px',
+                    height: '10px'
+                  }"
+                ></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -101,8 +144,6 @@ export default {
   mixins: [validationMixin],
   data() {
     return {
-      backgroundColor: "white",
-      textColor: "black",
       IdCard: this.$route.params.id,
       dataCard: {},
       check: true,
@@ -112,7 +153,11 @@ export default {
         description: "",
         mail: "",
         link: "",
-        phone: ""
+        phone: "",
+        backgroundColor: "",
+        textColor: "",
+        linksColor: "",
+        textPosition: ""
       },
       formFill: [
         {
@@ -206,7 +251,7 @@ export default {
         }
       }
       return newmes;
-    },
+    }
   },
   created() {
     this.getCard();
@@ -230,25 +275,38 @@ export default {
       }
     },
     async addCard() {
-      const data = {};
-      for (let i = 0; i < this.formFill.length; i++) {
-        data[this.formFill[i].value] = this.formFill[i].data;
-      }
+      console.log(this.dataToSend);
+      // const data = {};
+      // for (let i = 0; i < this.formFill.length; i++) {
+      //   data[this.formFill[i].value] = this.formFill[i].data;
+      // }
 
-      let res = await fetch(`http://localhost:3000/visits/${this.$route.params.id}`, {
-        method: "PUT",
-        body: JSON.stringify(this.dataToSend),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        credentials: "include"
-      });
+      let res = await fetch(
+        `http://localhost:3000/visits/${this.$route.params.id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(this.dataToSend),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          credentials: "include"
+        }
+      );
       if (res.ok) {
         this.$router.push("/mycards");
       }
+    },
+    btnTextLeft() {
+      this.dataToSend.textPosition = "flex-start";
+    },
+    btnTextCenter() {
+      this.dataToSend.textPosition = "center";
+    },
+    btnTextRight() {
+      this.dataToSend.textPosition = "flex-end";
     }
-  },
+  }
 };
 </script>
 
@@ -263,7 +321,7 @@ export default {
   margin-top: 30px;
 }
 .flex-cont {
-  height: 100hv;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -305,9 +363,9 @@ export default {
 }
 
 .field-menu {
-  /* display: flex;
-    flex-direction: row;
-    justify-content: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   /* margin-left: 200px; */
 
@@ -339,18 +397,22 @@ export default {
 
 .data-card {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row;
   justify-content: center;
 
-  font-family: serif;
+  font-family: serif; */
 }
 
 .data-user {
+  display: flex;
+  flex-direction: column;
   font-size: 30px;
   font-weight: bold;
 }
 
 .contacts {
+  display: flex;
+  flex-direction: column;
   font-size: 20px;
 }
 
@@ -368,5 +430,30 @@ export default {
   letter-spacing: 0.232836px;
 
   color: #a6a3a3;
+}
+.text-position {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.btnText {
+  border: none;
+  background-color: rgba(28, 28, 28, 0);
+
+  color: rgb(61, 61, 61);
+  cursor: pointer;
+  /* width: 20px;
+  height: 20px; */
+}
+
+.btnText:hover {
+  border: none;
+  background-color: rgba(28, 28, 28, 0);
+  /* width: 20px;
+  height: 20px; */
+  color: rgb(22, 22, 22);
+  cursor: pointer;
 }
 </style>

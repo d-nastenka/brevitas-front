@@ -1,7 +1,18 @@
 <template>
-  <div>
+  <div
+    class="field-card"
+    :style="{
+      background: card.backgroundColor
+    }"
+  >
     <link href="https://css.gg/css" rel="stylesheet" />
-    <div class="data-user">
+    <div
+      class="data-user"
+      :style="{
+        color: card.textColor,
+        'align-items': card.textPosition
+      }"
+    >
       <div class="data-card">
         {{ card.name }}
         {{ card.surname }}
@@ -11,7 +22,13 @@
         {{ card.description }}
       </div>
     </div>
-    <div class="contacts">
+    <div
+      class="contacts"
+      :style="{
+        color: card.linksColor,
+        'align-items': card.textPosition
+      }"
+    >
       <div class="data-card">
         {{ card.mail }}
       </div>
@@ -52,7 +69,11 @@ export default {
         description: "",
         mail: "",
         link: "",
-        phone: ""
+        phone: "",
+        backgroundColor: "",
+        textColor: "",
+        linksColor: "",
+        textPosition: ""
       }
     };
   },
@@ -72,21 +93,48 @@ export default {
 </script>
 
 <style scoped>
+.field-card {
+  width: 320px;
+  height: 200px;
+
+  margin-left: 72px;
+  margin-right: 72px;
+
+  border: none;
+
+  box-shadow: 0 4px 16px rgb(134, 134, 134);
+  /* background: linear-gradient(45deg, #77c2ea, #464646); */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 5px;
+  
+}
 .data-card {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  padding: 0px 20px 0px 20px;
+  /* flex-direction: column; */
+  /* justify-content: center; */
   /* padding-top: 30px; */
 }
 
 .data-user {
+  display: flex;
+  flex-direction: column;
+
   font-size: 19px;
   font-weight: normal;
-  padding-top: 25px;
+  /* padding-top: 25px; */
+  
   color: #e1e1e1;
 }
 
 .contacts {
+  display: flex;
+  flex-direction: column;
+  /* position: absolute; */
   font-size: 15px;
   padding-top: 30px;
   color: #c7c7c7;
