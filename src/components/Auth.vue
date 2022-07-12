@@ -9,7 +9,7 @@
           <h3>Вход</h3>
         </div>
 
-        <form @submit.prevent="sendAuth" class="form-flexx">
+        <form  class="form-flexx">
           <div v-for="(item, key) in formAuth" :key="key">
             <div class="auth-input">
               <input
@@ -20,7 +20,7 @@
               />
             </div>
           </div>
-          <button type="submit" class="btn-card"> <p class="btn-card_text">Войти</p> </button>
+          <a @click="sendAuth" class="btn-card"> <p class="btn-card_text">Войти</p> </a>
           <div class="move-reg">
             <p>
               <a class="btn_head_autor" @click="$router.push('/registration')"

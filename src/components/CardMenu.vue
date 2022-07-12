@@ -1,10 +1,10 @@
 <template>
   <div class="flex-menu">
     Цвет фона
-    <input type="color" v-model="card.backgroundColor" />
+    <input class="kroog" type="color" v-model="card.backgroundColor" />
     <div class="if-side" v-if="btnSide">
       Цвет текста
-      <input type="color" v-model="card.textColor" />
+      <input class="kroog" type="color" v-model="card.textColor" />
 
       Положение текста
       <div class="buttuns-position">
@@ -124,10 +124,33 @@ export default {
 </script>
 
 <style scoped>
+
+.kroog{
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 50px;
+  height: 50px;
+  border:0 ;
+  border-radius: 50px; 
+}
+input.kroog::-webkit-color-swatch {
+    border: 0;
+    border-radius: 50%;
+}
 .flex-menu {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 
 .if-side {
