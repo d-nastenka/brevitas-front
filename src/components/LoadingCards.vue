@@ -2,7 +2,7 @@
   <div
     class="field-card"
     :style="{
-      background: card.backgroundColor
+      background: card.backgroundColor,
     }"
   >
     <link href="https://css.gg/css" rel="stylesheet" />
@@ -10,35 +10,21 @@
       class="data-user"
       :style="{
         color: card.textColor,
-        'align-items': card.textPosition
+        'align-items': card.textPosition,
+        'justify-content': card.textJustify
       }"
     >
       <div class="data-card">
         {{ card.name }}
+      </div>
+      <div class="data-card">
         {{ card.surname }}
       </div>
-
       <div class="data-card">
         {{ card.description }}
       </div>
     </div>
-    <div
-      class="contacts"
-      :style="{
-        color: card.linksColor,
-        'align-items': card.textPosition
-      }"
-    >
-      <!-- <div class="data-card">
-        {{ card.mail }}
-      </div>
-      <div class="data-card">
-        {{ card.link }}
-      </div>
-      <div class="data-card">
-        {{ card.phone }}
-      </div> -->
-    </div>
+    
 
     <div class="buttons">
       <button class="btn" @click="changeCard(card)">
@@ -102,7 +88,7 @@ export default {
 
   border: none;
 
-  box-shadow: 0 4px 16px rgb(134, 134, 134);
+  box-shadow: 0 2px 4px rgb(134, 134, 134);
   /* background: linear-gradient(45deg, #77c2ea, #464646); */
 
   display: flex;
