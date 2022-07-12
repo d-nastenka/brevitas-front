@@ -20,7 +20,7 @@
               />
             </div>
           </div>
-          <a type="submit" class="btn-card"> <p class="btn-card_text">Войти</p> </a>
+          <button type="submit" class="btn-card"> <p class="btn-card_text">Войти</p> </button>
           <div class="move-reg">
             <p>
               <a class="btn_head_autor" @click="$router.push('/registration')"
