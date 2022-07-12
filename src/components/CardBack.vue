@@ -1,15 +1,11 @@
 <template>
-  <div
-    class="flex-card"
-    :style="{
-      background: card.backgroundColor
-    }"
-  >
+  <div class="flex-card">
     <div
       class="contacts"
       :style="{
         color: card.linksColor,
-        'font-size': `${card.sizeCont}px`
+        'font-size': `${card.sizeCont}px`,
+        'align-items': card.linksPosition
       }"
     >
       <div class="data-card">
@@ -27,7 +23,7 @@
 
 <script>
 export default {
-  name: "CradBack",
+  name: "CardBack",
   props: {
     card: Object
   },

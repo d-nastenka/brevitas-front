@@ -8,7 +8,12 @@
         <div class="wrapper-cards">
           <div v-if="imgLengthstatus">У вас пока нет визиток</div>
           <div class="flex-container" v-else>
-            <div class="imges-card" v-for="(item, key) in dataCard" :key="key">
+            <div
+              class="imges-card"
+              v-for="(item, key) in dataCard"
+              :key="key"
+              
+            >
               <LoadingCards :card="item" @deleteCard="deleteCard" />
             </div>
           </div>
@@ -80,7 +85,6 @@ export default {
 
 <style scoped>
 .flex-cont {
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -99,12 +103,9 @@ h3 {
 }
 
 .imges-card {
-  
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-
+  /* justify-content: space-between; */
 }
 
 .flex-container {
@@ -126,5 +127,4 @@ h3 {
     flex-wrap: wrap;
   }
 }
-
 </style>

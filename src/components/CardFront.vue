@@ -1,20 +1,17 @@
 <template>
-  <div
-    class="flex-card"
-    :style="{
-      background: card.backgroundColor
-    }"
-  >
+  <div class="flex-card">
     <div
       class="data-user"
       :style="{
         color: card.textColor,
-
-        'font-size': `${card.sizeText}px`
+        'font-size': `${card.sizeText}px`,
+        'align-items': card.textPosition
       }"
     >
       <div class="data-card">
         {{ card.name }}
+      </div>
+      <div class="data-card">
         {{ card.surname }}
       </div>
 
@@ -22,7 +19,6 @@
         {{ card.description }}
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -30,14 +26,14 @@
 export default {
   name: "CardFront",
   props: {
-    card: Object,
+    card: Object
   }
 };
 </script>
 
 <style scoped>
 .flex-card {
-    /* display: flex; */
+  /* display: flex; */
 }
 .data-card {
   display: flex;
@@ -54,6 +50,4 @@ export default {
   font-size: 30px;
   font-weight: bold;
 }
-
-
 </style>
