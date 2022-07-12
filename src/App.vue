@@ -188,4 +188,74 @@ body {
 .btn-card:hover:before {
   left: -5%; 
 } 
+/*окна авторизации и регистрации*/
+.back-cont {
+  background: linear-gradient(
+    180deg,
+    #016670 0%,
+    rgba(217, 217, 217, 0.59) 100%
+  );
+  width: 100%;
+  height: 100vh;
+}
+.logo-title {
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 75px;
+  height: 170px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #ffffff;
+
+  cursor: pointer;
+}
+.auth-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    #016670 0%,
+    rgba(217, 217, 217, 0.59) 100%
+  );
+  width: 100%;
+  height: 100%;
+}
+.form-auth {
+  display: flex;
+  flex-direction: column;
+  width: 588px;
+  height: 580px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 15px rgba(1, 102, 112, 0.31);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  
+}
+.auth-title {
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-size: 27px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  letter-spacing: 0.232836px;
+
+  color: #e4e7e7;
+}
 </style>

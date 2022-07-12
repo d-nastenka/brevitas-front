@@ -1,15 +1,15 @@
 <template>
   <div class="back-cont">
-    <div class="reg-flex">
+    <div class="auth-flex">
       <div class="logo-title" @click="$router.push('/')">
         <h3>Brevitas</h3>
       </div>
-      <div class="form-reg">
-        <div class="reg-title">
+      <div class="form-auth">
+        <div class="auth-title">
           <h3>Регистрация</h3>
         </div>
 
-        <form @submit.prevent="addUser" class="form-flex">
+        <form class="form-flex">
           <!-- <div class="form-input"> -->
           <div v-for="(i, key) in formReg" :key="key">
             <div :error-messages="nameErrors" class="reg-input">
@@ -25,7 +25,7 @@
           </p>
 
           <div v-if="!nameErrors">
-            <button type="submit" class="btn">Зарегистрироваться</button>
+            <a @click="addUser" type="submit" class="btn">Зарегистрироваться</a>
           </div>
           <div v-else>
             <a class="btn_NO">Зарегистрироваться</a>
@@ -155,23 +155,6 @@ export default {
   width: 100%;
   height: 100vh;
 }
-.logo-title {
-  font-family: "Tenor Sans";
-  font-style: normal;
-  /* font-weight: 400; */
-  font-size: 50px;
-  /* line-height: 75px; */
-  /* identical to box height */
-
-  display: flex;
-  /* align-items: center;
-  text-align: center; */
-  height: 170px;
-  letter-spacing: 0.232836px;
-
-  color: #ffffff;
-  cursor: pointer;
-}
 
 .reg-flex {
   display: flex;
@@ -179,38 +162,6 @@ export default {
   justify-content: flex-start;
   /* align-content: space-between; */
   align-items: center;
-}
-
-.form-reg {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  width: 450px;
-  height: 480px;
-  box-sizing: border-box;
-
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 4px 4px 15px rgba(1, 102, 112, 0.31);
-  backdrop-filter: blur(15px);
-  /* Note: backdrop-filter has minimal browser support */
-
-  border-radius: 20px;
-}
-
-.reg-title {
-  font-family: "Tenor Sans";
-  font-style: normal;
-  font-size: 27px;
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-
-  letter-spacing: 0.232836px;
-
-  color: #e4e7e7;
 }
 
 .form-flex {

@@ -72,7 +72,7 @@
             <p style="margin-top: 52px;">Скачайте в любом удобном размере</p>
           </div>          
         </div>
-        <a class="btn-card"><p class="btn-card_text">Начать</p> </a>
+        <a class="btn-card" @click="$router.push('/authorization')"><p class="btn-card_text">Начать</p> </a>
       </div>
       <div class="contentvisints">
         <h3 style="margin-top: 40px; margin-bottom: 60px;">Примеры визиток</h3>

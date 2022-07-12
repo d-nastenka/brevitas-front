@@ -271,13 +271,13 @@ export default {
 }
 
 .flex-fields {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    /* margin: 0px 20px 40px 20px; */
-    align-items: center;
-    width: 100%;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* margin: 0px 20px 40px 20px; */
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .field-form_menu {
