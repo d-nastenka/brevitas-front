@@ -1,14 +1,15 @@
 <template>
-  <div class="flex-cont">
-    <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
+  <div>
     <Header />
+    <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
+    
     <div class="page-create-card">
       <div class="title-createcard">
         <h3>Создать визитку</h3>
       </div>
-      <div class="create-visits">
+     
         <div class="flex-fields">
-          <div class="field-form">
+          <div class="field-form_menu">
             <form>
               <!-- <form @submit.prevent="addCard"> -->
               <div class="form-input-cards">
@@ -27,7 +28,8 @@
               </div>
             </form>
           </div>
-          <div
+          <div>
+            <div
             v-if="showBtn"
             class="field-card"
             :style="{
@@ -48,17 +50,21 @@
             }"
           >
             <CardBack :card="dataToSend" />
-          </div>
-          <div class="field-menu">
-            <CardMenu :card="dataToSend" :btnSide="showBtn" />
-          </div>
+            
+              </div>
+            <div class="btn-side">
+              <button class="btn-card-side" @click="showBtn = !showBtn">
+                {{ btnText }}
+              </button>
+            </div>
+          </div> 
+          <div class="field-form_menu">
+            <CardMenu  :card="dataToSend" :btnSide="showBtn" />
+          </div> 
+        
         </div>
-        <div class="btn-side">
-          <button class="btn-card-side" @click="showBtn = !showBtn">
-            {{ btnText }}
-          </button>
-        </div>
-      </div>
+        
+
       <div class="field-btn">
         <div v-if="!nameErrors">
           <button @click="addCard" class="btn">
@@ -70,7 +76,7 @@
         </div>
       </div>
     </div>
-    <Footer />
+   <Footer />
   </div>
 </template>
 
@@ -245,31 +251,38 @@ export default {
 .page-create-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .title-createcard {
   margin-top: 30px;
 }
 .flex-cont {
-  /* height: 100hv; */
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
 }
 
 .flex-fields {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-
-  margin: 0px 20px 40px 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* margin: 0px 20px 40px 20px; */
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
-.field-form {
-  width: 290px;
-  height: 300px;
+.field-form_menu {
+  width: 300px;
+  height: 350px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
@@ -285,8 +298,8 @@ export default {
 
   /* margin-left: 200px; */
 
-  width: 400px;
-  height: 200px;
+  width: 450px;
+  height: 250px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
@@ -307,6 +320,7 @@ export default {
   box-shadow: 0 4px 16px #ccc;
 
   margin-top: 20px;
+  
 }
 
 .cards-input {
@@ -327,7 +341,8 @@ export default {
 }
 
 .field-btn {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
 }
@@ -342,7 +357,7 @@ export default {
   color: #a6a3a3;
 }
 
-.flex-card {
-  /* display: flex; */
+.btn-side{
+  margin-top: 20px;
 }
 </style>
