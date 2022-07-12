@@ -1,5 +1,10 @@
 <template>
-  <!-- TODO: Переверстать по макету  -->
+  <!-- TODO: размер текста поменять с 15 на 17 хотя бы
+  
+  на кнопке переделать угол поострее
+  
+  адаптацию сделать-->
+
   <div>
     <Header />
     <div class="flexCtr">
@@ -248,10 +253,8 @@ color: #000000;
   color: #016670;
 }
 .slider p{
-  width: 558px;
-  height: 84px;
-
-
+  width: 580px;
+  height: 74px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -260,6 +263,8 @@ color: #000000;
   display: flex;
   align-items: center;
   text-align: left;
+  justify-content: center;
+  color: #000000;
 }
 .sliderR h3{
   width: 555px;
@@ -278,10 +283,8 @@ color: #000000;
 }
 
 .sliderR p{
-  width: 558px;
-  height: 84px;
-
-
+  width: 580px;
+  height: 74px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -290,6 +293,8 @@ color: #000000;
   display: flex;
   align-items: center;
   text-align: right;
+  justify-content: center;
+  color: #000000;
 }
 
 .sl_ell_1{

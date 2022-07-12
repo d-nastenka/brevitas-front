@@ -9,13 +9,13 @@
       }"
     >
       <div class="data-card">
-        <a :href="mail" target="_blank">{{ card.mail }}</a>
+        <a class="links" f="mail" target="_blank">{{ card.mail }}</a>
       </div>
       <div class="data-card">
-        <a :href="link" target="_blank">{{ card.link }}</a>
+        <a class="links" :href="link" target="_blank">{{ card.link }}</a>
       </div>
       <div class="data-card">
-        <a :href="numberPhone" target="_blank">{{ card.phone }}</a>
+        <a class="links" :href="numberPhone" target="_blank">{{ card.phone }}</a>
       </div>
     </div>
   </div>
@@ -65,5 +65,10 @@ export default {
   display: flex;
   flex-direction: column;
   font-size: 20px;
+}
+
+.links{
+  color: #000;
+  text-decoration: none;
 }
 </style>

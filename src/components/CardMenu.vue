@@ -52,7 +52,7 @@
 
     <div class="if-side" v-else>
       Цвет текста
-      <input type="color" v-model="card.linksColor" />
+      <input class="kroog" type="color" v-model="card.linksColor" />
 
       Положение текста
       <div class="buttuns-position">
