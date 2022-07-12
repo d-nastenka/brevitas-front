@@ -6,11 +6,10 @@
     }"
   >
     <div
-      v-if="btnSide"
       class="data-user"
       :style="{
         color: card.textColor,
-        'align-items': card.textPosition,
+
         'font-size': `${card.sizeText}px`
       }"
     >
@@ -23,39 +22,23 @@
         {{ card.description }}
       </div>
     </div>
-    <div
-      v-else
-      class="contacts"
-      :style="{
-        color: card.linksColor,
-        'align-items': card.textPosition,
-        'font-size': `${card.sizeCont}px`
-      }"
-    >
-      <div class="data-card">
-        {{ card.mail }}
-      </div>
-      <div class="data-card">
-        {{ card.link }}
-      </div>
-      <div class="data-card">
-        {{ card.phone }}
-      </div>
-    </div>
+    
   </div>
 </template>
 
 <script>
 export default {
-  name: "Card",
+  name: "CardFront",
   props: {
     card: Object,
-    btnSide: Boolean
   }
 };
 </script>
 
 <style scoped>
+.flex-card {
+    /* display: flex; */
+}
 .data-card {
   display: flex;
   /* flex-direction: column; */
@@ -72,9 +55,5 @@ export default {
   font-weight: bold;
 }
 
-.contacts {
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-}
+
 </style>

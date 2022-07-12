@@ -1,4 +1,5 @@
 <template>
+
   <div class="flex-menu">
     Цвет фона
     <input type="color" v-model="card.backgroundColor" />
@@ -35,6 +36,10 @@
             }"
           ></i>
         </button>
+        <button @click="btnJustStart">Верх </button>
+        <button @click="btnJustCenter">Середина </button>
+        <button @click="btnJustEnd"> Низ</button>
+        
       </div>
       Размер текста
       <button @click="btnTextPlus">
@@ -51,7 +56,7 @@
 
       Положение текста
       <div class="buttuns-position">
-        <button class="btnText" @click="btnTextLeft">
+        <button class="btnText" @click="btnLinksLeft">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -60,7 +65,7 @@
             }"
           ></i>
         </button>
-        <button class="btnText" @click="btnTextCenter">
+        <button class="btnText" @click="btnLinksCenter">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -69,7 +74,7 @@
             }"
           ></i>
         </button>
-        <button class="btnText" @click="btnTextRight">
+        <button class="btnText" @click="btnLinksRight">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -78,6 +83,9 @@
             }"
           ></i>
         </button>
+        <button @click="btnContJustStart">Верх </button>
+        <button @click="btnContJustCenter">Середина </button>
+        <button @click="btnContJustEnd"> Низ</button>
       </div>
       Размер текста
       <button @click="btnContPlus">
@@ -107,6 +115,15 @@ export default {
     btnTextRight() {
       this.card.textPosition = "flex-end";
     },
+    btnLinksLeft() {
+      this.card.linksPosition = "flex-start";
+    },
+    btnLinksCenter() {
+      this.card.linksPosition = "center";
+    },
+    btnLinksRight() {
+      this.card.linksPosition = "flex-end";
+    },
     btnTextPlus() {
       this.card.sizeText = this.card.sizeText + 1;
     },
@@ -118,7 +135,25 @@ export default {
     },
     btnContMinus() {
       this.card.sizeCont = this.card.sizeCont - 1;
-    }
+    },
+    btnJustStart() {
+        this.card.textJustify = "flex-start";
+    },
+    btnJustCenter() {
+        this.card.textJustify = "center";
+    },
+    btnJustEnd() {
+        this.card.textJustify = "flex-end";
+    },
+    btnContJustStart() {
+        this.card.contJustify = "flex-start";
+    },
+    btnContJustCenter() {
+        this.card.contJustify = "center";
+    },
+    btnContJustEnd() {
+        this.card.contJustify = "flex-end";
+    },
   }
 };
 </script>

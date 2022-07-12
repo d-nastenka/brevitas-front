@@ -28,62 +28,40 @@
             </form>
           </div>
           <div
+            v-if="showBtn"
             class="field-card"
             :style="{
-              background: dataToSend.backgroundColor
+              background: dataToSend.backgroundColor,
+              'align-items': dataToSend.textPosition,
+              'justify-content': dataToSend.textJustify
             }"
           >
-          <Card :card="dataToSend" :btnSide="showBtn" />
-            <!-- <div
-              class="data-user"
-              :style="{
-                color: dataToSend.textColor,
-                'align-items': dataToSend.textPosition,
-                'font-size': `${dataToSend.sizeText}px`
-              }"
-            >
-              <div class="data-card">
-                {{ dataToSend.name }}
-                {{ dataToSend.surname }}
-              </div>
-
-              <div class="data-card">
-                {{ dataToSend.description }}
-              </div>
-            </div>
-            <div
-              class="contacts"
-              :style="{
-                color: dataToSend.linksColor,
-                'align-items': dataToSend.textPosition,
-                'font-size': `${dataToSend.sizeCont}px`
-              }"
-            >
-              <div class="data-card">
-                {{ dataToSend.mail }}
-              </div>
-              <div class="data-card">
-                {{ dataToSend.link }}
-              </div>
-              <div class="data-card">
-                {{ dataToSend.phone }}
-              </div>
-            </div>-->
-          </div> 
+            <CardFront :card="dataToSend" />
+          </div>
+          <div
+            v-else
+            class="field-card"
+            :style="{
+              background: dataToSend.backgroundColor,
+              'align-items': dataToSend.linksPosition,
+              'justify-content': dataToSend.contJustify
+            }"
+          >
+            <CardBack :card="dataToSend" />
+          </div>
           <div class="field-menu">
-            <CardMenu  :card="dataToSend" :btnSide="showBtn" />
-          </div> 
+            <CardMenu :card="dataToSend" :btnSide="showBtn" />
+          </div>
         </div>
         <div class="btn-side">
-        <button class="btn-card-side" @click="showBtn = !showBtn">
-          {{ btnText }}
-        </button>
-      </div>
+          <button class="btn-card-side" @click="showBtn = !showBtn">
+            {{ btnText }}
+          </button>
+        </div>
       </div>
       <div class="field-btn">
         <div v-if="!nameErrors">
           <button @click="addCard" class="btn">
-            <!-- <button type="submit" class="btn-card"> -->
             <span>Сохранить</span>
           </button>
         </div>
@@ -100,7 +78,8 @@
 import Header from "./AppHeader.vue";
 import Footer from "./AppFooter.vue";
 import CardMenu from "./CardMenu.vue";
-import Card from "./Card.vue"
+import CardFront from "./CardFront.vue";
+import CardBack from "./CardBack.vue";
 
 import { validationMixin } from "vuelidate";
 import {
@@ -117,12 +96,13 @@ export default {
     Header,
     Footer,
     CardMenu,
-    Card,
+    CardFront,
+    CardBack
   },
   mixins: [validationMixin],
   data() {
     return {
-      dataCard: {},
+      // dataCard: {},
       showBtn: true,
       check: true,
       dataToSend: {
@@ -135,10 +115,12 @@ export default {
         backgroundColor: "",
         textColor: "",
         linksColor: "",
-        textPosition: "" ,
-        linksPosition: "" ,
+        textPosition: "",
+        linksPosition: "",
         sizeText: 30,
-        sizeCont: 20
+        sizeCont: 20,
+        textJustify: "",
+        contJustify: ""
       },
       formFill: [
         {
@@ -253,7 +235,7 @@ export default {
       if (res.ok) {
         this.$router.push("/mycards");
       }
-    },
+    }
   },
   created() {}
 };
@@ -270,7 +252,7 @@ export default {
   margin-top: 30px;
 }
 .flex-cont {
-  height: 100hv;
+  /* height: 100hv; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -299,7 +281,7 @@ export default {
   justify-content: center; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 
   /* margin-left: 200px; */
 
@@ -344,35 +326,11 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
-/* .data-card {
-  display: flex;
-  /* flex-direction: column; */
-  /* justify-content: center; */
-
-  /* font-family: serif; *//*
-}
-
-.data-user {
-  display: flex;
-  flex-direction: column;
-
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.contacts {
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-} */
-
 .field-btn {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
-
-
 
 ::placeholder {
   font-family: "Roboto";
@@ -384,4 +342,7 @@ export default {
   color: #a6a3a3;
 }
 
+.flex-card {
+  /* display: flex; */
+}
 </style>

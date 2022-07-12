@@ -7,6 +7,7 @@ import rCard from "./rCard";
 import Home from "../components/Default";
 import MyCards from "../components/MyCards";
 import About from "../components/About";
+import ErrorPage from "../components/ErrorPage"
 
 
 import store from "../vuex";
@@ -16,6 +17,12 @@ Vue.use(VueRouter);
 const routes = [
   ...rAuth,
   ...rCard,
+  {
+    name: "errorpage",
+    path: "*",
+    component: ErrorPage,
+    name: "404"
+  },
   {
     name: "about",
     path: "/about",
@@ -60,7 +67,8 @@ router.beforeEach(async (to, from, next) => {
   if (
     to.name !== "authorization" &&
     to.name !== "registration" &&
-    to.name !== "home"
+    to.name !== "home" &&
+    to.name !== "errorpage"
   ) {
     if (!store.state.mAuth.isAuth) {
       next({

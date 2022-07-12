@@ -28,82 +28,35 @@
             </form>
           </div>
           <div
+            v-if="showBtn"
             class="field-card"
             :style="{
-              background: dataToSend.backgroundColor
+              background: dataToSend.backgroundColor,
+              'align-items': dataToSend.textPosition,
+              'justify-content': dataToSend.textJustify
             }"
           >
-            <div
-              class="data-user"
-              :style="{
-                color: dataToSend.textColor,
-                'align-items': dataToSend.textPosition
-              }"
-            >
-              <div class="data-card">
-                {{ dataToSend.name }}
-                {{ dataToSend.surname }}
-              </div>
-
-              <div class="data-card">
-                {{ dataToSend.description }}
-              </div>
-            </div>
-            <div
-              class="contacts"
-              :style="{
-                color: dataToSend.linksColor,
-                'align-items': dataToSend.textPosition
-              }"
-            >
-              <div class="data-card">
-                {{ dataToSend.mail }}
-              </div>
-              <div class="data-card">
-                {{ dataToSend.link }}
-              </div>
-              <div class="data-card">
-                {{ dataToSend.phone }}
-              </div>
-            </div>
+            <CardFront :card="dataToSend" />
+          </div>
+          <div
+            v-else
+            class="field-card"
+            :style="{
+              background: dataToSend.backgroundColor,
+              'align-items': dataToSend.linksPosition,
+              'justify-content': dataToSend.contJustify
+            }"
+          >
+            <CardBack :card="dataToSend" />
           </div>
           <div class="field-menu">
-            Цвет фона
-            <input type="color" v-model="dataToSend.backgroundColor" />
-            Текст
-            <input type="color" v-model="dataToSend.textColor" />
-            Текст контактов
-            <input type="color" v-model="dataToSend.linksColor" />
-            <div class="text-position">
-              <button class="btnText" @click="btnTextLeft">
-                <i
-                  class="gg-menu-right-alt"
-                  :style="{
-                    width: '10px',
-                    height: '10px'
-                  }"
-                ></i>
-              </button>
-              <button class="btnText" @click="btnTextCenter">
-                <i
-                  class="gg-menu-right-alt"
-                  :style="{
-                    width: '12.5px',
-                    height: '10px'
-                  }"
-                ></i>
-              </button>
-              <button class="btnText" @click="btnTextRight">
-                <i
-                  class="gg-menu-right-alt"
-                  :style="{
-                    width: '16px',
-                    height: '10px'
-                  }"
-                ></i>
-              </button>
-            </div>
+            <CardMenu :card="dataToSend" :btnSide="showBtn" />
           </div>
+        </div>
+        <div class="btn-side">
+          <button class="btn-card-side" @click="showBtn = !showBtn">
+            {{ btnText }}
+          </button>
         </div>
       </div>
       <div class="field-btn">
@@ -125,6 +78,9 @@
 <script>
 import Header from "./AppHeader.vue";
 import Footer from "./AppFooter.vue";
+import CardMenu from "./CardMenu.vue";
+import CardFront from "./CardFront.vue";
+import CardBack from "./CardBack.vue";
 
 import { validationMixin } from "vuelidate";
 import {
@@ -136,16 +92,21 @@ import {
 } from "vuelidate/lib/validators";
 
 export default {
+  mixins: [],
   name: "CreateCard",
   components: {
     Header,
-    Footer
+    Footer,
+    CardMenu,
+    CardFront,
+    CardBack
   },
   mixins: [validationMixin],
   data() {
     return {
       IdCard: this.$route.params.id,
-      dataCard: {},
+      // dataCard: {},
+      showBtn: true,
       check: true,
       dataToSend: {
         name: "",
@@ -157,7 +118,12 @@ export default {
         backgroundColor: "",
         textColor: "",
         linksColor: "",
-        textPosition: ""
+        textPosition: "",
+        linksPosition: "",
+        sizeText: 30,
+        sizeCont: 20,
+        textJustify: "",
+        contJustify: ""
       },
       formFill: [
         {
@@ -251,6 +217,9 @@ export default {
         }
       }
       return newmes;
+    },
+    btnText() {
+      return this.showBtn ? "Обратная сторона" : "Лицевая сторона";
     }
   },
   created() {
@@ -276,10 +245,6 @@ export default {
     },
     async addCard() {
       console.log(this.dataToSend);
-      // const data = {};
-      // for (let i = 0; i < this.formFill.length; i++) {
-      //   data[this.formFill[i].value] = this.formFill[i].data;
-      // }
 
       let res = await fetch(
         `http://localhost:3000/visits/${this.$route.params.id}`,
@@ -296,15 +261,6 @@ export default {
       if (res.ok) {
         this.$router.push("/mycards");
       }
-    },
-    btnTextLeft() {
-      this.dataToSend.textPosition = "flex-start";
-    },
-    btnTextCenter() {
-      this.dataToSend.textPosition = "center";
-    },
-    btnTextRight() {
-      this.dataToSend.textPosition = "flex-end";
     }
   }
 };
