@@ -1,10 +1,18 @@
 <template>
   <div class="flex-menu">
-    Цвет фона
-    <input class="kroog" type="color" v-model="card.backgroundColor" />
+    <div class="fons">
+       <h3>Фон</h3> 
+       <div class="fons__color">
+        <p>Цвет</p>
+        <input class="kroog" type="color" v-model="card.backgroundColor" />
+       </div>
+      
+    </div>
+   
     <div class="if-side" v-if="btnSide">
-      Цвет текста
-      <input class="kroog" type="color" v-model="card.textColor" />
+      <h3>Текст</h3> 
+     
+      
 
       Положение текста
       <div class="buttuns-position">
@@ -55,10 +63,16 @@
         <option value="38">38</option>
         <option value="40">40</option>
       </select>
+      
+       <div class="fons__color">
+        <p>цвет</p>
+        <input class="kroog" type="color" v-model="card.textColor" />
+      </div>
     </div>
+    
 
     <div class="if-side" v-else>
-      Цвет текста
+      <h3>Текст</h3>
       <input class="kroog" type="color" v-model="card.linksColor" />
 
       Положение текста
@@ -153,6 +167,7 @@ export default {
   height: 50px;
   border: 0;
   border-radius: 50px;
+  margin-left: 20px;
 }
 input.kroog::-webkit-color-swatch {
   border: 0;
@@ -161,7 +176,7 @@ input.kroog::-webkit-color-swatch {
 .flex-menu {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
   width: 100%;
   flex-wrap: nowrap;
@@ -171,6 +186,7 @@ input.kroog::-webkit-color-swatch {
 .if-side {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .btnText {
@@ -191,4 +207,15 @@ input.kroog::-webkit-color-swatch {
   color: rgb(22, 22, 22);
   cursor: pointer;
 }
+
+/*------------------- */
+.fons{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.fons__color{
+  display: flex;
+}
+
 </style>

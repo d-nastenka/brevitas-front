@@ -319,15 +319,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* margin-left: 200px; */
-
   width: 170px;
   height: 300px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
-
+  justify-content: space-around;
   margin-top: 20px;
 }
 
