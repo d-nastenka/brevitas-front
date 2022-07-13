@@ -41,13 +41,20 @@
         <button @click="changeJust('flex-end')">Низ</button>
       </div>
       Размер текста
-      <button @click="btnTextPlus">
-        Увеличить
-      </button>
-      <button @click="btnTextMinus">
-        Уменьшить
-      </button>
-      Шрифт
+      <select v-model="card.sizeText">
+        <option value="18">18</option>
+        <option value="20">20</option>
+        <option value="22">22</option>
+        <option value="24">24</option>
+        <option value="26">26</option>
+        <option value="28">28</option>
+        <option value="30">20</option>
+        <option value="32">32</option>
+        <option value="34">34</option>
+        <option value="36">36</option>
+        <option value="38">38</option>
+        <option value="40">40</option>
+      </select>
     </div>
 
     <div class="if-side" v-else>
@@ -89,13 +96,21 @@
         <button @click="changeContJust('flex-end')">Низ</button>
       </div>
       Размер текста
-      <button @click="btnContPlus">
-        Увеличить
-      </button>
-      <button @click="btnContMinus">
-        Уменьшить
-      </button>
-      Шрифт
+      <select v-model="card.sizeCont">
+        <option value="18">18</option>
+        <option value="20">20</option>
+        <option value="22">22</option>
+        <option value="24">24</option>
+        <option value="26">26</option>
+        <option value="28">28</option>
+        <option value="30">20</option>
+        <option value="32">32</option>
+        <option value="34">34</option>
+        <option value="36">36</option>
+        <option value="38">38</option>
+        <option value="40">40</option>
+      </select>
+
     </div>
   </div>
 </template>
@@ -120,21 +135,6 @@ export default {
     changeContJust(contJust) {
       this.card.contJustify = contJust;
     },
-
-    btnTextPlus() {
-      this.card.sizeText = this.card.sizeText + 1;
-    },
-    btnTextMinus() {
-      this.card.sizeText = this.card.sizeText - 1;
-    },
-
-    btnContPlus() {
-      this.card.sizeCont = this.card.sizeCont + 1;
-    },
-    btnContMinus() {
-      this.card.sizeCont = this.card.sizeCont - 1;
-    },
-
   }
 };
 </script>

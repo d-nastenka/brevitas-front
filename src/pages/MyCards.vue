@@ -12,7 +12,11 @@
               class="imges-card"
               v-for="(item, key) in dataCard"
               :key="key"
-              
+              :style="{
+                background: dataCard.backgroundColor,
+                'align-items': dataCard.textPosition,
+                'justify-content': dataCard.textJustify
+              }"
             >
               <LoadingCards :card="item" @deleteCard="deleteCard" />
             </div>
@@ -86,7 +90,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 h3 {

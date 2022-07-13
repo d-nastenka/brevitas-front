@@ -1,49 +1,56 @@
 <template>
-  <div
-    class="field-card"
-    :style="{
-      background: card.backgroundColor,
-    }"
-  >
-    <link href="https://css.gg/css" rel="stylesheet" />
+  <div class="field-card-flex">
     <div
-      class="data-user"
+      class="field-card"
       :style="{
-        color: card.textColor,
+        background: card.backgroundColor,
         'align-items': card.textPosition,
         'justify-content': card.textJustify
       }"
     >
-      <div class="data-card">
-        {{ card.name }}
-      </div>
-      <div class="data-card">
-        {{ card.surname }}
-      </div>
-      <div class="data-card">
-        {{ card.description }}
-      </div>
+      <link href="https://css.gg/css" rel="stylesheet" />
+      <!-- <div
+        class="data-user"
+        :style="{
+          color: card.textColor
+        }"
+      >
+        <div class="data-card">
+          {{ card.name }}
+        </div>
+        <div class="data-card">
+          {{ card.surname }}
+        </div>
+        <div class="data-card">
+          {{ card.description }}
+        </div>
+      </div> -->
+      <CardFront :card="card" />
     </div>
-    
+    <div>
+      <div class="buttons">
+        <button class="btn" @click="changeCard(card)">
+          <i class="gg-pen"></i>
+        </button>
 
-    <div class="buttons">
-      <button class="btn" @click="changeCard(card)">
-        <i class="gg-pen"></i>
-      </button>
-
-      <button class="btn" @click="seeCard(card)">
-        <i class="gg-eye"></i>
-      </button>
-      <button class="btn" @click="deleteCard(card)">
-        <i class="gg-trash"></i>
-      </button>
+        <button class="btn" @click="seeCard(card)">
+          <i class="gg-eye"></i>
+        </button>
+        <button class="btn" @click="deleteCard(card)">
+          <i class="gg-trash"></i>
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import CardFront from "./CardFront.vue"
 export default {
   name: "LoadingCards",
+  components: {
+    CardFront,
+  },
   props: {
     card: Object
   },
@@ -80,7 +87,7 @@ export default {
 
 <style scoped>
 .field-card {
-  width: 320px;
+  /* width: 320px;
   height: 200px;
 
   margin-left: 72px;
@@ -90,13 +97,25 @@ export default {
 
   box-shadow: 0 2px 4px rgb(134, 134, 134);
   /* background: linear-gradient(45deg, #77c2ea, #464646); */
-
+  /*
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
+  border-radius: 5px; */
+  display: flex;
+  flex-direction: column;
+
+  /* justify-content: space-between; */
+
+  /* margin-left: 200px; */
+
+  width: 450px;
+  height: 250px;
+  padding: 32px;
   border-radius: 5px;
-  
+  box-shadow: 0 4px 16px #ccc;
+  margin-top: 20px;
 }
 .data-card {
   display: flex;
@@ -113,7 +132,7 @@ export default {
   font-size: 19px;
   font-weight: normal;
   /* padding-top: 25px; */
-  
+
   color: #e1e1e1;
 }
 
