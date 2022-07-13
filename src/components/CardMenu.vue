@@ -1,5 +1,4 @@
 <template>
-
   <div class="flex-menu">
     Цвет фона
     <input class="kroog" type="color" v-model="card.backgroundColor" />
@@ -9,7 +8,7 @@
 
       Положение текста
       <div class="buttuns-position">
-        <button class="btnText" @click="btnTextLeft">
+        <button class="btnText" @click="changeTextPosition('flex-start')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -18,7 +17,7 @@
             }"
           ></i>
         </button>
-        <button class="btnText" @click="btnTextCenter">
+        <button class="btnText" @click="changeTextPosition('center')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -27,7 +26,7 @@
             }"
           ></i>
         </button>
-        <button class="btnText" @click="btnTextRight">
+        <button class="btnText" @click="changeTextPosition('flex-end')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -36,10 +35,10 @@
             }"
           ></i>
         </button>
-        <button @click="btnJustStart">Верх </button>
-        <button @click="btnJustCenter">Середина </button>
-        <button @click="btnJustEnd"> Низ</button>
-        
+        <br />
+        <button @click="changeJust('flex-start')">Верх</button>
+        <button @click="changeJust('center')">Середина</button>
+        <button @click="changeJust('flex-end')">Низ</button>
       </div>
       Размер текста
       <button @click="btnTextPlus">
@@ -48,6 +47,7 @@
       <button @click="btnTextMinus">
         Уменьшить
       </button>
+      Шрифт
     </div>
 
     <div class="if-side" v-else>
@@ -56,7 +56,7 @@
 
       Положение текста
       <div class="buttuns-position">
-        <button class="btnText" @click="btnLinksLeft">
+        <button class="btnText" @click="changeLinksPosition('flex-start')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -65,7 +65,7 @@
             }"
           ></i>
         </button>
-        <button class="btnText" @click="btnLinksCenter">
+        <button class="btnText" @click="changeLinksPosition('center')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -74,7 +74,7 @@
             }"
           ></i>
         </button>
-        <button class="btnText" @click="btnLinksRight">
+        <button class="btnText" @click="changeLinksPosition('flex-end')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -83,9 +83,10 @@
             }"
           ></i>
         </button>
-        <button @click="btnContJustStart">Верх </button>
-        <button @click="btnContJustCenter">Середина </button>
-        <button @click="btnContJustEnd"> Низ</button>
+        <br />
+        <button @click="changeContJust('flex-start')">Верх</button>
+        <button @click="changeContJust('center')">Середина</button>
+        <button @click="changeContJust('flex-end')">Низ</button>
       </div>
       Размер текста
       <button @click="btnContPlus">
@@ -94,6 +95,7 @@
       <button @click="btnContMinus">
         Уменьшить
       </button>
+      Шрифт
     </div>
   </div>
 </template>
@@ -106,61 +108,39 @@ export default {
     btnSide: Boolean
   },
   methods: {
-    btnTextLeft() {
-      this.card.textPosition = "flex-start";
+    changeTextPosition(textPosit) {
+      this.card.textPosition = textPosit;
     },
-    btnTextCenter() {
-      this.card.textPosition = "center";
+    changeLinksPosition(linkPos) {
+      this.card.linksPosition = linkPos;
     },
-    btnTextRight() {
-      this.card.textPosition = "flex-end";
+    changeJust(textJust) {
+      this.card.textJustify = textJust;
     },
-    btnLinksLeft() {
-      this.card.linksPosition = "flex-start";
+    changeContJust(contJust) {
+      this.card.contJustify = contJust;
     },
-    btnLinksCenter() {
-      this.card.linksPosition = "center";
-    },
-    btnLinksRight() {
-      this.card.linksPosition = "flex-end";
-    },
+
     btnTextPlus() {
       this.card.sizeText = this.card.sizeText + 1;
     },
     btnTextMinus() {
       this.card.sizeText = this.card.sizeText - 1;
     },
+
     btnContPlus() {
       this.card.sizeCont = this.card.sizeCont + 1;
     },
     btnContMinus() {
       this.card.sizeCont = this.card.sizeCont - 1;
     },
-    btnJustStart() {
-        this.card.textJustify = "flex-start";
-    },
-    btnJustCenter() {
-        this.card.textJustify = "center";
-    },
-    btnJustEnd() {
-        this.card.textJustify = "flex-end";
-    },
-    btnContJustStart() {
-        this.card.contJustify = "flex-start";
-    },
-    btnContJustCenter() {
-        this.card.contJustify = "center";
-    },
-    btnContJustEnd() {
-        this.card.contJustify = "flex-end";
-    },
+
   }
 };
 </script>
 
 <style scoped>
-
-.kroog{
+.kroog {
   border-top-width: 0px;
   border-left-width: 0px;
   border-bottom-width: 0px;
@@ -171,12 +151,12 @@ export default {
   padding-bottom: 0px;
   width: 50px;
   height: 50px;
-  border:0 ;
-  border-radius: 50px; 
+  border: 0;
+  border-radius: 50px;
 }
 input.kroog::-webkit-color-swatch {
-    border: 0;
-    border-radius: 50%;
+  border: 0;
+  border-radius: 50%;
 }
 .flex-menu {
   display: flex;

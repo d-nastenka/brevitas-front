@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import Reg from "./Reg.vue";
+import Reg from "../pages/Reg.vue";
 
 export default {
   name: "Auth",

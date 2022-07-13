@@ -24,7 +24,6 @@ export default {
     console.log(this.$store);
   },
   methods: {
-    // TODO: Нет валидации
     async usLogout() {
       const res = await fetch("http://localhost:3000/auth/logout", {
         method: "POST",

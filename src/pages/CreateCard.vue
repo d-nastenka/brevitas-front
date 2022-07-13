@@ -1,32 +1,34 @@
 <template>
-  <div class="flex-cont">
-    <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
+  <div>
     <Header />
+    <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
+
     <div class="page-create-card">
       <div class="title-createcard">
-        <h3>Изменить визитку</h3>
+        <h3>Создать визитку</h3>
       </div>
-      <div class="create-visits">
-        <div class="flex-fields">
-          <div class="field-form">
-            <form>
-              <!-- <form @submit.prevent="addCard"> -->
-              <div class="form-input-cards">
-                <div v-for="(item, key) in formFill" :key="key">
-                  <div :error-messages="nameErrors" class="cards-input">
-                    <input
-                      class="imput_reg_visit"
-                      v-model="dataToSend[item.value]"
-                      :placeholder="item.textPlaceholder"
-                    />
-                  </div>
+
+      <div class="flex-fields">
+        <div class="field-form_menu">
+          <form>
+            <!-- <form @submit.prevent="addCard"> -->
+            <div class="form-input-cards">
+              <div v-for="(item, key) in formFill" :key="key">
+                <div :error-messages="nameErrors" class="cards-input">
+                  <input
+                    class="imput_reg_visit"
+                    v-model="dataToSend[item.value]"
+                    :placeholder="item.textPlaceholder"
+                  />
                 </div>
-                <p>
-                  <font color="red"> {{ nameErrors }}</font>
-                </p>
               </div>
-            </form>
-          </div>
+              <p>
+                <font color="red"> {{ nameErrors }}</font>
+              </p>
+            </div>
+          </form>
+        </div>
+        <div>
           <div
             v-if="showBtn"
             class="field-card"
@@ -49,20 +51,20 @@
           >
             <CardBack :card="dataToSend" />
           </div>
-          <div class="field-menu">
-            <CardMenu :card="dataToSend" :btnSide="showBtn" />
+          <div class="btn-side">
+            <button class="btn-card-side" @click="showBtn = !showBtn">
+              {{ btnText }}
+            </button>
           </div>
         </div>
-        <div class="btn-side">
-          <button class="btn-card-side" @click="showBtn = !showBtn">
-            {{ btnText }}
-          </button>
+        <div class="field-form_menu">
+          <CardMenu :card="dataToSend" :btnSide="showBtn" />
         </div>
       </div>
+
       <div class="field-btn">
         <div v-if="!nameErrors">
           <button @click="addCard" class="btn">
-            <!-- <button type="submit" class="btn-card"> -->
             <span>Сохранить</span>
           </button>
         </div>
@@ -76,11 +78,11 @@
 </template>
 
 <script>
-import Header from "./AppHeader.vue";
-import Footer from "./AppFooter.vue";
-import CardMenu from "./CardMenu.vue";
-import CardFront from "./CardFront.vue";
-import CardBack from "./CardBack.vue";
+import Header from "../components/AppHeader.vue";
+import Footer from "../components/AppFooter.vue";
+import CardMenu from "../components/CardMenu.vue";
+import CardFront from "../components/CardFront.vue";
+import CardBack from "../components/CardBack.vue";
 
 import { validationMixin } from "vuelidate";
 import {
@@ -92,7 +94,6 @@ import {
 } from "vuelidate/lib/validators";
 
 export default {
-  mixins: [],
   name: "CreateCard",
   components: {
     Header,
@@ -102,9 +103,9 @@ export default {
     CardBack
   },
   mixins: [validationMixin],
+  // TODO :DRY
   data() {
     return {
-      IdCard: this.$route.params.id,
       // dataCard: {},
       showBtn: true,
       check: true,
@@ -123,7 +124,8 @@ export default {
         sizeText: 30,
         sizeCont: 20,
         textJustify: "",
-        contJustify: ""
+        contJustify: "",
+        fontText: ""
       },
       formFill: [
         {
@@ -222,47 +224,25 @@ export default {
       return this.showBtn ? "Обратная сторона" : "Лицевая сторона";
     }
   },
-  created() {
-    this.getCard();
-  },
   methods: {
-    async getCard() {
-      let res = await fetch(
-        `http://localhost:3000/visits/${this.$route.params.id}`,
-        {
-          method: "GET",
-
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-          credentials: "include"
-        }
-      );
-      if (res.ok) {
-        this.dataToSend = await res.json();
-      }
-    },
     async addCard() {
       console.log(this.dataToSend);
 
-      let res = await fetch(
-        `http://localhost:3000/visits/${this.$route.params.id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(this.dataToSend),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-          credentials: "include"
-        }
-      );
+      let res = await fetch("http://localhost:3000/visits", {
+        method: "POST",
+        body: JSON.stringify(this.dataToSend),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      });
       if (res.ok) {
         this.$router.push("/mycards");
       }
     }
-  }
+  },
+  created() {}
 };
 </script>
 
@@ -270,31 +250,38 @@ export default {
 .page-create-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .title-createcard {
   margin-top: 30px;
 }
 .flex-cont {
-  /* height: 100%; */
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
 }
 
 .flex-fields {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  /* margin: 0px 20px 40px 20px; */
+  align-items: center;
+  width: 100%;
   justify-content: space-evenly;
-  flex-wrap: wrap;
-
-  margin: 0px 20px 40px 20px;
 }
 
-.field-form {
-  width: 290px;
-  height: 300px;
+.field-form_menu {
+  width: 300px;
+  height: 350px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
@@ -306,12 +293,12 @@ export default {
   justify-content: center; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 
   /* margin-left: 200px; */
 
-  width: 400px;
-  height: 200px;
+  width: 450px;
+  height: 250px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
@@ -321,12 +308,12 @@ export default {
 .field-menu {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: flex-start;
 
   /* margin-left: 200px; */
 
-  width: 150px;
-  height: 200px;
+  width: 170px;
+  height: 300px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
@@ -351,29 +338,9 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
-.data-card {
-  display: flex;
-  /* flex-direction: row;
-  justify-content: center;
-
-  font-family: serif; */
-}
-
-.data-user {
-  display: flex;
-  flex-direction: column;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.contacts {
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-}
-
 .field-btn {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
 }
@@ -387,29 +354,8 @@ export default {
 
   color: #a6a3a3;
 }
-.text-position {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 10px;
-}
 
-.btnText {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-
-  color: rgb(61, 61, 61);
-  cursor: pointer;
-  /* width: 20px;
-  height: 20px; */
-}
-
-.btnText:hover {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-  /* width: 20px;
-  height: 20px; */
-  color: rgb(22, 22, 22);
-  cursor: pointer;
+.btn-side {
+  margin-top: 20px;
 }
 </style>

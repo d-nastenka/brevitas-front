@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Header from "./AppHeader.vue";
-import Footer from "./AppFooter.vue";
-import CardFront from "./CardFront.vue";
-import CardBack from "./CardBack.vue";
+import Header from "../components/AppHeader.vue";
+import Footer from "../components/AppFooter.vue";
+import CardFront from "../components/CardFront.vue";
+import CardBack from "../components/CardBack.vue";
 
 export default {
   name: "SeeCard",

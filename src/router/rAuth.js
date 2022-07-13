@@ -1,5 +1,5 @@
-import Reg from "../components/Reg.vue";
-import Auth from "../components/Auth.vue";
+import Reg from "../pages/Reg.vue";
+import Auth from "../pages/Auth.vue";
 
 export default [
   {

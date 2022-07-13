@@ -117,15 +117,6 @@ export default {
   color: #e1e1e1;
 }
 
-.contacts {
-  display: flex;
-  flex-direction: column;
-  /* position: absolute; */
-  font-size: 15px;
-  padding-top: 30px;
-  color: #c7c7c7;
-}
-
 .buttons {
   display: flex;
   flex-direction: row;

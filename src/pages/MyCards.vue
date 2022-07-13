@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import LoadingCards from "./LoadingCards.vue";
-import Header from "./AppHeader.vue";
-import Footer from "./AppFooter.vue";
+import LoadingCards from "../components/LoadingCards.vue";
+import Header from "../components/AppHeader.vue";
+import Footer from "../components/AppFooter.vue";
 
 export default {
   name: "MyCards",
@@ -47,7 +47,6 @@ export default {
   },
   mounted() {},
   methods: {
-    // TODO: Нет валидации
     async getCard() {
       let res = await fetch("http://localhost:3000/visits", {
         method: "GET",
@@ -60,7 +59,6 @@ export default {
         this.dataCard = await res.json();
       }
     },
-    // TODO: Нет валидации
     async deleteCard(item) {
       let res = await fetch(`http://localhost:3000/visits/${item._id}`, {
         method: "DELETE",
@@ -88,6 +86,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 }
 
 h3 {
@@ -117,7 +116,7 @@ h3 {
   gap: 30px;
 
   padding-top: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 80px;
 }
 
 @media screen and (max-width: 1200px) {

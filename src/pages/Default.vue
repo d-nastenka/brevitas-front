@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: Переверстать по макету  -->
   <div>
     <Header />
     <div class="flexCtr">
@@ -90,8 +89,8 @@
 </template>
 
 <script>
-import Header from "./AppHeader.vue";
-import Footer from "./AppFooter.vue";
+import Header from "../components/AppHeader.vue";
+import Footer from "../components/AppFooter.vue";
 import Vue from 'vue';
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);

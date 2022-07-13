@@ -45,6 +45,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .data-card {
   display: flex;
   /* flex-direction: column; */

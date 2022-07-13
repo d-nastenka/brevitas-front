@@ -4,10 +4,10 @@ import VueRouter from "vue-router";
 import rAuth from "./rAuth";
 import rCard from "./rCard";
 
-import Home from "../components/Default";
-import MyCards from "../components/MyCards";
-import About from "../components/About";
-import ErrorPage from "../components/ErrorPage"
+import Home from "../pages/Default";
+import MyCards from "../pages/MyCards";
+import About from "../pages/About";
+import ErrorPage from "../pages/ErrorPage"
 
 
 import store from "../vuex";
@@ -58,6 +58,7 @@ router.beforeEach(async (to, from, next) => {
     credentials: "include"
   });
 
+  // TODO: Рефакторинг
   if (res.ok) {
     store.commit("mAuth/changeAuth", true);
   } else {

@@ -1,6 +1,6 @@
-import CreateCard from "../components/CreateCard.vue";
-import ChangeCard from "../components/ChangeCard.vue";
-import SeeCard from "../components/SeeCard.vue";
+import CreateCard from "../pages/CreateCard.vue";
+import ChangeCard from "../pages/ChangeCard.vue";
+import SeeCard from "../pages/SeeCard.vue";
 
 
 export default [
