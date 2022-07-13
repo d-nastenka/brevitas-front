@@ -10,8 +10,6 @@
 import Header from "./components/AppHeader.vue";
 import Footer from "./components/AppFooter.vue";
 
-
-
 // import Home from "./components/Default.vue";
 // import MyCards from "./components/MyCards.vue";
 // import Card from "./components/Card.vue";
@@ -83,7 +81,7 @@ body {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  height: 100%;
+  height: auto;
 }
 
 .btn {
@@ -178,11 +176,10 @@ body {
   height: 200px;
   background-color: #096B73;
   margin-top: -40px;
-  left: 70%;
-  z-index:0;
-
+  left: 80%;
+  z-index: 0;
   transition: all 0.5s ease-in-out;
-  transform: rotateZ(20deg) ;
+  transform: rotateZ(28deg);
 }
 
 .btn-card:hover:before {
