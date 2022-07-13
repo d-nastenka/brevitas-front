@@ -5,12 +5,12 @@
         <h3>Brevitas</h3>
       </div>
       <div class="form-auth">
+        <form  class="form-flexx">
         <div class="auth-title">
           <h3>Вход</h3>
         </div>
-
-        <form  class="form-flexx">
-          <div v-for="(item, key) in formAuth" :key="key">
+        <div class="form__login">
+          <div  v-for="(item, key) in formAuth" :key="key">
             <div class="auth-input">
               <input
                 class="input-auth"
@@ -20,16 +20,19 @@
               />
             </div>
           </div>
+        </div>
+          
           <a @click="sendAuth" class="btn-card"> <p class="btn-card_text">Войти</p> </a>
-          <div class="move-reg">
+          
+          <router-view />
+        </form>
+        <div class="move-reg">
             <p>
               <a class="btn_head_autor" @click="$router.push('/registration')"
                 >Зарегистрироваться</a
               >
             </p>
           </div>
-          <router-view />
-        </form>
       </div>
     </div>
   </div>
@@ -84,37 +87,29 @@ export default {
 </script>
 
 <style>
-
-
-
 .form-flexx {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 60%;
+  justify-content: space-between;
+  height: 80%;
   flex-wrap: nowrap;
   align-content: stretch;
+  margin-top: 30px;
 }
 
+.form__login{
+  height: 126px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
 .auth-input {
   width: 100%;
   padding: 0 0 12px 0;
   border: none;
-}
-
-.input-auth {
-  padding: 7px 19px;
-  margin-bottom: 2px;
-  border: 0px;
-  width: 300px;
-  border-bottom: 1px solid #ffffff;
-  background-color: rgba(0, 0, 0, 0);
-  outline: none;
-}
-
-.input-auth:focus {
-  background-color: rgba(255, 255, 255, 0.347);
 }
 
 ::placeholder {
@@ -129,6 +124,8 @@ export default {
 
 .move-reg {
   text-align: center;
+  width: 320px;
+  height: 50px;
 }
 
 .btn_head_autor {
