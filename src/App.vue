@@ -88,15 +88,15 @@ body {
   font-family: 'Roboto';
   background-color: #096b73;
   color: white;
-  font-size: 17px;
+  font-size: 25px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
-
-
+  width: 84.812px;
+  height: 46px;
 }
 
 .btn:hover {
@@ -108,15 +108,15 @@ body {
   font-family: 'Roboto';
   background-color: #84abae;
   color: white;
-  font-size: 17px;
+  font-size: 25px;
   padding: 10px 20px;
   border: none;
-  /* cursor: pointer; */
+  cursor: not-allowed;
   border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
   width: 84.812px;
-  height: 20px;
+  height: 46px;
 }
 
 /*кнопки валидные*/

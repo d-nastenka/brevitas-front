@@ -10,11 +10,11 @@
         </div>
 
         <form class="form-flex">
-          <!-- <div class="form-input"> -->
+      
           <div v-for="(i, key) in formReg" :key="key">
             <div :error-messages="nameErrors" class="reg-input">
               <input
-                class="input-reg"
+                class="input-auth"
                 v-model="dataReg[i.value]"
                 :placeholder="i.textPlaceholder"
               />
@@ -23,15 +23,16 @@
           <p>
             <font color="red"> {{ nameErrors }}</font>
           </p>
-
-          <div v-if="!nameErrors">
+          
+          
+         
+        </form>
+        <div v-if="!nameErrors">
             <a @click="addUser" type="submit" class="btn">Зарегистрироваться</a>
           </div>
           <div v-else>
             <a class="btn_NO">Зарегистрироваться</a>
           </div>
-          <!-- </div> -->
-        </form>
       </div>
     </div>
   </div>
@@ -167,28 +168,15 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  height: 60%;
+  justify-content: space-evenly;
+  height: 50%;
+  flex-wrap: nowrap;
 }
 
 .reg-input {
   width: 100%;
   padding: 0 0 12px 0;
   border: none;
-}
-
-.input-reg {
-  padding: 7px 19px;
-  margin-bottom: 2px;
-  border: 0px;
-  width: 300px;
-  border-bottom: 1px solid #ffffff;
-  background-color: rgba(0, 0, 0, 0);
-  outline: none;
-}
-
-.input-reg:focus {
-  background-color: rgba(255, 255, 255, 0.347);
 }
 
 ::placeholder {
