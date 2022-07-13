@@ -88,15 +88,15 @@ body {
   font-family: 'Roboto';
   background-color: #096b73;
   color: white;
-  font-size: 17px;
+  font-size: 25px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
-
-
+  width: 84.812px;
+  height: 46px;
 }
 
 .btn:hover {
@@ -108,15 +108,15 @@ body {
   font-family: 'Roboto';
   background-color: #84abae;
   color: white;
-  font-size: 17px;
+  font-size: 25px;
   padding: 10px 20px;
   border: none;
-  /* cursor: pointer; */
+  cursor: not-allowed;
   border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
   width: 84.812px;
-  height: 20px;
+  height: 46px;
 }
 
 /*кнопки валидные*/
@@ -135,6 +135,7 @@ body {
   text-align: center;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
+   color: #016670;
 }
 
 .btn-card_NO {
@@ -164,9 +165,10 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 12px;
+  margin-top: 8px;
   z-index: 1;
-  margin-left: 17px;
+  margin-left: 15px;
+ 
 }
 
 .btn-card::before {
@@ -183,7 +185,7 @@ body {
 }
 
 .btn-card:hover:before {
-  left: -5%; 
+  left: -7%; 
 } 
 /*окна авторизации и регистрации*/
 .back-cont {
@@ -239,6 +241,7 @@ body {
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  border: 1px solid  #ffffff50;
   
 }
 .auth-title {
@@ -254,5 +257,30 @@ body {
   letter-spacing: 0.232836px;
 
   color: #e4e7e7;
+}
+
+.input-auth {
+  padding: 7px 19px;
+  margin-bottom: 2px;
+  border: 0px;
+  width: 400px;
+  border-bottom: 1px solid #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.input-auth:focus {
+  background-color: rgba(255, 255, 255, 0.347);
+}
+
+.form-flexx {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 80%;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  margin-top: 30px;
 }
 </style>

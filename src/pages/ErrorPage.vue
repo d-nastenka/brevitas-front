@@ -6,7 +6,7 @@
     </div>
     <hr>
     <p class="P">страница не найдена</p>
-    <a class="btn-card" @click="$router.push('/')">HOME</a>
+    <a class="btn-card" @click="$router.push('/')"><p class="btn-card_text">HOME</p> </a>
   </div>
 </template>
 
