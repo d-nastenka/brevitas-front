@@ -85,18 +85,18 @@ body {
 }
 
 .btn {
-  font-family: 'Roboto';
-  background-color: #096b73;
-  color: white;
-  font-size: 25px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  text-align: center;
-  transition: all 0.5s;
-  width: 84.812px;
-  height: 46px;
+    font-family: 'Roboto';
+    background-color: #096b73;
+    color: white;
+    font-size: 25px;
+    padding: 11px 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+    transition: all 0.5s;
+    width: 241.812px;
+    height: 62px;
 }
 
 .btn:hover {
@@ -109,14 +109,14 @@ body {
   background-color: #84abae;
   color: white;
   font-size: 25px;
-  padding: 10px 20px;
+  padding: 17px 57px;
   border: none;
   cursor: not-allowed;
   border-radius: 30px;
   text-align: center;
   transition: all 0.5s;
-  width: 84.812px;
-  height: 46px;
+  width: 100px;
+  height: 60px;
 }
 
 /*кнопки валидные*/
