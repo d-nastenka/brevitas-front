@@ -136,7 +136,7 @@
       </select>
       </div>
        <div class="fons__color">
-        <p>цвет</p>
+        <p>Цвет</p>
         <input class="kroog" type="color" v-model="card.color.links" />
        </div> 
     </div>
