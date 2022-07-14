@@ -47,6 +47,8 @@ export default {
 
   background: #f5f5f5;
   outline: 1px solid #c1c1c1;
+
+
 }
 
 .footer-flex {
@@ -70,7 +72,7 @@ export default {
   color: #000000;
   font-style: normal;
   padding: 20px;
-  font-size: 15px;
+  font-size: 24px;
 
   font-family: 'Roboto';
 

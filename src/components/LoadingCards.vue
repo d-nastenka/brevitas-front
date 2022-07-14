@@ -1,55 +1,51 @@
 <template>
-  <div class="field-card-flex">
-    <div
-      class="field-card"
-      :style="{
-        background: card.backgroundColor,
-        'align-items': card.textPosition,
-        'justify-content': card.textJustify
-      }"
-    >
-      <link href="https://css.gg/css" rel="stylesheet" />
-      <!-- <div
-        class="data-user"
-        :style="{
-          color: card.textColor
-        }"
-      >
-        <div class="data-card">
-          {{ card.name }}
-        </div>
-        <div class="data-card">
-          {{ card.surname }}
-        </div>
-        <div class="data-card">
-          {{ card.description }}
-        </div>
-      </div> -->
-      <CardFront :card="card" />
-    </div>
-    <div>
-      <div class="buttons">
-        <button class="btn" @click="changeCard(card)">
-          <i class="gg-pen"></i>
-        </button>
+  <!-- <div class="field-card-flex"> -->
+  <div
+    class="field-card"
+    :style="{
+      background: card.color.background,
+      'align-items': card.positions.text,
+      'justify-content': card.justify.text
+    }"
+  >
+    <link href="https://css.gg/css" rel="stylesheet" />
 
-        <button class="btn" @click="seeCard(card)">
-          <i class="gg-eye"></i>
-        </button>
-        <button class="btn" @click="deleteCard(card)">
-          <i class="gg-trash"></i>
-        </button>
-      </div>
+    <CardFront :card="card" />
+
+    <!-- <div class="buttons">
+      <button class="btn" @click="changeCard(card)">
+        <i class="gg-pen"></i>
+      </button>
+
+      <button class="btn" @click="seeCard(card)">
+        <i class="gg-eye"></i>
+      </button>
+      <button class="btn" @click="deleteCard(card)">
+        <i class="gg-trash"></i>
+      </button>
+    </div>
+  </div> -->
+    <div class="buttons">
+      <button class="btn" @click="changeCard(card)">
+        <img src="/image/change.png" alt="" />
+      </button>
+
+      <button class="btn" @click="seeCard(card)">
+        <img src="/image/look.png" alt="" />
+      </button>
+      <button class="btn" @click="deleteCard(card)">
+        <img src="/image/delete.png" alt="" />
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import CardFront from "./CardFront.vue"
+import CardFront from "./CardFront.vue";
 export default {
   name: "LoadingCards",
   components: {
-    CardFront,
+    CardFront
   },
   props: {
     card: Object
@@ -63,10 +59,23 @@ export default {
         mail: "",
         link: "",
         phone: "",
-        backgroundColor: "",
-        textColor: "",
-        linksColor: "",
-        textPosition: ""
+        color: {
+          background: "",
+          text: "",
+          links: ""
+        },
+        positions: {
+          text: "",
+          links: ""
+        },
+        sizes: {
+          text: 30,
+          links: 20
+        },
+        justify: {
+          text: "",
+          links: ""
+        }
       }
     };
   },
@@ -87,28 +96,9 @@ export default {
 
 <style scoped>
 .field-card {
-  /* width: 320px;
-  height: 200px;
-
-  margin-left: 72px;
-  margin-right: 72px;
-
-  border: none;
-
-  box-shadow: 0 2px 4px rgb(134, 134, 134);
-  /* background: linear-gradient(45deg, #77c2ea, #464646); */
-  /*
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  border-radius: 5px; */
-  display: flex;
-  flex-direction: column;
-
-  /* justify-content: space-between; */
-
-  /* margin-left: 200px; */
+  position: relative;
 
   width: 450px;
   height: 250px;
@@ -119,10 +109,6 @@ export default {
 }
 .data-card {
   display: flex;
-  padding: 0px 20px 0px 20px;
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* padding-top: 30px; */
 }
 
 .data-user {
@@ -143,26 +129,42 @@ export default {
 
   overflow: hidden;
   padding: 0px 27px 0px 27px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
 }
 
 .buttons .btn {
   border: none;
   background-color: rgba(28, 28, 28, 0);
 
-  color: rgb(61, 61, 61);
+  color: rgb(0, 0, 0);
 
   margin: 0 0 -200px 0;
   transition: margin 0.2s;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .imges-card:hover .btn {
   margin: 10px 0 10px 0;
 }
-.buttons .btn:hover {
+/* .buttons .btn:hover {
   border: none;
   background-color: rgba(28, 28, 28, 0);
 
   color: rgb(22, 22, 22);
   cursor: pointer;
+} */
+
+img {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(28, 28, 28, 0);
 }
 </style>

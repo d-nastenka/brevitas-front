@@ -3,9 +3,9 @@
     <div
       class="data-user"
       :style="{
-        color: card.textColor,
-        'font-size': `${card.sizeText}px`,
-        'align-items': card.textPosition
+        color: card.color.text,
+        'font-size': `${card.sizes.text}px`,
+        'align-items': card.positions.text
       }"
     >
       <div class="data-card">

@@ -115,7 +115,7 @@ export default {
 ::placeholder {
   font-family: "Roboto";
   font-style: normal;
-  font-size: 19px;
+  font-size: 24px;
 
   letter-spacing: 0.232836px;
 
@@ -139,5 +139,9 @@ export default {
 .btn_head_autor:hover {
   color: #06474d;
   font-size: 26px;
+}
+
+.input-auth {
+font-size: 24px;
 }
 </style>

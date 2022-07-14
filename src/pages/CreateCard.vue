@@ -33,9 +33,9 @@
             v-if="showBtn"
             class="field-card"
             :style="{
-              background: dataToSend.backgroundColor,
-              'align-items': dataToSend.textPosition,
-              'justify-content': dataToSend.textJustify
+              background: dataToSend.color.background,
+              'align-items': dataToSend.positions.text,
+              'justify-content': dataToSend.justify.text
             }"
           >
             <CardFront :card="dataToSend" />
@@ -44,9 +44,9 @@
             v-else
             class="field-card"
             :style="{
-              background: dataToSend.backgroundColor,
-              'align-items': dataToSend.linksPosition,
-              'justify-content': dataToSend.contJustify
+              background: dataToSend.color.background,
+              'align-items': dataToSend.positions.links,
+              'justify-content': dataToSend.justify.links
             }"
           >
             <CardBack :card="dataToSend" />
@@ -83,6 +83,7 @@ import Footer from "../components/AppFooter.vue";
 import CardMenu from "../components/CardMenu.vue";
 import CardFront from "../components/CardFront.vue";
 import CardBack from "../components/CardBack.vue";
+import cardData from "../mixins/cardData";
 
 import { validationMixin } from "vuelidate";
 import {
@@ -102,63 +103,12 @@ export default {
     CardFront,
     CardBack
   },
-  mixins: [validationMixin],
+  mixins: [validationMixin, cardData],
   // TODO :DRY
   data() {
     return {
-      // dataCard: {},
       showBtn: true,
-      check: true,
-      dataToSend: {
-        name: "",
-        surname: "",
-        description: "",
-        mail: "",
-        link: "",
-        phone: "",
-        backgroundColor: "",
-        textColor: "",
-        linksColor: "",
-        textPosition: "",
-        linksPosition: "",
-        sizeText: 30,
-        sizeCont: 20,
-        textJustify: "",
-        contJustify: "",
-        fontText: ""
-      },
-      formFill: [
-        {
-          textPlaceholder: "Имя",
-          value: "name",
-          data: ""
-        },
-        {
-          textPlaceholder: "Фамилия",
-          value: "surname",
-          data: ""
-        },
-        {
-          textPlaceholder: "Описание",
-          value: "description",
-          data: ""
-        },
-        {
-          textPlaceholder: "Почта",
-          value: "mail",
-          data: ""
-        },
-        {
-          textPlaceholder: "Ссылка",
-          value: "link",
-          data: ""
-        },
-        {
-          textPlaceholder: "Телефон",
-          value: "phone",
-          data: ""
-        }
-      ]
+      check: true
     };
   },
   validations: {
@@ -227,7 +177,7 @@ export default {
   methods: {
     async addCard() {
       console.log(this.dataToSend);
-
+      console.log(JSON.stringify(this.dataToSend));
       let res = await fetch("http://localhost:3000/visits", {
         method: "POST",
         body: JSON.stringify(this.dataToSend),
@@ -237,6 +187,7 @@ export default {
         },
         credentials: "include"
       });
+      console.log(res);
       if (res.ok) {
         this.$router.push("/mycards");
       }
@@ -254,6 +205,7 @@ export default {
   width: 100%;
   flex-wrap: nowrap;
   align-items: center;
+  min-height: calc(100vh - 144px);
 }
 
 .title-createcard {

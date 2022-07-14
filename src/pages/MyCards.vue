@@ -4,25 +4,20 @@
     <div class="page">
       <link href="https://css.gg/css" rel="stylesheet" />
       <h3>Мои визитки</h3>
-      <div id="wait-mounted">
-        <div class="wrapper-cards">
-          <div v-if="imgLengthstatus">У вас пока нет визиток</div>
-          <div class="flex-container" v-else>
-            <div
-              class="imges-card"
-              v-for="(item, key) in dataCard"
-              :key="key"
-              :style="{
-                background: dataCard.backgroundColor,
-                'align-items': dataCard.textPosition,
-                'justify-content': dataCard.textJustify
-              }"
-            >
-              <LoadingCards :card="item" @deleteCard="deleteCard" />
-            </div>
-          </div>
+      <!-- <div id="wait-mounted"> -->
+      <div class="wrapper-cards">
+        <div v-if="imgLengthstatus">У вас пока нет визиток</div>
+        <div class="flex-container" v-else>
+          <LoadingCards
+            class="imges-card"
+            v-for="(item, key) in dataCard"
+            :key="key"
+            :card="item"
+            @deleteCard="deleteCard"
+          />
         </div>
       </div>
+      <!-- </div> -->
     </div>
     <Footer />
   </div>
@@ -59,8 +54,10 @@ export default {
         },
         credentials: "include"
       });
+      console.log(res);
       if (res.ok) {
         this.dataCard = await res.json();
+        console.log(this.dataCard);
       }
     },
     async deleteCard(item) {
@@ -87,27 +84,44 @@ export default {
 
 <style scoped>
 .flex-cont {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; */
+
+  /* padding-bottom: 90px; */
 }
 
 h3 {
-  color: black;
+  font-family: "Tenor Sans";
+  font-style: normal;
+
+  font-size: 36px;
+  line-height: 42px;
+
+  letter-spacing: 0.232836px;
+
+  color: #016670;
 }
 
 .page {
   padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  min-height: calc(100vh - 165px);
+  /* height: 85vh; */
 }
 
 .wrapper-cards {
-  padding: 0px 2% 0px 2%;
+  padding-bottom: 100px;
+  padding: 0px 5% 0px 5%;
 }
 
 .imges-card {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 }
 
 .flex-container {
@@ -116,13 +130,14 @@ h3 {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 30px;
-
-  padding-top: 20px;
+  gap: 30px 120px;
   padding-bottom: 80px;
+  /* padding: 20px 20px 20px 20px; */
+  /* padding-top: 20px;
+  padding-bottom: 80px; */
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 2000px) {
   .flex-container {
     display: flex;
     justify-content: center;

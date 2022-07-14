@@ -179,10 +179,14 @@ export default {
   border: none;
 }
 
+.input-auth {
+font-size: 24px;
+}
+
 ::placeholder {
   font-family: "Roboto";
   font-style: normal;
-  font-size: 19px;
+  font-size: 24px;
 
   letter-spacing: 0.232836px;
 

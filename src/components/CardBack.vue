@@ -3,13 +3,13 @@
     <div
       class="contacts"
       :style="{
-        color: card.linksColor,
-        'font-size': `${card.sizeCont}px`,
-        'align-items': card.linksPosition
+        color: card.color.links,
+        'font-size': `${card.sizes.links}px`,
+        'align-items': card.positions.links
       }"
     >
       <div class="data-card">
-        <a class="links" f="mail" target="_blank">{{ card.mail }}</a>
+        <a class="links" :href="mail" target="_blank">{{ card.mail }}</a>
       </div>
       <div class="data-card">
         <a class="links" :href="link" target="_blank">{{ card.link }}</a>
@@ -47,7 +47,7 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
-  color: inherit;
+  color: inherit; 
 }
 .data-card {
   display: flex;
@@ -72,7 +72,6 @@ a {
 }
 
 .links{
-  color: #000;
   text-decoration: none;
 }
 </style>

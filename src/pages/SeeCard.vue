@@ -9,9 +9,9 @@
         v-if="showBtn"
         class="field-card"
         :style="{
-          background: dataCard.backgroundColor,
-          'align-items': dataCard.textPosition,
-          'justify-content': dataCard.textJustify
+          background: dataCard.color.background,
+          'align-items': dataCard.positions.text,
+          'justify-content': dataCard.justify.text
         }"
       >
         <CardFront :card="dataCard" />
@@ -20,9 +20,9 @@
         v-else
         class="field-card"
         :style="{
-          background: dataCard.backgroundColor,
-          'align-items': dataCard.linksPosition,
-          'justify-content': dataCard.contJustify
+          background: dataCard.color.background,
+          'align-items': dataCard.positions.links,
+          'justify-content': dataCard.justify.links,
         }"
       >
         <CardBack :card="dataCard" />

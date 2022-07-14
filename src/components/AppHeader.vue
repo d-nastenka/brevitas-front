@@ -56,7 +56,7 @@ header {
 
   background: #f5f5f5;
 
-  height: 69px;
+  height: 75px;
   /* left: 0px; */
   outline: 2px solid #c1c1c1;
 
@@ -102,7 +102,7 @@ header div {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 24px;
   line-height: 28px;
   display: flex;
   align-items: center;

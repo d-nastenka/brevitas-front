@@ -1,4 +1,4 @@
-export const card = {
+export default{
   data() {
     return {
       dataToSend: {
@@ -8,15 +8,23 @@ export const card = {
         mail: "",
         link: "",
         phone: "",
-        backgroundColor: "",
-        textColor: "",
-        linksColor: "",
-        textPosition: "",
-        linksPosition: "",
-        sizeText: 30,
-        sizeCont: 20,
-        textJustify: "",
-        contJustify: ""
+        color: {
+          background: "",
+          text: "black",
+          links: "black"
+        },
+        positions: {
+          text: "center",
+          links: "center"
+        },
+        sizes: {
+          text: 30,
+          links: 20
+        },
+        justify: {
+          text: "center",
+          links: "center"
+        }
       },
       formFill: [
         {

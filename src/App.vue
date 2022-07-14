@@ -57,9 +57,9 @@ export default {
   text-align: center;
 
   background: #f5f5f5;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; */
 
 }
 
