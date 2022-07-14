@@ -326,6 +326,7 @@ export default {
   align-items: center;
   justify-content: center;
   align-content: flex-end;
+  cursor: pointer;
 }
 
 .btn-side__card {

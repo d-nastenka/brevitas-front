@@ -6,7 +6,7 @@
       <h3>Мои визитки</h3>
       <!-- <div id="wait-mounted"> -->
       <div class="wrapper-cards">
-        <div v-if="imgLengthstatus">У вас пока нет визиток</div>
+        <div  class="title-no" v-if="imgLengthstatus">У вас пока нет визиток</div>
         <div class="flex-container" v-else>
           <LoadingCards
             class="imges-card"
@@ -70,7 +70,10 @@ export default {
         credentials: "include"
       });
       if (res.ok) {
-        this.dataCard.splice(item, 1);
+        const index = this.dataCard.findIndex(
+          element => element._id === item._id
+        );
+        this.dataCard.splice(index, 1);
       }
     }
   },
@@ -92,12 +95,16 @@ export default {
 }
 
 h3 {
+  margin-top: 55px;
+
   font-family: "Tenor Sans";
   font-style: normal;
-
+  font-weight: 400;
   font-size: 36px;
   line-height: 42px;
-
+  display: flex;
+  align-items: center;
+  text-align: center;
   letter-spacing: 0.232836px;
 
   color: #016670;
@@ -124,6 +131,9 @@ h3 {
   justify-content: space-between;
 } */
 
+.title-no {
+  font-size: 20px;
+}
 .flex-container {
   width: 100%;
 

@@ -22,7 +22,7 @@
         :style="{
           background: dataCard.color.background,
           'align-items': dataCard.positions.links,
-          'justify-content': dataCard.justify.links,
+          'justify-content': dataCard.justify.links
         }"
       >
         <CardBack :card="dataCard" />
@@ -50,7 +50,7 @@ export default {
     Header,
     Footer,
     CardFront,
-    CardBack,
+    CardBack
   },
   data() {
     return {
@@ -89,6 +89,35 @@ export default {
 </script>
 
 <style scoped>
+.title-seecard {
+  /* font-family: "Tenor Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #016670; */
+}
+
+h3 {
+  margin-top: 55px;
+
+  font-family: "Tenor Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #016670;
+}
 .page-see-card {
   display: flex;
   flex-direction: column;
@@ -102,20 +131,57 @@ export default {
   justify-content: space-between;
 }
 
-h3 {
-  color: black;
-}
-
 .field-card {
   display: flex;
   flex-direction: row;
   justify-content: center;
 
-  width: 400px;
-  height: 200px;
+  width: 673px;
+  height: 346px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
   margin-top: 20px;
+}
+
+.btn-side {
+  margin-top: 100px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+.btn-card-side {
+  width: 241.29px;
+  height: 62.92px;
+  left: 839px;
+  top: 774px;
+  cursor: pointer;
+
+  display: flex;
+  border: 1.2px solid #000000;
+  border-radius: 56px;
+  align-items: center;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.btn-card-side p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #000000;
 }
 </style>

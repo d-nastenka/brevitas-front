@@ -1,35 +1,36 @@
 <template>
-  <div ><!--todo поменять курсор на кнопке обратная сторона-->
+  <div>
+    <!--todo поменять курсор на кнопке обратная сторона-->
     <Header />
     <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
-    
+
     <div class="page-create-card">
       <div>
         <h3 class="title-createcard">Изменить визитку</h3>
       </div>
 
-        <div class="flex-fields">
-          <div class="field-form_menu">
-            <form>
-              <!-- <form @submit.prevent="addCard"> -->
-              <div class="form-input-cards">
-                <div v-for="(item, key) in formFill" :key="key">
-                  <div :error-messages="nameErrors" class="cards-input">
-                    <input
-                      class="imput_reg_visit"
-                      v-model="dataToSend[item.value]"
-                      :placeholder="item.textPlaceholder"
-                    />
-                  </div>
+      <div class="flex-fields">
+        <div class="field-form_menu">
+          <form>
+            <!-- <form @submit.prevent="addCard"> -->
+            <div class="form-input-cards">
+              <div v-for="(item, key) in formFill" :key="key">
+                <div :error-messages="nameErrors" class="cards-input">
+                  <input
+                    class="imput_reg_visit"
+                    v-model="dataToSend[item.value]"
+                    :placeholder="item.textPlaceholder"
+                  />
                 </div>
-                <p>
-                  <font color="red"> {{ nameErrors }}</font>
-                </p>
               </div>
-            </form>
-          </div>
-          <div>
-            <div
+              <p>
+                <font color="red"> {{ nameErrors }}</font>
+              </p>
+            </div>
+          </form>
+        </div>
+        <div>
+          <div
             v-if="showBtn"
             class="field-card"
             :style="{
@@ -50,19 +51,19 @@
             }"
           >
             <CardBack :card="dataToSend" />
-            </div>
-          </div>
-          <div class="field-form_menu">
-            <CardMenu :card="dataToSend" :btnSide="showBtn" />
           </div>
         </div>
-         
+        <div class="field-form_menu">
+          <CardMenu :card="dataToSend" :btnSide="showBtn" />
+        </div>
+      </div>
+
       <div class="btn-side">
         <a class="btn-side__card" @click="showBtn = !showBtn">
           {{ btnText }}
         </a>
       </div>
-      
+
       <div class="field-btn">
         <div v-if="!nameErrors">
           <a @click="addCard" class="btn">
@@ -111,7 +112,7 @@ export default {
     return {
       IdCard: this.$route.params.id,
       showBtn: true,
-      check: true,
+      check: true
     };
   },
   validations: {
@@ -223,7 +224,7 @@ export default {
 .page-create-card {
   display: flex;
   flex-direction: column;
-/*
+  /*
   justify-content: space-between;
   min-height: calc(100vh - 144px);
 */
@@ -236,7 +237,7 @@ export default {
 .title-createcard {
   margin-top: 55px;
 
-  font-family: 'Tenor Sans';
+  font-family: "Tenor Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -278,10 +279,9 @@ export default {
   background-color: rgb(255, 255, 255);
 }
 .field-card {
-
   display: flex;
   flex-direction: column;
-  background: #DCDCDC;
+  background: #dcdcdc;
   width: 673px;
   height: 346px;
   padding: 32px;
@@ -353,12 +353,12 @@ export default {
   align-content: flex-end;
 }
 
-.btn-side__card{
+.btn-side__card {
   width: 241.29px;
   height: 62.92px;
   left: 839px;
   top: 774px;
-
+  font-size: 24px;
   display: flex;
   border: 1.2px solid #000000;
   border-radius: 56px;
@@ -366,11 +366,13 @@ export default {
   flex-direction: row;
   align-content: center;
   justify-content: center;
+
  cursor: pointer;
+
 }
 
-.btn-side__card p{
-  font-family: 'Roboto';
+.btn-side__card p {
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -379,8 +381,7 @@ export default {
   align-items: center;
   text-align: center;
   letter-spacing: 0.232836px;
-  
+
   color: #000000;
 }
-
 </style>

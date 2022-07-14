@@ -12,19 +12,6 @@
 
     <CardFront :card="card" />
 
-    <!-- <div class="buttons">
-      <button class="btn" @click="changeCard(card)">
-        <i class="gg-pen"></i>
-      </button>
-
-      <button class="btn" @click="seeCard(card)">
-        <i class="gg-eye"></i>
-      </button>
-      <button class="btn" @click="deleteCard(card)">
-        <i class="gg-trash"></i>
-      </button>
-    </div>
-  </div> -->
     <div class="buttons">
       <button class="btn1" @click="changeCard(card)">
         <img src="/image/change.png" alt="" />
