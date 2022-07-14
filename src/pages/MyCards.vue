@@ -70,6 +70,7 @@ export default {
         credentials: "include"
       });
       if (res.ok) {
+        console.log(item)
         this.dataCard.splice(item, 1);
       }
     }
