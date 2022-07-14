@@ -13,10 +13,11 @@
       <h3>Текст</h3> 
      
       
-
-      Положение текста
+    <div class="positiions">
+      <p>Положение</p> 
       <div class="buttuns-position">
-        <button class="btnText" @click="changeTextPosition('flex-start')">
+        <div class="positioon__L">
+            <button class="btnText" @click="changeTextPosition('flex-start')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -43,27 +44,35 @@
             }"
           ></i>
         </button>
-        <br />
-        <button @click="changeJust('flex-start')">Верх</button>
-        <button @click="changeJust('center')">Середина</button>
-        <button @click="changeJust('flex-end')">Низ</button>
+        </div>
+        <div class="position__R">
+           <button @click="changeJust('flex-start')">В</button>
+          <button @click="changeJust('center')">Се</button>
+          <button @click="changeJust('flex-end')">Н</button>
+        </div>
+       
       </div>
-      Размер текста
-      <select v-model="card.sizeText">
-        <option value="18">18</option>
-        <option value="20">20</option>
-        <option value="22">22</option>
-        <option value="24">24</option>
-        <option value="26">26</option>
-        <option value="28">28</option>
-        <option value="30">20</option>
-        <option value="32">32</option>
-        <option value="34">34</option>
-        <option value="36">36</option>
-        <option value="38">38</option>
-        <option value="40">40</option>
-      </select>
+    </div>
       
+      <div class="selector">
+       <p>Размер текста</p> 
+        <select v-model="card.sizeText">
+          <option value="18">18</option>
+          <option value="20">20</option>
+          <option value="22">22</option>
+          <option value="24">24</option>
+          <option value="26">26</option>
+          <option value="28">28</option>
+          <option value="30">20</option>
+          <option value="32">32</option>
+          <option value="34">34</option>
+          <option value="36">36</option>
+          <option value="38">38</option>
+          <option value="40">40</option>
+        </select>
+      </div>
+      
+
        <div class="fons__color">
         <p>цвет</p>
         <input class="kroog" type="color" v-model="card.textColor" />
@@ -187,6 +196,7 @@ input.kroog::-webkit-color-swatch {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 .btnText {
@@ -217,5 +227,25 @@ input.kroog::-webkit-color-swatch {
 .fons__color{
   display: flex;
 }
-
+.selector{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+.positiions{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 100%;
+}
+.buttuns-position{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>

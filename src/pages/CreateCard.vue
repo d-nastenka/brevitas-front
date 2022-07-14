@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div><!--todo поменять курсор на кнопке обратная сторона-->
     <Header />
     <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
 
@@ -50,8 +50,7 @@
             }"
           >
             <CardBack :card="dataToSend" />
-          </div>
-          
+          </div>          
         </div>
         <div class="field-form_menu">
           <CardMenu :card="dataToSend" :btnSide="showBtn" />
@@ -66,9 +65,9 @@
 
       <div class="field-btn">
         <div v-if="!nameErrors">
-          <button @click="addCard" class="btn">
+          <a @click="addCard" class="btn">
             <span>Сохранить</span>
-          </button>
+          </a>
         </div>
         <div v-else>
           <a class="btn_NO"> <span>Сохранить</span></a>
