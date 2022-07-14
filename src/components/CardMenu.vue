@@ -16,38 +16,20 @@
 
         <div class="buttuns-position">
           <div class="positioon__L">
-            <button class="btnText" @click="changeTextPosition('flex-start')">
-              <i
-                class="gg-menu-right-alt"
-                :style="{
-                  width: '10px',
-                  height: '10px'
-                }"
-              ></i>
-            </button>
-            <button class="btnText" @click="changeTextPosition('center')">
-              <i
-                class="gg-menu-right-alt"
-                :style="{
-                  width: '12.5px',
-                  height: '10px'
-                }"
-              ></i>
-            </button>
-            <button class="btnText" @click="changeTextPosition('flex-end')">
-              <i
-                class="gg-menu-right-alt"
-                :style="{
-                  width: '16px',
-                  height: '10px'
-                }"
-              ></i>
-            </button>
+            <a class="btnText" @click="changeTextPosition('flex-start')">
+              <img src="/image/texts_icon/L1.png" alt="">
+            </a>
+            <a class="btnText" @click="changeTextPosition('center')">
+              <img src="/image/texts_icon/L2.png" alt="">
+            </a>
+            <a class="btnText" @click="changeTextPosition('flex-end')">
+              <img src="/image/texts_icon/L3.png" alt="">
+            </a>
           </div>
           <div class="position__R">
-            <button @click="changeJust('flex-start')">В</button>
-            <button @click="changeJust('center')">Се</button>
-            <button @click="changeJust('flex-end')">Н</button>
+            <a  @click="changeJust('flex-start')"><img class="R1" src="/image/texts_icon/R.png" alt=""></a>
+            <a  @click="changeJust('center')"><img class="R2" src="/image/texts_icon/R.png" alt=""></a>
+            <a  @click="changeJust('flex-end')"><img class="R3" src="/image/texts_icon/R.png" alt=""></a>
           </div>
         </div>
       </div>
@@ -81,38 +63,20 @@
         <p>Положение</p>
      <div class="buttuns-position">
         <div class="positioon__L">
-          <button class="btnText" @click="changeLinksPosition('flex-start')">
-          <i
-            class="gg-menu-right-alt"
-            :style="{
-              width: '10px',
-              height: '10px'
-            }"
-          ></i>
-        </button>
-        <button class="btnText" @click="changeLinksPosition('center')">
-          <i
-            class="gg-menu-right-alt"
-            :style="{
-              width: '12.5px',
-              height: '10px'
-            }"
-          ></i>
-        </button>
-        <button class="btnText" @click="changeLinksPosition('flex-end')">
-          <i
-            class="gg-menu-right-alt"
-            :style="{
-              width: '16px',
-              height: '10px'
-            }"
-          ></i>
-        </button>
+          <a class="btnText" @click="changeLinksPosition('flex-start')">
+          <img src="/image/texts_icon/L1.png" alt="">
+        </a>
+        <a class="btnText" @click="changeLinksPosition('center')">
+         <img src="/image/texts_icon/L2.png" alt="">
+        </a>
+        <a class="btnText" @click="changeLinksPosition('flex-end')">
+         <img src="/image/texts_icon/L3.png" alt="">
+        </a>
         </div>
           <div>
-          <button @click="changeContJust('flex-start')">Ве</button>
-          <button @click="changeContJust('center')">Сер</button>
-          <button @click="changeContJust('flex-end')">Ни</button>
+          <a @click="changeContJust('flex-start')"><img class="R1" src="/image/texts_icon/R.png" alt=""></a>
+          <a @click="changeContJust('center')"><img class="R2" src="/image/texts_icon/R.png" alt=""></a>
+          <a @click="changeContJust('flex-end')"><img class="R3" src="/image/texts_icon/R.png" alt=""></a>
      
           </div>
         </div>
@@ -235,18 +199,14 @@ input.kroog::-webkit-color-swatch {
 .btnText {
   border: none;
   background-color: rgba(28, 28, 28, 0);
-
   color: rgb(61, 61, 61);
   cursor: pointer;
-  /* width: 20px;
-  height: 20px; */
+  margin-right: 4px;
 }
 
 .btnText:hover {
   border: none;
   background-color: rgba(28, 28, 28, 0);
-  /* width: 20px;
-  height: 20px; */
   color: rgb(22, 22, 22);
   cursor: pointer;
 }
@@ -280,5 +240,21 @@ input.kroog::-webkit-color-swatch {
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  height: 40px;
 }
+
+.R1{
+  margin-bottom: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.R2{
+  margin-bottom: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.R3{
+  cursor: pointer;
+}
+
 </style>
