@@ -30,7 +30,7 @@
             <p>Дарья Черных</p>
           </div>
           <div class="about-img">
-            <!-- <img class="img-p" src="/image/nastya.jpg" alt="" /> -->
+            <img class="img-p" src="/image/dasha.jpg" alt="" />
           </div>
           <div class="about-prof">
             <p>Front-end программист</p>
@@ -133,8 +133,8 @@ export default {
   flex-direction: row;
   justify-content: space-evenly;
   padding-top: 45px;
-  padding-right: 350px;
-  padding-left: 350px;
+  padding-right: 250px;
+  padding-left: 250px;
 }
 
 .info {
