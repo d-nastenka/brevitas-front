@@ -1,62 +1,59 @@
 <template>
   <div class="flex-menu">
     <div class="fons">
-       <h3>Фон</h3> 
-       <div class="fons__color">
+      <h3>Фон</h3>
+      <div class="fons__color">
         <p>Цвет</p>
         <input class="kroog" type="color" v-model="card.color.background" />
-       </div>
-      
-    </div>
-   
-    <div class="if-side" v-if="btnSide">
-      <h3>Текст</h3> 
-     
-      
-    <div class="positiions">
-      <p>Положение</p> 
-
-      <div class="buttuns-position">
-        <div class="positioon__L">
-            <button class="btnText" @click="changeTextPosition('flex-start')">
-          <i
-            class="gg-menu-right-alt"
-            :style="{
-              width: '10px',
-              height: '10px'
-            }"
-          ></i>
-        </button>
-        <button class="btnText" @click="changeTextPosition('center')">
-          <i
-            class="gg-menu-right-alt"
-            :style="{
-              width: '12.5px',
-              height: '10px'
-            }"
-          ></i>
-        </button>
-        <button class="btnText" @click="changeTextPosition('flex-end')">
-          <i
-            class="gg-menu-right-alt"
-            :style="{
-              width: '16px',
-              height: '10px'
-            }"
-          ></i>
-        </button>
-        </div>
-        <div class="position__R">
-           <button @click="changeJust('flex-start')">В</button>
-          <button @click="changeJust('center')">Се</button>
-          <button @click="changeJust('flex-end')">Н</button>
-        </div>
-       
       </div>
     </div>
-      
+
+    <div class="if-side" v-if="btnSide">
+      <h3>Текст</h3>
+
+      <div class="positiions">
+        <p>Положение</p>
+
+        <div class="buttuns-position">
+          <div class="positioon__L">
+            <button class="btnText" @click="changeTextPosition('flex-start')">
+              <i
+                class="gg-menu-right-alt"
+                :style="{
+                  width: '10px',
+                  height: '10px'
+                }"
+              ></i>
+            </button>
+            <button class="btnText" @click="changeTextPosition('center')">
+              <i
+                class="gg-menu-right-alt"
+                :style="{
+                  width: '12.5px',
+                  height: '10px'
+                }"
+              ></i>
+            </button>
+            <button class="btnText" @click="changeTextPosition('flex-end')">
+              <i
+                class="gg-menu-right-alt"
+                :style="{
+                  width: '16px',
+                  height: '10px'
+                }"
+              ></i>
+            </button>
+          </div>
+          <div class="position__R">
+            <button @click="changeJust('flex-start')">В</button>
+            <button @click="changeJust('center')">Се</button>
+            <button @click="changeJust('flex-end')">Н</button>
+          </div>
+        </div>
+      </div>
+
       <div class="selector">
-       <p>Размер текста</p> 
+        <p>Размер текста</p>
         <select v-model="card.sizes.text">
           <option value="18">18</option>
           <option value="20">20</option>
@@ -72,19 +69,16 @@
           <option value="40">40</option>
         </select>
       </div>
-      
 
-       <div class="fons__color">
-        <p>цвет</p>
-        <input class="kroog" type="color" v-model="card.textColor" />
+      <div class="fons__color">
+        <p>Цвет</p>
+        <input class="kroog" type="color" v-model="card.color.text" />
       </div>
     </div>
-    
 
     <div class="if-side" v-else>
       <h3>Текст</h3>
       <input class="kroog" type="color" v-model="card.color.links" />
-
 
       Положение текста
       <div class="buttuns-position">
@@ -135,7 +129,6 @@
         <option value="38">38</option>
         <option value="40">40</option>
       </select>
-
     </div>
   </div>
 </template>
@@ -146,7 +139,7 @@ export default {
   data() {
     return {
       sizeText: [18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
-    }
+    };
   },
   props: {
     card: Object,
@@ -164,12 +157,35 @@ export default {
     },
     changeContJust(contJust) {
       this.card.justify.links = contJust;
-    },
+    }
   }
 };
 </script>
 
 <style scoped>
+h3 {
+  font-family: "Roboto";
+  font-style: normal;
+
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.232836px;
+
+  color: #000000;
+}
+
+p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 17px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.232836px;
+}
+
 .kroog {
   border-top-width: 0px;
   border-left-width: 0px;
@@ -226,15 +242,15 @@ input.kroog::-webkit-color-swatch {
 }
 
 /*------------------- */
-.fons{
+.fons {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.fons__color{
+.fons__color {
   display: flex;
 }
-.selector{
+.selector {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -242,14 +258,14 @@ input.kroog::-webkit-color-swatch {
   justify-content: space-between;
   width: 70%;
 }
-.positiions{
+.positiions {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: flex-start;
   width: 100%;
 }
-.buttuns-position{
+.buttuns-position {
   display: flex;
   width: 100%;
   align-items: center;

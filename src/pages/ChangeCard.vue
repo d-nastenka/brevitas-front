@@ -312,6 +312,7 @@ export default {
   padding: 7px 19px;
   margin-bottom: 2px;
   border: 0px;
+  font-size: 20px;
   border-bottom: 2px solid rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0);
   outline: none;
@@ -335,7 +336,7 @@ export default {
 ::placeholder {
   font-family: "Roboto";
   font-style: normal;
-  font-size: 16px;
+  font-size: 20px;
 
   letter-spacing: 0.232836px;
 
