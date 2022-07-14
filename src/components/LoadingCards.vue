@@ -26,14 +26,14 @@
     </div>
   </div> -->
     <div class="buttons">
-      <button class="btn" @click="changeCard(card)">
+      <button class="btn1" @click="changeCard(card)">
         <img src="/image/change.png" alt="" />
       </button>
 
-      <button class="btn" @click="seeCard(card)">
+      <button class="btn1" @click="seeCard(card)">
         <img src="/image/look.png" alt="" />
       </button>
-      <button class="btn" @click="deleteCard(card)">
+      <button class="btn1" @click="deleteCard(card)">
         <img src="/image/delete.png" alt="" />
       </button>
     </div>
@@ -125,10 +125,10 @@ export default {
 .buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 
   overflow: hidden;
-  padding: 0px 27px 0px 27px;
+
   position: absolute;
   bottom: 0;
   left: 0;
@@ -138,29 +138,22 @@ export default {
   transform: translate(-50%, 0%);
 }
 
-.buttons .btn {
+.buttons .btn1 {
   border: none;
   background-color: rgba(28, 28, 28, 0);
-
+  padding: 0px 27px 0px 27px;
   color: rgb(0, 0, 0);
 
   margin: 0 0 -200px 0;
   transition: margin 0.2s;
   cursor: pointer;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
-.imges-card:hover .btn {
+.imges-card:hover .btn1 {
   margin: 10px 0 10px 0;
 }
-/* .buttons .btn:hover {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-
-  color: rgb(22, 22, 22);
-  cursor: pointer;
-} */
 
 img {
   width: 40px;

@@ -118,11 +118,11 @@ h3 {
   padding: 0px 5% 0px 5%;
 }
 
-.imges-card {
+/* .imges-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 .flex-container {
   width: 100%;

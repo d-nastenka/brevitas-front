@@ -1,10 +1,11 @@
 <template>
-  <div><!--todo поменять курсор на кнопке обратная сторона-->
+  <div>
+    <!--todo поменять курсор на кнопке обратная сторона-->
     <Header />
     <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
 
     <div class="page-create-card">
-      <div >
+      <div>
         <h3 class="title-createcard">Создать визитку</h3>
       </div>
 
@@ -50,7 +51,7 @@
             }"
           >
             <CardBack :card="dataToSend" />
-          </div>          
+          </div>
         </div>
         <div class="field-form_menu">
           <CardMenu :card="dataToSend" :btnSide="showBtn" />
@@ -212,7 +213,7 @@ export default {
 .title-createcard {
   margin-top: 55px;
 
-  font-family: 'Tenor Sans';
+  font-family: "Tenor Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -254,10 +255,9 @@ export default {
   background-color: rgb(255, 255, 255);
 }
 .field-card {
-
   display: flex;
   flex-direction: column;
-  background: #DCDCDC;
+  background: #dcdcdc;
   width: 673px;
   height: 346px;
   padding: 32px;
@@ -287,6 +287,7 @@ export default {
 .imput_reg_visit {
   padding: 7px 19px;
   margin-bottom: 2px;
+  font-size: 20px;
   border: 0px;
   border-bottom: 2px solid rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0);
@@ -311,8 +312,7 @@ export default {
 ::placeholder {
   font-family: "Roboto";
   font-style: normal;
-  font-size: 16px;
-
+  font-size: 20px;
   letter-spacing: 0.232836px;
 
   color: #a6a3a3;
@@ -328,7 +328,7 @@ export default {
   align-content: flex-end;
 }
 
-.btn-side__card{
+.btn-side__card {
   width: 241.29px;
   height: 62.92px;
   left: 839px;
@@ -342,11 +342,10 @@ export default {
   align-content: center;
   justify-content: center;
   cursor: pointer;
-
 }
 
-.btn-side__card p{
-  font-family: 'Roboto';
+.btn-side__card p {
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -355,7 +354,7 @@ export default {
   align-items: center;
   text-align: center;
   letter-spacing: 0.232836px;
-  
+
   color: #000000;
 }
 </style>

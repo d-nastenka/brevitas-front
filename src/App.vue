@@ -46,9 +46,9 @@ export default {
 
 <style>
 /*шрифты*/
-@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap'); 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Tenor+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto&family=Tenor+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Tenor+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto&family=Tenor+Sans&display=swap");
 
 #app {
   /*font-family: "Avenir", Helvetica, Arial, sans-serif;*/
@@ -60,7 +60,6 @@ export default {
   /* display: flex;
   flex-direction: column;
   justify-content: space-between; */
-
 }
 
 .pages {
@@ -85,18 +84,19 @@ body {
 }
 
 .btn {
-    font-family: 'Roboto';
-    background-color: #096b73;
-    color: white;
-    font-size: 25px;
-    padding: 11px 5px;
-    border: none;
-    cursor: pointer;
-    border-radius: 30px;
-    text-align: center;
-    transition: all 0.5s;
-    width: 241.812px;
-    height: 62px;
+  font-family: "Roboto";
+  background-color: #096b73;
+  color: white;
+  font-size: 25px;
+  padding: 17px 57px;
+
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  text-align: center;
+  transition: all 0.5s;
+  width: 100px;
+  height: 60px;
 }
 
 .btn:hover {
@@ -105,7 +105,7 @@ body {
 }
 
 .btn_NO {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   background-color: #84abae;
   color: white;
   font-size: 25px;
@@ -120,7 +120,7 @@ body {
 }
 
 /*кнопки валидные*/
- .btn-card {
+.btn-card {
   width: 150px;
   height: 35px;
   padding: 10px 20px;
@@ -130,12 +130,12 @@ body {
   border-radius: 166px;
   position: relative;
   border: solid;
-  border-color: #096B73;
+  border-color: #096b73;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
-   color: #016670;
+  color: #016670;
 }
 
 .btn-card_NO {
@@ -148,7 +148,7 @@ body {
   border-radius: 166px;
   position: relative;
   border: solid;
-  border-color: #096B73;
+  border-color: #096b73;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
@@ -168,7 +168,6 @@ body {
   margin-top: 8px;
   z-index: 1;
   margin-left: 15px;
- 
 }
 
 .btn-card::before {
@@ -176,7 +175,7 @@ body {
   position: absolute;
   width: 250px;
   height: 200px;
-  background-color: #096B73;
+  background-color: #096b73;
   margin-top: -40px;
   left: 80%;
   z-index: 0;
@@ -185,8 +184,8 @@ body {
 }
 
 .btn-card:hover:before {
-  left: -7%; 
-} 
+  left: -7%;
+}
 /*окна авторизации и регистрации*/
 .back-cont {
   background: linear-gradient(
@@ -241,8 +240,7 @@ body {
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-evenly;
-  border: 1px solid  #ffffff50;
-  
+  border: 1px solid #ffffff50;
 }
 .auth-title {
   font-family: "Tenor Sans";
