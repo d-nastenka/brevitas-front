@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div><!--todo поменять курсор на кнопке обратная сторона-->
     <Header />
     <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
 
     <div class="page-create-card">
-      <div class="title-createcard">
-        <h3>Создать визитку</h3>
+      <div >
+        <h3 class="title-createcard">Создать визитку</h3>
       </div>
 
       <div class="flex-fields">
@@ -50,23 +50,24 @@
             }"
           >
             <CardBack :card="dataToSend" />
-          </div>
-          <div class="btn-side">
-            <button class="btn-card-side" @click="showBtn = !showBtn">
-              {{ btnText }}
-            </button>
-          </div>
+          </div>          
         </div>
         <div class="field-form_menu">
           <CardMenu :card="dataToSend" :btnSide="showBtn" />
         </div>
       </div>
 
+      <div class="btn-side">
+        <a class="btn-side__card" @click="showBtn = !showBtn">
+          <p>{{ btnText }}</p>
+        </a>
+      </div>
+
       <div class="field-btn">
         <div v-if="!nameErrors">
-          <button @click="addCard" class="btn">
+          <a @click="addCard" class="btn">
             <span>Сохранить</span>
-          </button>
+          </a>
         </div>
         <div v-else>
           <a class="btn_NO"> <span>Сохранить</span></a>
@@ -209,7 +210,19 @@ export default {
 }
 
 .title-createcard {
-  margin-top: 30px;
+  margin-top: 55px;
+
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #016670;
 }
 .flex-cont {
   height: 100%;
@@ -226,34 +239,30 @@ export default {
   flex-direction: row;
   flex-wrap: nowrap;
   /* margin: 0px 20px 40px 20px; */
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
   justify-content: space-evenly;
 }
 
 .field-form_menu {
-  width: 300px;
-  height: 350px;
+  width: 283px;
+  height: 328px;
   padding: 32px;
-  border-radius: 5px;
-  box-shadow: 0 4px 16px #ccc;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(1, 102, 112, 0.1);
   margin-top: 20px;
+  background-color: rgb(255, 255, 255);
 }
 .field-card {
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
+
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-
-  /* margin-left: 200px; */
-
-  width: 450px;
-  height: 250px;
+  background: #DCDCDC;
+  width: 673px;
+  height: 346px;
   padding: 32px;
   border-radius: 5px;
-  box-shadow: 0 4px 16px #ccc;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
 }
 
@@ -261,15 +270,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* margin-left: 200px; */
-
   width: 170px;
   height: 300px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
-
+  justify-content: space-around;
   margin-top: 20px;
 }
 
@@ -291,10 +297,15 @@ export default {
 }
 
 .field-btn {
-  margin-bottom: 60px;
+  margin-bottom: 79px;
   margin-top: 60px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  width: 77%;
+  height: 70px;
 }
 
 ::placeholder {
@@ -308,6 +319,42 @@ export default {
 }
 
 .btn-side {
-  margin-top: 20px;
+  margin-top: 100px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+.btn-side__card{
+  width: 241.29px;
+  height: 62.92px;
+  left: 839px;
+  top: 774px;
+
+  display: flex;
+  border: 1.2px solid #000000;
+  border-radius: 56px;
+  align-items: center;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+
+}
+
+.btn-side__card p{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+  
+  color: #000000;
 }
 </style>

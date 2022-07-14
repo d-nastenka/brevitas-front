@@ -1,14 +1,15 @@
 <template>
-  <div class="flex-cont">
-    <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
+  <div ><!--todo поменять курсор на кнопке обратная сторона-->
     <Header />
+    <link href="https://css.gg/menu-right-alt.css" rel="stylesheet" />
+    
     <div class="page-create-card">
-      <div class="title-createcard">
-        <h3>Изменить визитку</h3>
+      <div>
+        <h3 class="title-createcard">Изменить визитку</h3>
       </div>
-      <div class="create-visits">
+
         <div class="flex-fields">
-          <div class="field-form">
+          <div class="field-form_menu">
             <form>
               <!-- <form @submit.prevent="addCard"> -->
               <div class="form-input-cards">
@@ -27,7 +28,8 @@
               </div>
             </form>
           </div>
-          <div
+          <div>
+            <div
             v-if="showBtn"
             class="field-card"
             :style="{
@@ -48,23 +50,24 @@
             }"
           >
             <CardBack :card="dataToSend" />
+            </div>
           </div>
-          <div class="field-menu">
+          <div class="field-form_menu">
             <CardMenu :card="dataToSend" :btnSide="showBtn" />
           </div>
         </div>
-        <div class="btn-side">
-          <button class="btn-card-side" @click="showBtn = !showBtn">
-            {{ btnText }}
-          </button>
-        </div>
+         
+      <div class="btn-side">
+        <a class="btn-side__card" @click="showBtn = !showBtn">
+          {{ btnText }}
+        </a>
       </div>
+      
       <div class="field-btn">
         <div v-if="!nameErrors">
-          <button @click="addCard" class="btn">
-            <!-- <button type="submit" class="btn-card"> -->
+          <a @click="addCard" class="btn">
             <span>Сохранить</span>
-          </button>
+          </a>
         </div>
         <div v-else>
           <a class="btn_NO"> <span>Сохранить</span></a>
@@ -220,68 +223,83 @@ export default {
 .page-create-card {
   display: flex;
   flex-direction: column;
+/*
   justify-content: space-between;
   min-height: calc(100vh - 144px);
+*/
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .title-createcard {
-  margin-top: 30px;
+  margin-top: 55px;
+
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #016670;
 }
 .flex-cont {
-  /* height: 100%; */
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
 }
 
 .flex-fields {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  /* margin: 0px 20px 40px 20px; */
+  align-items: flex-end;
+  width: 100%;
   justify-content: space-evenly;
-  flex-wrap: wrap;
-
-  margin: 0px 20px 40px 20px;
 }
 
-.field-form {
-  width: 290px;
-  height: 300px;
+.field-form_menu {
+  width: 283px;
+  height: 328px;
   padding: 32px;
-  border-radius: 5px;
-  box-shadow: 0 4px 16px #ccc;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(1, 102, 112, 0.1);
   margin-top: 20px;
+  background-color: rgb(255, 255, 255);
 }
 .field-card {
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  /* margin-left: 200px; */
-
-  width: 400px;
-  height: 200px;
+  background: #DCDCDC;
+  width: 673px;
+  height: 346px;
   padding: 32px;
   border-radius: 5px;
-  box-shadow: 0 4px 16px #ccc;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
 }
 
 .field-menu {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-
-  /* margin-left: 200px; */
-
-  width: 150px;
-  height: 200px;
+  align-items: flex-start;
+  width: 170px;
+  height: 300px;
   padding: 32px;
   border-radius: 5px;
   box-shadow: 0 4px 16px #ccc;
-
+  justify-content: space-around;
   margin-top: 20px;
 }
 
@@ -302,31 +320,16 @@ export default {
   background-color: rgba(255, 255, 255, 0.347);
 }
 
-.data-card {
-  display: flex;
-  /* flex-direction: row;
-  justify-content: center;
-
-  font-family: serif; */
-}
-
-.data-user {
-  display: flex;
-  flex-direction: column;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.contacts {
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-}
-
 .field-btn {
-  margin-bottom: 20px;
+  margin-bottom: 79px;
+  margin-top: 60px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  width: 77%;
+  height: 70px;
 }
 
 ::placeholder {
@@ -338,29 +341,45 @@ export default {
 
   color: #a6a3a3;
 }
-.text-position {
+
+.btn-side {
+  margin-top: 100px;
+  width: 100%;
+  height: 70px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+.btn-side__card{
+  width: 241.29px;
+  height: 62.92px;
+  left: 839px;
+  top: 774px;
+
+  display: flex;
+  border: 1.2px solid #000000;
+  border-radius: 56px;
+  align-items: center;
   flex-direction: row;
-  justify-content: space-around;
-  margin-top: 10px;
+  align-content: center;
+  justify-content: center;
+
 }
 
-.btnText {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-
-  color: rgb(61, 61, 61);
-  cursor: pointer;
-  /* width: 20px;
-  height: 20px; */
+.btn-side__card p{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+  
+  color: #000000;
 }
 
-.btnText:hover {
-  border: none;
-  background-color: rgba(28, 28, 28, 0);
-  /* width: 20px;
-  height: 20px; */
-  color: rgb(22, 22, 22);
-  cursor: pointer;
-}
 </style>

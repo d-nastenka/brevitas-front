@@ -1,14 +1,24 @@
 <template>
   <div class="flex-menu">
-    Цвет фона
-    <input class="kroog" type="color" v-model="card.color.background" />
+    <div class="fons">
+       <h3>Фон</h3> 
+       <div class="fons__color">
+        <p>Цвет</p>
+        <input class="kroog" type="color" v-model="card.color.background" />
+       </div>
+      
+    </div>
+   
     <div class="if-side" v-if="btnSide">
-      Цвет текста
-      <input class="kroog" type="color" v-model="card.color.text" />
+      <h3>Текст</h3> 
+     
+      
+    <div class="positiions">
+      <p>Положение</p> 
 
-      Положение текста
       <div class="buttuns-position">
-        <button class="btnText" @click="changeTextPosition('flex-start')">
+        <div class="positioon__L">
+            <button class="btnText" @click="changeTextPosition('flex-start')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -35,31 +45,46 @@
             }"
           ></i>
         </button>
-        <br />
-        <button @click="changeJust('flex-start')">Верх</button>
-        <button @click="changeJust('center')">Середина</button>
-        <button @click="changeJust('flex-end')">Низ</button>
+        </div>
+        <div class="position__R">
+           <button @click="changeJust('flex-start')">В</button>
+          <button @click="changeJust('center')">Се</button>
+          <button @click="changeJust('flex-end')">Н</button>
+        </div>
+       
       </div>
-      Размер текста
-      <select v-model="card.sizes.text" >
-        <option card.sizes.text="18">18</option>
-        <option value="20">20</option>
-        <option value="22">22</option>
-        <option value="24">24</option>
-        <option value="26">26</option>
-        <option value="28">28</option>
-        <option value="30">30</option>
-        <option value="32">32</option>
-        <option value="34">34</option>
-        <option value="36">36</option>
-        <option value="38">38</option>
-        <option value="40">40</option>
-      </select>
     </div>
+      
+      <div class="selector">
+       <p>Размер текста</p> 
+        <select v-model="card.sizes.text">
+          <option value="18">18</option>
+          <option value="20">20</option>
+          <option value="22">22</option>
+          <option value="24">24</option>
+          <option value="26">26</option>
+          <option value="28">28</option>
+          <option value="30">20</option>
+          <option value="32">32</option>
+          <option value="34">34</option>
+          <option value="36">36</option>
+          <option value="38">38</option>
+          <option value="40">40</option>
+        </select>
+      </div>
+      
+
+       <div class="fons__color">
+        <p>цвет</p>
+        <input class="kroog" type="color" v-model="card.textColor" />
+      </div>
+    </div>
+    
 
     <div class="if-side" v-else>
-      Цвет текста
+      <h3>Текст</h3>
       <input class="kroog" type="color" v-model="card.color.links" />
+
 
       Положение текста
       <div class="buttuns-position">
@@ -158,6 +183,7 @@ export default {
   height: 50px;
   border: 0;
   border-radius: 50px;
+  margin-left: 20px;
 }
 input.kroog::-webkit-color-swatch {
   border: 0;
@@ -166,7 +192,7 @@ input.kroog::-webkit-color-swatch {
 .flex-menu {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
   width: 100%;
   flex-wrap: nowrap;
@@ -176,6 +202,8 @@ input.kroog::-webkit-color-swatch {
 .if-side {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .btnText {
@@ -195,5 +223,36 @@ input.kroog::-webkit-color-swatch {
   height: 20px; */
   color: rgb(22, 22, 22);
   cursor: pointer;
+}
+
+/*------------------- */
+.fons{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.fons__color{
+  display: flex;
+}
+.selector{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+.positiions{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 100%;
+}
+.buttuns-position{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>

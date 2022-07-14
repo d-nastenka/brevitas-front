@@ -86,8 +86,7 @@
         <img src="/image/visit.png" alt="">
         <img src="/image/visit.png" alt="">
         <img src="/image/visit.png" alt="">
-      </div>
-      
+      </div>      
       </div>
 
     </div>
@@ -320,4 +319,74 @@ color: #000000;
   align-items: center;
   justify-content: center;
 }
+
+
+/*кнопки валидные*/
+ .btn-card {
+  width: 150px;
+  height: 35px;
+  padding: 10px 20px;
+
+  background-color: #ffffff;
+  font-size: 34px;
+  border-radius: 166px;
+  position: relative;
+  border: solid;
+  border-color: #096B73;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+   color: #016670;
+}
+
+.btn-card_NO {
+  width: 159px;
+  height: 40px;
+  padding: 10px 20px;
+
+  background-color: #ffffff;
+  font-size: 34px;
+  border-radius: 166px;
+  position: relative;
+  border: solid;
+  border-color: #096B73;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-card:hover {
+  color: #f5f5f5;
+}
+
+.btn-card_text {
+  position: relative;
+  height: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8px;
+  z-index: 1;
+  margin-left: 15px;
+ 
+}
+
+.btn-card::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  background-color: #096B73;
+  margin-top: -40px;
+  left: 80%;
+  z-index: 0;
+  transition: all 0.5s ease-in-out;
+  transform: rotateZ(28deg);
+}
+
+.btn-card:hover:before {
+  left: -7%; 
+} 
 </style>
