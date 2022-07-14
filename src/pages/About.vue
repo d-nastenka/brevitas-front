@@ -64,7 +64,7 @@
             <p>Анастасия Оглоблина</p>
           </div>
           <div class="about-img">
-            <!-- <img class="img-p" src="/image/nastya.jpg" alt="" /> -->
+            <img class="img-p" src="/image/nastya2.jpg" alt="" />
           </div>
           <div class="about-prof">
             <p>Дизайнер</p>

@@ -90,8 +90,25 @@ export default {
 
 <style scoped>
 .title-seecard {
+  /* font-family: "Tenor Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.232836px;
+
+  color: #016670; */
+}
+
+h3 {
+  margin-top: 55px;
+
   font-family: "Tenor Sans";
   font-style: normal;
+  font-weight: 400;
   font-size: 36px;
   line-height: 42px;
   display: flex;
@@ -135,7 +152,6 @@ export default {
   align-items: center;
   justify-content: center;
   align-content: flex-end;
-  
 }
 
 .btn-card-side {
