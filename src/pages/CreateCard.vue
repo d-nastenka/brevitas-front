@@ -342,6 +342,7 @@ export default {
   flex-direction: row;
   align-content: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .btn-side__card p {

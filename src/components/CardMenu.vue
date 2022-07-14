@@ -75,14 +75,13 @@
         <input class="kroog" type="color" v-model="card.color.text" />
       </div>
     </div>
-
     <div class="if-side" v-else>
       <h3>Текст</h3>
-      <input class="kroog" type="color" v-model="card.color.links" />
-
-      Положение текста
-      <div class="buttuns-position">
-        <button class="btnText" @click="changeLinksPosition('flex-start')">
+      <div class="positiions">
+        <p>Положение</p>
+     <div class="buttuns-position">
+        <div class="positioon__L">
+          <button class="btnText" @click="changeLinksPosition('flex-start')">
           <i
             class="gg-menu-right-alt"
             :style="{
@@ -109,13 +108,19 @@
             }"
           ></i>
         </button>
-        <br />
-        <button @click="changeContJust('flex-start')">Верх</button>
-        <button @click="changeContJust('center')">Середина</button>
-        <button @click="changeContJust('flex-end')">Низ</button>
+        </div>
+          <div>
+          <button @click="changeContJust('flex-start')">Ве</button>
+          <button @click="changeContJust('center')">Сер</button>
+          <button @click="changeContJust('flex-end')">Ни</button>
+     
+          </div>
+        </div>
       </div>
-      Размер текста
-      <select v-model="card.sizes.links">
+      
+      <div  class="selector">
+        <p>Размер текста</p> 
+        <select v-model="card.sizes.links">
         <option value="18">18</option>
         <option value="20">20</option>
         <option value="22">22</option>
@@ -129,6 +134,11 @@
         <option value="38">38</option>
         <option value="40">40</option>
       </select>
+      </div>
+       <div class="fons__color">
+        <p>Цвет</p>
+        <input class="kroog" type="color" v-model="card.color.links" />
+       </div> 
     </div>
   </div>
 </template>
