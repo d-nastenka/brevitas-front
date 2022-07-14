@@ -91,7 +91,7 @@ export default {
   height: 250px;
   padding: 32px;
   border-radius: 5px;
-  box-shadow: 0 4px 16px #ccc;
+  box-shadow: 0px 4px 4px rgb(1 102 112 / 10%);
   margin-top: 20px;
 }
 .data-card {
