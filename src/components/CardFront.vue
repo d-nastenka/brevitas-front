@@ -5,7 +5,7 @@
       :style="{
         color: card.color.text,
         'font-size': `${card.sizes.text}px`,
-        'align-items': card.positions.text
+
       }"
     >
       <div class="data-card">

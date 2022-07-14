@@ -133,8 +133,8 @@ h3 {
 
 .field-card {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+
 
   width: 673px;
   height: 346px;
